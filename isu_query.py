@@ -6,7 +6,6 @@ from rdflib import (Namespace, URIRef,
                     )
 
 
-
 ENDPOINT = 'http://py.isu.ru:8000/hs/jsonpost/courses_in_faculty/'
 USER = "3c9467d8-b710-11e6-943c-005056100702"
 IMIT = 'c526d6c7-9a78-11e6-9438-005056100702'
@@ -44,6 +43,7 @@ def query(user, faculty=IMIT, profile=None, year=None, term=None):
         print('Return code:', resp.status_code)
         raise RuntimeError('request failed ({})'.format(resp.status_code))
 
+
 IDB = Namespace("http://irnok.net/ontologies/database/isu/studplan#")
 IDD = Namespace("http://irnok.net/ontologies/isu/studplan#")
 DBR = Namespace("https://dbpedia.org/page/")
@@ -64,14 +64,19 @@ MAP = {
 }
 
 DT = {
-    int: {'datatype' : XSD.integer},
-    str: {'lang' : u'ru'}
+    int: {'datatype': XSD.integer},
+    str: {'lang': u'ru'}
 }
 
 TERM = {
-    0 : IDD['Even'],
-    1 : IDD['Odd'],
+    0: IDD['Even'],
+    1: IDD['Odd'],
 }
+
+CONUNDEF = {'catalog': 'ВидыКонтроля',
+            'name': 'Неопределено',
+            'type': 'CatalogRef',
+            'uid': '6ee6cd49-56a2-4008-ab10-d94dbcb56b22'}
 
 
 def tograph(query, graph=None, catalogs=None):
@@ -81,7 +86,27 @@ def tograph(query, graph=None, catalogs=None):
     j = j['hs_json']
     i = j['Input']
     o = j['Output']
-    dj = o['Data'] # list of courses
+    dj = o['Data']      # list of courses
+    term = i['flag_semestr']
+    term = TERM[term]
+    faculty = IDB[i['facultet']]
+
+    if catalogs is None:
+        catalogs = {}   # Various catalogs
+
+    def _cat(node):
+        t = type(node)
+        if t in [int, str]:
+            kwargs1 = DT[t]
+            if node == "Неопределено":
+                return _cat(CONUNDEF)
+            return Literal(node, **kwargs1)
+        if node['type'] in ['CatalogRef', 'DocumentRef']:
+            cat = catalogs.setdefault(node['catalog'], {})
+            uid = node['uid']
+            cat[uid] = node['name']
+            return URIRef(uid)
+
     if graph is None:
         g = Graph()
         g.bind('idb', IDB)
@@ -93,22 +118,6 @@ def tograph(query, graph=None, catalogs=None):
         g.add((TERM[1], RDFS.label, Literal('odd', lang=u'en')))
     else:
         g = graph
-    term = TERM[term]
-    faculty = IDB[i['facultet']]
-
-    if catalogs is None:
-        catalogs = {} # Various catalogs
-
-    def _cat(node):
-        t = type(node)
-        if t in [int, str]:
-            kwargs1 = DT[t]
-            return Literal(node, **kwargs1)
-        if node['type'] in ['CatalogRef', 'DocumentRef']:
-            cat = catalogs.setdefault(node['catalog'], {})
-            uid = node['uid']
-            cat[uid] = node['name']
-            return URIRef(uid)
 
     g.add((faculty, RDF.type, DBR.Faculty))
     for cour in dj:
