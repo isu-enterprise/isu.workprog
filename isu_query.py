@@ -1,10 +1,6 @@
 import requests as rq
-from rdflib import (Namespace, URIRef,
-                    Literal, BNode, FOAF,
-                    DC, DCTERMS, Graph,
-                    RDF, RDFS, XSD
-                    )
-
+from rdflib import (Namespace, URIRef, Literal, BNode, FOAF, DC, DCTERMS,
+                    Graph, RDF, RDFS, XSD)
 
 ENDPOINT = 'http://py.isu.ru:8000/hs/jsonpost/courses_in_faculty/'
 USER = "3c9467d8-b710-11e6-943c-005056100702"
@@ -56,18 +52,18 @@ MAPPRED = {
     'ПериодКонтроля': IDD['controlPeriod'],
     'Практические': IDD['practiceAmount'],
     'Профиль': IDD['profile'],
-    'ТипЗаписи': IDD['recordType'],
+    'ТипЗаписи': IDD['codeType'],
     'УчебныйПлан': IDD['studyPlan'],
     'УчебныйПланСпециальность': IDD['specialty'],
     'УчебныйПланУровеньПодготовки': IDD['level'],
     'УчебныйПланФормаОбучения': IDD['studyForm'],
 }
 
-MAPCLASS ={
+MAPCLASS = {
     'ВидыКонтроля': IDD['ControlType'],
     'Дисциплины': IDD['Discipline'],
     'ПериодыКонтроля': IDD['ControlPeriod'],
-    'ТипЗаписиУчебногоПлана': IDD['DisciplineCode'],
+    'ТипЗаписиУчебногоПлана': IDD['DisciplineCodeType'],
     'Специализации': IDD['Specialization'],
     'УчебныйПлан': IDD['Cirriculum'],
     'Специальности': IDD['Speciality'],
@@ -75,21 +71,19 @@ MAPCLASS ={
     'ФормаОбучения': IDD['StudyForm'],
 }
 
-
-DT = {
-    int: {'datatype': XSD.integer},
-    str: {'lang': u'ru'}
-}
+DT = {int: {'datatype': XSD.integer}, str: {'lang': u'ru'}}
 
 TERM = {
     0: IDD['Even'],
     1: IDD['Odd'],
 }
 
-CONUNDEF = {'catalog': 'ВидыКонтроля',
-            'name': 'Неопределено',
-            'type': 'CatalogRef',
-            'uid': '6ee6cd49-56a2-4008-ab10-d94dbcb56b22'}
+CONUNDEF = {
+    'catalog': 'ВидыКонтроля',
+    'name': 'Неопределено',
+    'type': 'CatalogRef',
+    'uid': '6ee6cd49-56a2-4008-ab10-d94dbcb56b22'
+}
 
 
 def tograph(query, graph=None, catalogs=None):
@@ -99,13 +93,13 @@ def tograph(query, graph=None, catalogs=None):
     j = j['hs_json']
     i = j['Input']
     o = j['Output']
-    dj = o['Data']      # list of courses
+    dj = o['Data']  # list of courses
     term = i['flag_semestr']
     term = TERM[term]
     faculty = IDB[i['facultet']]
 
     if catalogs is None:
-        catalogs = {}   # Various catalogs
+        catalogs = {}  # Various catalogs
 
     def _cat(node):
         t = type(node)
@@ -116,7 +110,7 @@ def tograph(query, graph=None, catalogs=None):
             return Literal(node, **kwargs1)
         if node['type'] in ['CatalogRef', 'DocumentRef']:
             cat = catalogs.setdefault(node['catalog'], {})
-            uid = node['uid']
+            uid = IDD[node['uid']]
             cat[uid] = node['name']
             return URIRef(uid)
 
@@ -135,6 +129,7 @@ def tograph(query, graph=None, catalogs=None):
     g.add((faculty, RDF.type, DBR.Faculty))
     for cour in dj:
         dis = BNode()
+        g.add((dis, RDF.type, IDD['Discipline']))
         g.add((faculty, IDD['hasDiscipline'], dis))
         g.add((dis, IDD['term'], term))
         for k, node in cour.items():
@@ -143,11 +138,47 @@ def tograph(query, graph=None, catalogs=None):
     return g
 
 
+MAPABBR = {
+    'ПМиИ': 'Прикладная математика и информатика',
+    'МОиАИС': 'Математическое обеспечение и администрирование информационных систем',
+    'ФИиИТ': 'Фундаментальная информатика и информационные технологии',
+}
+
+
 def setupcatalogs(graph, catalogs):
     g = graph
+    _ = 'УчебныйПлан'
+
+    def _d(uid, n):
+        # 02УП2021_01.03.02_ПМиИ (000009111 от 06.05.21)
+        _code, _number, _1, _date = n.split(' ')
+        number = _number.lstrip('(')
+        date = _date.rstrip(')')
+        d, m, y = date.split('.')
+        if len(y) < 4:
+            y = "20" + y
+        date = "{}-{}-{}".format(y, m, d)
+        _1, spec_code, spec_abbr = _code.split('_')
+        spec_abbr = spec_abbr.strip()
+        try:
+            spec_name = MAPABBR[spec_abbr]
+        except KeyError:
+            print("No name for '{}'".format(spec_abbr))
+            spec_name = None
+        year = _1[-4:]
+        g.add((uid, IDD['number'], Literal(number, datatype=XSD.string)))
+        g.add((uid, IDD['signDate'], Literal(date, datatype=XSD.date)))
+        if spec_abbr:
+            g.add((uid, IDD['nameAbbreviation'], Literal(spec_abbr, lang=u"ru")))
+            if spec_name:
+                g.add((uid, IDD['name'], Literal(spec_name, lang=u'ru')))
+        g.add((uid, IDD['specialityCode'], Literal(spec_code, datatype=XSD.string)))
+        g.add((uid, IDD['enrolledIn'], Literal(year, datatype=XSD.integer)))
+
     for kc, cat in catalogs.items():
         for uid, name in cat.items():
-            uid = URIRef(uid)
+            if kc == _:
+                _d(uid, name)
             g.add((uid, RDFS['label'], Literal(name, lang=u"ru")))
             g.add((uid, RDF.type, MAPCLASS[kc]))
     return g
