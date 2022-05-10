@@ -32,7 +32,7 @@ def query(user, faculty=IMIT, profile=None, year=None, term=None):
                           "guid": user,
                           "facultet": faculty,
                           "flag_semestr": term
-                      })
+                     })
     if resp.ok:
         return resp.json()
     else:
@@ -110,9 +110,9 @@ def tograph(query, graph=None, catalogs=None):
             return Literal(node, **kwargs1)
         if node['type'] in ['CatalogRef', 'DocumentRef']:
             cat = catalogs.setdefault(node['catalog'], {})
-            uid = IDD[node['uid']]
+            uid = IDB[node['uid']]
             cat[uid] = node['name']
-            return URIRef(uid)
+            return uid
 
     if graph is None:
         g = Graph()
