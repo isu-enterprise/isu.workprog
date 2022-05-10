@@ -48,7 +48,7 @@ IDB = Namespace("http://irnok.net/ontologies/database/isu/studplan#")
 IDD = Namespace("http://irnok.net/ontologies/isu/studplan#")
 DBR = Namespace("https://dbpedia.org/page/")
 
-MAP = {
+MAPPRED = {
     'ВидКонтроля': IDD['controlType'],
     'Дисциплина': IDD['discipline'],
     'Лабораторные': IDD['laboratoryWorksAmount'],
@@ -60,8 +60,21 @@ MAP = {
     'УчебныйПлан': IDD['studyPlan'],
     'УчебныйПланСпециальность': IDD['specialty'],
     'УчебныйПланУровеньПодготовки': IDD['level'],
-    'УчебныйПланФормаОбучения': IDD['studyForm']
+    'УчебныйПланФормаОбучения': IDD['studyForm'],
 }
+
+MAPCLASS ={
+    'ВидыКонтроля': IDD['ControlType'],
+    'Дисциплины': IDD['Discipline'],
+    'ПериодыКонтроля': IDD['ControlPeriod'],
+    'ТипЗаписиУчебногоПлана': IDD['DisciplineCode'],
+    'Специализации': IDD['Specialization'],
+    'УчебныйПлан': IDD['Cirriculum'],
+    'Специальности': IDD['Speciality'],
+    'УровеньПодготовки': IDD['StudyLevel'],
+    'ФормаОбучения': IDD['StudyForm'],
+}
+
 
 DT = {
     int: {'datatype': XSD.integer},
@@ -126,7 +139,7 @@ def tograph(query, graph=None, catalogs=None):
         g.add((dis, IDD['term'], term))
         for k, node in cour.items():
             subj = _cat(node)
-            g.add((dis, MAP[k], subj))
+            g.add((dis, MAPPRED[k], subj))
     return g
 
 
@@ -136,7 +149,7 @@ def setupcatalogs(graph, catalogs):
         for uid, name in cat.items():
             uid = URIRef(uid)
             g.add((uid, RDFS['label'], Literal(name, lang=u"ru")))
-            g.add((uid, RDF.type, IDD[kc]))
+            g.add((uid, RDF.type, MAPCLASS[kc]))
     return g
 
 
