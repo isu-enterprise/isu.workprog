@@ -24,7 +24,6 @@ WHERE {
   ?fac a dbr:Faculty .
   ?fac idd:hasDiscipline ?disc .
   ?disc a idd:Discipline .
-#  ?disc rdfs:label ?disc_name .
   ?disc idd:profile ?prof .
   ?prof rdfs:label ?prof_name .
   ?disc idd:specialty ?spec .
