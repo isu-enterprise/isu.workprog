@@ -1,6 +1,33 @@
 from lxml import etree
 import re
 from pprint import pprint
+from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS)
+from uuid import uuid1
+
+
+def genuuid():
+    return str(uuid1())
+
+
+G = Graph()
+WPDB = Namespace("http://irnok.net/ontologies/database/isu/workprog#")
+WPDD = Namespace("http://irnok.net/ontologies/isu/workprog#")
+DBR = Namespace("https://dbpedia.org/page/")
+IDB = Namespace("http://irnok.net/ontologies/database/isu/studplan#")
+IDD = Namespace("http://irnok.net/ontologies/isu/studplan#")
+
+DCID = DCTERMS.identifier
+
+WP = WPDB[genuuid()]
+G.bind('wpdb', WPDB)
+G.bind('wpdd', WPDD)
+G.bind('idb', IDB)
+G.bind('idd', IDD)
+G.bind('dbr', DBR)
+IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702']
+CDC = BNode()
+MURAL = IDB['e4f4e44d-5a0b-11e6-942f-005056100702']
+EXMURAL = IDB['e4f4e44c-5a0b-11e6-942f-005056100702']
 
 
 class Style:
@@ -44,6 +71,62 @@ class Style:
 
 def printel(el):
     print("<{} {}>{}</{}>".format(el.tag, el.attrib, el.text, el.tag))
+
+
+def can_merge(o1, o2):
+    if o1.get("font") == o2.get("font"):
+        return True
+
+    # for a in ['bold', 'italic', 'strike', 'fontname', 'color']:
+    for a in ['fontname', 'color']:
+        if o1.get(a) != o2.get(a):
+            return False
+
+    return True
+
+
+def mergesz(o1, o2, name, less=False, add=False):
+    s1 = int(o1.get(name))
+    s2 = int(o1.get(name))
+    if add:
+        s1 += s2
+    elif less:
+        s1 = min(s1, s2)
+    else:
+        s1 = max(s1, s2)
+    o2.attrib[name] = str(s1)
+
+
+def merge(o1, o2):
+    global WP
+
+    def mv():
+        for e in o2:
+            o1.append(e)
+
+    # Merge sizes
+    mergesz(o1, o2, "height")
+    mergesz(o1, o2, "bottom")
+    mergesz(o1, o2, "top", less=True)
+    mergesz(o1, o2, "size")
+    mergesz(o1, o2, "width", add=True)
+
+    # >foo< | >bar<>< | => >foobar<><
+    if o1.text is not None and len(o1) == 0:
+        o1.text += o2.text if o2.text is not None else ""
+
+    # >foo<><
+    elif len(o1) != 0:
+        # ...| >bar<>< |=> >foo<>bar<><
+        e = o1[-1]
+        if e.tail is None:
+            e.tail = ""
+        e.tail += o2.text if o2.text is not None else ""
+        if e.tail == "":
+            e.tail = None
+
+    # o1.text is None and len(o1) == 0, i.e. o1 is empty
+    mv()
 
 
 def conv(filename):
@@ -163,58 +246,6 @@ def conv(filename):
             div.attrib["par"] = "1"
 
     # Here we have sets of runs, now join them as html strings
-
-    def can_merge(o1, o2):
-        if o1.get("font") == o2.get("font"):
-            return True
-
-        # for a in ['bold', 'italic', 'strike', 'fontname', 'color']:
-        for a in ['fontname', 'color']:
-            if o1.get(a) != o2.get(a):
-                return False
-
-        return True
-
-    def mergesz(o1, o2, name, less=False, add=False):
-        s1 = int(o1.get(name))
-        s2 = int(o1.get(name))
-        if add:
-            s1 += s2
-        elif less:
-            s1 = min(s1, s2)
-        else:
-            s1 = max(s1, s2)
-        o2.attrib[name] = str(s1)
-
-    def merge(o1, o2):
-
-        def mv():
-            for e in o2:
-                o1.append(e)
-
-        # Merge sizes
-        mergesz(o1, o2, "height")
-        mergesz(o1, o2, "bottom")
-        mergesz(o1, o2, "top", less=True)
-        mergesz(o1, o2, "size")
-        mergesz(o1, o2, "width", add=True)
-
-        # >foo< | >bar<>< | => >foobar<><
-        if o1.text is not None and len(o1) == 0:
-            o1.text += o2.text if o2.text is not None else ""
-
-        # >foo<><
-        elif len(o1) != 0:
-            # ...| >bar<>< |=> >foo<>bar<><
-            e = o1[-1]
-            if e.tail is None:
-                e.tail = ""
-            e.tail += o2.text if o2.text is not None else ""
-            if e.tail == "":
-                e.tail = None
-
-        # o1.text is None and len(o1) == 0, i.e. o1 is empty
-        mv()
 
     divs = tree.xpath("//div")
 
@@ -391,12 +422,12 @@ def conv(filename):
             nums = num.split(".")
             if nums[-1] == "":
                 nums = nums[:-1]
-            p.tag = "h"+str(len(nums))
+            p.tag = "h" + str(len(nums))
             p.text = t
             p.attrib["section"] = ".".join(nums)
 
     # split text by sections
-    SECTIONS = {"_" : etree.Element("section")}
+    SECTIONS = {"_": etree.Element("section")}
     csec = SECTIONS["_"]
     for e in tree.xpath("/body/*"):
         if e.tag.startswith("h1"):
@@ -407,9 +438,16 @@ def conv(filename):
         csec.append(e)
     # TODO: subsections... h2, etc.
 
+    G.add((WP, RDF.type, DBR["Syllabus"]))
+    G.add((WP, WPDD['courseDC'], CDC))
+
+    for k, v in SECTIONS.items():
+        procsec(k, v)
+
     tree = etree.Element("html", lang="ru")
     body = etree.SubElement(tree, "body")
     header = etree.SubElement(body, "header")
+    proctitlepage(TITLEPAGE)
     header.append(TITLEPAGE)
     for k, v in SECTIONS.items():
         body.append(v)
@@ -419,6 +457,79 @@ def conv(filename):
     o.write(b"<!DOCTYPE html >\n")
     o.write(etree.tostring(tree, encoding="utf-8", pretty_print=True))
     o.close()
+
+    G.serialize(destination=filename + ".ttl")
+
+
+INSTITUTES = {"институтматематикииинформационныхтехнологий": IMIT}
+
+
+def upfirst(s):
+    return s[0].upper() + s[1:]
+
+MURALFORM = {
+    "заочная": EXMURAL,
+    "очная": MURAL,
+}
+
+def proctitlepage(titlepage):
+    for s in titlepage.xpath(".//span"):
+        t = s.xpath('string()').strip()
+        tl = t.lower()
+        tn = "".join(tl.split())
+        tc = upfirst(" ".join(tl.split()))
+        if tl.startswith('институт'):
+            inst = tn
+            try:
+                inst = INSTITUTES[inst]
+            except KeyError:
+                inst = IDB[genuuid()]
+                G.add((inst, RDFS.label, Literal(tc, lang="ru")))
+            G.add((WP, WPDD.institute, inst))
+        elif tl.startswith("кафедра"):
+            chair = IDB[genuuid()]
+            G.add((WP, WPDD.chair, chair))
+            G.add((chair, RDFS.label, Literal(tc, lang="ru")))
+        elif tn.startswith("направлениеподготовки"):
+            spec = IDB[genuuid()]
+            G.add((WP, IDD.specialty, spec))
+            tcl = tc.split(" ", maxsplit=3)
+            _, _, code, name = tcl
+            G.add((spec, RDFS.label, Literal(upfirst(name), lang="ru")))
+            G.add((spec, DCID, Literal(code)))
+        elif tn.startswith("формаобучения"):
+            _, _, stform = tc.split(" ")
+            G.add((WP, IDD.studyForm, MURALFORM[stform]))
+
+        # TODO: Рабочая программа дисциплины ..
+
+
+def procaims(section):
+    title = section.get("title", "")
+    tl = title.lower().strip()
+    num = section.get("number")
+    assert tl.startswith(num)
+    assert tl.find("цел") != -1
+    assert tl.find("задач") != -1
+    for p in section.xpath("//p"):
+        t = p.xpath("string()").strip()
+        tl = t.lower()
+        if tl.startswith('цел'):
+            G.add((CDC, WPDD["aim"], Literal(t, lang="ru")))
+            continue
+        if tl.startswith('задач'):
+            G.add((CDC, WPDD["problem"], Literal(t, lang="ru")))
+            continue
+        if t == "":
+            p.getparent().remove(p)
+
+
+def procsec(number, section):
+    if section.tag == "section":
+        if number == "_":
+            return
+        if number == "1":
+            procaims(section)
 
 
 if __name__ == "__main__":

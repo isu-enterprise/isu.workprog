@@ -1,0 +1,21 @@
+@prefix dbr: <https://dbpedia.org/page/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix idb: <http://irnok.net/ontologies/database/isu/studplan#> .
+@prefix idd: <http://irnok.net/ontologies/isu/studplan#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wpdb: <http://irnok.net/ontologies/database/isu/workprog#> .
+@prefix wpdd: <http://irnok.net/ontologies/isu/workprog#> .
+
+wpdb:e3c9b1a8-d7cd-11ec-81bc-704d7b84fd9f a dbr:Syllabus ;
+    idd:specialty idb:e3d15c0a-d7cd-11ec-81bc-704d7b84fd9f ;
+    idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
+    wpdd:chair idb:e3d155ca-d7cd-11ec-81bc-704d7b84fd9f ;
+    wpdd:courseDC [ wpdd:aim "Цели: Формирование у будущих бакалавров современных теоретических знаний в области уравнений математической физики. Обзор некоторых наиболее распространенных методов исследования и решения основных классических задач для уравнений с частными производными."@ru ;
+            wpdd:problem "Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с частными производными. Дать обзор основных задач для уравнений математической физики; сформировать умение создавать математическую модель физического явления; научить студентов применять набор стандартных методов решения задач для уравнений с частными производными."@ru ] ;
+    wpdd:institute idb:c526d6c7-9a78-11e6-9438-005056100702 .
+
+idb:e3d155ca-d7cd-11ec-81bc-704d7b84fd9f rdfs:label "Кафедра математического анализа и дифференциальных уравнений"@ru .
+
+idb:e3d15c0a-d7cd-11ec-81bc-704d7b84fd9f rdfs:label "Прикладная математика и информатика"@ru ;
+    dcterms:identifier "01.03.02" .
+
