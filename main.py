@@ -146,9 +146,23 @@ def conv(filename):
     # o.write(b"""</html>""")
     o.close()
 
-    # Here we have sets of runs, now join them as html strings
-
+    #change empty <div><span>...</span><div>, where ... is empty to <p/>
     divs = tree.xpath("//div")
+    for div in divs:
+        t = div.xpath('string()').strip()
+        if t == "":
+            for e in div[1:]:
+                div.remove(e)
+            span = div[0]
+            span.tag = "p"
+            span.text = None
+            attrs = {}
+            attrs.update(span.attrib)
+            span.clear()
+            span.attrib.update(attrs)
+            div.attrib["par"] = "1"
+
+    # Here we have sets of runs, now join them as html strings
 
     def can_merge(o1, o2):
         if o1.get("font") == o2.get("font"):
@@ -173,6 +187,7 @@ def conv(filename):
         o2.attrib[name] = str(s1)
 
     def merge(o1, o2):
+
         def mv():
             for e in o2:
                 o1.append(e)
@@ -185,16 +200,23 @@ def conv(filename):
         mergesz(o1, o2, "width", add=True)
 
         # >foo< | >bar<>< | => >foobar<><
-        if o1.text is not None and len(o1)==0:
+        if o1.text is not None and len(o1) == 0:
             o1.text += o2.text if o2.text is not None else ""
 
         # >foo<><
         elif len(o1) != 0:
             # ...| >bar<>< |=> >foo<>bar<><
-            o1[-1].tail = o2.text # if o2.text is None nothing changed
+            e = o1[-1]
+            if e.tail is None:
+                e.tail = ""
+            e.tail += o2.text if o2.text is not None else ""
+            if e.tail == "":
+                e.tail = None
 
         # o1.text is None and len(o1) == 0, i.e. o1 is empty
         mv()
+
+    divs = tree.xpath("//div")
 
     for div in divs:
         pspan = None
@@ -207,6 +229,7 @@ def conv(filename):
                 div.remove(span)
                 continue
             pspan = span
+
     # Join <b>foo</b><b>bar</b> -> <b>foobar</b>
     divs = tree.xpath("//div/span")
     for div in divs:
@@ -222,22 +245,6 @@ def conv(filename):
             pe = p
 
     #Paragraph: join lines
-
-    #change empty <div><span>...</span><div>, where ... is empty to <p/>
-    divs = tree.xpath("//div")
-    for div in divs:
-        if len(div) != 1:
-            continue
-        sp = div[0]
-        if sp.text is None:
-            if len(sp) == 1:
-                el = sp[0]
-                if el.text is None or el.text.strip() == "":
-                    div.tag = "p"
-                    div.clear()
-        elif sp.text.strip() == "":
-            div.tag = "p"
-            div.clear()
 
     # Recognize paragraphs by indents: indent is the shift of "left" > "size" of font
 
@@ -257,28 +264,35 @@ def conv(filename):
                     if l - sz >= left:
                         span.attrib["indent"] = "1"
 
+    # Split the first page into a subtree
+
+    titlepage = tree.xpath("//section")[0]
+    titlepage.getparent().remove(titlepage)
+    TITLEPAGE = titlepage
+    del titlepage
+
     # Now we can remove sections/pages
 
     bodies = tree.xpath("//body")
     for body in bodies:
-        ndivs=[]
+        ndivs = []
         for sec in body:
-            for div in sec:
-                ndivs.append(div)
+            for e in sec:
+                ndivs.append(e)
         body.clear()
         for d in ndivs:
             body.append(d)
         del ndivs
 
-    # Join divs with spans staring at the same "left" value,
-    # The second span must start with a lower case letter
-    # first check if there is div with more than one span
+    # # Join divs with spans staring at the same "left" value,
+    # # The second span must start with a lower case letter
+    # # first check if there is div with more than one span
 
     divs = tree.xpath("//div")
-    _dc=False
+    _dc = False
     for div in divs:
         if len(div) > 1:
-            _dc=True
+            _dc = True
             printel("-->", div)
             for e in div:
                 printel(e)
@@ -299,71 +313,111 @@ def conv(filename):
             body.append(span)
 
     # Joinig itself # TODO: Kills text at headers 1., 2. etc.
-    # spans = tree.xpath("//span")
-    # pspan = None
-    # nspans = []
-    # for span in spans:
-    #     if pspan is None:
-    #         pspan = span
-    #         nspans.append(span)
-    #         continue
-    #     if pspan.get("left") == span.get("left"):
-    #         # pt = pspan.text_content()
-    #         t = span.xpath('string()').strip() # Extracts all strings
-    #         if True: #t[0].islower():                 # from the subtree
-    #             merge(pspan, span)
-    #             printel(pspan)
-    #             printel(span)
-    #             pspan.attrib["par"] = "rest"   # Sign that the join is a
-    #             continue                       # paragraph body
-    #     nspans.append(span)
-    #     pspan = span
+    spans = tree.xpath("/body/*")
+    pspan = None
+    for span in spans:
+        if span.tag != "span":
+            pspan = None
+            continue
+        if pspan is None:
+            pspan = span
+            continue
+        if pspan.get("left") == span.get("left"):
+            t = span.xpath("string()").strip()
+            t = t[0]
+            # if t.isalpha() and t.islower():
+            if not (t.isdigit() or t in ["-"]):
+                merge(pspan, span)
+                span.getparent().remove(span)
+                pspan.attrib["par"] = "rest"  # Sign that the join is a
+                continue  # paragraph body
 
-    # for body in bodies:
-    #     body.clear()
-    #     for span in nspans:
-    #         body.append(span)
+        pspan = None
+
+    # Clear empty <p/> nodes
+    for p in tree.xpath("//p"):
+        t = p.xpath("string()").strip()
+        if t == "":
+            p.clear()
+    # <p/><p/> -> <p/>
+    pp = None
+    for e in tree.xpath("/body/*"):
+        if e.tag != "p":
+            pp = None
+            continue
+        if pp is None:
+            pp = e
+            continue
+        if pp is not None:
+            e.getparent().remove(e)
 
     # Merge "par" = "rest" spans to a span with "ident"="1"
-    # spans = tree.xpath("//span")
-    # pspan = None
-    # for span in spans:
-    #     if span.get("ident", None) == "1":
-    #         pspan = span
-    #         continue
+    spans = tree.xpath("/body/*")
+    pspan = None
+    for span in spans:
+        if span.tag != "span":
+            pspan = None
+            continue
 
-    #     if span.get("par", None) == "rest":
-    #         if pspan is not None:
-    #             merge(pspan, span)
-    #             span.getparent().remove(span)
-    #             pspan.tag = "p"
-    #             pspan = None
-    #             continue
-    #         else:
-    #             span.tag = "p"
-    #             pspan = None
-    #             continue
+        if span.get("indent", None) == "1":
+            pspan = span
+            continue
 
-    #     elif pspan is not None and pspan.get("ident", None) is None:
-    #         # This is copied from above, just to mention
-    #         # that the processing could be different
-    #         if pspan is not None:
-    #             merge(pspan, span)
-    #             span.getparent().remove(span)
-    #             # pspan.tag = "p"
-    #             pspan = None
-    #             continue
-    #         else:
-    #             span.tag = "p"
-    #             pspan = None
-    #             continue
+        if True:  #span.get("par", None) == "rest":
 
-    #     pspan = None
+            if pspan is not None:
+                merge(pspan, span)
+                span.getparent().remove(span)
+                pspan.tag = "p"
+                pspan.attrib["indent"] = "1"
+                pspan = None
+                continue
+            else:
+                span.tag = "p"
+                span.attrib["indent"] = "0"
+                pspan = None
+                continue
 
+        pspan = None
 
-    ofilename = "m-" + filename + ".xhtml"
+    # Paragraph having "bold" and text staring from digit -> <hX>
+
+    for p in tree.xpath('//p[@bold="1"]'):
+        t = p.xpath("string()").strip()
+        c = t[0]
+        if c.isdigit():
+            p.clear()
+            num, _ = t.split(" ", maxsplit=1)
+            nums = num.split(".")
+            if nums[-1] == "":
+                nums = nums[:-1]
+            p.tag = "h"+str(len(nums))
+            p.text = t
+            p.attrib["section"] = ".".join(nums)
+
+    # split text by sections
+    SECTIONS = {"_" : etree.Element("section")}
+    csec = SECTIONS["_"]
+    for e in tree.xpath("/body/*"):
+        if e.tag.startswith("h1"):
+            num = e.get("section")
+            csec = SECTIONS[num] = etree.Element("section")
+            csec.attrib["number"] = num
+            csec.attrib["title"] = e.xpath("string()").strip()
+        csec.append(e)
+    # TODO: subsections... h2, etc.
+
+    tree = etree.Element("html", lang="ru")
+    body = etree.SubElement(tree, "body")
+    header = etree.SubElement(body, "header")
+    header.append(TITLEPAGE)
+    for k, v in SECTIONS.items():
+        body.append(v)
+
+    ofilename = "m-" + filename + ".html"
     o = open(ofilename, "wb")
-    o.write(etree.tostring(tree, encoding="utf-8"))
+    o.write(b"<!DOCTYPE html >\n")
+    o.write(etree.tostring(tree, encoding="utf-8", pretty_print=True))
     o.close()
 
 
