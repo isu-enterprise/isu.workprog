@@ -34,6 +34,7 @@ BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
 ACBACH = IDB['f2d3374f-5a0b-11e6-942f-005056100702']
 APPLBACH = IDB['f2d33754-5a0b-11e6-942f-005056100702']
 MASTER = IDB["f2d33752-5a0b-11e6-942f-005056100702"]
+NUMBERRE = re.compile(r'^((\d+|[IVXLCDM]+|[ivxlcdm]+)\.?)+\)?\s*')
 
 
 class Style:
@@ -605,7 +606,7 @@ def proctestsection(section):
         if t == "":
             p.getparent().remove(p)
             continue
-        m = re.search(r'^(\d+)\.?\)?\s*', t)
+        m = re.search(NUMBERRE, t)
         if m is None:
             ol = None
             continue
