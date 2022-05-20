@@ -15,6 +15,7 @@ WPDD = Namespace("http://irnok.net/ontologies/isu/workprog#")
 DBR = Namespace("https://dbpedia.org/page/")
 IDB = Namespace("http://irnok.net/ontologies/database/isu/studplan#")
 IDD = Namespace("http://irnok.net/ontologies/isu/studplan#")
+SCH = Namespace("https://schema.org/")
 
 DCID = DCTERMS.identifier
 
@@ -23,7 +24,8 @@ G.bind('wpdb', WPDB)
 G.bind('wpdd', WPDD)
 G.bind('idb', IDB)
 G.bind('idd', IDD)
-G.bind('dbr', DBR)
+G.bind('dbp', DBR)
+G.bind('schema', SCH)
 IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702']
 CDC = BNode()
 MURAL = IDB['e4f4e44d-5a0b-11e6-942f-005056100702']
@@ -589,6 +591,65 @@ def procaims(section):
         if t == "":
             p.getparent().remove(p)
 
+def proctestsection(section):
+    ps = section.xpath(".//p")
+    ol = None
+    quests = None
+    for p in ps:
+        t = p.xpath("string()").strip()
+        if t == "":
+            p.getparent().remove(p)
+            continue
+        m = re.search(r'^(\d+)\.?\)?\s*', t)
+        if m is None:
+            ol=None
+            continue
+        _, e = m.span()
+        name = t[e:]
+        num=m.group(1)
+        if name.strip()=="":
+            continue
+
+        if ol is None:
+            par =p.getparent()
+            ol=etree.Element("ol")
+            index = par.index(p)
+            par.insert(index, ol)
+            ol.text="\n"
+            ol.tail="\n"
+            quests = WPDB[genuuid()]
+            G.add((quests, RDF.type, WPDD["QuestionList"]))
+            # TODO: define a kind of question list
+            G.add((WP, WPDD.questionList, quests))
+
+        p.tag="li"
+        p.clear()
+        p.text=name
+        p.tail="\n"
+        p.attrib["number"]=num
+        p.getparent().remove(p)
+        ol.append(p)
+        q = WPDB[genuuid()]
+        G.add((q, RDF.type, WPDD["Question"]))
+        G.add((q, RDFS.label, Literal(name, lang="ru")))
+        G.add((q, SCH.sku, Literal(num)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def procsec(number, section):
     if section.tag == "section":
@@ -596,6 +657,8 @@ def procsec(number, section):
             return
         if number == "1":
             procaims(section)
+        if number == "7":
+            proctestsection(section)
 
 
 if __name__ == "__main__":

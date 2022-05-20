@@ -1,37 +1,253 @@
-@prefix dbr: <https://dbpedia.org/page/> .
+@prefix dbp: <https://dbpedia.org/page/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix idb: <http://irnok.net/ontologies/database/isu/studplan#> .
 @prefix idd: <http://irnok.net/ontologies/isu/studplan#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 @prefix wpdb: <http://irnok.net/ontologies/database/isu/workprog#> .
 @prefix wpdd: <http://irnok.net/ontologies/isu/workprog#> .
 
-wpdb:59d37262-d7f1-11ec-96fc-107b44811a3f a dbr:Syllabus ;
-    idd:city idd:59daa5aa-d7f1-11ec-96fc-107b44811a3f ;
+wpdb:586dfbee-d848-11ec-ba74-b06ebf3579ca a dbp:Syllabus ;
+    idd:city idd:5878c67a-d848-11ec-ba20-b06ebf3579ca ;
     idd:issued "2019" ;
     idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
-    idd:profile idb:59da9d6c-d7f1-11ec-96fc-107b44811a3f ;
-    idd:specialty idb:59da9808-d7f1-11ec-96fc-107b44811a3f ;
+    idd:profile idb:58789f89-d848-11ec-bed2-b06ebf3579ca ;
+    idd:specialty idb:58789f88-d848-11ec-8e61-b06ebf3579ca ;
     idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
-    wpdd:chair idb:59da8b42-d7f1-11ec-96fc-107b44811a3f ;
+    wpdd:chair idb:58789f86-d848-11ec-b46e-b06ebf3579ca ;
     wpdd:courseDC [ wpdd:aim "Цели: Формирование у будущих бакалавров современных теоретических знаний в области уравнений математической физики. Обзор некоторых наиболее распространенных методов исследования и решения основных классических задач для уравнений с частными производными."@ru ;
             wpdd:problem "Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с частными производными. Дать обзор основных задач для уравнений математической физики; сформировать умение создавать математическую модель физического явления; научить студентов применять набор стандартных методов решения задач для уравнений с частными производными."@ru ] ;
-    wpdd:institute idb:c526d6c7-9a78-11e6-9438-005056100702 .
+    wpdd:institute idb:c526d6c7-9a78-11e6-9438-005056100702 ;
+    wpdd:questionList wpdb:587767da-d848-11ec-9463-b06ebf3579ca .
 
-idd:59da91b4-d7f1-11ec-96fc-107b44811a3f a idd:Discipline ;
+wpdb:587767db-d848-11ec-a357-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Понятие дифференциального уравнения с частными производными и его решения."@ru ;
+    schema:sku "1" .
+
+wpdb:58778ed2-d848-11ec-9043-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Общие сведения о совокупности решений."@ru ;
+    schema:sku "2" .
+
+wpdb:58778ed3-d848-11ec-9a76-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Задача об эквивалентности системы ДУ и одного ДУ."@ru ;
+    schema:sku "3" .
+
+wpdb:58778ed4-d848-11ec-90bc-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Определенные, переопределенные и неопределенные системы."@ru ;
+    schema:sku "4" .
+
+wpdb:58778ed5-d848-11ec-992e-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Задача Коши для нормальной системы уравнений. Теорема Коши-Ковалевской."@ru ;
+    schema:sku "5" .
+
+wpdb:58778ed6-d848-11ec-90d3-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Понятие характеристической формы и классификация ЛДУ-2."@ru ;
+    schema:sku "6" .
+
+wpdb:58778ed7-d848-11ec-a034-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Классификация линейных и нелинейных уравнений высшего порядка."@ru ;
+    schema:sku "7" .
+
+wpdb:58778ed8-d848-11ec-9e13-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Классификация систем."@ru ;
+    schema:sku "8" .
+
+wpdb:5877b5c6-d848-11ec-b6c9-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Классификация ЛДУ-2 по учебнику Михлина."@ru ;
+    schema:sku "9" .
+
+wpdb:5877b5c7-d848-11ec-a7b9-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Характеристические кривые и характеристические направления."@ru ;
+    schema:sku "10" .
+
+wpdb:5877b5c8-d848-11ec-a047-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Приведение к каноническому виду уравнения второго порядка с двумя независимыми пременными."@ru ;
+    schema:sku "11" .
+
+wpdb:5877b5c9-d848-11ec-9fc7-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Канонические формы линейных уравнений с постоянными коэффициентами."@ru ;
+    schema:sku "12" .
+
+wpdb:5877b5ca-d848-11ec-aa8a-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Уравнения Лапласа."@ru ;
+    schema:sku "13" .
+
+wpdb:5877b5cb-d848-11ec-bb5c-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Волновое уравнение."@ru ;
+    schema:sku "14" .
+
+wpdb:5877b5cc-d848-11ec-893e-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Уравнение теплопроводности."@ru ;
+    schema:sku "15" .
+
+wpdb:5877b5cd-d848-11ec-9e73-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Постановки основных задач для ЛДУ – 2 и понятие корректности задачи по Адамару."@ru ;
+    schema:sku "16" .
+
+wpdb:5877dcba-d848-11ec-bafa-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Волновое уравнение с тремя пространственными переменными. Формула Кирхгофа."@ru ;
+    schema:sku "17" .
+
+wpdb:5877dcbb-d848-11ec-9f52-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Волновое уравнение с двумя пространственными переменными. Формула Пуассона."@ru ;
+    schema:sku "18" .
+
+wpdb:5877dcbc-d848-11ec-b0c2-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Уравнение колебания струны. Формула Даламбера."@ru ;
+    schema:sku "19" .
+
+wpdb:5877dcbd-d848-11ec-8738-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Физическая интерпретация формулы Даламбера."@ru ;
+    schema:sku "20" .
+
+wpdb:5877dcbe-d848-11ec-862a-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Примеры бегущих волн."@ru ;
+    schema:sku "21" .
+
+wpdb:5877dcbf-d848-11ec-9b25-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Область зависимости, область влияния, область определения."@ru ;
+    schema:sku "22" .
+
+wpdb:5877dcc0-d848-11ec-b3bd-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Неоднородное волновое уравнение с тремя пространственными переменными."@ru ;
+    schema:sku "23" .
+
+wpdb:587803ae-d848-11ec-99fc-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Неоднородное волновое уравнение с двумя и одной пространственной переменной."@ru ;
+    schema:sku "24" .
+
+wpdb:587803af-d848-11ec-b366-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Единственность решения задачи Коши для волнового уравнения."@ru ;
+    schema:sku "25" .
+
+wpdb:587803b0-d848-11ec-81de-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Корректность постановки задачи Коши."@ru ;
+    schema:sku "26" .
+
+wpdb:587803b1-d848-11ec-994c-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Общая постановка задачи Коши."@ru ;
+    schema:sku "27" .
+
+wpdb:587803b2-d848-11ec-8f90-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Задача Гурса."@ru ;
+    schema:sku "28" .
+
+wpdb:587803b3-d848-11ec-9e2b-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Задача Гурса и первая задача Дарбу."@ru ;
+    schema:sku "29" .
+
+wpdb:587803b4-d848-11ec-b60d-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Постановка второй задачи Дарбу."@ru ;
+    schema:sku "30" .
+
+wpdb:587803b5-d848-11ec-a071-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Простейшие свойства гармонических функций."@ru ;
+    schema:sku "31" .
+
+wpdb:58782aa4-d848-11ec-876f-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Некоторые частные решения уравнения Лапласа и преобразование радиус-векторов."@ru ;
+    schema:sku "32" .
+
+wpdb:58782aa5-d848-11ec-982a-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Элементарные свойства гармонических функций."@ru ;
+    schema:sku "33" .
+
+wpdb:58782aa6-d848-11ec-b2f4-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Связь между аналитическими и гармоническими функциями."@ru ;
+    schema:sku "34" .
+
+wpdb:58782aa7-d848-11ec-85ac-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Интегральное представление гармонических функций."@ru ;
+    schema:sku "35" .
+
+wpdb:58782aa8-d848-11ec-82b9-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Формулы о среднем арифметическом для гармонических функций."@ru ;
+    schema:sku "36" .
+
+wpdb:58782aa9-d848-11ec-a8c5-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Принцип экстремума и единственность решения задачи Дирихле для уравнения Лапласа."@ru ;
+    schema:sku "37" .
+
+wpdb:58782aaa-d848-11ec-a6ce-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Линейная функция и некоторые свойства."@ru ;
+    schema:sku "38" .
+
+wpdb:58782aab-d848-11ec-8542-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Функция Грина задачи Дирихле для уравнения Лапласа."@ru ;
+    schema:sku "39" .
+
+wpdb:5878519a-d848-11ec-af60-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Решение задачи Дирихле для шара. Формулы Пуассона."@ru ;
+    schema:sku "40" .
+
+wpdb:5878519b-d848-11ec-b7ba-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Задача Дирихле для уравнения Пуассона."@ru ;
+    schema:sku "41" .
+
+wpdb:5878519c-d848-11ec-b508-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Решение задачи Дирихле для полупространств."@ru ;
+    schema:sku "42" .
+
+wpdb:5878519d-d848-11ec-a022-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Теоремы, вытекающие из формул Пуассона."@ru ;
+    schema:sku "43" .
+
+wpdb:5878519e-d848-11ec-80db-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Непрерывность потенциала объемных масс и его производных первого порядка."@ru ;
+    schema:sku "44" .
+
+wpdb:5878519f-d848-11ec-80fa-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Существование производных второго порядка потенциала объемных масс."@ru ;
+    schema:sku "45" .
+
+wpdb:587851a0-d848-11ec-b82a-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Формула Гаусса."@ru ;
+    schema:sku "46" .
+
+wpdb:587851a1-d848-11ec-ae23-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Потенциал двойного слоя и его свойства."@ru ;
+    schema:sku "47" .
+
+wpdb:58787890-d848-11ec-b28e-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Потенциал простого слоя и задача Неймана."@ru ;
+    schema:sku "48" .
+
+wpdb:58787891-d848-11ec-9e97-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Внешние задачи Дирихле и Неймана."@ru ;
+    schema:sku "49" .
+
+wpdb:58787892-d848-11ec-a754-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Первая краевая задача для уравнения теплопроводности."@ru ;
+    schema:sku "50" .
+
+wpdb:58787893-d848-11ec-b744-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Постановка задачи и доказательство существования ее решения."@ru ;
+    schema:sku "51" .
+
+wpdb:58787894-d848-11ec-ab2a-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Единственность и устойчивость решения задачи Коши - Дирихле."@ru ;
+    schema:sku "52" .
+
+wpdb:58787895-d848-11ec-84cc-b06ebf3579ca a wpdd:Question ;
+    rdfs:label "Неоднородное уравнение теплопроводности."@ru ;
+    schema:sku "53" .
+
+idd:58789f87-d848-11ec-adfa-b06ebf3579ca a idd:Discipline ;
     rdfs:label "Уравнения математической физики"@ru ;
     dcterms:identifier "Б1.О.23"@ru .
 
-idb:59da8b42-d7f1-11ec-96fc-107b44811a3f a idd:Chair ;
+idb:58789f86-d848-11ec-b46e-b06ebf3579ca a idd:Chair ;
     rdfs:label "Кафедра математического анализа и дифференциальных уравнений"@ru .
 
-idb:59da9808-d7f1-11ec-96fc-107b44811a3f a idd:Speciality ;
+idb:58789f88-d848-11ec-8e61-b06ebf3579ca a idd:Speciality ;
     rdfs:label "Прикладная математика и информатика"@ru ;
     dcterms:identifier "01.03.02" .
 
-idb:59da9d6c-d7f1-11ec-96fc-107b44811a3f a idd:Discipline ;
+idb:58789f89-d848-11ec-bed2-b06ebf3579ca a idd:Discipline ;
     rdfs:label "информационные технологии"@ru .
 
-idd:59daa5aa-d7f1-11ec-96fc-107b44811a3f a dbr:City ;
+wpdb:587767da-d848-11ec-9463-b06ebf3579ca a wpdd:QuestionList .
+
+idd:5878c67a-d848-11ec-ba20-b06ebf3579ca a dbp:City ;
     rdfs:label "Иркутск"@ru .
 
