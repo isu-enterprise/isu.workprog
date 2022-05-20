@@ -1,0 +1,996 @@
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+<pdf2xml producer="poppler" version="22.03.0">
+<page number="1" position="absolute" top="0" left="0" height="1263" width="893">
+	<fontspec id="0" size="17" family="CWXMBY+Times-Bold" color="#000000"/>
+	<fontspec id="1" size="17" family="LRIIJL+TimesNewRoman,Bold" color="#000000"/>
+	<fontspec id="2" size="17" family="RGLYWY+TimesNewRoman" color="#000000"/>
+	<fontspec id="3" size="17" family="TIEJMG+TimesNewRoman" color="#000000"/>
+	<fontspec id="4" size="21" family="RGLYWY+TimesNewRoman" color="#000000"/>
+	<fontspec id="5" size="21" family="TIEJMG+TimesNewRoman" color="#000000"/>
+	<fontspec id="6" size="21" family="LRIIJL+TimesNewRoman,Bold" color="#000000"/>
+	<fontspec id="7" size="21" family="CWXMBY+Times-Bold" color="#000000"/>
+<image top="379" left="500" width="294" height="186" src="a-1_1.jpg"/>
+<image top="75" left="426" width="78" height="77" src="a-1_2.png"/>
+<text top="157" left="493" width="4" height="13" font="0" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="170"><b> </b></text>
+<text top="171" left="167" width="651" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="196"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b></text>
+<text top="178" left="820" width="4" height="13" font="0" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="191"><b> </b></text>
+<text top="192" left="218" width="553" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="216">федеральное государственное бюджетное образовательное учреждение </text>
+<text top="198" left="773" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="210"> </text>
+<text top="212" left="395" width="166" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="236">высшего образования</text>
+<text top="219" left="561" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="231"> </text>
+<text top="234" left="253" width="126" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="259"><b>«ИРКУТСКИЙ</b></text>
+<text top="240" left="379" width="4" height="13" font="0" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="253"><b> </b></text>
+<text top="234" left="384" width="341" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="259"><b>ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ</b></text>
+<text top="240" left="725" width="14" height="13" font="0" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="253"><b>» </b></text>
+<text top="254" left="406" width="71" height="28" font="4" bold="0" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="282">ФГБОУ</text>
+<text top="261" left="478" width="5" height="14" font="5" bold="0" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="275"> </text>
+<text top="254" left="483" width="97" height="28" font="4" bold="0" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="282">ВО «ИГУ»</text>
+<text top="261" left="580" width="5" height="14" font="5" bold="0" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="275"> </text>
+<text top="278" left="211" width="565" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="302">ИНСТИТУТ МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ</text>
+<text top="285" left="776" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="297"> </text>
+<text top="316" left="151" width="653" height="29" font="6" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="345"><b>Кафедра математического анализа и дифференциальных уравнений</b></text>
+<text top="324" left="805" width="5" height="15" font="7" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="339"><b> </b></text>
+<text top="383" left="287" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="395"> </text>
+<text top="554" left="795" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="566"> </text>
+<text top="570" left="158" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="582"> </text>
+<text top="591" left="158" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="603"> </text>
+<text top="605" left="277" width="402" height="29" font="6" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="634"><b>Рабочая программа дисциплины (модуля)</b></text>
+<text top="612" left="680" width="5" height="15" font="7" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="627"><b> </b></text>
+<text top="636" left="478" width="5" height="15" font="7" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="651"><b> </b></text>
+<text top="653" left="267" width="62" height="29" font="6" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="682"><b>Б1.О.2</b></text>
+<text top="660" left="329" width="16" height="15" font="7" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="675"><b>3 </b></text>
+<text top="653" left="345" width="344" height="29" font="6" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="682"><b>Уравнения математической физики</b></text>
+<text top="660" left="689" width="5" height="15" font="7" bold="1" italic="0" strike="0" fontname="Times" size="21" color="#000000" bottom="675"><b> </b></text>
+<text top="684" left="158" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="696"> </text>
+<text top="704" left="128" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="716"> </text>
+<text top="737" left="128" width="207" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="762"><b>Направление подготовки</b></text>
+<text top="743" left="335" width="9" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="755">  </text>
+<text top="743" left="393" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="755"> </text>
+<text top="737" left="446" width="373" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="761">01.03.02 Прикладная математика и информатика</text>
+<text top="743" left="821" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="755"> </text>
+<text top="775" left="128" width="323" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="800"><b>Направленность (профиль) подготовки</b></text>
+<text top="782" left="451" width="4" height="13" font="0" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="795"><b> </b></text>
+<text top="776" left="499" width="208" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="800">Математические методы и </text>
+<text top="796" left="128" width="228" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="820">информационные технологии</text>
+<text top="803" left="356" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="815"> </text>
+<text top="835" left="128" width="231" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="860"><b>Квалификация выпускника</b></text>
+<text top="842" left="359" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="854"> </text>
+<text top="842" left="393" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="854"> </text>
+<text top="835" left="446" width="95" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="859">БАКАЛАВР</text>
+<text top="842" left="542" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="854"> </text>
+<text top="874" left="128" width="135" height="25" font="1" bold="1" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="899"><b>Форма обучения</b></text>
+<text top="880" left="264" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="892"> </text>
+<text top="880" left="287" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="892"> </text>
+<text top="880" left="340" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="892"> </text>
+<text top="880" left="393" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="892"> </text>
+<text top="874" left="446" width="44" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="898">очная</text>
+<text top="880" left="490" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="892"> </text>
+<text top="901" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="913"> </text>
+<text top="921" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="933"> </text>
+<text top="942" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="954"> </text>
+<text top="963" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="975"> </text>
+<text top="984" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="996"> </text>
+<text top="1004" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1016"> </text>
+<text top="1025" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1037"> </text>
+<text top="1046" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1058"> </text>
+<text top="1066" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1078"> </text>
+<text top="1087" left="478" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1099"> </text>
+<text top="1101" left="416" width="73" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1125">Иркутск  </text>
+<text top="1108" left="488" width="41" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1120">2019 </text>
+<text top="1101" left="530" width="12" height="24" font="2" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1125">г.</text>
+<text top="1108" left="541" width="4" height="12" font="3" bold="0" italic="0" strike="0" fontname="Times" size="17" color="#000000" bottom="1120"> </text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1263" width="892">
+	<fontspec id="8" size="18" family="WLDDDC+Times-Bold" color="#000000"/>
+	<fontspec id="9" size="18" family="PZFZGA+TimesNewRomanPS-BoldMT" color="#000000"/>
+	<fontspec id="10" size="18" family="NNMQOI+Times-Roman" color="#000000"/>
+	<fontspec id="11" size="18" family="XQHRFC+TimesNewRomanPSMT" color="#000000"/>
+	<fontspec id="12" size="18" family="QYRLXA+Times-Italic" color="#000000"/>
+<text top="89" left="128" width="9" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="102"><b>1</b></text>
+<text top="83" left="137" width="306" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107"><b>. ЦЕЛИ И ЗАДАЧИ ДИСЦИПЛИНЫ</b></text>
+<text top="89" left="442" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="102"><b> </b></text>
+<text top="109" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="124"> </text>
+<text top="124" left="128" width="705" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">Цели: Формирование у будущих бакалавров современных теоретических знаний в области </text>
+<text top="145" left="128" width="642" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="169">уравнений математической физики. Обзор некоторых наиболее распространенных </text>
+<text top="166" left="128" width="704" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">методов исследования и решения основных классических задач для уравнений с частными </text>
+<text top="187" left="128" width="118" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211">производными.</text>
+<text top="192" left="246" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="213" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="228" left="128" width="706" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252">Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с </text>
+<text top="249" left="128" width="662" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="273">частными производными. Дать обзор основных задач для уравнений математической </text>
+<text top="269" left="128" width="683" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="293">физики; сформировать умение создавать математическую модель физического явления; </text>
+<text top="290" left="128" width="699" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314">научить студентов применять набор стандартных методов решения задач для уравнений с </text>
+<text top="311" left="128" width="199" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="335">частными производными.</text>
+<text top="316" left="326" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="331"> </text>
+<text top="337" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="352"> </text>
+<text top="358" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="373"> </text>
+<text top="379" left="128" width="18" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="392"><b>2. </b></text>
+<text top="373" left="146" width="436" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="397"><b>МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО</b></text>
+<text top="379" left="581" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="392"><b> </b></text>
+<text top="399" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="414"> </text>
+<text top="414" left="128" width="503" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">Учебная дисциплина Б1.О.23 Уравнения математической физики</text>
+<text top="420" left="631" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435"> </text>
+<text top="414" left="635" width="95" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">относится к </text>
+<text top="435" left="128" width="438" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="459">обязательной части Блока 1 образовательной программы</text>
+<text top="441" left="565" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456">. </text>
+<text top="456" left="128" width="639" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="480">Для изучения данной учебной дисциплины необходимы знания, умения и навыки, </text>
+<text top="476" left="128" width="518" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">формируемые предшествующими дисциплинами: Математический</text>
+<text top="482" left="646" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497"> </text>
+<text top="476" left="651" width="124" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">анализ, Алгебра</text>
+<text top="482" left="774" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">, </text>
+<text top="497" left="128" width="154" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="521">Дифференциальные</text>
+<text top="503" left="282" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="518"> </text>
+<text top="497" left="286" width="80" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="521">уравнения</text>
+<text top="503" left="366" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="518">. </text>
+<text top="523" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="538"> </text>
+<text top="538" left="128" width="690" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="562">Перечень последующих учебных дисциплин, для которых необходимы знания, умения и </text>
+<text top="559" left="128" width="632" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">навыки, формируемые данной учебной дисциплиной: Численные методы, Научно</text>
+<text top="565" left="760" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580">-</text>
+<text top="580" left="128" width="199" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="604">исследовательская работа</text>
+<text top="586" left="326" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="601">.</text>
+<text top="581" left="331" width="5" height="23" font="12" bold="0" italic="1" strike="0" fontname="Times" size="18" color="#000000" bottom="604"><i> </i></text>
+<text top="606" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="621"> </text>
+<text top="627" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="642"> </text>
+<text top="648" left="128" width="18" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="661"><b>3. </b></text>
+<text top="642" left="146" width="543" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="666"><b>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</b></text>
+<text top="648" left="688" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="661"><b> </b></text>
+<text top="668" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="683"> </text>
+<text top="683" left="128" width="679" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">Процесс освоения дисциплины направлен на формирование следующих компетенций в </text>
+<text top="704" left="128" width="664" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="728">соответствии с ФГОС ВО и ОП ВО по направлению подготовки 01.03.02 Прикладная </text>
+<text top="725" left="128" width="210" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="749">математика и информатика</text>
+<text top="730" left="338" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="745">: </text>
+<text top="745" left="128" width="38" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">ОПК</text>
+<text top="751" left="166" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="766">-</text>
+<text top="745" left="172" width="559" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">1 Способен применять фундаментальные знания, полученные в области </text>
+<text top="766" left="128" width="648" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">математических и (или) естественных наук, и использовать их в профессиональной </text>
+<text top="787" left="128" width="107" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="811">деятельности.</text>
+<text top="793" left="235" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="808"> </text>
+<text top="813" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="828"> </text>
+<text top="828" left="128" width="447" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">В результате освоения дисциплины обучающийся должен</text>
+<text top="834" left="574" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849"> </text>
+<text top="849" left="128" width="681" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="873">знать: классификацию уравнений с частными производными. Постановку классических </text>
+<text top="870" left="128" width="373" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="894">задач для уравнений с частными производными.</text>
+<text top="875" left="501" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="890">; </text>
+<text top="890" left="128" width="675" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914">уметь: приводить уравнения с частными производными к каноническому виду; решать </text>
+<text top="911" left="128" width="469" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="935">классические задачи для уравнений математической физики.</text>
+<text top="917" left="597" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="932">; </text>
+<text top="932" left="128" width="706" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="956">владеть: навыками моделирования практических задач дифференциальными уравнениями; </text>
+<text top="952" left="128" width="222" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="976">языком предметной области.</text>
+<text top="958" left="350" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="973"> </text>
+<text top="979" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="994"> </text>
+<text top="1000" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1015"> </text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="1263" width="892">
+	<fontspec id="13" size="14" family="XQHRFC+TimesNewRomanPSMT" color="#000000"/>
+	<fontspec id="14" size="14" family="NNMQOI+Times-Roman" color="#000000"/>
+<text top="83" left="128" width="431" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107"><b>4. СОДЕРЖАНИЕ И СТРУКТУРА ДИСЦИПЛИНЫ</b></text>
+<text top="89" left="558" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="102"><b> </b></text>
+<text top="109" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="124"> </text>
+<text top="124" left="128" width="243" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">Объем дисциплины составляет </text>
+<text top="130" left="370" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="145">4 </text>
+<text top="124" left="384" width="93" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">зачетных ед</text>
+<text top="130" left="476" width="45" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="145">., 144 </text>
+<text top="124" left="521" width="29" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">час.</text>
+<text top="130" left="551" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="145"> </text>
+<text top="151" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="166"> </text>
+<text top="166" left="128" width="342" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">Форма промежуточной аттестации: экзамен.</text>
+<text top="172" left="470" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="187"> </text>
+<text top="192" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="213" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="234" left="128" width="32" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="247"><b>4.1. </b></text>
+<text top="228" left="159" width="465" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252"><b>Содержание дисциплины, структурированное по темам, </b></text>
+<text top="234" left="624" width="12" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="247"><b>c </b></text>
+<text top="228" left="636" width="143" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252"><b>указанием видов </b></text>
+<text top="249" left="128" width="594" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="273"><b>учебных занятий и отведенного на них количества академических часов</b></text>
+<text top="255" left="722" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="268"><b> </b></text>
+<text top="275" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="290"> </text>
+<text top="291" left="128" width="167" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="311">Раздел дисциплины / тема</text>
+<text top="296" left="295" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="308"> </text>
+<text top="291" left="419" width="30" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="311">Сем.</text>
+<text top="296" left="449" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="308"> </text>
+<text top="291" left="473" width="142" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="311">Виды учебной работы</text>
+<text top="296" left="615" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="308"> </text>
+<text top="291" left="743" width="50" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="311">Формы </text>
+<text top="308" left="743" width="64" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="328">текущего </text>
+<text top="326" left="743" width="67" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="346">контроля; </text>
+<text top="330" left="810" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="342"> </text>
+<text top="343" left="743" width="50" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="363">Формы </text>
+<text top="360" left="743" width="71" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="380">промежут. </text>
+<text top="378" left="743" width="70" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="398">аттестации</text>
+<text top="382" left="814" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="394"> </text>
+<text top="309" left="473" width="124" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="329">Контактная работа </text>
+<text top="326" left="473" width="93" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="346">преподавателя</text>
+<text top="331" left="566" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="343"> </text>
+<text top="326" left="570" width="10" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="346">с </text>
+<text top="344" left="473" width="98" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="364">обучающимися</text>
+<text top="348" left="572" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="360"> </text>
+<text top="309" left="676" width="54" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="329">Самост. </text>
+<text top="326" left="676" width="42" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="346">работа</text>
+<text top="331" left="718" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="343"> </text>
+<text top="362" left="473" width="48" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="382">Лекции</text>
+<text top="366" left="521" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="378"> </text>
+<text top="362" left="541" width="32" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="382">Лаб. </text>
+<text top="379" left="541" width="49" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="399">занятия</text>
+<text top="384" left="590" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="396"> </text>
+<text top="362" left="608" width="46" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="382">Практ. </text>
+<text top="379" left="608" width="49" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="399">занятия</text>
+<text top="384" left="657" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="396"> </text>
+<text top="397" left="128" width="61" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="417">Введение</text>
+<text top="402" left="188" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="402" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="402" left="473" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="402" left="541" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="402" left="608" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="402" left="676" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="402" left="743" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="414"> </text>
+<text top="415" left="128" width="222" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="435">Уравнения гиперболического типа</text>
+<text top="420" left="350" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="420" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="420" left="473" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="420" left="541" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="420" left="608" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="420" left="676" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="420" left="743" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="432"> </text>
+<text top="433" left="128" width="270" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="453">Уравнения эллиптического типа и теория </text>
+<text top="450" left="128" width="81" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="470">потенциалов</text>
+<text top="455" left="209" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="467"> </text>
+<text top="438" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="450"> </text>
+<text top="438" left="473" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="450"> </text>
+<text top="438" left="541" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="450"> </text>
+<text top="438" left="608" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="450"> </text>
+<text top="438" left="676" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="450"> </text>
+<text top="438" left="743" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="450"> </text>
+<text top="468" left="128" width="215" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="488">Уравнения параболического типа</text>
+<text top="473" left="343" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="473" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="473" left="473" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="473" left="541" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="473" left="608" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="473" left="676" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="473" left="743" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="485"> </text>
+<text top="486" left="128" width="118" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="506">Итого (7 семестр):</text>
+<text top="491" left="246" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503"> </text>
+<text top="491" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503"> </text>
+<text top="491" left="473" width="19" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503">30 </text>
+<text top="491" left="541" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503"> </text>
+<text top="491" left="608" width="19" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503">60 </text>
+<text top="491" left="676" width="11" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503">9 </text>
+<text top="486" left="743" width="20" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="506">экз</text>
+<text top="491" left="763" width="8" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="503">. </text>
+<text top="510" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="525"> </text>
+<text top="530" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="545"> </text>
+<text top="545" left="128" width="654" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="569"><b>4.2. План внеаудиторной самостоятельной работы обучающихся по дисциплине</b></text>
+<text top="551" left="782" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="564"><b> </b></text>
+<text top="572" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="587"> </text>
+<text top="588" left="128" width="167" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="608">Раздел дисциплины / тема</text>
+<text top="593" left="295" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="605"> </text>
+<text top="588" left="338" width="249" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="608">Самостоятельная работа обучающихся</text>
+<text top="593" left="587" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="605"> </text>
+<text top="588" left="635" width="74" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="608">Оценочное </text>
+<text top="605" left="635" width="56" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="625">средство</text>
+<text top="610" left="691" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="622"> </text>
+<text top="588" left="726" width="48" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="608">Учебно</text>
+<text top="593" left="774" width="5" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="605">-</text>
+<text top="605" left="726" width="92" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="625">методическое </text>
+<text top="622" left="726" width="84" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="642">обеспечение </text>
+<text top="639" left="726" width="97" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="659">самост. работы</text>
+<text top="644" left="823" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="656"> </text>
+<text top="606" left="338" width="80" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="626">Вид самост. </text>
+<text top="623" left="338" width="46" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="643">работы</text>
+<text top="628" left="384" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="640"> </text>
+<text top="606" left="460" width="44" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="626">Сроки </text>
+<text top="623" left="460" width="78" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="643">выполнения</text>
+<text top="628" left="537" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="640"> </text>
+<text top="606" left="554" width="55" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="626">Затраты </text>
+<text top="623" left="554" width="53" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="643">времени</text>
+<text top="628" left="608" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="640"> </text>
+<text top="657" left="128" width="61" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="677">Введение</text>
+<text top="662" left="188" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="674"> </text>
+<text top="662" left="338" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="674"> </text>
+<text top="662" left="460" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="674"> </text>
+<text top="662" left="554" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="674"> </text>
+<text top="662" left="635" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="674"> </text>
+<text top="662" left="726" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="674"> </text>
+<text top="675" left="128" width="193" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="695">Уравнения гиперболического </text>
+<text top="693" left="128" width="29" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="713">типа</text>
+<text top="697" left="157" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="709"> </text>
+<text top="680" left="338" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="692"> </text>
+<text top="680" left="460" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="692"> </text>
+<text top="680" left="554" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="692"> </text>
+<text top="680" left="635" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="692"> </text>
+<text top="680" left="726" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="692"> </text>
+<text top="711" left="128" width="178" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="731">Уравнения эллиптического </text>
+<text top="728" left="128" width="173" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="748">типа и теория потенциалов</text>
+<text top="733" left="301" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="745"> </text>
+<text top="715" left="338" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="727"> </text>
+<text top="715" left="460" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="727"> </text>
+<text top="715" left="554" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="727"> </text>
+<text top="715" left="635" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="727"> </text>
+<text top="715" left="726" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="727"> </text>
+<text top="746" left="128" width="186" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="766">Уравнения параболического </text>
+<text top="763" left="128" width="29" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="783">типа</text>
+<text top="768" left="157" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="780"> </text>
+<text top="751" left="338" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="763"> </text>
+<text top="751" left="460" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="763"> </text>
+<text top="751" left="554" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="763"> </text>
+<text top="751" left="635" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="763"> </text>
+<text top="751" left="726" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="763"> </text>
+<text top="781" left="128" width="336" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="801">Общая трудоемкость самостоятельной работы (час.)</text>
+<text top="786" left="464" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="798"> </text>
+<text top="786" left="554" width="11" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="798">9 </text>
+<text top="786" left="635" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="798"> </text>
+<text top="786" left="726" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="798"> </text>
+<text top="799" left="128" width="331" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="819">Из них с использованием электронного обучения и </text>
+<text top="817" left="128" width="330" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="837">дистанционных образовательных технологий (час.)</text>
+<text top="821" left="457" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="833"> </text>
+<text top="804" left="554" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="816"> </text>
+<text top="804" left="635" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="816"> </text>
+<text top="804" left="726" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="816"> </text>
+<text top="840" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="855"> </text>
+<text top="861" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="876"> </text>
+<text top="882" left="128" width="23" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="895"><b>4.3</b></text>
+<text top="876" left="150" width="277" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="900"><b>. Содержание учебного материала</b></text>
+<text top="882" left="427" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="895"><b> </b></text>
+<text top="902" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="917"> </text>
+<text top="917" left="128" width="92" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="941">I. Введение.</text>
+<text top="923" left="220" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="938"> </text>
+<text top="938" left="128" width="570" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="962">1.1. Понятие об уравнениях с частными производными. Виды уравнений. </text>
+<text top="958" left="128" width="589" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="982">Дифференциальные с частными производными первого и второго порядков.</text>
+<text top="964" left="716" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="979"> </text>
+<text top="979" left="128" width="704" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1003">1.2. Вывод уравнений колебаний струны, теплопроводности, Лапласа, постановка краевых </text>
+<text top="1000" left="128" width="285" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1024">задач, их физическая интерпретация.</text>
+<text top="1006" left="412" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1021"> </text>
+<text top="1020" left="128" width="614" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1044">1.3. Классификация дифференциальных уравнений с частными производными. </text>
+<text top="1041" left="128" width="673" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1065">Гиперболические, параболические и эллиптические уравнения. О постановке задач для</text>
+<text top="1047" left="800" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1062"> </text>
+<text top="1062" left="128" width="692" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1086">дифференциальных уравнений с частными производными. Корректная постановка задач. </text>
+<text top="1083" left="128" width="670" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1107">Примеры корректно поставленных задач. Пример Адамара некорректно поставленной </text>
+<text top="1103" left="128" width="340" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1127">задачи Коши для эллиптических уравнений.</text>
+<text top="1109" left="468" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1124"> </text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="1263" width="892">
+<text top="83" left="128" width="639" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107">1.4. Приведение к каноническому виду дифференциальных уравнений с частными </text>
+<text top="104" left="128" width="674" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="128">производными. Понятие о характеристиках дифференциальных уравнений с частными </text>
+<text top="124" left="128" width="592" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">производными. Связь характеристических направлений с характеристиками.</text>
+<text top="130" left="719" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="145"> </text>
+<text top="145" left="128" width="633" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="169">1.5. Системы уравнений с частными производными. Задача Коши. Теорема Коши </text>
+<text top="151" left="761" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="166">– </text>
+<text top="166" left="128" width="98" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">Ковалевской</text>
+<text top="172" left="226" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="187">. </text>
+<text top="187" left="128" width="293" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211">II. Уравнения гиперболического типа.</text>
+<text top="192" left="420" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="207" left="128" width="669" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231">2.1. Волновое уравнение. Задача Коши для уравнения колебаний. Формула Даламбера.</text>
+<text top="213" left="797" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="228" left="128" width="640" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252">2.2. Метод Дюамеля для решения задачи Коши в случае неоднородного волнового </text>
+<text top="249" left="128" width="84" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="273">уравнения.</text>
+<text top="254" left="212" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="269"> </text>
+<text top="269" left="128" width="629" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="293">2.3. Вывод формулы Кирхгофа и Пуассона, исследование этих формул. Принцип </text>
+<text top="290" left="128" width="696" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314">Гюйгенса. Существование, единственность и непрерывная зависимость решений задач от </text>
+<text top="311" left="128" width="402" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="335">начальных данных. Понятие обобщенного решения.</text>
+<text top="316" left="529" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="331"> </text>
+<text top="331" left="128" width="204" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="355">2.4. Задачи Гурса и Дарбу.</text>
+<text top="337" left="331" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="352"> </text>
+<text top="352" left="128" width="652" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="376">2.5. Решение однородной смешанной задачи для уравнений гиперболического типа. </text>
+<text top="373" left="128" width="492" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="397">Собственные значения и собственные функции задачи Штурма </text>
+<text top="379" left="620" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="394">– </text>
+<text top="373" left="633" width="190" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="397">Лиувилля. Общая схема </text>
+<text top="394" left="128" width="111" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="418">метода Фурье.</text>
+<text top="399" left="238" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="414"> </text>
+<text top="414" left="128" width="647" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">2.6. Применение метода Фурье для неоднородных смешанных задач для уравнений </text>
+<text top="435" left="128" width="184" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="459">гиперболического типа.</text>
+<text top="441" left="311" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456"> </text>
+<text top="456" left="128" width="453" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="480">III. Уравнения эллиптического типа и теория потенциалов.</text>
+<text top="461" left="581" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="476"> </text>
+<text top="482" left="128" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">3</text>
+<text top="476" left="137" width="565" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">.1. Уравнения Лапласа и Пуассона. Постановка основных краевых задач. </text>
+<text top="497" left="128" width="365" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="521">Фундаментальное решение уравнения Лапласа.</text>
+<text top="503" left="493" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="518"> </text>
+<text top="518" left="128" width="644" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="542">3.2. Формулы Грина. Гармонические функции и их свойства. Принцип максимума. </text>
+<text top="538" left="128" width="677" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="562">Теоремы Лиувилля и Горнака. Функция Грина задачи Дирихле для уравнения Лапласа. </text>
+<text top="559" left="128" width="422" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">Построения функции Грина для простейших областей.</text>
+<text top="565" left="549" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580"> </text>
+<text top="580" left="128" width="685" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="604">3.3. Решение задачи Дирихле для уравнения Лапласа в шаре и полупространстве. Метод </text>
+<text top="601" left="128" width="697" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="625">Фурье для решения внутренней и внешней задач Дирихле для уравнения Лапласа в круге, </text>
+<text top="621" left="128" width="192" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="645">кольце, прямоугольнике.</text>
+<text top="627" left="319" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="642"> </text>
+<text top="648" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="663">3.4</text>
+<text top="642" left="150" width="658" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="666">. Теория потенциала и сведение краевых задач для уравнений эллиптического типа к </text>
+<text top="663" left="128" width="210" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="687">интегральным уравнениям.</text>
+<text top="668" left="337" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="683"> </text>
+<text top="683" left="128" width="291" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">IV. Уравнения параболического типа.</text>
+<text top="689" left="418" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="704"> </text>
+<text top="704" left="128" width="696" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="728">4.1. Уравнение теплопроводности. Постановка краевых задач. Фундаментальное решение.</text>
+<text top="710" left="824" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="725"> </text>
+<text top="725" left="128" width="650" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="749">4.2. Принцип максимума в ограниченной области и решение задачи Коши, теоремы </text>
+<text top="745" left="128" width="251" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">единственности и устойчивости.</text>
+<text top="751" left="378" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="766"> </text>
+<text top="766" left="128" width="652" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">4.3. Решение однородной смешанной задачи для уравнений гиперболического типа. </text>
+<text top="787" left="128" width="216" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="811">Общая схема метода Фурье.</text>
+<text top="793" left="344" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="808"> </text>
+<text top="808" left="128" width="647" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">4.4. Применение метода Фурье для неоднородных смешанных задач для уравнений </text>
+<text top="828" left="128" width="131" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">параболического</text>
+<text top="834" left="258" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849"> </text>
+<text top="855" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="870"> </text>
+<text top="875" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="890"> </text>
+<text top="896" left="128" width="45" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="909"><b>4.3.1. </b></text>
+<text top="890" left="173" width="570" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914"><b>Перечень семинарских, практических занятий и лабораторных работ</b></text>
+<text top="896" left="742" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="909"><b> </b></text>
+<text top="917" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="932"> </text>
+<text top="933" left="128" width="85" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="953">Тема занятия</text>
+<text top="938" left="212" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="950"> </text>
+<text top="933" left="419" width="76" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="953">Всего часов</text>
+<text top="938" left="495" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="950"> </text>
+<text top="933" left="527" width="132" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="953">Оценочные средства</text>
+<text top="938" left="660" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="950"> </text>
+<text top="933" left="689" width="96" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="953">Формируемые </text>
+<text top="950" left="689" width="84" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="970">компетенции</text>
+<text top="955" left="773" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="967"> </text>
+<text top="968" left="128" width="61" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="988">Введение</text>
+<text top="973" left="188" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="985"> </text>
+<text top="973" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="985"> </text>
+<text top="973" left="527" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="985"> </text>
+<text top="973" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="985"> </text>
+<text top="986" left="128" width="222" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1006">Уравнения гиперболического типа</text>
+<text top="991" left="350" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1003"> </text>
+<text top="991" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1003"> </text>
+<text top="991" left="527" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1003"> </text>
+<text top="991" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1003"> </text>
+<text top="1004" left="128" width="270" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1024">Уравнения эллиптического типа и теория </text>
+<text top="1021" left="128" width="81" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1041">потенциалов</text>
+<text top="1026" left="209" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1038"> </text>
+<text top="1009" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1021"> </text>
+<text top="1009" left="527" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1021"> </text>
+<text top="1009" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1021"> </text>
+<text top="1039" left="128" width="215" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1059">Уравнения параболического типа</text>
+<text top="1044" left="343" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1056"> </text>
+<text top="1044" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1056"> </text>
+<text top="1044" left="527" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1056"> </text>
+<text top="1044" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="1056"> </text>
+<text top="1063" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1078"> </text>
+<text top="1083" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1098"> </text>
+<text top="1098" left="128" width="701" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1122"><b>4.3.2. Перечень тем (вопросов), выносимых на самостоятельное изучение студентами </b></text>
+<text top="1119" left="128" width="283" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1143"><b>в рамках самостоятельной работы</b></text>
+<text top="1125" left="410" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1138"><b> </b></text>
+<text top="1146" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1161"> </text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="1263" width="892">
+<text top="84" left="128" width="32" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="104">Тема</text>
+<text top="89" left="160" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="101"> </text>
+<text top="84" left="419" width="51" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="104">Задание</text>
+<text top="89" left="470" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="101"> </text>
+<text top="84" left="716" width="96" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="104">Формируемые </text>
+<text top="101" left="716" width="84" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="121">компетенции</text>
+<text top="106" left="800" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="118"> </text>
+<text top="119" left="128" width="61" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="139">Введение</text>
+<text top="124" left="188" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="136"> </text>
+<text top="124" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="136"> </text>
+<text top="124" left="716" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="136"> </text>
+<text top="137" left="128" width="222" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="157">Уравнения гиперболического типа</text>
+<text top="142" left="350" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="154"> </text>
+<text top="142" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="154"> </text>
+<text top="142" left="716" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="154"> </text>
+<text top="155" left="128" width="270" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="175">Уравнения эллиптического типа и теория </text>
+<text top="173" left="128" width="81" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="193">потенциалов</text>
+<text top="177" left="209" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="189"> </text>
+<text top="160" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="172"> </text>
+<text top="160" left="716" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="172"> </text>
+<text top="191" left="128" width="215" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="211">Уравнения параболического типа</text>
+<text top="195" left="343" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="207"> </text>
+<text top="195" left="419" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="207"> </text>
+<text top="195" left="716" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="207"> </text>
+<text top="214" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="229"> </text>
+<text top="235" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="250"> </text>
+<text top="250" left="128" width="656" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="274"><b>4.4. Методические указания по организации самостоятельной работы студентов</b></text>
+<text top="256" left="783" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="269"><b> </b></text>
+<text top="276" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="291"> </text>
+<text top="291" left="181" width="643" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="315">Самостоятельная работа студентов всех форм и видов обучения является одним из </text>
+<text top="312" left="128" width="637" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="336">обязательных видов образовательной деятельности, обеспечивающей реализацию </text>
+<text top="333" left="128" width="680" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="357">требований Федеральных государственных стандартов высшего образования. Согласно </text>
+<text top="353" left="128" width="647" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="377">требованиям нормативных документов самостоятельная работа студентов является </text>
+<text top="374" left="128" width="636" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="398">обязательным компонентом образовательного процесса, так как она обеспечивает </text>
+<text top="395" left="128" width="680" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="419">закрепление получаемых на лекционных занятиях знаний путем приобретения навыков </text>
+<text top="415" left="128" width="636" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="439">осмысления и расширения их содержания, навыков решения актуальных проблем </text>
+<text top="436" left="128" width="584" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="460">формирования общекультурных и профессиональных компетенций, научно</text>
+<text top="442" left="711" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="457">-</text>
+<text top="457" left="128" width="693" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="481">исследовательской деятельности, подготовки к семинарам, лабораторным работам, сдаче </text>
+<text top="477" left="128" width="701" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="501">зачетов и экзаменов. Самостоятельная работа студентов представляет собой совокупность </text>
+<text top="498" left="128" width="629" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="522">аудиторных и внеаудиторных занятий и работ. Самостоятельная работа в рамках </text>
+<text top="519" left="128" width="472" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="543">образовательного процесса в вузе решает следующие задачи:</text>
+<text top="525" left="599" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="540"> </text>
+<text top="545" left="128" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="560">– </text>
+<text top="540" left="141" width="603" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="564">закрепление и расширение знаний, умений, полученных студентами во время </text>
+<text top="560" left="128" width="648" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="584">аудиторных и внеаудиторных занятий, превращение их в стереотипы умственной и </text>
+<text top="581" left="128" width="203" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="605">физической деятельности;</text>
+<text top="587" left="330" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="602"> </text>
+<text top="607" left="128" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="622">– </text>
+<text top="602" left="141" width="641" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="626">приобретение дополнительных знаний и навыков по дисциплинам учебного плана;</text>
+<text top="607" left="782" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="622"> </text>
+<text top="628" left="128" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="643">– </text>
+<text top="622" left="141" width="500" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="646">формирование и развитие знаний и навыков, связанных с научно</text>
+<text top="628" left="642" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="643">-</text>
+<text top="622" left="647" width="150" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="646">исследовательской </text>
+<text top="643" left="128" width="120" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="667">деятельностью;</text>
+<text top="649" left="247" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="664"> </text>
+<text top="669" left="128" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="684">– </text>
+<text top="664" left="141" width="601" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="688">развитие ориентации и установки на качественное освоение образовательной </text>
+<text top="684" left="128" width="92" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="708">программы;</text>
+<text top="690" left="219" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="705"> </text>
+<text top="711" left="128" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="726">– </text>
+<text top="705" left="141" width="279" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="729">развитие навыков самоорганизации;</text>
+<text top="711" left="420" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="726"> </text>
+<text top="732" left="128" width="13" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="747">– </text>
+<text top="726" left="141" width="593" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="750">формирование самостоятельности мышления, способности к саморазвитию, </text>
+<text top="747" left="128" width="341" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="771">самосовершенствованию и самореализации;</text>
+<text top="752" left="468" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="767"> </text>
+<text top="773" left="128" width="13" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="788">– </text>
+<text top="767" left="141" width="666" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="791">выработка навыков эффективной самостоятельной профессиональной теоретической, </text>
+<text top="788" left="128" width="178" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="812">практической и учебно</text>
+<text top="794" left="305" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="809">-</text>
+<text top="788" left="311" width="257" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="812">исследовательской деятельности.</text>
+<text top="794" left="569" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="809"> </text>
+<text top="808" left="181" width="180" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832"><b>Подготовка к лекции.</b></text>
+<text top="814" left="361" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="829"> </text>
+<text top="809" left="365" width="440" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="833">Качество освоения содержания конкретной дисциплины </text>
+<text top="829" left="128" width="680" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="853">прямо зависит от того, насколько студент сам, без внешнего принуждения формирует у </text>
+<text top="850" left="128" width="698" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="874">себя установку на получение на лекциях новых знаний, дополняющих уже имеющиеся по </text>
+<text top="871" left="128" width="231" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="895">данной дисциплине. Время на</text>
+<text top="876" left="359" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="891"> </text>
+<text top="871" left="363" width="467" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="895">подготовку студентов к двухчасовой лекции по нормативам </text>
+<text top="891" left="128" width="223" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="915">составляет не менее 0,2 часа.</text>
+<text top="897" left="351" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="912"> </text>
+<text top="912" left="181" width="320" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="936"><b>Подготовка к практическому занятию.</b></text>
+<text top="918" left="500" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="933"> </text>
+<text top="912" left="505" width="296" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="936">Подготовка к практическому занятию </text>
+<text top="933" left="128" width="667" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="957">включает следующие элементы самостоятельной деятельности: четкое представление </text>
+<text top="954" left="128" width="675" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="978">цели и задач его проведения; выделение навыков умственной, аналитической, научной </text>
+<text top="974" left="128" width="660" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="998">деятельности, которые станут результатом предстоящей работы. Выработка навыков </text>
+<text top="995" left="128" width="675" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1019">осуществляется с помощью получения новой информации об изучаемых процессах и с </text>
+<text top="1016" left="128" width="640" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1040">помощью знания о том, в какой степени в данное время студент владеет методами </text>
+<text top="1036" left="128" width="659" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1060">исследовательской деятельности, которыми он станет пользоваться на практическом </text>
+<text top="1057" left="128" width="650" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1081">занятии. Подготовка к практическому занятию нередко требует подбора материала, </text>
+<text top="1078" left="128" width="662" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1102">данных и специальных источников, с которыми предстоит учебная работа. Студенты </text>
+<text top="1098" left="128" width="299" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1122">должны дома подготовить к занятию 3</text>
+<text top="1104" left="426" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1119">–</text>
+<text top="1098" left="435" width="358" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1122">4 примера формулировки темы исследования, </text>
+<text top="1119" left="128" width="670" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1143">представленного в монографиях, научных статьях, отчетах. Затем они самостоятельно </text>
+<text top="1140" left="128" width="607" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1164">осуществляют поиск соответствующих источников, определяют актуальность </text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="1263" width="892">
+<text top="83" left="128" width="607" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107">конкретного исследования процессов и явлений, выделяют основные способы </text>
+<text top="104" left="128" width="654" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="128">доказательства авторами научных работ ценности того, чем они занимаются. В ходе </text>
+<text top="124" left="128" width="689" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">самого практического занятия студенты сначала представляют найденные ими варианты </text>
+<text top="145" left="128" width="696" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="169">формулировки актуальности исследования, обсуждают их и обосновывают свое мнение о </text>
+<text top="166" left="128" width="659" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">наилучшем варианте. Время на подготовку к практическому занятию по нормативам </text>
+<text top="187" left="128" width="223" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211">составляет не менее 0,2 часа.</text>
+<text top="192" left="351" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="207" left="181" width="311" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231"><b>Подготовка к семинарскому занятию.</b></text>
+<text top="213" left="491" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="207" left="496" width="318" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231">Самостоятельная подготовка к семинару </text>
+<text top="228" left="128" width="664" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252">направлена: на развитие способности к чтению научной и иной литературы; на поиск </text>
+<text top="249" left="128" width="704" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="273">дополнительной информации, позволяющей глубже разобраться в некоторых вопросах; на </text>
+<text top="269" left="128" width="642" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="293">выделение при работе с разными источниками необходимой информации, которая </text>
+<text top="290" left="128" width="658" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314">требуется для полного ответа на вопросы плана семинарского занятия; на выработку </text>
+<text top="311" left="128" width="631" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="335">умения правильно выписывать высказывания авторов из имеющихся источников </text>
+<text top="331" left="128" width="624" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="355">информации, оформлять их по библиографическим нормам; на развитие умения </text>
+<text top="352" left="128" width="679" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="376">осуществлять анализ выбранных источников информации; на подготовку собственного </text>
+<text top="373" left="128" width="629" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="397">выступления по обсуждаемым вопросам; на формирование навыка оперативного </text>
+<text top="394" left="128" width="691" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="418">реагирования на разные мнения, которые могут возникать при обсуждении тех или иных </text>
+<text top="414" left="128" width="681" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">научных проблем. Время на подготовку к семинару по нормативам составляет не менее </text>
+<text top="435" left="128" width="64" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="459">0,2 часа.</text>
+<text top="441" left="192" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456"> </text>
+<text top="455" left="181" width="230" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="479"><b>Подготовка к коллоквиуму.</b></text>
+<text top="461" left="410" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="476"> </text>
+<text top="456" left="415" width="365" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="480">Коллоквиум представляет собой коллективное </text>
+<text top="476" left="128" width="664" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">обсуждение раздела дисциплины на основе самостоятельного изучения этого раздела </text>
+<text top="497" left="128" width="684" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="521">студентами. Подготовка к данному виду учебных занятий осуществляется в следующем </text>
+<text top="518" left="128" width="686" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="542">порядке. Преподаватель дает список вопросов, ответы на которые следует получить при </text>
+<text top="538" left="128" width="658" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="562">изучении определенного перечня научных источников. Студентам во внеаудиторное </text>
+<text top="559" left="128" width="640" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">время необходимо прочитать специальную литературу, выписать из нее ответы на </text>
+<text top="580" left="128" width="674" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="604">вопросы, которые будут обсуждаться на коллоквиуме, мысленно сформулировать свое </text>
+<text top="601" left="128" width="705" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="625">мнение по каждому из вопросов, которое они выскажут на занятии. Время на подготовку к </text>
+<text top="621" left="128" width="448" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="645">коллоквиуму по нормативам составляет не менее 0,2 часа.</text>
+<text top="627" left="576" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="642"> </text>
+<text top="642" left="181" width="285" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="666"><b>Подготовка к контрольной работе.</b></text>
+<text top="648" left="466" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="663"> </text>
+<text top="642" left="471" width="304" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="666">Контрольная работа назначается после </text>
+<text top="663" left="128" width="610" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="687">изучения определенного раздела (разделов) дисциплины и представляет собой </text>
+<text top="683" left="128" width="653" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">совокупность развернутых письменных ответов студентов на вопросы, которые они </text>
+<text top="704" left="128" width="684" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="728">заранее получают от преподавателя. Самостоятельная подготовка к контрольной работе </text>
+<text top="725" left="128" width="133" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="749">включает в себя: </text>
+<text top="730" left="260" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="745">— </text>
+<text top="725" left="283" width="488" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="749">изучение конспектов лекций, раскрывающих материал, знание </text>
+<text top="745" left="128" width="704" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">которого проверяется контрольной работой; повторение учебного материала, полученного </text>
+<text top="766" left="128" width="642" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">при подготовке к семинарским, практическим занятиям и во время их проведения; </text>
+<text top="787" left="128" width="621" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="811">изучение дополнительной литературы, в которой конкретизируется содержание </text>
+<text top="808" left="128" width="635" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">проверяемых знаний; составление в мысленной форме ответов на поставленные в </text>
+<text top="828" left="128" width="672" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">контрольной работе вопросы; формирование психологической установки на успешное </text>
+<text top="849" left="128" width="665" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="873">выполнение всех заданий. Время на подготовку к контрольной работе по нормативам </text>
+<text top="870" left="128" width="142" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="894">составляет 2 часа. </text>
+<text top="875" left="270" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="890"> </text>
+<text top="890" left="181" width="168" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914"><b>Подготовка к зачету</b></text>
+<text top="896" left="349" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="909"><b>.</b></text>
+<text top="896" left="353" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="911"> </text>
+<text top="890" left="357" width="356" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914">Самостоятельная подготовка к зачету должна </text>
+<text top="911" left="128" width="669" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="935">осуществляться в течение всего семестра. Подготовка включает следующие действия: </text>
+<text top="932" left="128" width="629" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="956">перечитать все лекции, а также материалы, которые готовились к семинарским и </text>
+<text top="952" left="128" width="661" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="976">практическим занятиям в течение семестра, соотнести эту информацию с вопросами, </text>
+<text top="973" left="128" width="690" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="997">которые даны к зачету, если информации недостаточно, ответы находят в предложенной </text>
+<text top="994" left="128" width="702" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1018">преподавателем литературе. Рекомендуется делать краткие записи. Время на подготовку к </text>
+<text top="1015" left="128" width="393" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1039">зачету по нормативам составляет не менее 4 часов.</text>
+<text top="1020" left="520" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1035"> </text>
+<text top="1035" left="170" width="194" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1059"><b>Подготовка к экзамену.</b></text>
+<text top="1041" left="364" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1056"> </text>
+<text top="1035" left="369" width="378" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1059">Самостоятельная подготовка к экзамену схожа с </text>
+<text top="1056" left="128" width="644" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1080">подготовкой к зачету, особенно если он дифференцированный. Но объем учебного </text>
+<text top="1077" left="128" width="695" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1101">материала, который нужно восстановить в памяти к экзамену, вновь осмыслить и понять, </text>
+<text top="1097" left="128" width="675" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1121">значительно больше, поэтому требуется больше времени и умственных усилий. Важно </text>
+<text top="1118" left="128" width="656" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1142">сформировать целостное представление о содержании ответа на каждый вопрос, что </text>
+<text top="1139" left="128" width="645" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1163">предполагает знание разных научных трактовок сущности того или иного явления, </text>
+</page>
+<page number="7" position="absolute" top="0" left="0" height="1263" width="892">
+<text top="83" left="128" width="697" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107">процесса, умение раскрывать факторы, определяющие их противоречивость, знание имен </text>
+<text top="104" left="128" width="693" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="128">ученых, изучавших обсуждаемую проблему. Необходимо также привести информацию о </text>
+<text top="124" left="128" width="665" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">материалах эмпирических исследований, что указывает на всестороннюю подготовку </text>
+<text top="145" left="128" width="695" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="169">студента к экзамену. Время на подготовку к экзамену по нормативам составляет 36 часов </text>
+<text top="166" left="128" width="121" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">для бакалавров.</text>
+<text top="172" left="249" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="187"> </text>
+<text top="187" left="170" width="546" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211">В ФБГОУ ВО «ИГУ» организация самостоятельной работы студентов </text>
+<text top="207" left="128" width="686" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231">регламентируется Положением о самостоятельной работе студентов, принятым Ученым </text>
+<text top="228" left="128" width="227" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252">советом ИГУ 22 июня 2012 г.</text>
+<text top="234" left="355" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="249"> </text>
+<text top="254" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="269"> </text>
+<text top="275" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="290"> </text>
+<text top="290" left="128" width="96" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314"><b>5. УЧЕБНО</b></text>
+<text top="296" left="224" width="6" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="309"><b>-</b></text>
+<text top="290" left="230" width="527" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314"><b>МЕТОДИЧЕСКОЕ И ИНФОРМАЦИОННОЕ ОБЕСПЕЧЕНИЕ </b></text>
+<text top="311" left="128" width="141" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="335"><b>ДИСЦИПЛИНЫ</b></text>
+<text top="317" left="268" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="330"><b> </b></text>
+<text top="337" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="352"> </text>
+<text top="352" left="128" width="183" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="376">а) основная литература:</text>
+<text top="358" left="311" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="373"> </text>
+<text top="379" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="394"> </text>
+<text top="394" left="128" width="690" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="418">1. Головко Е.А. Уравнения математической физики. Руководство к решению задач. В 2ч. </text>
+<text top="414" left="128" width="252" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">Ч.1: учеб.пособие/ Е.А.Головко. </text>
+<text top="420" left="380" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435">– </text>
+<text top="414" left="393" width="103" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">Иркутск: Изд</text>
+<text top="420" left="496" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435">-</text>
+<text top="414" left="502" width="94" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">во ИГУ, 201</text>
+<text top="420" left="596" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435">4.–</text>
+<text top="414" left="619" width="44" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">142с. </text>
+<text top="420" left="663" width="137" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435">- ISBN 978-5-964-</text>
+<text top="441" left="128" width="228" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456">1200-9, ISBN 978-5-964-1201-</text>
+<text top="435" left="356" width="64" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="459">6. 48 экз</text>
+<text top="441" left="420" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456"> </text>
+<text top="456" left="128" width="690" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="480">2. Головко Е.А. Уравнения математической физики. Руководство к решению задач. В 2ч. </text>
+<text top="476" left="128" width="252" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">Ч.2: учеб.пособие/ Е.А.Головко. </text>
+<text top="482" left="380" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">– </text>
+<text top="476" left="393" width="103" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">Иркутск: Изд</text>
+<text top="482" left="496" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">-</text>
+<text top="476" left="502" width="108" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">во ИГУ, 2014.</text>
+<text top="482" left="610" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">–</text>
+<text top="476" left="619" width="44" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">142с. </text>
+<text top="482" left="663" width="137" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">- ISBN 978-5-964-</text>
+<text top="503" left="128" width="228" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="518">1200-9, ISBN 978-5-964-1202-</text>
+<text top="497" left="356" width="64" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="521">3. 48 экз</text>
+<text top="503" left="420" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="518"> </text>
+<text top="518" left="128" width="614" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="542">3. Асташова, И. В. Дифференциальные уравнения [Электронный ресурс] : учеб.</text>
+<text top="523" left="742" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="538">-</text>
+<text top="518" left="748" width="52" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="542">практ. </text>
+<text top="538" left="128" width="701" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="562">пособие, учеб. для студ. вузов, обуч. по спец. "Мат. методы в экономике" и др. мат. спец. / </text>
+<text top="559" left="128" width="263" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">И. В. Асташова, В. А. Никишкин. </text>
+<text top="565" left="391" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580">- </text>
+<text top="559" left="401" width="45" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">ЭВК. </text>
+<text top="565" left="446" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580">- </text>
+<text top="559" left="456" width="185" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">М. : Изд. центр ЕАОИ . </text>
+<text top="565" left="642" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580">- </text>
+<text top="559" left="652" width="163" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">Режим доступа: ЭЧЗ </text>
+<text top="580" left="128" width="105" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="604">"Библиотех". </text>
+<text top="586" left="233" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="601">- </text>
+<text top="580" left="243" width="192" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="604">Неогранич. доступ. Ч. 2. </text>
+<text top="586" left="435" width="257" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="601">- 2011. - ISBN 978-5-374-00487-8 </text>
+<text top="606" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="621"> </text>
+<text top="621" left="128" width="238" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="645">б) дополнительная литература:</text>
+<text top="627" left="366" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="642"> </text>
+<text top="648" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="663"> </text>
+<text top="663" left="128" width="635" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="687">1. Владимиров, Василий Сергеевич. Уравнения математической физики: учеб.для </text>
+<text top="683" left="128" width="353" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">студ.вузов / В.С. Владимиров, В.В. Жаринов. </text>
+<text top="689" left="480" width="26" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="704">- 2-</text>
+<text top="683" left="506" width="89" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">е изд.,стер. </text>
+<text top="689" left="595" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="704">- </text>
+<text top="683" left="606" width="173" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">М. : Физматлит, 2003. </text>
+<text top="689" left="779" width="42" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="704">- 398 </text>
+<text top="704" left="128" width="17" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="728">с. </text>
+<text top="710" left="145" width="155" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="725">- ISBN 5-9221-0310-</text>
+<text top="704" left="299" width="60" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="728">5. 5 экз.</text>
+<text top="710" left="359" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="725"> </text>
+<text top="725" left="128" width="661" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="749">2. Сборник задач по уравнениям математической физики [Текст] / В.С.Владимиров и </text>
+<text top="745" left="128" width="239" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">др.:Под ред.В.С.Владимирова. </text>
+<text top="751" left="367" width="25" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="766">- 4-</text>
+<text top="745" left="392" width="89" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">е изд.,стер. </text>
+<text top="751" left="482" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="766">- </text>
+<text top="745" left="492" width="174" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">М. : Физматлит, 2003. </text>
+<text top="751" left="665" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="766">- </text>
+<text top="745" left="676" width="135" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">286 с. : граф. ; 22 </text>
+<text top="766" left="128" width="28" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">см. </text>
+<text top="772" left="156" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="787">- </text>
+<text top="766" left="166" width="104" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">Библиогр.:с.2</text>
+<text top="772" left="271" width="182" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="787">87. - ISBN 5-9221-0309-</text>
+<text top="766" left="453" width="64" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">1 . 5 экз.</text>
+<text top="772" left="517" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="787"> </text>
+<text top="787" left="128" width="682" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="811">3. Тихонов, Андрей Николаевич. Уравнения математической физики : учеб.пособие для </text>
+<text top="808" left="128" width="71" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">студ.физ.</text>
+<text top="813" left="199" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="828">-</text>
+<text top="808" left="205" width="90" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">мат.спец.ун</text>
+<text top="813" left="295" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="828">-</text>
+<text top="808" left="301" width="287" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">тов / А.Н. Тихонов, А.А. Самарский. </text>
+<text top="813" left="588" width="25" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="828">- 6-</text>
+<text top="808" left="613" width="139" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">е изд.,испр.и доп. </text>
+<text top="813" left="752" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="828">- </text>
+<text top="808" left="763" width="35" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">М. : </text>
+<text top="828" left="128" width="29" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">Изд</text>
+<text top="834" left="157" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849">-</text>
+<text top="828" left="163" width="115" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">во МГУ, 1999. </text>
+<text top="834" left="278" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849">- </text>
+<text top="828" left="289" width="48" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">798 с. </text>
+<text top="834" left="337" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849">- </text>
+<text top="828" left="348" width="195" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">ISBN 5211041380 . 28 экз</text>
+<text top="834" left="543" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849"> </text>
+<text top="849" left="128" width="687" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="873">4. Бицадзе, Андрей Васильевич. Сборник задач по уравнениям математической физики : </text>
+<text top="870" left="128" width="218" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="894">учеб. пособие для студ. мех.</text>
+<text top="875" left="346" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="890">-</text>
+<text top="870" left="352" width="458" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="894">мат. и физ. спец. вузов / А. В. Бицадзе, Д. Ф. Калиниченко. </text>
+<text top="875" left="809" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="890">- </text>
+<text top="896" left="128" width="15" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="911">2-</text>
+<text top="890" left="143" width="89" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914">е изд., доп. </text>
+<text top="896" left="231" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="911">- </text>
+<text top="890" left="242" width="135" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914">М. : Наука, 1985. </text>
+<text top="896" left="377" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="911">- </text>
+<text top="890" left="388" width="85" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914">310 с. 1 зкз</text>
+<text top="896" left="472" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="911"> </text>
+<text top="917" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="932"> </text>
+<text top="932" left="128" width="251" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="956">в) базы данных, информационно</text>
+<text top="937" left="379" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="952">-</text>
+<text top="932" left="385" width="266" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="956">справочные и поисковые системы:</text>
+<text top="937" left="651" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="952"> </text>
+<text top="958" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="973"> </text>
+<text top="979" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="994">1.  </text>
+<text top="1000" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1015">2.  </text>
+<text top="1020" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1035">3.  </text>
+<text top="1041" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1056"> </text>
+<text top="1062" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1077"> </text>
+<text top="1077" left="128" width="163" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1101"><b>6. МАТЕРИАЛЬНО</b></text>
+<text top="1083" left="291" width="6" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1096"><b>-</b></text>
+<text top="1077" left="297" width="434" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1101"><b>ТЕХНИЧЕСКОЕ ОБЕСПЕЧЕНИЕ ДИСЦИПЛИНЫ</b></text>
+<text top="1083" left="731" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1096"><b> </b></text>
+<text top="1103" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1118"> </text>
+<text top="1118" left="128" width="91" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1142"><b>6.1. Учебно</b></text>
+<text top="1124" left="219" width="6" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1137"><b>-</b></text>
+<text top="1118" left="225" width="228" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1142"><b>лабораторное оборудование</b></text>
+<text top="1124" left="452" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1137"><b> </b></text>
+<text top="1144" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1159"> </text>
+</page>
+<page number="8" position="absolute" top="0" left="0" height="1263" width="892">
+<image top="543" left="128" width="624" height="-56" src="a-8_1.png"/>
+<image top="1004" left="128" width="701" height="-460" src="a-8_2.jpg"/>
+<text top="83" left="128" width="258" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107">ЭТОТ РАЗДЕЛ НЕ ЗАПОЛНЯТЬ</text>
+<text top="89" left="386" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="104"> </text>
+<text top="109" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="124"> </text>
+<text top="124" left="128" width="247" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148"><b>6.2. Программное обеспечение</b></text>
+<text top="131" left="375" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="144"><b> </b></text>
+<text top="151" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="166"> </text>
+<text top="166" left="128" width="692" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">ПЕРЕЧИСЛИТЬ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ТРЕБУЕМОЕ ДЛЯ ДИСЦИПЛИНЫ</text>
+<text top="172" left="820" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="187"> </text>
+<text top="192" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="213" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="234" left="128" width="9" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="247"><b>7</b></text>
+<text top="228" left="137" width="549" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252"><b>. ОЦЕНОЧНЫЕ МАТЕРИАЛЫ ДЛЯ ТЕКУЩЕГО КОНТРОЛЯ И </b></text>
+<text top="249" left="128" width="314" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="273"><b>ПРОМЕЖУТОЧНОЙ АТТЕСТАЦИИ</b></text>
+<text top="255" left="441" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="268"><b> </b></text>
+<text top="275" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="290"> </text>
+<text top="296" left="128" width="9" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="309"><b>7</b></text>
+<text top="290" left="137" width="355" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314"><b>.1. Оценочные средства текущего контроля</b></text>
+<text top="296" left="492" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="309"><b> </b></text>
+<text top="316" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="331"> </text>
+<text top="333" left="128" width="88" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="353">Вид контроля</text>
+<text top="337" left="216" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="349"> </text>
+<text top="333" left="367" width="147" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="353">Контролируемые темы</text>
+<text top="337" left="514" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="349"> </text>
+<text top="333" left="689" width="114" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="353">Контролируемые </text>
+<text top="350" left="689" width="84" height="20" font="13" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="370">компетенции</text>
+<text top="355" left="773" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="367"> </text>
+<text top="373" left="128" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="385"> </text>
+<text top="373" left="367" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="385"> </text>
+<text top="373" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="385"> </text>
+<text top="391" left="128" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="403"> </text>
+<text top="391" left="367" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="403"> </text>
+<text top="391" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="403"> </text>
+<text top="409" left="128" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="421"> </text>
+<text top="409" left="367" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="421"> </text>
+<text top="409" left="689" width="4" height="12" font="14" bold="0" italic="0" strike="0" fontname="Times" size="14" color="#000000" bottom="421"> </text>
+<text top="427" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="442"> </text>
+<text top="442" left="128" width="403" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="466"><b>Примеры оценочных средств текущего контроля</b></text>
+<text top="448" left="530" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="461"><b> </b></text>
+<text top="469" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="484"> </text>
+<text top="530" left="752" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="545"> </text>
+<text top="992" left="829" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1007"> </text>
+<text top="1008" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1023"> </text>
+</page>
+<page number="9" position="absolute" top="0" left="0" height="1263" width="892">
+<image top="445" left="128" width="534" height="-359" src="a-9_1.png"/>
+<image top="673" left="128" width="548" height="-206" src="a-9_2.png"/>
+<image top="977" left="128" width="701" height="-282" src="a-9_3.png"/>
+<text top="433" left="662" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="448"> </text>
+<text top="449" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="464"> </text>
+<text top="660" left="676" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="675"> </text>
+<text top="676" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="691"> </text>
+<text top="964" left="829" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="979"> </text>
+<text top="980" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="995"> </text>
+<text top="1001" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1016"> </text>
+<text top="1016" left="128" width="83" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1040">Например:</text>
+<text top="1022" left="210" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1037"> </text>
+<text top="1037" left="128" width="489" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1061">Демонстрационный вариант контрольной работы №1 (№2, №3)</text>
+<text top="1042" left="617" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1057"> </text>
+<text top="1057" left="128" width="370" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1081">Демонстрационный вариант теста №1 (№2, №3)</text>
+<text top="1063" left="498" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1078"> </text>
+<text top="1078" left="128" width="325" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1102">Вопросы для собеседования №1 (№2, №3)</text>
+<text top="1084" left="453" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1099"> </text>
+<text top="1099" left="128" width="313" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1123">Вопросы для коллоквиума №1 (№2, №3)</text>
+<text top="1105" left="440" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1120"> </text>
+<text top="1119" left="128" width="167" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1143">Темы рефератов и др.</text>
+<text top="1125" left="295" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1140"> </text>
+<text top="1146" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1161"> </text>
+</page>
+<page number="10" position="absolute" top="0" left="0" height="1263" width="892">
+<text top="89" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="104"> </text>
+<text top="110" left="128" width="9" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="123"><b>7</b></text>
+<text top="104" left="137" width="456" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="128"><b>.2. Оценочные средства для промежуточной аттестации</b></text>
+<text top="110" left="592" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="123"><b> </b></text>
+<text top="130" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="145"> </text>
+<text top="145" left="128" width="410" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="169"><b>Список вопросов для промежуточной аттестации:</b></text>
+<text top="151" left="537" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="164"><b> </b></text>
+<text top="172" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="187"> </text>
+<text top="187" left="128" width="658" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211">1. Понятие дифференциального уравнения с частными производными и его решения.</text>
+<text top="192" left="785" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="207" left="128" width="346" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231">2. Общие сведения о совокупности решений.</text>
+<text top="213" left="474" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="228" left="128" width="431" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252">3. Задача об эквивалентности системы ДУ и одного ДУ.</text>
+<text top="234" left="559" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="249"> </text>
+<text top="249" left="128" width="503" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="273">4. Определенные, переопределенные и неопределенные системы.</text>
+<text top="254" left="631" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="269"> </text>
+<text top="269" left="128" width="523" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="293">5. Задача Коши для нормальной системы уравнений. Теорема Коши</text>
+<text top="275" left="651" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="290">-</text>
+<text top="269" left="657" width="103" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="293">Ковалевской.</text>
+<text top="275" left="760" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="290"> </text>
+<text top="290" left="128" width="478" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314">6. Понятие характеристической формы и классификация ЛДУ</text>
+<text top="296" left="606" width="24" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="311">-2. </text>
+<text top="311" left="128" width="560" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="335">7. Классификация линейных и нелинейных уравнений высшего порядка.</text>
+<text top="316" left="687" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="331"> </text>
+<text top="331" left="128" width="200" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="355">8. Классификация систем.</text>
+<text top="337" left="328" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="352"> </text>
+<text top="352" left="128" width="180" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="376">9. Классификация ЛДУ</text>
+<text top="358" left="307" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="373">-</text>
+<text top="352" left="313" width="189" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="376">2 по учебнику Михлина.</text>
+<text top="358" left="502" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="373"> </text>
+<text top="373" left="128" width="525" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="397">10. Характеристические кривые и характеристические направления.</text>
+<text top="379" left="652" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="394"> </text>
+<text top="394" left="128" width="691" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="418">11. Приведение к каноническому виду уравнения второго порядка с двумя независимыми</text>
+<text top="399" left="819" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="414"> </text>
+<text top="414" left="128" width="103" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="438">пременными.</text>
+<text top="420" left="231" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435"> </text>
+<text top="435" left="128" width="623" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="459">12. Канонические формы линейных уравнений с постоянными коэффициентами.</text>
+<text top="441" left="751" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456"> </text>
+<text top="456" left="128" width="182" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="480">13. Уравнения Лапласа.</text>
+<text top="461" left="310" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="476"> </text>
+<text top="476" left="128" width="189" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">14. Волновое уравнение.</text>
+<text top="482" left="317" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497"> </text>
+<text top="497" left="128" width="261" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="521">15. Уравнение теплопроводности.</text>
+<text top="503" left="389" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="518"> </text>
+<text top="518" left="128" width="321" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="542">16. Постановки основных задач для ЛДУ </text>
+<text top="523" left="448" width="14" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="538">– </text>
+<text top="518" left="462" width="354" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="542">2 и понятие корректности задачи по Адамару.</text>
+<text top="523" left="816" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="538"> </text>
+<text top="538" left="128" width="680" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="562">17. Волновое уравнение с тремя пространственными переменными. Формула Кирхгофа.</text>
+<text top="544" left="807" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="559"> </text>
+<text top="565" left="128" width="18" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580">18</text>
+<text top="559" left="146" width="660" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="583">. Волновое уравнение с двумя пространственными переменными. Формула Пуассона.</text>
+<text top="565" left="806" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="580"> </text>
+<text top="580" left="128" width="424" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="604">19. Уравнение колебания струны. Формула Даламбера.</text>
+<text top="586" left="552" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="601"> </text>
+<text top="601" left="128" width="404" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="625">20. Физическая интерпретация формулы Даламбера.</text>
+<text top="606" left="531" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="621"> </text>
+<text top="621" left="128" width="215" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="645">21. Примеры бегущих волн.</text>
+<text top="627" left="342" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="642"> </text>
+<text top="642" left="128" width="502" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="666">22. Область зависимости, область влияния, область определения.</text>
+<text top="648" left="629" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="663"> </text>
+<text top="663" left="128" width="634" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="687">23. Неоднородное волновое уравнение с тремя пространственными переменными.</text>
+<text top="668" left="761" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="683"> </text>
+<text top="683" left="128" width="672" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="707">24. Неоднородное волновое уравнение с двумя и одной пространственной переменной.</text>
+<text top="689" left="799" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="704"> </text>
+<text top="704" left="128" width="530" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="728">25. Единственность решения задачи Коши для волнового уравнения.</text>
+<text top="710" left="657" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="725"> </text>
+<text top="725" left="128" width="335" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="749">26. Корректность постановки задачи Коши.</text>
+<text top="730" left="462" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="745"> </text>
+<text top="745" left="128" width="279" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="769">27. Общая постановка задачи Коши.</text>
+<text top="751" left="407" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="766"> </text>
+<text top="766" left="128" width="131" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="790">28. Задача Гурса.</text>
+<text top="772" left="259" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="787"> </text>
+<text top="787" left="128" width="307" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="811">29. Задача Гурса и первая задача Дарбу.</text>
+<text top="793" left="435" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="808"> </text>
+<text top="808" left="128" width="286" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832">30. Постановка второй задачи Дарбу.</text>
+<text top="813" left="414" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="828"> </text>
+<text top="828" left="128" width="393" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="852">31. Простейшие свойства гармонических функций.</text>
+<text top="834" left="520" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="849"> </text>
+<text top="849" left="128" width="599" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="873">32. Некоторые частные решения уравнения Лапласа и преобразование радиус</text>
+<text top="855" left="726" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="870">-</text>
+<text top="849" left="732" width="73" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="873">векторов.</text>
+<text top="855" left="805" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="870"> </text>
+<text top="870" left="128" width="410" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="894">33. Элементарные свойства гармонических функций.</text>
+<text top="875" left="537" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="890"> </text>
+<text top="890" left="128" width="500" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914">34. Связь между аналитическими и гармоническими функциями.</text>
+<text top="896" left="628" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="911"> </text>
+<text top="911" left="128" width="449" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="935">35. Интегральное представление гармонических функций.</text>
+<text top="917" left="576" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="932"> </text>
+<text top="932" left="128" width="544" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="956">36. Формулы о среднем арифметическом для гармонических функций.</text>
+<text top="937" left="672" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="952"> </text>
+<text top="952" left="128" width="647" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="976">37. Принцип экстремума и единственность решения задачи Дирихле для уравнения </text>
+<text top="973" left="128" width="67" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="997">Лапласа.</text>
+<text top="979" left="195" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="994"> </text>
+<text top="994" left="128" width="350" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1018">38. Линейная функция и некоторые свойства.</text>
+<text top="1000" left="477" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1015"> </text>
+<text top="1015" left="128" width="461" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1039">39. Функция Грина задачи Дирихле для уравнения Лапласа.</text>
+<text top="1020" left="588" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1035"> </text>
+<text top="1035" left="128" width="459" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1059">40. Решение задачи Дирихле для шара. Формулы Пуассона.</text>
+<text top="1041" left="587" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1056"> </text>
+<text top="1056" left="128" width="346" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1080">41. Задача Дирихле для уравнения Пуассона.</text>
+<text top="1062" left="474" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1077"> </text>
+<text top="1077" left="128" width="392" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1101">42. Решение задачи Дирихле для полупространств.</text>
+<text top="1082" left="519" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1097"> </text>
+<text top="1097" left="128" width="369" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1121">43. Теоремы, вытекающие из формул Пуассона.</text>
+<text top="1103" left="497" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1118"> </text>
+<text top="1118" left="128" width="647" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1142">44. Непрерывность потенциала объемных масс и его производных первого порядка.</text>
+<text top="1124" left="774" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1139"> </text>
+<text top="1139" left="128" width="603" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1163">45. Существование производных второго порядка потенциала объемных масс.</text>
+<text top="1144" left="731" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1159"> </text>
+</page>
+<page number="11" position="absolute" top="0" left="0" height="1263" width="892">
+<text top="89" left="128" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="104">4</text>
+<text top="83" left="137" width="148" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="107">6. Формула Гаусса.</text>
+<text top="89" left="285" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="104"> </text>
+<text top="104" left="128" width="345" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="128">47. Потенциал двойного слоя и его свойства.</text>
+<text top="109" left="472" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="124"> </text>
+<text top="124" left="128" width="367" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="148">48. Потенциал простого слоя и задача Неймана.</text>
+<text top="130" left="495" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="145"> </text>
+<text top="145" left="128" width="315" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="169">49. Внешние задачи Дирихле и Неймана.</text>
+<text top="151" left="443" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="166"> </text>
+<text top="166" left="128" width="465" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="190">50. Первая краевая задача для уравнения теплопроводности.</text>
+<text top="172" left="592" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="187"> </text>
+<text top="187" left="128" width="524" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211">51. Постановка задачи и доказательство существования ее решения.</text>
+<text top="192" left="651" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="207"> </text>
+<text top="207" left="128" width="453" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231">52. Единственность и устойчивость решения задачи Коши </text>
+<text top="213" left="581" width="10" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228">- </text>
+<text top="207" left="591" width="71" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231">Дирихле.</text>
+<text top="213" left="663" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="228"> </text>
+<text top="228" left="128" width="373" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="252">53. Неоднородное уравнение теплопроводности.</text>
+<text top="234" left="501" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="249"> </text>
+<text top="254" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="269"> </text>
+<text top="275" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="290"> </text>
+<text top="290" left="128" width="509" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="314"><b>Примеры оценочных средств для промежуточной аттестации:</b></text>
+<text top="296" left="637" width="5" height="13" font="8" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="309"><b> </b></text>
+<text top="316" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="331"> </text>
+<text top="337" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="352">1.  </text>
+<text top="358" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="373">2.  </text>
+<text top="379" left="128" width="23" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="394">3.  </text>
+<text top="399" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="414"> </text>
+<text top="420" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="435"> </text>
+<text top="441" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="456"> </text>
+<text top="461" left="128" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="476"> </text>
+<text top="476" left="128" width="211" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">Разработчик: Головко Е. А.</text>
+<text top="482" left="338" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">, </text>
+<text top="476" left="347" width="108" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">кандидат физ.</text>
+<text top="482" left="455" width="6" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">-</text>
+<text top="476" left="461" width="71" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">мат. наук</text>
+<text top="482" left="532" width="9" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497">, </text>
+<text top="476" left="541" width="53" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="500">доцент</text>
+<text top="482" left="595" width="5" height="15" font="10" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="497"> </text>
+</page>
+</pdf2xml>

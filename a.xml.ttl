@@ -6,32 +6,32 @@
 @prefix wpdb: <http://irnok.net/ontologies/database/isu/workprog#> .
 @prefix wpdd: <http://irnok.net/ontologies/isu/workprog#> .
 
-wpdb:caeb73e2-d7e6-11ec-ab94-704d7b84fd9f a dbr:Syllabus ;
-    idd:city idd:caf2f3d8-d7e6-11ec-ab94-704d7b84fd9f ;
+wpdb:59d37262-d7f1-11ec-96fc-107b44811a3f a dbr:Syllabus ;
+    idd:city idd:59daa5aa-d7f1-11ec-96fc-107b44811a3f ;
     idd:issued "2019" ;
     idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
-    idd:profile idb:caf2eb54-d7e6-11ec-ab94-704d7b84fd9f ;
-    idd:specialty idb:caf2e60e-d7e6-11ec-ab94-704d7b84fd9f ;
+    idd:profile idb:59da9d6c-d7f1-11ec-96fc-107b44811a3f ;
+    idd:specialty idb:59da9808-d7f1-11ec-96fc-107b44811a3f ;
     idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
-    wpdd:chair idb:caf2d9c0-d7e6-11ec-ab94-704d7b84fd9f ;
+    wpdd:chair idb:59da8b42-d7f1-11ec-96fc-107b44811a3f ;
     wpdd:courseDC [ wpdd:aim "Цели: Формирование у будущих бакалавров современных теоретических знаний в области уравнений математической физики. Обзор некоторых наиболее распространенных методов исследования и решения основных классических задач для уравнений с частными производными."@ru ;
             wpdd:problem "Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с частными производными. Дать обзор основных задач для уравнений математической физики; сформировать умение создавать математическую модель физического явления; научить студентов применять набор стандартных методов решения задач для уравнений с частными производными."@ru ] ;
     wpdd:institute idb:c526d6c7-9a78-11e6-9438-005056100702 .
 
-idd:caf2e000-d7e6-11ec-ab94-704d7b84fd9f a idd:Discipline ;
+idd:59da91b4-d7f1-11ec-96fc-107b44811a3f a idd:Discipline ;
     rdfs:label "Уравнения математической физики"@ru ;
     dcterms:identifier "Б1.О.23"@ru .
 
-idb:caf2d9c0-d7e6-11ec-ab94-704d7b84fd9f a idd:Chair ;
+idb:59da8b42-d7f1-11ec-96fc-107b44811a3f a idd:Chair ;
     rdfs:label "Кафедра математического анализа и дифференциальных уравнений"@ru .
 
-idb:caf2e60e-d7e6-11ec-ab94-704d7b84fd9f a idd:Speciality ;
+idb:59da9808-d7f1-11ec-96fc-107b44811a3f a idd:Speciality ;
     rdfs:label "Прикладная математика и информатика"@ru ;
     dcterms:identifier "01.03.02" .
 
-idb:caf2eb54-d7e6-11ec-ab94-704d7b84fd9f a idd:Discipline ;
+idb:59da9d6c-d7f1-11ec-96fc-107b44811a3f a idd:Discipline ;
     rdfs:label "информационные технологии"@ru .
 
-idd:caf2f3d8-d7e6-11ec-ab94-704d7b84fd9f a dbr:City ;
+idd:59daa5aa-d7f1-11ec-96fc-107b44811a3f a dbr:City ;
     rdfs:label "Иркутск"@ru .
 
