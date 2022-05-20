@@ -79,6 +79,10 @@ def printel(el):
     print("<{} {}>{}</{}>".format(el.tag, el.attrib, el.text, el.tag))
 
 
+def found(s, substr):
+    return s.find(substr) != -1
+
+
 def can_merge(o1, o2):
     if o1.get("font") == o2.get("font"):
         return True
@@ -363,7 +367,7 @@ def conv(filename):
             t = span.xpath("string()").strip()
             t = t[0]
             # if t.isalpha() and t.islower():
-            if not (t.isdigit() or t in ["-"]):
+            if not (t.isdigit() or t in ["-", "I", 'i', "V", 'v', 'X', 'x']):
                 merge(pspan, span)
                 span.getparent().remove(span)
                 pspan.attrib["par"] = "rest"  # Sign that the join is a
@@ -527,14 +531,14 @@ def proctitlepage(titlepage):
             name = s[-1].tail.strip()
             G.add((spec, RDFS.label, Literal(name, lang="ru")))
         elif tn.startswith("квалификация"):
-            if tn.find('бакалавр') != -1:
-                if tn.find('академ') != -1:
+            if found(tn, 'бакалавр'):
+                if found(tn, 'академ'):
                     G.add((WP, IDD.level, ACBACH))
-                elif tn.find('прикладн') != -1:
+                elif found(tn, 'прикладн'):
                     G.add((WP, IDD.level, APPLBACH))
                 else:
                     G.add((WP, IDD.level, BACHOLOIR))
-            elif tn.find('магистрату') != -1:
+            elif fond(tn, 'магистрату'):
                 G.add((WP, IDD.level, MASTER))
             else:
                 print("WARNING: Неизвестный уровень подготовки", tc)
@@ -555,7 +559,7 @@ def proctitlepage(titlepage):
             code, nname = name.split(" ", maxsplit=1)
             disc = IDD[genuuid()]
             G.add((disc, RDF.type, IDD["Discipline"]))
-            if code.find('.') != -1:
+            if found(code, '.'):
                 G.add((disc, DCTERMS.identifier, Literal(code, lang="ru")))
                 G.add((disc, RDFS.label, Literal(nname, lang="ru")))
             else:
@@ -577,8 +581,8 @@ def procaims(section):
     tl = title.lower().strip()
     num = section.get("number")
     assert tl.startswith(num)
-    assert tl.find("цел") != -1
-    assert tl.find("задач") != -1
+    assert found(tl, "цел")
+    assert found(tl, "задач")
     for p in section.xpath("//p"):
         t = p.xpath("string()").strip()
         tl = t.lower()
@@ -591,6 +595,7 @@ def procaims(section):
         if t == "":
             p.getparent().remove(p)
 
+
 def proctestsection(section):
     ps = section.xpath(".//p")
     ol = None
@@ -602,53 +607,37 @@ def proctestsection(section):
             continue
         m = re.search(r'^(\d+)\.?\)?\s*', t)
         if m is None:
-            ol=None
+            ol = None
             continue
         _, e = m.span()
         name = t[e:]
-        num=m.group(1)
-        if name.strip()=="":
+        num = m.group(1)
+        if name.strip() == "":
             continue
 
         if ol is None:
-            par =p.getparent()
-            ol=etree.Element("ol")
+            par = p.getparent()
+            ol = etree.Element("ol")
             index = par.index(p)
             par.insert(index, ol)
-            ol.text="\n"
-            ol.tail="\n"
+            ol.text = "\n"
+            ol.tail = "\n"
             quests = WPDB[genuuid()]
             G.add((quests, RDF.type, WPDD["QuestionList"]))
             # TODO: define a kind of question list
             G.add((WP, WPDD.questionList, quests))
 
-        p.tag="li"
+        p.tag = "li"
         p.clear()
-        p.text=name
-        p.tail="\n"
-        p.attrib["number"]=num
+        p.text = name
+        p.tail = "\n"
+        p.attrib["number"] = num
         p.getparent().remove(p)
         ol.append(p)
         q = WPDB[genuuid()]
         G.add((q, RDF.type, WPDD["Question"]))
         G.add((q, RDFS.label, Literal(name, lang="ru")))
         G.add((q, SCH.sku, Literal(num)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def procsec(number, section):
