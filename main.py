@@ -28,6 +28,10 @@ IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702']
 CDC = BNode()
 MURAL = IDB['e4f4e44d-5a0b-11e6-942f-005056100702']
 EXMURAL = IDB['e4f4e44c-5a0b-11e6-942f-005056100702']
+BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
+ACBACH = IDB['f2d3374f-5a0b-11e6-942f-005056100702']
+APPLBACH = IDB['f2d33754-5a0b-11e6-942f-005056100702']
+MASTER = IDB["f2d33752-5a0b-11e6-942f-005056100702"]
 
 
 class Style:
@@ -439,6 +443,7 @@ def conv(filename):
     # TODO: subsections... h2, etc.
 
     G.add((WP, RDF.type, DBR["Syllabus"]))
+    # G.add((WP, RDF.type, IDD['Discipline']))
     G.add((WP, WPDD['courseDC'], CDC))
 
     for k, v in SECTIONS.items():
@@ -467,12 +472,25 @@ INSTITUTES = {"институтматематикииинформационны�
 def upfirst(s):
     return s[0].upper() + s[1:]
 
+
 MURALFORM = {
     "заочная": EXMURAL,
     "очная": MURAL,
 }
 
+
 def proctitlepage(titlepage):
+    for span in titlepage.xpath('.//div/span[@bold="1"]'):
+        n = span.getparent().getnext()
+        if n.tag == "div":
+            removed = False
+            for s in n:
+                if s.get("bold") == "0":
+                    removed = True
+                    merge(span, s)
+            if removed:
+                n.getparent().remove(n)
+
     for s in titlepage.xpath(".//span"):
         t = s.xpath('string()').strip()
         tl = t.lower()
@@ -484,22 +502,70 @@ def proctitlepage(titlepage):
                 inst = INSTITUTES[inst]
             except KeyError:
                 inst = IDB[genuuid()]
+                G.add((inst, RDF.type, IDD["Institute"]))
                 G.add((inst, RDFS.label, Literal(tc, lang="ru")))
             G.add((WP, WPDD.institute, inst))
         elif tl.startswith("кафедра"):
             chair = IDB[genuuid()]
+            G.add((chair, RDF.type, IDD['Chair']))
             G.add((WP, WPDD.chair, chair))
             G.add((chair, RDFS.label, Literal(tc, lang="ru")))
         elif tn.startswith("направлениеподготовки"):
             spec = IDB[genuuid()]
+            G.add((spec, RDF.type, IDD["Speciality"]))
             G.add((WP, IDD.specialty, spec))
             tcl = tc.split(" ", maxsplit=3)
             _, _, code, name = tcl
             G.add((spec, RDFS.label, Literal(upfirst(name), lang="ru")))
             G.add((spec, DCID, Literal(code)))
+        elif tn.startswith("направленность"):
+            spec = IDB[genuuid()]
+            G.add((spec, RDF.type, IDD["Discipline"]))
+            G.add((WP, IDD.profile, spec))
+            name = s[-1].tail.strip()
+            G.add((spec, RDFS.label, Literal(name, lang="ru")))
+        elif tn.startswith("квалификация"):
+            if tn.find('бакалавр') != -1:
+                if tn.find('академ') != -1:
+                    G.add((WP, IDD.level, ACBACH))
+                elif tn.find('прикладн') != -1:
+                    G.add((WP, IDD.level, APPLBACH))
+                else:
+                    G.add((WP, IDD.level, BACHOLOIR))
+            elif tn.find('магистрату') != -1:
+                G.add((WP, IDD.level, MASTER))
+            else:
+                print("WARNING: Неизвестный уровень подготовки", tc)
         elif tn.startswith("формаобучения"):
             _, _, stform = tc.split(" ")
             G.add((WP, IDD.studyForm, MURALFORM[stform]))
+        elif tn.startswith("рабочаяпрограмма"):
+            # TODO try parse string after, as it can be not be bold
+            ss = s.getparent()
+            while (True):
+                ss = ss.getnext()
+                if ss is None:
+                    break
+                name = ss.xpath("string()").strip()
+                if name != "":
+                    break
+            name = " ".join(name.split())
+            code, nname = name.split(" ", maxsplit=1)
+            disc = IDD[genuuid()]
+            G.add((disc, RDF.type, IDD["Discipline"]))
+            if code.find('.') != -1:
+                G.add((disc, DCTERMS.identifier, Literal(code, lang="ru")))
+                G.add((disc, RDFS.label, Literal(nname, lang="ru")))
+            else:
+                G.add((disc, RDFS.label, Literal(name, lang="ru")))
+
+        elif tn.startswith("иркутск"):
+            cityn, year = tc.split()[:2]
+            G.add((WP, IDD.issued, Literal(year)))
+            city = IDD[genuuid()]
+            G.add((city, RDF.type, DBR['City']))
+            G.add((city, RDFS.label, Literal(cityn, lang="ru")))
+            G.add((WP, IDD.city, city))
 
         # TODO: Рабочая программа дисциплины ..
 
