@@ -34,7 +34,7 @@ BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
 ACBACH = IDB['f2d3374f-5a0b-11e6-942f-005056100702']
 APPLBACH = IDB['f2d33754-5a0b-11e6-942f-005056100702']
 MASTER = IDB["f2d33752-5a0b-11e6-942f-005056100702"]
-NUMBERRE = re.compile(r'^((\d+|[IVXLCDM]+|[ivxlcdm]+)\.?)+\)?\s*')
+NUMBERRE = re.compile(r'^(((Тема|Раздел)\s+)?((\d+|[IVXLCDM]+|[ivxlcdm]+)\.?\)?)+|[а-яА-я]\))\s*')
 
 
 class Style:
@@ -110,7 +110,7 @@ def splitnumber(s):
 def allwords(s, *set):
     if len(set) == 1:
         set = set[0]
-        set = str.split()
+        set = set.split()
     s = s.strip()
     for w in set:
         if not found(s, w):
@@ -121,7 +121,7 @@ def allwords(s, *set):
 def anywords(s, *set):
     if len(set) == 1:
         set = set[0]
-        set = str.split()
+        set = set.split()
     s = s.strip()
     for w in set:
         if found(s, w):
@@ -211,17 +211,9 @@ def conv(filename):
         a['color'] = s.color
         a['bottom'] = str(int(a['top']) + int(a['height']))
 
-    ofilename = "o-" + filename
-    o = open(ofilename, "wb")
-    o.write(etree.tostring(tree, encoding="utf-8"))
     lines = tree.xpath('//text[@bold="1"]')
-    # lines=tree.xpath('//text[@bold="1"]')
-    for line in lines:
-        # print(len(line))
-        # print(etree.tostring(line,encoding=str))
-        # printel(line)
-        pass
-    #массив нижних линий, что-то выше 2/3 вверх, остальное вниз pt линии не принадлежит
+
+    # массив нижних линий, что-то выше 2/3 вверх, остальное вниз pt линии не принадлежит
 
     pages = tree.xpath("//page")
 
@@ -276,12 +268,6 @@ def conv(filename):
     doc = tree.xpath("//pdf2xml")
     for p in doc:
         p.tag = "body"
-    ofilename = "s2-" + filename + ".xhtml"
-    o = open(ofilename, "wb")
-    # o.write(b"""<html>""")
-    o.write(etree.tostring(tree, encoding="utf-8"))
-    # o.write(b"""</html>""")
-    o.close()
 
     #change empty <div><span>...</span><div>, where ... is empty to <p/>
     divs = tree.xpath("//div")
@@ -682,9 +668,12 @@ def procsec(number, section):
     if section.tag == "section":
         if number == "_":
             return
-        if number == "1":
+        title = section.get("title", "")
+        title = title.lower()
+        print("TITLE:", title)
+        if allwords(title, "цел задач"):
             procaims(section)
-        if number == "7":
+        elif allwords(title, "материал текущ контрол аттестац"):
             proctestsection(section)
 
 
