@@ -84,6 +84,51 @@ def found(s, substr):
     return s.find(substr) != -1
 
 
+def startswithnumber(s):
+    m = re.search(NUMBERRE, s.lstrip())
+    if m is None:
+        return False
+    return m.span()[0] == 0
+
+
+def splitnumber(s):
+    s = s.strip()
+    m = re.search(NUMBERRE, s)
+    if m is None:
+        return None, None
+    b, e = m.span()
+    if b > 0:
+        return None, None
+    num = s[b:e].strip()
+    num = num.rstrip(".")
+    num = num.rstrip(")")
+    num = num.rstrip(".")
+    title = s[e:].strip()
+    return num, title
+
+
+def allwords(s, *set):
+    if len(set) == 1:
+        set = set[0]
+        set = str.split()
+    s = s.strip()
+    for w in set:
+        if not found(s, w):
+            return False
+    return True
+
+
+def anywords(s, *set):
+    if len(set) == 1:
+        set = set[0]
+        set = str.split()
+    s = s.strip()
+    for w in set:
+        if found(s, w):
+            return True
+    return False
+
+
 def can_merge(o1, o2):
     if o1.get("font") == o2.get("font"):
         return True
@@ -150,11 +195,10 @@ def conv(filename):
         attrs = style.attrib
         s = Style(**attrs)
         styles[_id] = s
-    for _id, style in styles.items():
-        print("{}={}".format(_id, style))
+    # for _id, style in styles.items():
+    #     print("{}={}".format(_id, style))
 
     lines = tree.xpath('//text')
-    print(len(lines))
     for line in lines:
         _id = line.get("font")
         s = styles[_id]
@@ -171,7 +215,6 @@ def conv(filename):
     o = open(ofilename, "wb")
     o.write(etree.tostring(tree, encoding="utf-8"))
     lines = tree.xpath('//text[@bold="1"]')
-    print(len(lines))
     # lines=tree.xpath('//text[@bold="1"]')
     for line in lines:
         # print(len(line))
@@ -354,7 +397,7 @@ def conv(filename):
         for span in spans:
             body.append(span)
 
-    # Joinig itself # TODO: Kills text at headers 1., 2. etc.
+    # Joinig itself # Span starting with a number stops joining
     spans = tree.xpath("/body/*")
     pspan = None
     for span in spans:
@@ -367,8 +410,8 @@ def conv(filename):
         if pspan.get("left") == span.get("left"):
             t = span.xpath("string()").strip()
             t = t[0]
-            # if t.isalpha() and t.islower():
-            if not (t.isdigit() or t in ["-", "I", 'i', "V", 'v', 'X', 'x']):
+            # if not (t.isdigit() or t in ["-", "I", 'i', "V", 'v', 'X', 'x']):
+            if not startswithnumber(t):
                 merge(pspan, span)
                 span.getparent().remove(span)
                 pspan.attrib["par"] = "rest"  # Sign that the join is a
@@ -422,20 +465,17 @@ def conv(filename):
 
         pspan = None
 
-    # Paragraph having "bold" and text staring from digit -> <hX>
+    # Paragraph having "bold" and text staring from number -> <hX>
 
     for p in tree.xpath('//p[@bold="1"]'):
         t = p.xpath("string()").strip()
-        c = t[0]
-        if c.isdigit():
+        num, title = splitnumber(t)
+        if num is not None:
             p.clear()
-            num, _ = t.split(" ", maxsplit=1)
-            nums = num.split(".")
-            if nums[-1] == "":
-                nums = nums[:-1]
+            nums = num.split('.')
             p.tag = "h" + str(len(nums))
-            p.text = t
-            p.attrib["section"] = ".".join(nums)
+            p.text = title
+            p.attrib["section"] = num
 
     # split text by sections
     SECTIONS = {"_": etree.Element("section")}
@@ -445,7 +485,8 @@ def conv(filename):
             num = e.get("section")
             csec = SECTIONS[num] = etree.Element("section")
             csec.attrib["number"] = num
-            csec.attrib["title"] = e.xpath("string()").strip()
+            name = e.xpath("string()").strip()
+            csec.attrib["title"] = name
         csec.append(e)
     # TODO: subsections... h2, etc.
 
@@ -453,8 +494,8 @@ def conv(filename):
     # G.add((WP, RDF.type, IDD['Discipline']))
     G.add((WP, WPDD['courseDC'], CDC))
 
-    for k, v in SECTIONS.items():
-        procsec(k, v)
+    for secnum, sec in SECTIONS.items():
+        procsec(secnum, sec)
 
     tree = etree.Element("html", lang="ru")
     body = etree.SubElement(tree, "body")
@@ -581,9 +622,7 @@ def procaims(section):
     title = section.get("title", "")
     tl = title.lower().strip()
     num = section.get("number")
-    assert tl.startswith(num)
-    assert found(tl, "цел")
-    assert found(tl, "задач")
+    assert allwords(tl, "цел", "задач"), "Assertion:"+tl
     for p in section.xpath("//p"):
         t = p.xpath("string()").strip()
         tl = t.lower()
@@ -606,13 +645,11 @@ def proctestsection(section):
         if t == "":
             p.getparent().remove(p)
             continue
-        m = re.search(NUMBERRE, t)
-        if m is None:
+        num, name = splitnumber(t)
+        if num is None:
             ol = None
             continue
-        _, e = m.span()
-        name = t[e:]
-        num = m.group(1)
+
         if name.strip() == "":
             continue
 
