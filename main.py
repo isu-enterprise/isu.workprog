@@ -650,9 +650,11 @@ def procaims(section):
             p.getparent().remove(p)
 
 
-def proclistitems(paragraphs, owner=None, otype=None, removeempty=False):
+def proclistitems(paragraphs, owner=None, otype=None, itemtype=None, removeempty=False):
     ps = paragraphs
     ol = None
+    if itemtype is None:
+        itemtype=WPDD["ListItem"]
     for p in ps:
         t = alltext(p)
         if t == "":
@@ -695,7 +697,7 @@ def proclistitems(paragraphs, owner=None, otype=None, removeempty=False):
         ol.append(p)
         if owner is not None:
             q = WPDB[genuuid()]
-            G.add((q, RDF.type, WPDD["Question"]))
+            G.add((q, RDF.type, itemtype))
             G.add((q, RDFS.label, Literal(name, lang="ru")))
             G.add((q, SCH.sku, Literal(num)))
             G.add((q, SCH.member, owner))
@@ -704,7 +706,7 @@ def proclistitems(paragraphs, owner=None, otype=None, removeempty=False):
 
 def proctestsection(section):
     ps = section.xpath(".//p")
-    owner = proclistitems(ps, otype=WPDD["QuestionList"])
+    owner = proclistitems(ps, otype=WPDD["QuestionList"], itemtype=WPDD["Question"])
     if owner is not None:
         G.add((owner, RDF.type, WPDD["EvaluationMean"]))
 
