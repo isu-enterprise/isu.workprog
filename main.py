@@ -34,7 +34,9 @@ BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
 ACBACH = IDB['f2d3374f-5a0b-11e6-942f-005056100702']
 APPLBACH = IDB['f2d33754-5a0b-11e6-942f-005056100702']
 MASTER = IDB["f2d33752-5a0b-11e6-942f-005056100702"]
-NUMBERRE = re.compile(r'^(((Тема|Раздел)\s+)?((\d+|[IVXLCDM]+|[ivxlcdm]+)\.?\)?)+|[а-яА-я]\))\s*')
+NUMBERRE = re.compile(
+    r'^(((Тема|Раздел)\s+)?((\d{1,2}|[IVXLCDM]{1,4}|[ivxlcdm]{1,4})\.?\)?)+|[а-яА-я]\))\s+'
+)
 
 
 class Style:
@@ -80,8 +82,23 @@ def printel(el):
     print("<{} {}>{}</{}>".format(el.tag, el.attrib, el.text, el.tag))
 
 
+def debugsave(node, filename):
+    o = open(filename, "wb")
+    o.write(etree.tostring(node, encoding="utf8"))
+    o.close()
+
+
 def found(s, substr):
     return s.find(substr) != -1
+
+
+def alltext(node):
+    return node.xpath("string()").strip()
+
+
+def orphanite(node):
+    node.getparent().remove(node)
+    return node
 
 
 def startswithnumber(s):
@@ -116,6 +133,15 @@ def allwords(s, *set):
         if not found(s, w):
             return False
     return True
+
+
+def listitem(text):
+    if text[0] in [
+            "-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿'
+    ]:
+        return text[0], text[1:].strip()
+    num, title = splitnumber(text)
+    return num, title
 
 
 def anywords(s, *set):
@@ -269,7 +295,7 @@ def conv(filename):
     for p in doc:
         p.tag = "body"
 
-    #change empty <div><span>...</span><div>, where ... is empty to <p/>
+    # Change empty <div><span>...</span><div>, where ... is empty to <p/>
     divs = tree.xpath("//div")
     for div in divs:
         t = div.xpath('string()').strip()
@@ -394,16 +420,18 @@ def conv(filename):
             pspan = span
             continue
         if pspan.get("left") == span.get("left"):
-            t = span.xpath("string()").strip()
-            t = t[0]
-            # if not (t.isdigit() or t in ["-", "I", 'i', "V", 'v', 'X', 'x']):
-            if not startswithnumber(t):
+            t = alltext(span)
+            print(listitem(t), t[:40])
+            tag, name = listitem(t)
+            if not tag:
                 merge(pspan, span)
                 span.getparent().remove(span)
                 pspan.attrib["par"] = "rest"  # Sign that the join is a
                 continue  # paragraph body
 
         pspan = None
+
+    debugsave(tree, "debug.xml")
 
     # Clear empty <p/> nodes
     for p in tree.xpath("//p"):
@@ -608,7 +636,7 @@ def procaims(section):
     title = section.get("title", "")
     tl = title.lower().strip()
     num = section.get("number")
-    assert allwords(tl, "цел", "задач"), "Assertion:"+tl
+    assert allwords(tl, "цел", "задач"), "Assertion:" + tl
     for p in section.xpath("//p"):
         t = p.xpath("string()").strip()
         tl = t.lower()
@@ -622,16 +650,18 @@ def procaims(section):
             p.getparent().remove(p)
 
 
-def proctestsection(section):
-    ps = section.xpath(".//p")
+def proclistitems(paragraphs, owner=None, otype=None, removeempty=False):
+    ps = paragraphs
     ol = None
-    quests = None
     for p in ps:
-        t = p.xpath("string()").strip()
+        t = alltext(p)
         if t == "":
-            p.getparent().remove(p)
+            if removeempty:
+                orphanite(p)
             continue
-        num, name = splitnumber(t)
+
+        num, name = listitem(t)
+
         if num is None:
             ol = None
             continue
@@ -641,27 +671,87 @@ def proctestsection(section):
 
         if ol is None:
             par = p.getparent()
-            ol = etree.Element("ol")
+            if num[0].isdigit():
+                ol = etree.Element("ol")
+            else:
+                ol = etree.Element("ul")
             index = par.index(p)
             par.insert(index, ol)
             ol.text = "\n"
             ol.tail = "\n"
-            quests = WPDB[genuuid()]
-            G.add((quests, RDF.type, WPDD["QuestionList"]))
-            # TODO: define a kind of question list
-            G.add((WP, WPDD.questionList, quests))
+            if otype is not None:  # we store data in the graph
+                if owner is None:
+                    owner = WPDB[genuuid()]
+                    G.add((owner, RDF.type, otype))
+                    # TODO: define a kind of question list
+                    G.add((WP, WPDD.itemList, owner))
 
         p.tag = "li"
         p.clear()
         p.text = name
         p.tail = "\n"
-        p.attrib["number"] = num
-        p.getparent().remove(p)
+        p.attrib["item"] = num
+        orphanite(p)
         ol.append(p)
-        q = WPDB[genuuid()]
-        G.add((q, RDF.type, WPDD["Question"]))
-        G.add((q, RDFS.label, Literal(name, lang="ru")))
-        G.add((q, SCH.sku, Literal(num)))
+        if owner is not None:
+            q = WPDB[genuuid()]
+            G.add((q, RDF.type, WPDD["Question"]))
+            G.add((q, RDFS.label, Literal(name, lang="ru")))
+            G.add((q, SCH.sku, Literal(num)))
+            G.add((q, SCH.member, owner))
+    return owner
+
+
+def proctestsection(section):
+    ps = section.xpath(".//p")
+    owner = proclistitems(ps, otype=WPDD["QuestionList"])
+    if owner is not None:
+        G.add((owner, RDF.type, WPDD["EvaluationMean"]))
+
+def procstudysupport(section):
+    pp = None
+    for p in section.xpath(".//p"):
+        t = alltext(p)
+        if t == "":
+            orphanite(p)
+            continue
+        num, rest = splitnumber(t)
+        if num is not None:
+            pp = p
+        else:
+            if pp is not None:
+                merge(pp, p)
+                orphanite(p)
+                continue
+            pp = p
+    owner = proclistitems(section.xpath(".//p"), otype=WPDD["ReferenceList"])
+
+
+def procsrssection(section):
+    pi = None
+    lihappend = False
+    for p in section.xpath(".//p"):
+        t = alltext(p)
+        indent = p.get("indent", "0") == "1"
+        if indent:
+            pi = p
+            continue
+        if t == "":
+            p.getparent().remove(p)
+            pi = None
+            continue
+        code, title = listitem(t)
+        if not indent and code is None:
+            if pi is not None:
+                merge(pi, p)
+                orphanite(p)
+            else:
+                pi = p  # A paragraph without indent
+        if code is not None:
+            lihappend = True
+    if lihappend:
+        owner = proclistitems(section.xpath(".//p"),
+                              otype=WPDD['SRSActivityList'])
 
 
 def procsec(number, section):
@@ -675,6 +765,10 @@ def procsec(number, section):
             procaims(section)
         elif allwords(title, "материал текущ контрол аттестац"):
             proctestsection(section)
+        elif allwords(title, "содержан структура дисциплин"):
+            procsrssection(section)
+        elif allwords(title, "учебн методическ информацион обеспечен"):
+            procstudysupport(section)
 
 
 if __name__ == "__main__":
