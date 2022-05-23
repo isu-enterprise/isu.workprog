@@ -501,6 +501,7 @@ def conv(filename):
             csec.attrib["number"] = num
             name = e.xpath("string()").strip()
             csec.attrib["title"] = name
+            csec.attrib["level"] = "1"
         csec.append(e)
     # TODO: subsections... h2, etc.
 
@@ -727,8 +728,8 @@ def proclistitems(paragraphs,
 def proctestsection(section):
     ps = section.xpath(".//p")
     owners = proclistitems(ps,
-                          otype=WPDD["QuestionList"],
-                          itemtype=WPDD["Question"])
+                           otype=WPDD["QuestionList"],
+                           itemtype=WPDD["Question"])
     owner = owners[0]
     if owner is not None:
         G.add((owner[0], RDF.type, WPDD["EvaluationMean"]))
@@ -751,9 +752,9 @@ def procstudysupport(section):
                 continue
             pp = p
     owners = proclistitems(section.xpath(".//p"),
-                          otype=WPDD["ReferenceList"],
-                          itemtype=WPDD["Reference"])
-    for owner, p in owners:   # Classify reference lists
+                           otype=WPDD["ReferenceList"],
+                           itemtype=WPDD["Reference"])
+    for owner, p in owners:  # Classify reference lists
         if p is None:
             continue
         t = alltext(p)
@@ -770,8 +771,6 @@ def procstudysupport(section):
             G.add((owner, RDF.type, WPDD[typ]))
             p.attrib.clear()
             p.attrib["kind"] = typ
-
-
 
 
 def proccontentsection(section):
@@ -811,15 +810,44 @@ def proccontentsection(section):
             csec.attrib["number"] = num
             name = alltext(e)
             csec.attrib["title"] = name
+            csec.attrib["level"] = "2"
             orphanite(e)
         csec.append(e)
-    for sec in sections.values():
+    for num, sec in sections.items():
         t = alltext(sec)
-        if t !="":
+        if t != "":
+            procsec(num, sec)  # Recursive
             section.append(sec)
 
+def proccontentsection2(section):  # Level = 2
+    def _val(m, group=1):
+        v = m.group(group).rstrip(".")
+        if found(v, '.'):
+            v = float(v)
+        else:
+            v = int(v)
+        return v
+
+    for p in section.xpath("./p"):
+        t = alltext(p).lower()
+        if allwords(t, "объем дисциплин составл"):
+            m = re.search(r"(\d|\.)+\s+(зачетн|зе|з\.е\.)", t)
+            if m is None:
+                print("WARNING: не распознаны з.е. '{}'".format(t))
+            else:
+                G.add((WP, WPDD.credit, Literal(_val(m))))
+
+            m = re.search(r"(\d+|\.)\s+(час|ч\.)", t)
+            if m is None:
+                print("WARNING: не распознаны часы '{}'".format(t))
+            else:
+                G.add((WP, WPDD.hours, Literal(_val(m))))
+
+        elif allwords(t, "форм промежуточн аттестац"):
+            pass
 
 def procsec(number, section):
+    level = section.get("level", None)
     if section.tag == "section":
         if number == "_":
             return
@@ -830,7 +858,10 @@ def procsec(number, section):
         elif allwords(title, "материал текущ контрол аттестац"):
             proctestsection(section)
         elif allwords(title, "содержан структура дисциплин"):
-            proccontentsection(section)
+            if level == "1":
+                proccontentsection(section)
+            elif level == "2":
+                proccontentsection2(section)
         elif allwords(title, "учебн методическ информацион обеспечен"):
             procstudysupport(section)
 
