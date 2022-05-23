@@ -757,19 +757,24 @@ def procstudysupport(section):
         if p is None:
             continue
         t = alltext(p)
+        typ = None
         if allwords(t, "основн литератур"):
-            G.add((owner, RDF.type, WPDD["BasicReferences"]))
+            typ = "BasicReferences"
         elif allwords(t, "дополнительн литератур"):
-            G.add((owner, RDF.type, WPDD["AuxiliaryReferences"]))
+            typ = "AuxiliaryReferences"
         elif allwords(t, "баз данн") or allwords(t, "информационн справочн"):
-            G.add((owner, RDF.type, WPDD["ElecronRefereces"]))
+            typ = "ElectronReferences"
         else:
             print("WARNING: неизвестный тип списка литературы '{}'".format(t))
+        if typ is not None:
+            G.add((owner, RDF.type, WPDD[typ]))
+            p.attrib.clear()
+            p.attrib["kind"] = typ
 
 
 
 
-def procsrssection(section):
+def proccontentsection(section):
     pi = None
     lihappend = False
     for p in section.xpath(".//p"):
@@ -791,9 +796,27 @@ def procsrssection(section):
                 pi = p  # A paragraph without indent
         if code is not None:
             lihappend = True
+
+    # This is not necessary
     if lihappend:
-        owners = proclistitems(section.xpath(".//p"),
-                              otype=WPDD['SRSActivityList'])
+        owners = proclistitems(section.xpath(".//p"))
+
+    # split text by sections
+    sections = {"_": etree.Element("section")}
+    csec = sections["_"]
+    for e in section.xpath("./*"):
+        if e.tag.startswith("h"):
+            num = e.get("section")
+            csec = sections[num] = etree.Element("section")
+            csec.attrib["number"] = num
+            name = alltext(e)
+            csec.attrib["title"] = name
+            orphanite(e)
+        csec.append(e)
+    for sec in sections.values():
+        t = alltext(sec)
+        if t !="":
+            section.append(sec)
 
 
 def procsec(number, section):
@@ -807,7 +830,7 @@ def procsec(number, section):
         elif allwords(title, "материал текущ контрол аттестац"):
             proctestsection(section)
         elif allwords(title, "содержан структура дисциплин"):
-            procsrssection(section)
+            proccontentsection(section)
         elif allwords(title, "учебн методическ информацион обеспечен"):
             procstudysupport(section)
 
