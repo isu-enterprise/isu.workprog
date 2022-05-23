@@ -135,10 +135,11 @@ def allwords(s, *set):
     return True
 
 
+BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
+
+
 def listitem(text):
-    if text[0] in [
-            "-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿'
-    ]:
+    if text[0] in BULLETS:
         return text[0], text[1:].strip()
     num, title = splitnumber(text)
     return num, title
@@ -421,7 +422,6 @@ def conv(filename):
             continue
         if pspan.get("left") == span.get("left"):
             t = alltext(span)
-            print(listitem(t), t[:40])
             tag, name = listitem(t)
             if not tag:
                 merge(pspan, span)
@@ -650,11 +650,19 @@ def procaims(section):
             p.getparent().remove(p)
 
 
-def proclistitems(paragraphs, owner=None, otype=None, itemtype=None, removeempty=False):
+def proclistitems(paragraphs,
+                  owner=None,
+                  otype=None,
+                  itemtype=None,
+                  removeempty=False):
     ps = paragraphs
     ol = None
+    owners = []
+    if owner is not None:
+        owners.append((owners, None))
+
     if itemtype is None:
-        itemtype=WPDD["ListItem"]
+        itemtype = WPDD["ListItem"]
     for p in ps:
         t = alltext(p)
         if t == "":
@@ -671,44 +679,60 @@ def proclistitems(paragraphs, owner=None, otype=None, itemtype=None, removeempty
         if name.strip() == "":
             continue
 
+        if ol is not None:
+            fl = num[0]
+            if fl.isdigit() or fl in BULLETS:
+                pass
+            else:
+                ol = None
+                owner = None
+
         if ol is None:
             par = p.getparent()
             if num[0].isdigit():
                 ol = etree.Element("ol")
-            else:
+            elif num in BULLETS:
                 ol = etree.Element("ul")
-            index = par.index(p)
-            par.insert(index, ol)
-            ol.text = "\n"
-            ol.tail = "\n"
+            else:  # a), b), c) ...
+                ol = None
+            if ol is not None:
+                index = par.index(p)
+                par.insert(index, ol)
+                ol.text = "\n"
+                ol.tail = "\n"
             if otype is not None:  # we store data in the graph
                 if owner is None:
                     owner = WPDB[genuuid()]
                     G.add((owner, RDF.type, otype))
                     # TODO: define a kind of question list
                     G.add((WP, WPDD.itemList, owner))
-
-        p.tag = "li"
-        p.clear()
-        p.text = name
-        p.tail = "\n"
-        p.attrib["item"] = num
-        orphanite(p)
-        ol.append(p)
-        if owner is not None:
+                    owners.append((owner, p))
+        if ol is not None:
+            p.tag = "li"
+            p.clear()
+            p.text = name
+            p.tail = "\n"
+            p.attrib["item"] = num
+            orphanite(p)
+            ol.append(p)
+        if owner is not None and ol is not None:
             q = WPDB[genuuid()]
             G.add((q, RDF.type, itemtype))
             G.add((q, RDFS.label, Literal(name, lang="ru")))
             G.add((q, SCH.sku, Literal(num)))
             G.add((q, SCH.member, owner))
-    return owner
+    return owners
 
 
 def proctestsection(section):
     ps = section.xpath(".//p")
-    owner = proclistitems(ps, otype=WPDD["QuestionList"], itemtype=WPDD["Question"])
+    owners = proclistitems(ps,
+                          otype=WPDD["QuestionList"],
+                          itemtype=WPDD["Question"])
+    owner = owners[0]
     if owner is not None:
-        G.add((owner, RDF.type, WPDD["EvaluationMean"]))
+        G.add((owner[0], RDF.type, WPDD["EvaluationMean"]))
+
 
 def procstudysupport(section):
     pp = None
@@ -726,14 +750,30 @@ def procstudysupport(section):
                 orphanite(p)
                 continue
             pp = p
-    owner = proclistitems(section.xpath(".//p"), otype=WPDD["ReferenceList"])
+    owners = proclistitems(section.xpath(".//p"),
+                          otype=WPDD["ReferenceList"],
+                          itemtype=WPDD["Reference"])
+    for owner, p in owners:   # Classify reference lists
+        if p is None:
+            continue
+        t = alltext(p)
+        if allwords(t, "основн литератур"):
+            G.add((owner, RDF.type, WPDD["BasicReferences"]))
+        elif allwords(t, "дополнительн литератур"):
+            G.add((owner, RDF.type, WPDD["AuxiliaryReferences"]))
+        elif allwords(t, "баз данн") or allwords(t, "информационн справочн"):
+            G.add((owner, RDF.type, WPDD["ElecronRefereces"]))
+        else:
+            print("WARNING: неизвестный тип списка литературы '{}'".format(t))
+
+
 
 
 def procsrssection(section):
     pi = None
     lihappend = False
     for p in section.xpath(".//p"):
-        t = alltext(p)
+        t = alltext(p).lower()
         indent = p.get("indent", "0") == "1"
         if indent:
             pi = p
@@ -752,7 +792,7 @@ def procsrssection(section):
         if code is not None:
             lihappend = True
     if lihappend:
-        owner = proclistitems(section.xpath(".//p"),
+        owners = proclistitems(section.xpath(".//p"),
                               otype=WPDD['SRSActivityList'])
 
 
@@ -762,7 +802,6 @@ def procsec(number, section):
             return
         title = section.get("title", "")
         title = title.lower()
-        print("TITLE:", title)
         if allwords(title, "цел задач"):
             procaims(section)
         elif allwords(title, "материал текущ контрол аттестац"):
