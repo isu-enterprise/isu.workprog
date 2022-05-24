@@ -653,6 +653,7 @@ def proctitlepage(titlepage):
 
         # TODO: Рабочая программа дисциплины ..
 
+AIMRE=re.compile(r"[Зз]адач[аи].*")
 
 def procaims(section):
     title = section.get("title", "")
@@ -663,6 +664,7 @@ def procaims(section):
         t = p.xpath("string()").strip()
         tl = t.lower()
         if tl.startswith('цел'):
+
             G.add((CDC, WPDD["aim"], Literal(t, lang="ru")))
             continue
         if tl.startswith('задач'):
