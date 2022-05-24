@@ -4,6 +4,7 @@ from pprint import pprint
 from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS)
 from uuid import uuid1
 from itertools import pairwise
+from collections import OrderedDict
 
 
 def genuuid(namespace=None):
@@ -692,7 +693,7 @@ def proclistitems(paragraphs,
         if num is None:
             ol = None
             p.attrib["li-ignored"]="1"
-            print ("IGN:", t)
+            # print ("IGN:", t)
             continue
 
         if name.strip() == "":
@@ -934,7 +935,53 @@ def procresultsrequirements(section):
                 G.add((C, RDFS.label, Literal(descr, lang="ru")))
 
 def procstudycontent(section):
-    pass
+    # Here we have p, ol, ul and li items
+    # P supposed to be higher level topics starting with
+    # Тема _.
+    # Раздел _.
+    # _.
+    # TODO: All other elements (texts in the bodies of tags)
+    # are located by their hierarchy number.
+    h = OrderedDict()
+    ph = h
+
+    for e in section.xpath(".//*[self::p or self::li]"):
+        t = alltext(e)
+        if e.tag == "p":
+            # REPEAT: Suppose p be the higher hierarchy member
+            num, title = splitnumber(t)
+            if num is not None:
+                title = title.strip()
+                e.clear()
+                e.text = title
+                e.attrib["item"] = num
+                e.tail = "\n"
+                ph = OrderedDict()
+            else:
+                print("WARNING: Unrecognized element of structure: '{}'".format(t))
+                continue
+            h[num] = (title, ph)
+        else:    # li
+            num = e.get("item")
+            title = t
+            ph[num] = (title, None)
+
+    def _(d, p):
+        for k, v in d.items():
+            t, l = v
+            BN=BNode()
+            G.add((p, WPDD.content, BN))
+            G.add((BN, RDF.type, WPDD["Topic"]))
+            G.add((BN, RDFS.label, Literal(t, lang="ru")))
+            G.add((BN, SCH.sku, Literal(k)))
+            if l is not None:
+                _(l, BN)
+
+    _(h, WP)
+
+
+
+
 
 
 def procsec(number, section):
