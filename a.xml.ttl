@@ -1,81 +1,44 @@
 @prefix dbr: <http://dbpedia.org/resource/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix idb: <http://irnok.net/ontologies/database/isu/studplan#> .
 @prefix idd: <http://irnok.net/ontologies/isu/studplan#> .
+@prefix ns1: <http://www.w3.org/2011/content#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix wpdb: <http://irnok.net/ontologies/database/isu/workprog#> .
 @prefix wpdd: <http://irnok.net/ontologies/isu/workprog#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-wpdb:86653ec6-db27-11ec-8375-704d7b84fd9f a dbr:Syllabus ;
-    idd:city idd:866eb97e-db27-11ec-8375-704d7b84fd9f ;
+wpdb:278dc5c4-db3d-11ec-a621-704d7b84fd9f a dbr:Syllabus ;
+    idd:city idd:2797455e-db3d-11ec-a621-704d7b84fd9f ;
     idd:issued "2019" ;
     idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
-    idd:profile idb:866eb15e-db27-11ec-8375-704d7b84fd9f ;
-    idd:specialty idb:866eac2c-db27-11ec-8375-704d7b84fd9f ;
+    idd:profile idb:27973d5c-db3d-11ec-a621-704d7b84fd9f ;
+    idd:specialty idb:27973848-db3d-11ec-a621-704d7b84fd9f ;
     idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
-    wpdd:chair idb:866e9eda-db27-11ec-8375-704d7b84fd9f ;
+    wpdd:chair idb:27972ca4-db3d-11ec-a621-704d7b84fd9f ;
     wpdd:content [ a wpdd:Topic ;
             rdfs:label "Введение."@ru ;
             wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Системы уравнений с частными производными. Задача Коши. Теорема Коши – Ковалевской."@ru ;
-                    schema:sku "1.5" ],
+                    rdfs:label "Вывод уравнений колебаний струны, теплопроводности, Лапласа, постановка краевых задач, их физическая интерпретация."@ru ;
+                    schema:sku "1.2" ],
                 [ a wpdd:Topic ;
                     rdfs:label "Классификация дифференциальных уравнений с частными производными. Гиперболические, параболические и эллиптические уравнения. О постановке задач для дифференциальных уравнений с частными производными. Корректная постановка задач. Примеры корректно поставленных задач. Пример Адамара некорректно поставленной задачи Коши для эллиптических уравнений."@ru ;
                     schema:sku "1.3" ],
                 [ a wpdd:Topic ;
-                    rdfs:label "Приведение к каноническому виду дифференциальных уравнений с частными производными. Понятие о характеристиках дифференциальных уравнений с частными производными. Связь характеристических направлений с характеристиками."@ru ;
-                    schema:sku "1.4" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Вывод уравнений колебаний струны, теплопроводности, Лапласа, постановка краевых задач, их физическая интерпретация."@ru ;
-                    schema:sku "1.2" ],
-                [ a wpdd:Topic ;
                     rdfs:label "Понятие об уравнениях с частными производными. Виды уравнений. Дифференциальные с частными производными первого и второго порядков."@ru ;
-                    schema:sku "1.1" ] ;
+                    schema:sku "1.1" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Системы уравнений с частными производными. Задача Коши. Теорема Коши – Ковалевской."@ru ;
+                    schema:sku "1.5" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Приведение к каноническому виду дифференциальных уравнений с частными производными. Понятие о характеристиках дифференциальных уравнений с частными производными. Связь характеристических направлений с характеристиками."@ru ;
+                    schema:sku "1.4" ] ;
             schema:sku "I" ],
-        [ a wpdd:Topic ;
-            rdfs:label "Уравнения эллиптического типа и теория потенциалов."@ru ;
-            wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Теория потенциала и сведение краевых задач для уравнений эллиптического типа к интегральным уравнениям."@ru ;
-                    schema:sku "3.4" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Формулы Грина. Гармонические функции и их свойства. Принцип максимума. Теоремы Лиувилля и Горнака. Функция Грина задачи Дирихле для уравнения Лапласа. Построения функции Грина для простейших областей."@ru ;
-                    schema:sku "3.2" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Решение задачи Дирихле для уравнения Лапласа в шаре и полупространстве. Метод Фурье для решения внутренней и внешней задач Дирихле для уравнения Лапласа в круге, кольце, прямоугольнике."@ru ;
-                    schema:sku "3.3" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Уравнения Лапласа и Пуассона. Постановка основных краевых задач. Фундаментальное решение уравнения Лапласа."@ru ;
-                    schema:sku "3.1" ] ;
-            schema:sku "III" ],
-        [ a wpdd:Topic ;
-            rdfs:label "Уравнения гиперболического типа."@ru ;
-            wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Применение метода Фурье для неоднородных смешанных задач для уравнений гиперболического типа."@ru ;
-                    schema:sku "2.6" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Вывод формулы Кирхгофа и Пуассона, исследование этих формул. Принцип Гюйгенса. Существование, единственность и непрерывная зависимость решений задач от начальных данных. Понятие обобщенного решения."@ru ;
-                    schema:sku "2.3" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Метод Дюамеля для решения задачи Коши в случае неоднородного волнового уравнения."@ru ;
-                    schema:sku "2.2" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Собственные значения и собственные функции задачи Штурма – Лиувилля. Общая схема метода Фурье."@ru ;
-                    schema:sku "2.5" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Волновое уравнение. Задача Коши для уравнения колебаний. Формула Даламбера."@ru ;
-                    schema:sku "2.1" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Задачи Гурса и Дарбу."@ru ;
-                    schema:sku "2.4" ] ;
-            schema:sku "II" ],
         [ a wpdd:Topic ;
             rdfs:label "Уравнения параболического типа."@ru ;
             wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Общая схема метода Фурье."@ru ;
-                    schema:sku "4.3" ],
-                [ a wpdd:Topic ;
                     rdfs:label "Принцип максимума в ограниченной области и решение задачи Коши, теоремы единственности и устойчивости."@ru ;
                     schema:sku "4.2" ],
                 [ a wpdd:Topic ;
@@ -83,382 +46,447 @@ wpdb:86653ec6-db27-11ec-8375-704d7b84fd9f a dbr:Syllabus ;
                     schema:sku "4.1" ],
                 [ a wpdd:Topic ;
                     rdfs:label "Применение метода Фурье для неоднородных смешанных задач для уравнений параболического"@ru ;
-                    schema:sku "4.4" ] ;
-            schema:sku "IV" ] ;
-    wpdd:courseDC [ wpdd:ableTo wpdb:866bcb74-db27-11ec-8375-704d7b84fd9f ;
+                    schema:sku "4.4" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Общая схема метода Фурье."@ru ;
+                    schema:sku "4.3" ] ;
+            schema:sku "IV" ],
+        [ a wpdd:Topic ;
+            rdfs:label "Уравнения гиперболического типа."@ru ;
+            wpdd:content [ a wpdd:Topic ;
+                    rdfs:label "Задачи Гурса и Дарбу."@ru ;
+                    schema:sku "2.4" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Метод Дюамеля для решения задачи Коши в случае неоднородного волнового уравнения."@ru ;
+                    schema:sku "2.2" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Собственные значения и собственные функции задачи Штурма – Лиувилля. Общая схема метода Фурье."@ru ;
+                    schema:sku "2.5" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Применение метода Фурье для неоднородных смешанных задач для уравнений гиперболического типа."@ru ;
+                    schema:sku "2.6" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Вывод формулы Кирхгофа и Пуассона, исследование этих формул. Принцип Гюйгенса. Существование, единственность и непрерывная зависимость решений задач от начальных данных. Понятие обобщенного решения."@ru ;
+                    schema:sku "2.3" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Волновое уравнение. Задача Коши для уравнения колебаний. Формула Даламбера."@ru ;
+                    schema:sku "2.1" ] ;
+            schema:sku "II" ],
+        [ a wpdd:Topic ;
+            rdfs:label "Уравнения эллиптического типа и теория потенциалов."@ru ;
+            wpdd:content [ a wpdd:Topic ;
+                    rdfs:label "Решение задачи Дирихле для уравнения Лапласа в шаре и полупространстве. Метод Фурье для решения внутренней и внешней задач Дирихле для уравнения Лапласа в круге, кольце, прямоугольнике."@ru ;
+                    schema:sku "3.3" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Уравнения Лапласа и Пуассона. Постановка основных краевых задач. Фундаментальное решение уравнения Лапласа."@ru ;
+                    schema:sku "3.1" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Формулы Грина. Гармонические функции и их свойства. Принцип максимума. Теоремы Лиувилля и Горнака. Функция Грина задачи Дирихле для уравнения Лапласа. Построения функции Грина для простейших областей."@ru ;
+                    schema:sku "3.2" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Теория потенциала и сведение краевых задач для уравнений эллиптического типа к интегральным уравнениям."@ru ;
+                    schema:sku "3.4" ] ;
+            schema:sku "III" ] ;
+    wpdd:courseDC [ wpdd:ableTo wpdb:27944b56-db3d-11ec-a621-704d7b84fd9f ;
             wpdd:aim "Цели: Формирование у будущих бакалавров современных теоретических знаний в области уравнений математической физики. Обзор некоторых наиболее распространенных методов исследования и решения основных классических задач для уравнений с частными производными."@ru ;
-            wpdd:competence wpdb:866bc21e-db27-11ec-8375-704d7b84fd9f ;
-            wpdd:know wpdb:866bc8c2-db27-11ec-8375-704d7b84fd9f ;
-            wpdd:posess wpdb:866bcdfe-db27-11ec-8375-704d7b84fd9f ;
-            wpdd:problem "Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с частными производными. Дать обзор основных задач для уравнений математической физики; сформировать умение создавать математическую модель физического явления; научить студентов применять набор стандартных методов решения задач для уравнений с частными производными."@ru ] ;
+            wpdd:competence wpdb:279441b0-db3d-11ec-a621-704d7b84fd9f ;
+            wpdd:know wpdb:2794489a-db3d-11ec-a621-704d7b84fd9f ;
+            wpdd:posess wpdb:27944df4-db3d-11ec-a621-704d7b84fd9f ;
+            wpdd:problem "Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с частными производными. Дать обзор основных задач для уравнений математической физики; сформировать умение создавать математическую модель физического явления; научить студентов применять набор стандартных методов решения задач для уравнений с частными производными."@ru ;
+            schema:author wpdb:27971912-db3d-11ec-a621-704d7b84fd9f ] ;
     wpdd:credit 4 ;
     wpdd:hours 144 ;
+    wpdd:independentWork wpdd:27957cec-db3d-11ec-a621-704d7b84fd9f ;
     wpdd:institute idb:c526d6c7-9a78-11e6-9438-005056100702 ;
-    wpdd:itemList wpdb:866d17ae-db27-11ec-8375-704d7b84fd9f,
-        wpdb:866d2d98-db27-11ec-8375-704d7b84fd9f,
-        wpdb:866d48f0-db27-11ec-8375-704d7b84fd9f,
-        wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
-    wpdd:location [ wpdd:ensure wpdb:866bb922-db27-11ec-8375-704d7b84fd9f,
-                wpdb:866bbb98-db27-11ec-8375-704d7b84fd9f ;
-            wpdd:require wpdb:866baf7c-db27-11ec-8375-704d7b84fd9f,
-                wpdb:866bb26a-db27-11ec-8375-704d7b84fd9f,
-                wpdb:866bb4c2-db27-11ec-8375-704d7b84fd9f ] .
+    wpdd:itemList wpdb:27959b46-db3d-11ec-a621-704d7b84fd9f,
+        wpdb:2795b0ae-db3d-11ec-a621-704d7b84fd9f,
+        wpdb:2795ccba-db3d-11ec-a621-704d7b84fd9f,
+        wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
+    wpdd:location [ wpdd:ensure wpdb:2794385a-db3d-11ec-a621-704d7b84fd9f,
+                wpdb:27943ae4-db3d-11ec-a621-704d7b84fd9f ;
+            wpdd:require wpdb:27942e64-db3d-11ec-a621-704d7b84fd9f,
+                wpdb:2794317a-db3d-11ec-a621-704d7b84fd9f,
+                wpdb:279433dc-db3d-11ec-a621-704d7b84fd9f ] .
 
-wpdb:866d1c18-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:27959f7e-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Головко Е.А. Уравнения математической физики. Руководство к решению задач. В 2ч. Ч.1: учеб.пособие/ Е.А.Головко. – Иркутск: Изд-во ИГУ, 2014.–142с. - ISBN 978-5-964-1200-9, ISBN 978-5-964-1201-6. 48 экз"@ru ;
-    schema:member wpdb:866d17ae-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:27959b46-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:866d226c-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795a5b4-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Головко Е.А. Уравнения математической физики. Руководство к решению задач. В 2ч. Ч.2: учеб.пособие/ Е.А.Головко. – Иркутск: Изд-во ИГУ, 2014.–142с. - ISBN 978-5-964-1200-9, ISBN 978-5-964-1202-3. 48 экз"@ru ;
-    schema:member wpdb:866d17ae-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:27959b46-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "2" .
 
-wpdb:866d2848-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795ab72-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Асташова, И. В. Дифференциальные уравнения [Электронный ресурс] : учеб.-практ. пособие, учеб. для студ. вузов, обуч. по спец. \"Мат. методы в экономике\" и др. мат. спец. / И. В. Асташова, В. А. Никишкин. - ЭВК. - М. : Изд. центр ЕАОИ . - Режим доступа: ЭЧЗ \"Библиотех\". - Неогранич. доступ. Ч. 2. - 2011. - ISBN 978-5-374-00487-8"@ru ;
-    schema:member wpdb:866d17ae-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:27959b46-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "3" .
 
-wpdb:866d3194-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795b478-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Владимиров, Василий Сергеевич. Уравнения математической физики: учеб.для студ.вузов / В.С. Владимиров, В.В. Жаринов. - 2-е изд.,стер. - М. : Физматлит, 2003. - 398 с. - ISBN 5-9221-0310-5. 5 экз."@ru ;
-    schema:member wpdb:866d2d98-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795b0ae-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:866d37de-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795ba4a-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Сборник задач по уравнениям математической физики [Текст] / В.С.Владимиров и др.:Под ред.В.С.Владимирова. - 4-е изд.,стер. - М. : Физматлит, 2003. - 286 с. : граф. ; 22 см. - Библиогр.:с.287. - ISBN 5-9221-0309-1 . 5 экз."@ru ;
-    schema:member wpdb:866d2d98-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795b0ae-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "2" .
 
-wpdb:866d3e14-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795bffe-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Тихонов, Андрей Николаевич. Уравнения математической физики : учеб.пособие для студ.физ.-мат.спец.ун-тов / А.Н. Тихонов, А.А. Самарский. - 6-е изд.,испр.и доп. - М. : Изд-во МГУ, 1999. - 798 с. - ISBN 5211041380 . 28 экз"@ru ;
-    schema:member wpdb:866d2d98-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795b0ae-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "3" .
 
-wpdb:866d43b4-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795c59e-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "Бицадзе, Андрей Васильевич. Сборник задач по уравнениям математической физики : учеб. пособие для студ. мех.-мат. и физ. спец. вузов / А. В. Бицадзе, Д. Ф. Калиниченко. - 2-е изд., доп. - М. : Наука, 1985. - 310 с. 1 зкз"@ru ;
-    schema:member wpdb:866d2d98-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795b0ae-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "4" .
 
-wpdb:866d4e40-db27-11ec-8375-704d7b84fd9f a wpdd:Reference ;
+wpdb:2795d0fc-db3d-11ec-a621-704d7b84fd9f a wpdd:Reference ;
     rdfs:label "2.  3."@ru ;
-    schema:member wpdb:866d48f0-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795ccba-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:866d6646-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2795e880-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Понятие дифференциального уравнения с частными производными и его решения."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:866d6c0e-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2795ee02-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Общие сведения о совокупности решений."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "2" .
 
-wpdb:866d717c-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2795f398-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Задача об эквивалентности системы ДУ и одного ДУ."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "3" .
 
-wpdb:866d7712-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2795f910-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Определенные, переопределенные и неопределенные системы."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "4" .
 
-wpdb:866d7c8a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2795fe88-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Задача Коши для нормальной системы уравнений. Теорема Коши-Ковалевской."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "5" .
 
-wpdb:866d8216-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279603ce-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Понятие характеристической формы и классификация ЛДУ-2."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "6" .
 
-wpdb:866d8770-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796093c-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Классификация линейных и нелинейных уравнений высшего порядка."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "7" .
 
-wpdb:866d8cd4-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27960ea0-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Классификация систем."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "8" .
 
-wpdb:866d9256-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279613fa-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Классификация ЛДУ-2 по учебнику Михлина."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "9" .
 
-wpdb:866d97ba-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27961936-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Характеристические кривые и характеристические направления."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "10" .
 
-wpdb:866d9d0a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27961ecc-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Приведение к каноническому виду уравнения второго порядка с двумя независимыми пременными."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "11" .
 
-wpdb:866da28c-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27962444-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Канонические формы линейных уравнений с постоянными коэффициентами."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "12" .
 
-wpdb:866da804-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796298a-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Уравнения Лапласа."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "13" .
 
-wpdb:866dad72-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27962ed0-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Волновое уравнение."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "14" .
 
-wpdb:866db2d6-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27963452-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Уравнение теплопроводности."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "15" .
 
-wpdb:866db83a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279639b6-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Постановки основных задач для ЛДУ – 2 и понятие корректности задачи по Адамару."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "16" .
 
-wpdb:866dbd9e-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27963f06-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Волновое уравнение с тремя пространственными переменными. Формула Кирхгофа."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "17" .
 
-wpdb:866dc2e4-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279644b0-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Волновое уравнение с двумя пространственными переменными. Формула Пуассона."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "18" .
 
-wpdb:866dc8c0-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27964a00-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Уравнение колебания струны. Формула Даламбера."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "19" .
 
-wpdb:866dcdf2-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27964f32-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Физическая интерпретация формулы Даламбера."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "20" .
 
-wpdb:866dd356-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27965478-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Примеры бегущих волн."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "21" .
 
-wpdb:866dd89c-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279659d2-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Область зависимости, область влияния, область определения."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "22" .
 
-wpdb:866dde14-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27965f4a-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Неоднородное волновое уравнение с тремя пространственными переменными."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "23" .
 
-wpdb:866de350-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796645e-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Неоднородное волновое уравнение с двумя и одной пространственной переменной."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "24" .
 
-wpdb:866de85a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279669b8-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Единственность решения задачи Коши для волнового уравнения."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "25" .
 
-wpdb:866deda0-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27966eea-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Корректность постановки задачи Коши."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "26" .
 
-wpdb:866df2c8-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796755c-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Общая постановка задачи Коши."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "27" .
 
-wpdb:866df91c-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27967ade-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Задача Гурса."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "28" .
 
-wpdb:866dfe8a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27968042-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Задача Гурса и первая задача Дарбу."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "29" .
 
-wpdb:866e03c6-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27968592-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Постановка второй задачи Дарбу."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "30" .
 
-wpdb:866e09d4-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27968aa6-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Простейшие свойства гармонических функций."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "31" .
 
-wpdb:866e0f06-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796901e-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Некоторые частные решения уравнения Лапласа и преобразование радиус-векторов."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "32" .
 
-wpdb:866e147e-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27969550-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Элементарные свойства гармонических функций."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "33" .
 
-wpdb:866e19c4-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27969a6e-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Связь между аналитическими и гармоническими функциями."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "34" .
 
-wpdb:866e1f1e-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:27969faa-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Интегральное представление гармонических функций."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "35" .
 
-wpdb:866e246e-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796a586-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Формулы о среднем арифметическом для гармонических функций."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "36" .
 
-wpdb:866e29c8-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796ab44-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Принцип экстремума и единственность решения задачи Дирихле для уравнения Лапласа."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "37" .
 
-wpdb:866e2f7c-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796b08a-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Линейная функция и некоторые свойства."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "38" .
 
-wpdb:866e349a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796b620-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Функция Грина задачи Дирихле для уравнения Лапласа."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "39" .
 
-wpdb:866e39fe-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796bb8e-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Решение задачи Дирихле для шара. Формулы Пуассона."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "40" .
 
-wpdb:866e3f44-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796c0c0-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Задача Дирихле для уравнения Пуассона."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "41" .
 
-wpdb:866e449e-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796c62e-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Решение задачи Дирихле для полупространств."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "42" .
 
-wpdb:866e49e4-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796cc0a-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Теоремы, вытекающие из формул Пуассона."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "43" .
 
-wpdb:866e4f34-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796d18c-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Непрерывность потенциала объемных масс и его производных первого порядка."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "44" .
 
-wpdb:866e5498-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796d6aa-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Существование производных второго порядка потенциала объемных масс."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "45" .
 
-wpdb:866e59c0-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796dc04-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Формула Гаусса."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "46" .
 
-wpdb:866e5f24-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796e140-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Потенциал двойного слоя и его свойства."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "47" .
 
-wpdb:866e6460-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796e654-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Потенциал простого слоя и задача Неймана."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "48" .
 
-wpdb:866e699c-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796eb72-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Внешние задачи Дирихле и Неймана."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "49" .
 
-wpdb:866e6ece-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796f090-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Первая краевая задача для уравнения теплопроводности."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "50" .
 
-wpdb:866e73e2-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796f5d6-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Постановка задачи и доказательство существования ее решения."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "51" .
 
-wpdb:866e7946-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2796fafe-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Единственность и устойчивость решения задачи Коши - Дирихле."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "52" .
 
-wpdb:866e7e5a-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:2797004e-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "Неоднородное уравнение теплопроводности."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "53" .
 
-wpdb:866e8602-db27-11ec-8375-704d7b84fd9f a wpdd:Question ;
+wpdb:279707e2-db3d-11ec-a621-704d7b84fd9f a wpdd:Question ;
     rdfs:label "2.  3."@ru ;
-    schema:member wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f ;
+    schema:member wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f ;
     schema:sku "1" .
 
-idd:866ea600-db27-11ec-8375-704d7b84fd9f a idd:Discipline ;
+idd:2797326c-db3d-11ec-a621-704d7b84fd9f a idd:Discipline ;
     rdfs:label "Уравнения математической физики"@ru ;
     dcterms:identifier "Б1.О.23"@ru .
 
-idb:866e9eda-db27-11ec-8375-704d7b84fd9f a idd:Chair ;
+idb:27972ca4-db3d-11ec-a621-704d7b84fd9f a idd:Chair ;
     rdfs:label "Кафедра математического анализа и дифференциальных уравнений"@ru .
 
-idb:866eac2c-db27-11ec-8375-704d7b84fd9f a idd:Speciality ;
+idb:27973848-db3d-11ec-a621-704d7b84fd9f a idd:Speciality ;
     rdfs:label "Прикладная математика и информатика"@ru ;
     dcterms:identifier "01.03.02" .
 
-idb:866eb15e-db27-11ec-8375-704d7b84fd9f a idd:Discipline ;
+idb:27973d5c-db3d-11ec-a621-704d7b84fd9f a idd:Discipline ;
     rdfs:label "информационные технологии"@ru .
 
-wpdb:866baf7c-db27-11ec-8375-704d7b84fd9f rdfs:label "Математический анализ"@ru .
+wpdb:27942e64-db3d-11ec-a621-704d7b84fd9f rdfs:label "Математический анализ"@ru .
 
-wpdb:866bb26a-db27-11ec-8375-704d7b84fd9f rdfs:label "Алгебра"@ru .
+wpdb:2794317a-db3d-11ec-a621-704d7b84fd9f rdfs:label "Алгебра"@ru .
 
-wpdb:866bb4c2-db27-11ec-8375-704d7b84fd9f rdfs:label "Дифференциальные уравнения"@ru .
+wpdb:279433dc-db3d-11ec-a621-704d7b84fd9f rdfs:label "Дифференциальные уравнения"@ru .
 
-wpdb:866bb922-db27-11ec-8375-704d7b84fd9f rdfs:label "Численные методы"@ru .
+wpdb:2794385a-db3d-11ec-a621-704d7b84fd9f rdfs:label "Численные методы"@ru .
 
-wpdb:866bbb98-db27-11ec-8375-704d7b84fd9f rdfs:label "Научно-исследовательская работа"@ru .
+wpdb:27943ae4-db3d-11ec-a621-704d7b84fd9f rdfs:label "Научно-исследовательская работа"@ru .
 
-wpdb:866bc21e-db27-11ec-8375-704d7b84fd9f rdfs:label "Способен применять фундаментальные знания, полученные в области математических и (или) естественных наук, и использовать их в профессиональной деятельности"@ru ;
+wpdb:279441b0-db3d-11ec-a621-704d7b84fd9f rdfs:label "Способен применять фундаментальные знания, полученные в области математических и (или) естественных наук, и использовать их в профессиональной деятельности"@ru ;
     dcterms:identifier "ОПК-1"@ru .
 
-wpdb:866bc8c2-db27-11ec-8375-704d7b84fd9f rdfs:label "классификацию уравнений с частными производными. Постановку классических задач для уравнений с частными производными"@ru .
+wpdb:2794489a-db3d-11ec-a621-704d7b84fd9f rdfs:label "классификацию уравнений с частными производными. Постановку классических задач для уравнений с частными производными"@ru .
 
-wpdb:866bcb74-db27-11ec-8375-704d7b84fd9f rdfs:label "приводить уравнения с частными производными к каноническому виду; решать классические задачи для уравнений математической физики"@ru .
+wpdb:27944b56-db3d-11ec-a621-704d7b84fd9f rdfs:label "приводить уравнения с частными производными к каноническому виду; решать классические задачи для уравнений математической физики"@ru .
 
-wpdb:866bcdfe-db27-11ec-8375-704d7b84fd9f rdfs:label "навыками моделирования практических задач дифференциальными уравнениями; языком предметной области"@ru .
+wpdb:27944df4-db3d-11ec-a621-704d7b84fd9f rdfs:label "навыками моделирования практических задач дифференциальными уравнениями; языком предметной области"@ru .
 
-idd:866eb97e-db27-11ec-8375-704d7b84fd9f a dbr:City ;
+wpdb:27971912-db3d-11ec-a621-704d7b84fd9f a foaf:Person ;
+    rdfs:label "Головко Е. А., кандидат физ.-мат. наук, доцент"@ru .
+
+idd:2797455e-db3d-11ec-a621-704d7b84fd9f a dbr:City ;
     rdfs:label "Иркутск"@ru .
 
-wpdb:866d48f0-db27-11ec-8375-704d7b84fd9f a wpdd:ElectronReferences,
+wpdd:27957cec-db3d-11ec-a621-704d7b84fd9f a ns1:ContentAsText ;
+    ns1:chars """<section number="4.4" title="Методические указания по организации самостоятельной работы студентов" level="2"><h2 section="4.4">Методические указания по организации самостоятельной работы студентов</h2><p top="291" left="181" width="643" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="315" indent="1" li-ignored="1">Самостоятельная работа студентов всех форм и видов обучения является одним из обязательных видов образовательной деятельности, обеспечивающей реализацию требований Федеральных государственных стандартов высшего образования. Согласно требованиям нормативных документов самостоятельная работа студентов является обязательным компонентом образовательного процесса, так как она обеспечивает закрепление получаемых на лекционных занятиях знаний путем приобретения навыков осмысления и расширения их содержания, навыков решения актуальных проблем формирования общекультурных и профессиональных компетенций, научно-исследовательской деятельности, подготовки к семинарам, лабораторным работам, сдаче зачетов и экзаменов. Самостоятельная работа студентов представляет собой совокупность аудиторных и внеаудиторных занятий и работ. Самостоятельная работа в рамках образовательного процесса в вузе решает следующие задачи: </p>
+<ul>
+<li item="–">закрепление и расширение знаний, умений, полученных студентами во время аудиторных и внеаудиторных занятий, превращение их в стереотипы умственной и физической деятельности;</li>
+<li item="–">приобретение дополнительных знаний и навыков по дисциплинам учебного плана;</li>
+<li item="–">формирование и развитие знаний и навыков, связанных с научно-исследовательской деятельностью;</li>
+<li item="–">развитие ориентации и установки на качественное освоение образовательной программы;</li>
+<li item="–">развитие навыков самоорганизации;</li>
+<li item="–">формирование самостоятельности мышления, способности к саморазвитию, самосовершенствованию и самореализации;</li>
+<li item="–">выработка навыков эффективной самостоятельной профессиональной теоретической, практической и учебно-исследовательской деятельности.</li>
+</ul>
+<p top="808" left="181" width="180" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="832" indent="1" li-ignored="1"><b>Подготовка к лекции.</b> Качество освоения содержания конкретной дисциплины прямо зависит от того, насколько студент сам, без внешнего принуждения формирует у себя установку на получение на лекциях новых знаний, дополняющих уже имеющиеся по данной дисциплине. Время на подготовку студентов к двухчасовой лекции по нормативам составляет не менее 0,2 часа. </p>
+<p top="912" left="181" width="320" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="936" indent="1" li-ignored="1"><b>Подготовка к практическому занятию.</b> Подготовка к практическому занятию включает следующие элементы самостоятельной деятельности: четкое представление цели и задач его проведения; выделение навыков умственной, аналитической, научной деятельности, которые станут результатом предстоящей работы. Выработка навыков осуществляется с помощью получения новой информации об изучаемых процессах и с помощью знания о том, в какой степени в данное время студент владеет методами исследовательской деятельности, которыми он станет пользоваться на практическом занятии. Подготовка к практическому занятию нередко требует подбора материала, данных и специальных источников, с которыми предстоит учебная работа. Студенты должны дома подготовить к занятию 3–4 примера формулировки темы исследования, представленного в монографиях, научных статьях, отчетах. Затем они самостоятельно осуществляют поиск соответствующих источников, определяют актуальность конкретного исследования процессов и явлений, выделяют основные способы доказательства авторами научных работ ценности того, чем они занимаются. В ходе самого практического занятия студенты сначала представляют найденные ими варианты формулировки актуальности исследования, обсуждают их и обосновывают свое мнение о наилучшем варианте. Время на подготовку к практическому занятию по нормативам составляет не менее 0,2 часа. </p>
+<p top="207" left="181" width="311" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="231" indent="1" li-ignored="1"><b>Подготовка к семинарскому занятию.</b> Самостоятельная подготовка к семинару направлена: на развитие способности к чтению научной и иной литературы; на поиск дополнительной информации, позволяющей глубже разобраться в некоторых вопросах; на выделение при работе с разными источниками необходимой информации, которая требуется для полного ответа на вопросы плана семинарского занятия; на выработку умения правильно выписывать высказывания авторов из имеющихся источников информации, оформлять их по библиографическим нормам; на развитие умения осуществлять анализ выбранных источников информации; на подготовку собственного выступления по обсуждаемым вопросам; на формирование навыка оперативного реагирования на разные мнения, которые могут возникать при обсуждении тех или иных научных проблем. Время на подготовку к семинару по нормативам составляет не менее 0,2 часа. </p>
+<p top="455" left="181" width="230" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="479" indent="1" li-ignored="1"><b>Подготовка к коллоквиуму.</b> Коллоквиум представляет собой коллективное обсуждение раздела дисциплины на основе самостоятельного изучения этого раздела студентами. Подготовка к данному виду учебных занятий осуществляется в следующем порядке. Преподаватель дает список вопросов, ответы на которые следует получить при изучении определенного перечня научных источников. Студентам во внеаудиторное время необходимо прочитать специальную литературу, выписать из нее ответы на вопросы, которые будут обсуждаться на коллоквиуме, мысленно сформулировать свое мнение по каждому из вопросов, которое они выскажут на занятии. Время на подготовку к коллоквиуму по нормативам составляет не менее 0,2 часа. </p>
+<p top="642" left="181" width="285" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="666" indent="1" li-ignored="1"><b>Подготовка к контрольной работе.</b> Контрольная работа назначается после изучения определенного раздела (разделов) дисциплины и представляет собой совокупность развернутых письменных ответов студентов на вопросы, которые они заранее получают от преподавателя. Самостоятельная подготовка к контрольной работе включает в себя: — изучение конспектов лекций, раскрывающих материал, знание которого проверяется контрольной работой; повторение учебного материала, полученного при подготовке к семинарским, практическим занятиям и во время их проведения; изучение дополнительной литературы, в которой конкретизируется содержание проверяемых знаний; составление в мысленной форме ответов на поставленные в контрольной работе вопросы; формирование психологической установки на успешное выполнение всех заданий. Время на подготовку к контрольной работе по нормативам составляет 2 часа.  </p>
+<p top="890" left="181" width="168" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="914" indent="1" li-ignored="1"><b>Подготовка к зачету.</b>осуществляться в течение всего семестра. Подготовка включает следующие действия: перечитать все лекции, а также материалы, которые готовились к семинарским и практическим занятиям в течение семестра, соотнести эту информацию с вопросами, которые даны к зачету, если информации недостаточно, ответы находят в предложенной преподавателем литературе. Рекомендуется делать краткие записи. Время на подготовку к зачету по нормативам составляет не менее 4 часов. </p>
+<p top="1035" left="170" width="194" height="24" font="9" bold="1" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="1059" indent="1" li-ignored="1"><b>Подготовка к экзамену.</b> Самостоятельная подготовка к экзамену схожа с подготовкой к зачету, особенно если он дифференцированный. Но объем учебного материала, который нужно восстановить в памяти к экзамену, вновь осмыслить и понять, значительно больше, поэтому требуется больше времени и умственных усилий. Важно сформировать целостное представление о содержании ответа на каждый вопрос, что предполагает знание разных научных трактовок сущности того или иного явления, процесса, умение раскрывать факторы, определяющие их противоречивость, знание имен ученых, изучавших обсуждаемую проблему. Необходимо также привести информацию о материалах эмпирических исследований, что указывает на всестороннюю подготовку студента к экзамену. Время на подготовку к экзамену по нормативам составляет 36 часов для бакалавров. </p>
+<p top="187" left="170" width="546" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211" indent="1" li-ignored="1">В ФБГОУ ВО «ИГУ» организация самостоятельной работы студентов регламентируется Положением о самостоятельной работе студентов, принятым Ученым советом ИГУ 22 июня 2012 г. </p>
+</section>"""@ru .
+
+wpdb:2795ccba-db3d-11ec-a621-704d7b84fd9f a wpdd:ElectronReferences,
         wpdd:ReferenceList .
 
-wpdb:866d17ae-db27-11ec-8375-704d7b84fd9f a wpdd:BasicReferences,
+wpdb:27959b46-db3d-11ec-a621-704d7b84fd9f a wpdd:BasicReferences,
         wpdd:ReferenceList .
 
-wpdb:866d2d98-db27-11ec-8375-704d7b84fd9f a wpdd:AuxiliaryReferences,
+wpdb:2795b0ae-db3d-11ec-a621-704d7b84fd9f a wpdd:AuxiliaryReferences,
         wpdd:ReferenceList .
 
-wpdb:866d63b2-db27-11ec-8375-704d7b84fd9f a wpdd:EvaluationMean,
+wpdb:2795e5ce-db3d-11ec-a621-704d7b84fd9f a wpdd:EvaluationMean,
         wpdd:QuestionList .
 

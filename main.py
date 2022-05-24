@@ -1,7 +1,7 @@
 from lxml import etree
 import re
 from pprint import pprint
-from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS)
+from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from uuid import uuid1
 from itertools import pairwise
 from collections import OrderedDict
@@ -22,6 +22,7 @@ DBR = Namespace("http://dbpedia.org/resource/")
 IDB = Namespace("http://irnok.net/ontologies/database/isu/studplan#")
 IDD = Namespace("http://irnok.net/ontologies/isu/studplan#")
 SCH = Namespace("https://schema.org/")
+CNT = Namespace("http://www.w3.org/2011/content#")
 
 DCID = DCTERMS.identifier
 
@@ -755,6 +756,17 @@ def proctestsection(section):
     if owner is not None:
         G.add((owner[0], RDF.type, WPDD["EvaluationMean"]))
 
+    for p in section.xpath(".//p"):
+        t = alltext(p, normspaces=True)
+        tl = t.lower()
+        if allwords(tl, "разработчик"):
+            _, name = t.split(":")
+            name = name.strip()
+            P = genuuid(WPDB)
+            G.add((CDC, SCH.author, P))
+            G.add((P, RDF.type, FOAF["Person"]))
+            G.add((P, RDFS.label, Literal(name, lang="ru")))
+
 
 def procstudysupport(section):
     pp = None
@@ -973,17 +985,23 @@ def procstudycontent(section):
 
     def _(d, p):
         for k, v in d.items():
-            t, l = v
+            t, sub = v
             BN = BNode()
             G.add((p, WPDD.content, BN))
             G.add((BN, RDF.type, WPDD["Topic"]))
             G.add((BN, RDFS.label, Literal(t, lang="ru")))
             G.add((BN, SCH.sku, Literal(k)))
-            if l is not None:
-                _(l, BN)
+            if sub is not None:
+                _(sub, BN)
 
     _(h, WP)
 
+def procsrscontent(section):
+    text = etree.tostring(section, encoding=str)
+    C = genuuid(WPDD)
+    G.add((WP, WPDD.independentWork, C))
+    G.add((C, CNT.chars, Literal(text, lang="ru")))
+    G.add((C, RDF.type, CNT["ContentAsText"]))
 
 def procsec(number, section):
     level = section.get("level", None)
@@ -1009,6 +1027,8 @@ def procsec(number, section):
             procresultsrequirements(section)
         elif allwords(title, "содержан учебн матер"):
             procstudycontent(section)
+        elif allwords(title, "указан самостоятельн работ"):
+            procsrscontent(section)
         else:
             print("WARNING: Did not process '{}'".format(title))
 
