@@ -3,10 +3,15 @@ import re
 from pprint import pprint
 from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS)
 from uuid import uuid1
+from itertools import pairwise
 
 
-def genuuid():
-    return str(uuid1())
+def genuuid(namespace=None):
+    uuid = str(uuid1())
+    if namespace:
+        return namespace[uuid]
+    else:
+        return uuid
 
 
 G = Graph()
@@ -37,6 +42,10 @@ MASTER = IDB["f2d33752-5a0b-11e6-942f-005056100702"]
 NUMBERRE = re.compile(
     r'^(((Тема|Раздел)\s+)?((\d{1,2}|[IVXLCDM]{1,4}|[ivxlcdm]{1,4})\.?\)?)+|[а-яА-я]\))\s+'
 )
+COMPETENCERE = re.compile(r"([А-ЯA-Z]{1,3}[-–]+\d+)")
+REQDESCRRE = re.compile(r"(знать|уметь|владеть)")
+
+BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
 
 
 class Style:
@@ -92,8 +101,11 @@ def found(s, substr):
     return s.find(substr) != -1
 
 
-def alltext(node):
-    return node.xpath("string()").strip()
+def alltext(node, normspaces=False):
+    s = node.xpath("string()").strip()
+    if normspaces:
+        s = " ".join(s.split())
+    return s
 
 
 def orphanite(node):
@@ -135,9 +147,6 @@ def allwords(s, *set):
     return True
 
 
-BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
-
-
 def listitem(text):
     if text[0] in BULLETS:
         return text[0], text[1:].strip()
@@ -155,6 +164,16 @@ def anywords(s, *set):
             return True
     return False
 
+def pairs(iterable):
+    _ = (e for e in iterable)
+
+    try:
+        while True:
+            a = next(_)
+            b = next(_)
+            yield a,b
+    except StopIteration:
+        pass
 
 def can_merge(o1, o2):
     if o1.get("font") == o2.get("font"):
@@ -431,8 +450,6 @@ def conv(filename):
 
         pspan = None
 
-    debugsave(tree, "debug.xml")
-
     # Clear empty <p/> nodes
     for p in tree.xpath("//p"):
         t = p.xpath("string()").strip()
@@ -656,7 +673,6 @@ def proclistitems(paragraphs,
                   otype=None,
                   itemtype=None,
                   removeempty=False):
-    ps = paragraphs
     ol = None
     owners = []
     if owner is not None:
@@ -664,7 +680,7 @@ def proclistitems(paragraphs,
 
     if itemtype is None:
         itemtype = WPDD["ListItem"]
-    for p in ps:
+    for p in paragraphs:
         t = alltext(p)
         if t == "":
             if removeempty:
@@ -675,6 +691,8 @@ def proclistitems(paragraphs,
 
         if num is None:
             ol = None
+            p.attrib["li-ignored"]="1"
+            print ("IGN:", t)
             continue
 
         if name.strip() == "":
@@ -776,6 +794,7 @@ def procstudysupport(section):
 def proccontentsection(section):
     pi = None
     lihappend = False
+    debugsave(section, "debug.xml")
     for p in section.xpath(".//p"):
         t = alltext(p).lower()
         indent = p.get("indent", "0") == "1"
@@ -786,15 +805,19 @@ def proccontentsection(section):
             p.getparent().remove(p)
             pi = None
             continue
+
         code, title = listitem(t)
-        if not indent and code is None:
-            if pi is not None:
-                merge(pi, p)
-                orphanite(p)
-            else:
-                pi = p  # A paragraph without indent
+
         if code is not None:
             lihappend = True
+            pi = p
+            continue
+
+        if pi is not None:
+            merge(pi, p)
+            orphanite(p)
+        else:
+            pi = p  # A paragraph without indent
 
     # This is not necessary
     if lihappend:
@@ -819,7 +842,9 @@ def proccontentsection(section):
             procsec(num, sec)  # Recursive
             section.append(sec)
 
+
 def proccontentsection2(section):  # Level = 2
+
     def _val(m, group=1):
         v = m.group(group).rstrip(".")
         if found(v, '.'):
@@ -846,6 +871,72 @@ def proccontentsection2(section):  # Level = 2
         elif allwords(t, "форм промежуточн аттестац"):
             pass
 
+
+def proccourlocation(section):
+    BN = BNode()
+    G.add((WP, WPDD.location, BN))
+    for p in section.xpath(".//p"):
+        t = alltext(p, normspaces=True)
+        if anywords(t, "предшеств последующ"):
+            pred = WPDD.require if allwords(t, "предшеств") else WPDD.ensure
+            _, disc = t.rsplit(":", maxsplit=1)
+            disc = disc.rsplit(".")[0]
+            if found(disc, ";"):
+                discs = disc.split(";")  # Suppose disciplines having ','
+            else:  # in their titles
+                discs = disc.split(',')
+            for disc in discs:
+                D = WPDB[genuuid()]
+                G.add((BN, pred, D))
+                G.add((D, RDFS.label, Literal(disc.strip(), lang="ru")))
+            continue
+        if t == "":
+            orphanite(p)
+
+
+REQDICT = {
+    "знать": WPDD.know,
+    "уметь": WPDD.ableTo,
+    "владеть": WPDD.posess,
+}
+
+
+def procresultsrequirements(section):
+    for p in section.xpath(".//p"):
+        t = alltext(p, normspaces=True)
+        tl = t.lower()
+        if anywords(tl, "компетенц"):
+            m = re.split(COMPETENCERE, t)
+            if m is None:
+                print("WARNING: Compenence not found '{}'".format(t))
+            else:
+                matches = m[1:]
+                for code, title in pairs(matches):
+                    title = title.strip()
+                    if title[-1] in [',', '.', ';']:
+                        title = title[:-1]
+                    C = genuuid(WPDB)
+                    G.add((CDC, WPDD.competence, C))
+                    G.add((C, DCTERMS.identifier, Literal(code, lang="ru")))
+                    G.add((C, RDFS.label, Literal(title, lang="ru")))
+            continue
+        elif anywords(tl.lower(), "знать уметь владеть"):
+            m = re.split(REQDESCRRE, t)
+            m = m[1:]
+            for verb, descr in pairs(m):
+                descr = descr.strip().lstrip(":")
+                for ch in ":;.":
+                    descr = descr.rstrip(ch)
+                descr = descr.strip()
+                C = genuuid(WPDB)
+                pred = REQDICT[verb]
+                G.add((CDC, pred, C))
+                G.add((C, RDFS.label, Literal(descr, lang="ru")))
+
+def procstudycontent(section):
+    pass
+
+
 def procsec(number, section):
     level = section.get("level", None)
     if section.tag == "section":
@@ -864,6 +955,14 @@ def procsec(number, section):
                 proccontentsection2(section)
         elif allwords(title, "учебн методическ информацион обеспечен"):
             procstudysupport(section)
+        elif allwords(title, "мест дисциплин структур опоп"):
+            proccourlocation(section)
+        elif allwords(title, "требован результат дисциплин"):
+            procresultsrequirements(section)
+        elif allwords(title, "содержан учебн матер"):
+            procstudycontent(section)
+        else:
+            print("WARNING: Did not process '{}'".format(title))
 
 
 if __name__ == "__main__":
