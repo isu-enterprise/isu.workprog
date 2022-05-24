@@ -165,6 +165,7 @@ def anywords(s, *set):
             return True
     return False
 
+
 def pairs(iterable):
     _ = (e for e in iterable)
 
@@ -172,9 +173,10 @@ def pairs(iterable):
         while True:
             a = next(_)
             b = next(_)
-            yield a,b
+            yield a, b
     except StopIteration:
         pass
+
 
 def can_merge(o1, o2):
     if o1.get("font") == o2.get("font"):
@@ -692,7 +694,7 @@ def proclistitems(paragraphs,
 
         if num is None:
             ol = None
-            p.attrib["li-ignored"]="1"
+            p.attrib["li-ignored"] = "1"
             # print ("IGN:", t)
             continue
 
@@ -934,6 +936,7 @@ def procresultsrequirements(section):
                 G.add((CDC, pred, C))
                 G.add((C, RDFS.label, Literal(descr, lang="ru")))
 
+
 def procstudycontent(section):
     # Here we have p, ol, ul and li items
     # P supposed to be higher level topics starting with
@@ -958,10 +961,12 @@ def procstudycontent(section):
                 e.tail = "\n"
                 ph = OrderedDict()
             else:
-                print("WARNING: Unrecognized element of structure: '{}'".format(t))
+                print(
+                    "WARNING: Unrecognized element of structure: '{}'".format(
+                        t))
                 continue
             h[num] = (title, ph)
-        else:    # li
+        else:  # li
             num = e.get("item")
             title = t
             ph[num] = (title, None)
@@ -969,7 +974,7 @@ def procstudycontent(section):
     def _(d, p):
         for k, v in d.items():
             t, l = v
-            BN=BNode()
+            BN = BNode()
             G.add((p, WPDD.content, BN))
             G.add((BN, RDF.type, WPDD["Topic"]))
             G.add((BN, RDFS.label, Literal(t, lang="ru")))
@@ -978,10 +983,6 @@ def procstudycontent(section):
                 _(l, BN)
 
     _(h, WP)
-
-
-
-
 
 
 def procsec(number, section):
