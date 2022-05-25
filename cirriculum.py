@@ -167,6 +167,8 @@ def proctitle(sheet):
             else:
                 logger.error("Chair is not recognized in '{}'".
                              format(line))
+        # elif факультет: ... имит ...
+
 
 
 def procplan(sheet):
