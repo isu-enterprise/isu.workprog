@@ -32,7 +32,7 @@ CNT = Namespace("http://www.w3.org/2011/content#")
 
 DCID = DCTERMS.identifier
 
-IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702'] # Taken from 1C
+IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702']  # Taken from 1C
 ISU = IDB['6ed6df0a-dbed-11ec-b49e-704d7b84fd9f']  # Generated
 MURAL = IDB['e4f4e44d-5a0b-11e6-942f-005056100702']
 EXMURAL = IDB['e4f4e44c-5a0b-11e6-942f-005056100702']
@@ -46,8 +46,10 @@ NUMBERRE = re.compile(
 )
 COMPETENCERE = re.compile(r"([А-ЯA-Z]{1,3}[-–]+\d+)")
 REQDESCRRE = re.compile(r"(знать|уметь|владеть)")
-COURCODERE = re.compile(r"([А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?\.)+[А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?")
-# COURCODERE = re.compile(r"^([А-Яа-яA-Za-z]\d{0,3})")
+COURCODERE = re.compile(
+    r"([А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?\.)+[А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?"
+)
+SPECCODERE = re.compile(r"(\d{2,2}\.\d{2,2}\.\d{2,2})")
 
 BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
 
@@ -56,14 +58,19 @@ DEPARTMENTS = {
     "иркутскийгосударственныйуниверситет": ISU,
 }
 
+
 def found(s, substr):
     return s.find(substr) != -1
+
+
+def normspaces(s):
+    return " ".join(s.split()).strip()
 
 
 def alltext(node, normspaces=False):
     s = node.xpath("string()").strip()
     if normspaces:
-        s = " ".join(s.split())
+        return normspaces(s)
     return s
 
 

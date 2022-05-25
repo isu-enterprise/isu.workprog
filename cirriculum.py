@@ -6,9 +6,8 @@ from collections import OrderedDict
 from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
-                    BULLETS, found, anywords, allwords, splitnumber,
-                    startswithnumber, listitem, binds,
-                    DEPARTMENTS)
+                    BULLETS, found, anywords, allwords, splitnumber, normspaces,
+                    startswithnumber, listitem, binds, SPECCODERE, DEPARTMENTS)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -77,7 +76,7 @@ def proccomp1(sheet):
                 d = BNode()
                 dd = genuuid(IDB)
                 COURSES[code] = (d, dd)
-                G.add((IMIT, IDD.hasDiscipline, d))
+                G.add((C, IDD.hasDiscipline, d))
                 G.add((d, DCID, Literal(code, lang="ru")))
                 G.add((d, IDD.discipline, dd))
                 G.add((dd, RDF.type, IDD["Discipline"]))
@@ -95,25 +94,29 @@ def lines(sheet, normspaces=False):
         else:
             yield s
 
+
 def proctitle(sheet):
     global UNIV, INST
     for line in lines(sheet):
         lt = line.lower()
+        print(line)
+        specm = re.search(SPECCODERE, lt)
         #   федеральное государственное бюджетное образовательное
         # учреждение высшего образования "Иркутский государственный университет"
-        if allwords(lt, "федеральн государствен бюджетн") or allwords(lt, "фгбоуво"):
+        if allwords(lt, "федеральн государствен бюджетн") or allwords(
+                lt, "фгбоуво"):
             try:
                 uni = line.split('"', maxsplit=2)[1]
                 unil = ''.join(uni.split()).lower()
                 if unil in DEPARTMENTS:
                     UNIV = DEPARTMENTS[unil]
                 else:
-                    UNIV = genuuid(IDD)
+                    UNIV = genuuid(IDB)
                 G.add((UNIV, RDF.type, IDD["University"]))
                 G.add((UNIV, RDFS.label, Literal(uni, lang="ru")))
             except TypeError:
-                logger.warning("Cannot figure out university from '{}' ".
-                               format(line))
+                logger.warning(
+                    "Cannot figure out university from '{}' ".format(line))
                 continue
             inst = line.split("\n")[1].strip()
             iinst = ''.join(inst.split()).lower()
@@ -127,6 +130,43 @@ def proctitle(sheet):
             if iinst.startswith("институт"):
                 G.add((INST, RDF.type, IDD["Institute"]))
             G.add((INST, RDFS.label, Literal(inst, lang="ru")))
+            G.add((INST, IDD.hasСurriculum, C))
+            G.add((C, RDF.type, IDD["Сurriculum"]))
+        elif specm is not None:
+            parts = re.split(SPECCODERE, line, maxsplit=1)
+            if len(parts) > 3:
+                code, title = parts[1:3]
+                title = normspaces(title)
+                if title != "":
+                    spec = genuuid(IDB)
+                    G.add((C, IDD.specialty, spec))
+                    G.add((spec, RDFS.label, Literal(title, lang="ru")))
+                    G.add((spec, DCID, Literal(code)))
+                    G.add((spec, RDF.type, IDD["Speciality"]))
+        elif allwords(lt, "профиль"):
+            _, title = line.split(":", maxsplit=1)
+            title = normspaces(title)
+            if title != "":
+                prof = genuuid(IDB)
+                G.add((prof, RDF.type, IDD["Specialization"]))
+                G.add((prof, RDF.type, IDD["Profile"]))
+                G.add((prof, RDFS.label, Literal(title, lang="ru")))
+                G.add((C, IDD.profile, prof))
+            else:
+                logger.error("Profile is not recognized in '{}'".
+                             format(line))
+        elif allwords(lt, "кафедра"):
+            _, title = line.split(":", maxsplit=1)
+            title = normspaces(title)
+            if title != "":
+                chair = genuuid(IDB)
+                G.add((chair, RDF.type, IDD["Chair"]))
+                G.add((chair, RDFS.label, Literal(title, lang="ru")))
+                G.add((C, IDD.chair, chair))
+                G.add((INST, SCH.department, chair))
+            else:
+                logger.error("Chair is not recognized in '{}'".
+                             format(line))
 
 
 def procplan(sheet):
