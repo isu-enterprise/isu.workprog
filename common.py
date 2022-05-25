@@ -32,7 +32,8 @@ CNT = Namespace("http://www.w3.org/2011/content#")
 
 DCID = DCTERMS.identifier
 
-IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702']
+IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702'] # Taken from 1C
+ISU = IDB['6ed6df0a-dbed-11ec-b49e-704d7b84fd9f']  # Generated
 MURAL = IDB['e4f4e44d-5a0b-11e6-942f-005056100702']
 EXMURAL = IDB['e4f4e44c-5a0b-11e6-942f-005056100702']
 BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
@@ -50,6 +51,10 @@ COURCODERE = re.compile(r"([А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1
 
 BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
 
+DEPARTMENTS = {
+    "институтматематикииинформационныхтехнологий": IMIT,
+    "иркутскийгосударственныйуниверситет": ISU,
+}
 
 def found(s, substr):
     return s.find(substr) != -1

@@ -3,11 +3,12 @@ from xlrd import open_workbook
 from pprint import pprint
 from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from collections import OrderedDict
-from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID,
+from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
                     BULLETS, found, anywords, allwords, splitnumber,
-                    startswithnumber, listitem, binds)
+                    startswithnumber, listitem, binds,
+                    DEPARTMENTS)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -20,11 +21,12 @@ G = Graph()
 
 COURSES = OrderedDict()
 COMPS = OrderedDict()
+UNIV = None
+INST = None
 
 
 def conv(filename):
     wb = open_workbook(filename)
-    G.add((IMIT, RDF.type, DBR.Faculty))
     binds(G)
     for sheet in wb.sheets():
         print(sheet.name)
@@ -84,8 +86,47 @@ def proccomp1(sheet):
             pcomp[0].append((d, dd))
 
 
+def lines(sheet, normspaces=False):
+    for row in range(sheet.nrows):
+        ss = [str(sheet.cell_value(row, col)) for col in range(sheet.ncols)]
+        s = " ".join(ss).strip()
+        if normspaces:
+            yield " ".join(s.split())
+        else:
+            yield s
+
 def proctitle(sheet):
-    pass
+    global UNIV, INST
+    for line in lines(sheet):
+        lt = line.lower()
+        #   федеральное государственное бюджетное образовательное
+        # учреждение высшего образования "Иркутский государственный университет"
+        if allwords(lt, "федеральн государствен бюджетн") or allwords(lt, "фгбоуво"):
+            try:
+                uni = line.split('"', maxsplit=2)[1]
+                unil = ''.join(uni.split()).lower()
+                if unil in DEPARTMENTS:
+                    UNIV = DEPARTMENTS[unil]
+                else:
+                    UNIV = genuuid(IDD)
+                G.add((UNIV, RDF.type, IDD["University"]))
+                G.add((UNIV, RDFS.label, Literal(uni, lang="ru")))
+            except TypeError:
+                logger.warning("Cannot figure out university from '{}' ".
+                               format(line))
+                continue
+            inst = line.split("\n")[1].strip()
+            iinst = ''.join(inst.split()).lower()
+            if iinst in DEPARTMENTS:
+                INST = DEPARTMENTS[iinst]
+            else:
+                INST = genuuid(IDB)
+            if UNIV is not None:
+                G.add((UNIV, SCH.department, INST))
+            G.add((INST, RDF.type, IDD["Faculty"]))
+            if iinst.startswith("институт"):
+                G.add((INST, RDF.type, IDD["Institute"]))
+            G.add((INST, RDFS.label, Literal(inst, lang="ru")))
 
 
 def procplan(sheet):
@@ -103,7 +144,7 @@ def procsheet(sheet):
     elif allwords(sname, "план"):
         procplan(sheet)
     else:
-        logger.warn("Did not process sheet '{}'".format(sname))
+        logger.warning("Did not process sheet '{}'".format(sname))
 
 
 if __name__ == "__main__":
