@@ -1,3 +1,4 @@
+from cProfile import label
 from flask import Flask, render_template, jsonify, request
 from rdflib import Graph
 
@@ -55,69 +56,94 @@ SELECT ?uuid WHERE {
 LIMIT 1
 """
 
-GET_WP_AIM = PREFIXES + """
+GET_WP_AP = PREFIXES + """
 
 SELECT ?text WHERE {
     wpdb:@UUID@ a dbr:Syllabus .
     wpdb:@UUID@ wpdd:courseDC ?dc .
-    ?dc wpdd:aim ?text .
+    ?dc wpdd:@WHAT@ ?text
 }
 LIMIT 1
 
 """
+#END_OF_GETTERS
+
+DEL_WP_AP = PREFIXES + """
+
+DELETE {
+    ?dc wpdd:@WHAT@ ?text .
+} WHERE {
+    wpdb:@UUID@ a dbr:Syllabus .
+    wpdb:@UUID@ wpdd:courseDC ?dc .
+    ?dc wpdd:@WHAT@ ?text .
+}
+
+"""
+
+INS_WP_AP = PREFIXES + """
+INSERT {
+    ?dc wpdd:@WHAT@ "@TEXT@" .
+} WHERE {
+    wpdb:@UUID@ a dbr:Syllabus .
+    wpdb:@UUID@ wpdd:courseDC ?dc .
+}
+
+"""
+
+QUERIES = [
+        (("aim", "problem"), [GET_WP_AP,DEL_WP_AP,INS_WP_AP]),
+    ]
+
+def gettemplate(what):
+    for t, qs in QUERIES:
+        if what in t:
+            templ = qs 
+    return templ
 
 
 @app.route("/api/1.0/getwp")  # Get Work ProgramS
 def getwp():
     # uuid = request.json["uuid"]
-    uuid = request.args.get("uuid")
+    args = request.args
+    uuid = args.get("uuid")
+    what = args.get("tag")
 
-    q = GET_WP_AIM.replace("@UUID@", uuid)
+    templ = None
+    
+    templ= gettemplate(what)[0]
 
+    q = templ.replace("@UUID@", uuid).replace("@WHAT@", what)
     text = list(G.query(q))[0][0]
-
-    answer = {"text": text, "error": 0}
+    answer = {
+        "text": text, 
+        "error": 0,
+     } 
+    #answer = {}
     return jsonify(answer)
 
+#|| ?dc wpdd:problem ?text . || ?dc wpdd:problem ?text || ?dc wpdd:problem "@TEXT@".
 
-DEL_WP_AIM = PREFIXES + """
-
-DELETE {
-    ?dc wpdd:aim ?text .
-} WHERE {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@ wpdd:courseDC ?dc .
-    ?dc wpdd:aim ?text .
-}
-"""
-
-INS_WP_AIM = PREFIXES + """
-
-INSERT {
-    ?dc wpdd:aim "@TEXT@" .
-} WHERE {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@ wpdd:courseDC ?dc .
-}
-
-"""
-
+def qsubst(query, substs):
+    q = query
+    for k,v in substs.items():
+        q = q.replace(k,v)
+    return q
 
 @app.route("/api/1.0/savewp", methods=['POST'])  # Get Work ProgramS
 def savewp():
     # uuid = request.json["uuid"]
-
     js = request.json
     uuid = js["uuid"]
     text = js["text"]
+    what = js["tag"]
     print(uuid, text)
-
-    q1 = DEL_WP_AIM.replace("@UUID@", uuid)
-    q2 = INS_WP_AIM.replace("@UUID@", uuid).replace("@TEXT@", text)
-
-    qs = [q1, q2]
-    for q in qs:
-        G.update(q)
+    substs = {"@UUID@": uuid, "@WHAT@":what, "@TEXT@":text}
+    # queries= [DEL_WP_AP, INS_WP_AP]
+    queries= gettemplate(what)[1:]
+    for q in queries:
+        q1 = qsubst(q, substs)
+        print(q1)
+        G.update(q1)
 
     answer = {"uuid": uuid, "error": 0, "msg": "saved"}
     return jsonify(answer)
