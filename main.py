@@ -718,7 +718,7 @@ def procstudysupport(section):
 def proccontentsection(section):
     pi = None
     lihappend = False
-    debugsave(section, "debug.xml")
+
     for p in section.xpath(".//p"):
         t = alltext(p).lower()
         indent = p.get("indent", "0") == "1"

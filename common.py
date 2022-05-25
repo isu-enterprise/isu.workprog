@@ -39,11 +39,14 @@ BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
 ACBACH = IDB['f2d3374f-5a0b-11e6-942f-005056100702']
 APPLBACH = IDB['f2d33754-5a0b-11e6-942f-005056100702']
 MASTER = IDB["f2d33752-5a0b-11e6-942f-005056100702"]
+
 NUMBERRE = re.compile(
     r'^(((Тема|Раздел)\s+)?((\d{1,2}|[IVXLCDM]{1,4}|[ivxlcdm]{1,4})\.?\)?)+|[а-яА-я]\))\s+'
 )
 COMPETENCERE = re.compile(r"([А-ЯA-Z]{1,3}[-–]+\d+)")
 REQDESCRRE = re.compile(r"(знать|уметь|владеть)")
+COURCODERE = re.compile(r"([А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?\.)+[А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?")
+# COURCODERE = re.compile(r"^([А-Яа-яA-Za-z]\d{0,3})")
 
 BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
 
