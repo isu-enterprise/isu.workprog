@@ -8,7 +8,7 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
                     BULLETS, found, anywords, allwords, splitnumber,
                     normspaces, startswithnumber, listitem, binds, SPECCODERE,
-                    DEPARTMENTS, YEARDISTRE, YEARRE)
+                    DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -86,24 +86,56 @@ def proccomp1(sheet):
             pcomp[0].append((d, dd))
 
 
-def lines(sheet, normspaces=False):
+def lines(sheet, normspaces=False, cells=False):
     for row in range(sheet.nrows):
         ss = [str(sheet.cell_value(row, col)) for col in range(sheet.ncols)]
         s = " ".join(ss).strip()
         if normspaces:
-            yield " ".join(s.split())
+            s = " ".join(s.split())
+        if cells:
+            yield s, ss
         else:
             yield s
 
 
 def proctitle(sheet):
     global UNIV, INST
-    for line in lines(sheet):
+    profcode = None
+    tasktype = None
+    for line, cells in lines(sheet, cells=True):
         lt = line.lower()
 
         specm = re.search(SPECCODERE, lt)
         #   федеральное государственное бюджетное образовательное
         # учреждение высшего образования "Иркутский государственный университет"
+        if profcode is not None:
+            profcodem = re.search(PROFCODERE, str(cells[profcode].strip()))
+            if profcodem is not None:
+                code = profcodem.group(1)
+                title = cells[profcode+1].strip()
+                uri = genuuid(IDB)
+                G.add((C, IDD.professionActivity, uri))
+                G.add((uri, RDF.type, IDD["ProfessionActivity"]))
+                G.add((uri, RDFS.label, Literal(title, lang="ru")))
+                G.add((uri, DCID, Literal(code)))
+                continue
+            else:
+                profcodem = None
+        if tasktype is not None:
+            basic = cells[tasktype-1].strip()
+            task = cells[tasktype].strip()
+            if basic in "+-" and task != "":
+                uri = BNode()
+                G.add((C, IDD.taskType, uri))
+                G.add((uri, RDF.type, IDD["TaskType"]))
+                G.add((uri, RDFS.label, Literal(task, lang="ru")))
+                G.add((uri, IDD.basic, Literal(basic=="+")))
+                continue
+            else:
+                tasktype = None
+
+
+        # print(specm)
         if allwords(lt, "федеральн государствен бюджетн") or allwords(
                 lt, "фгбоуво"):
             try:
@@ -210,8 +242,21 @@ def proctitle(sheet):
                 b, e = m.span()
                 dur = int(text[b:e])
                 G.add((C, IDB.studyDration, Literal(dur)))
-        # elif # Профессиональные стандарты
+        elif allwords(lt, "код област профессиональн деятельност"):
+            for i, c in enumerate(cells):
+                c = str(c).strip().lower()
+                if allwords(c, "код"):
+                    profcode = i
+                    break
+        elif allwords(lt, "основн тип задач профессиональн деятельност"):
+            profcode = None
+            for i, c in enumerate(cells):
+                c = str(c).strip().lower()
+                if allwords(c, "тип задач профессиональн деятельност"):
+                    tasktype = i
+                    break
         elif allwords(lt, "директор"):
+            tasktype = None
             _, text, _ = line.split("/")
             head = text.strip()
             uri = genuuid(IDB)

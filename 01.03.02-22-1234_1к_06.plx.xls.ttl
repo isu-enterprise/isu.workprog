@@ -10,566 +10,582 @@ idb:6ed6df0a-dbed-11ec-b49e-704d7b84fd9f a idd:University ;
     rdfs:label "Иркутский государственный университет"@ru ;
     schema:department idb:c526d6c7-9a78-11e6-9438-005056100702 .
 
-idb:87b2d090-dc3f-11ec-9739-704d7b84fd9f a idd:Сurriculum ;
-    idb:director idb:87b95b22-dc3f-11ec-9739-704d7b84fd9f ;
-    idb:studyDration 4 ;
-    idd:chair idb:87b93020-dc3f-11ec-9739-704d7b84fd9f ;
-    idd:enrolledIn 2022 ;
-    idd:hasDiscipline [ idd:discipline idb:87b9a776-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9a2c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.04"@ru ],
-        [ idd:discipline idb:87ba6210-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.24"@ru ],
-        [ idd:discipline idb:87bb24e8-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bba210-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.04"@ru ],
-        [ idd:discipline idb:87baa252-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.26"@ru ],
-        [ idd:discipline idb:87ba3196-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.15"@ru ],
-        [ idd:discipline idb:87bb73f8-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б2.В.02(У)"@ru ],
-        [ idd:discipline idb:87bb2df8-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.06"@ru ],
-        [ idd:discipline idb:87b9f4b0-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9efc4-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba0bee-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.09"@ru ],
-        [ idd:discipline idb:87bad7fe-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.30"@ru ],
-        [ idd:discipline idb:87b97760-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b966d0-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.ДВ.01.03"@ru ],
-        [ idd:discipline idb:87bad1be-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.29"@ru ],
-        [ idd:discipline idb:87bae5a0-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.32"@ru ],
-        [ idd:discipline idb:87bb6688-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.ДВ.02.02"@ru ],
-        [ idd:discipline idb:87b999f2-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9948e-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9c9b8-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.03"@ru ],
-        [ idd:discipline idb:87bb5a76-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.ДВ.01.02"@ru ],
-        [ idd:discipline idb:87ba5568-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.22"@ru ],
-        [ idd:discipline idb:87b9ad8e-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9a2c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.05"@ru ],
-        [ idd:discipline idb:87b9c102-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9b658-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.07"@ru ],
-        [ idd:discipline idb:87bbd4f6-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "ФТД.01"@ru ],
-        [ idd:discipline idb:87ba6814-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.25"@ru ],
-        [ idd:discipline idb:87bb34a6-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.07"@ru ],
-        [ idd:discipline idb:87bb7a10-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б2.В.03(П)"@ru ],
-        [ idd:discipline idb:87baf7de-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.35"@ru ],
-        [ idd:discipline idb:87bb54a4-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.ДВ.01.01"@ru ],
-        [ idd:discipline idb:87bb6d7c-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б2.В.01(У)"@ru ],
-        [ idd:discipline idb:87bb4e78-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.12"@ru ],
-        [ idd:discipline idb:87bade3e-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.31"@ru ],
-        [ idd:discipline idb:87b97f4e-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b966d0-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b986ce-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9948e-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9a2c6-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9b658-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9c9b8-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9d9a8-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9efc4-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87b9fcf8-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba0bee-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bba210-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б3.01(Д)"@ru ],
-        [ idd:discipline idb:87ba4992-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.20"@ru ],
-        [ idd:discipline idb:87ba7be2-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.17"@ru ],
-        [ idd:discipline idb:87bb4874-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.11"@ru ],
-        [ idd:discipline idb:87bb1e9e-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.02"@ru ],
-        [ idd:discipline idb:87bb18a4-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.01"@ru ],
-        [ idd:discipline idb:87bbc93e-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.15"@ru ],
-        [ idd:discipline idb:87ba3d62-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.18"@ru ],
-        [ idd:discipline idb:87b9debc-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9d9a8-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.08"@ru ],
-        [ idd:discipline idb:87bb3bfe-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.08"@ru ],
-        [ idd:discipline idb:87ba4366-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.19"@ru ],
-        [ idd:discipline idb:87b96cd4-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b966d0-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.01"@ru ],
-        [ idd:discipline idb:87b9d0f2-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9c9b8-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.ДВ.02.03"@ru ],
-        [ idd:discipline idb:87baebc2-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.33"@ru ],
-        [ idd:discipline idb:87ba25b6-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.13"@ru ],
-        [ idd:discipline idb:87bb6070-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.ДВ.02.01"@ru ],
-        [ idd:discipline idb:87ba6e36-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б2.О.01(Пд)"@ru ],
-        [ idd:discipline idb:87ba2b92-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.14"@ru ],
-        [ idd:discipline idb:87baf1da-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.34"@ru ],
-        [ idd:discipline idb:87bbbd7c-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.13"@ru ],
-        [ idd:discipline idb:87bb80b4-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б2.В.04(П)"@ru ],
-        [ idd:discipline idb:87bba6ac-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.03"@ru ],
-        [ idd:discipline idb:87b9bb26-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9b658-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.06"@ru ],
-        [ idd:discipline idb:87baaf04-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.28"@ru ],
-        [ idd:discipline idb:87ba0270-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9fcf8-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.10"@ru ],
-        [ idd:discipline idb:87bbaf3a-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.05"@ru ],
-        [ idd:discipline idb:87ba5bc6-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.23"@ru ],
-        [ idd:discipline idb:87b9e6f0-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b9d9a8-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "ЭЛК.01"@ru ],
-        [ idd:discipline idb:87bbc358-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.14"@ru ],
-        [ idd:discipline idb:87bb4220-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.09"@ru ],
-        [ idd:discipline idb:87ba377c-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.16"@ru ],
-        [ idd:discipline idb:87b98bec-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87b986ce-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.02"@ru ],
-        [ idd:discipline idb:87ba19b8-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.11"@ru ],
-        [ idd:discipline idb:87bbdb4a-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "ФТД.02"@ru ],
-        [ idd:discipline idb:87bbb660-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87bba210-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.В.10"@ru ],
-        [ idd:discipline idb:87baa8d8-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f,
-                idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.27"@ru ],
-        [ idd:discipline idb:87ba4f8c-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.21"@ru ],
-        [ idd:discipline idb:87ba1fda-dc3f-11ec-9739-704d7b84fd9f ;
-            idd:hasCompetence idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f ;
-            dcterms:identifier "Б1.О.12"@ru ] ;
-    idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
-    idd:profile idb:87b91ba8-dc3f-11ec-9739-704d7b84fd9f ;
-    idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
-    idd:studyStandard "№ 9 от 10.01.2018"@ru ;
-    idd:studyYears "2022-2022" .
-
-idb:87b91ba8-dc3f-11ec-9739-704d7b84fd9f a idd:Profile,
-        idd:Specialization ;
-    rdfs:label "Прикладная математика и информатика"@ru .
-
-idb:87b95b22-dc3f-11ec-9739-704d7b84fd9f a foaf:Person ;
-    rdfs:label "М.В. Фалалеев"@ru .
-
-idb:87b96cd4-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Основы научно-исследовательской деятельности"@ru .
-
-idb:87b97760-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Адаптивные информационные технологии"@ru .
-
-idb:87b97f4e-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Выполнение и защита выпускной квалификационной работы"@ru .
-
-idb:87b98bec-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Управление проектами"@ru .
-
-idb:87b999f2-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Психология социального взаимодействия, саморазвития и самоорганизации"@ru .
-
-idb:87b9a776-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Русский язык и культура речи"@ru .
-
-idb:87b9ad8e-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Иностранный язык"@ru .
-
-idb:87b9bb26-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "История (История России. Всеобщая история)"@ru .
-
-idb:87b9c102-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Философия"@ru .
-
-idb:87b9d0f2-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Психология личности и профессиональное самоопределение"@ru .
-
-idb:87b9debc-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Физическая культура и спорт"@ru .
-
-idb:87b9e6f0-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Элективные дисциплины (модули) по физической культуре и спорту"@ru .
-
-idb:87b9f4b0-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Безопасность жизнедеятельности"@ru .
-
-idb:87ba0270-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Экономическая культура и основы финансовой грамотности"@ru .
-
-idb:87ba19b8-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Физика"@ru .
-
-idb:87ba1fda-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Математический анализ"@ru .
-
-idb:87ba25b6-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Алгебра"@ru .
-
-idb:87ba2b92-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Геометрия"@ru .
-
-idb:87ba3196-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Дифференциальные уравнения"@ru .
-
-idb:87ba377c-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Комплексный анализ"@ru .
-
-idb:87ba3d62-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Методы оптимизации"@ru .
-
-idb:87ba4366-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Дискретная математика"@ru .
-
-idb:87ba4992-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Методы оптимального управления"@ru .
-
-idb:87ba4f8c-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Математическая логика"@ru .
-
-idb:87ba5568-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Функциональный анализ"@ru .
-
-idb:87ba5bc6-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Уравнения математической физики"@ru .
-
-idb:87ba6210-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Теория вероятностей и математическая статистика"@ru .
-
-idb:87ba6814-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Эконометрика"@ru .
-
-idb:87ba6e36-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Преддипломная практика"@ru .
-
-idb:87ba7be2-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Численные методы"@ru .
-
-idb:87baa252-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Информатика и программирование"@ru .
-
-idb:87baa8d8-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Пакеты компьютерной математики"@ru .
-
-idb:87baaf04-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Интернет-программирование"@ru .
-
-idb:87bad1be-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Базы данных и системы управления базами данных"@ru .
-
-idb:87bad7fe-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Вычислительные системы и компьютерные сети"@ru .
-
-idb:87bade3e-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Проектирование информационных систем"@ru .
-
-idb:87bae5a0-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Программирование для мобильных платформ"@ru .
-
-idb:87baebc2-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Программирование на платформе 1С"@ru .
-
-idb:87baf1da-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Программные средства защиты информации"@ru .
-
-idb:87baf7de-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Основы информационной безопасности"@ru .
-
-idb:87bb18a4-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Основы математического моделирования"@ru .
-
-idb:87bb1e9e-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Операционные системы"@ru .
-
-idb:87bb24e8-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Структуры и алгоритмы компьютерной обработки данных"@ru .
-
-idb:87bb2df8-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Компьютерная графика"@ru .
-
-idb:87bb34a6-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Параллельное программирование"@ru .
-
-idb:87bb3bfe-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Функциональное программирование"@ru .
-
-idb:87bb4220-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Прикладное математическое моделирование"@ru .
-
-idb:87bb4874-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Системы компьютерного проектирования"@ru .
-
-idb:87bb4e78-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Алгоритмы на графах"@ru .
-
-idb:87bb54a4-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Олимпиадные задачи по программированию"@ru .
-
-idb:87bb5a76-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Архитектура ЭВМ"@ru .
-
-idb:87bb6070-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Технологии программирования"@ru .
-
-idb:87bb6688-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Языки и системы программирования"@ru .
-
-idb:87bb6d7c-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Научно-исследовательская работа (получение первичных навыков научно-исследовательской работы)"@ru .
-
-idb:87bb73f8-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Технологическая (проектно-технологическая) практика - Практикум на ЭВМ"@ru .
-
-idb:87bb7a10-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Научно-исследовательская работа"@ru .
-
-idb:87bb80b4-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Технологическая (проектно-технологическая) практика"@ru .
-
-idb:87bba6ac-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Прикладная статистика"@ru .
-
-idb:87bbaf3a-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Случайные процессы"@ru .
-
-idb:87bbb660-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Синтез и сложность схем"@ru .
-
-idb:87bbbd7c-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Основы управленческой деятельности"@ru .
-
-idb:87bbc358-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Управление информатизацией предприятия"@ru .
-
-idb:87bbc93e-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Обработка больших объемов данных"@ru .
-
-idb:87bbd4f6-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "IT-менеджмент"@ru .
-
-idb:87bbdb4a-dc3f-11ec-9739-704d7b84fd9f a idd:Discipline ;
-    rdfs:label "Анализ и обрабока данных при разработке цифровых продуктов"@ru .
-
 idb:c526d6c7-9a78-11e6-9438-005056100702 a idd:Faculty,
         idd:Institute ;
     rdfs:label "Институт математики и информационных технологий"@ru ;
-    idd:hasСurriculum idb:87b2d090-dc3f-11ec-9739-704d7b84fd9f ;
-    schema:department idb:87b93020-dc3f-11ec-9739-704d7b84fd9f .
+    idd:hasСurriculum idb:f4ca443a-dc7e-11ec-a508-704d7b84fd9f ;
+    schema:department idb:f4d0d386-dc7e-11ec-a508-704d7b84fd9f .
 
-idb:87b93020-dc3f-11ec-9739-704d7b84fd9f a idd:Chair ;
+idb:f4ca443a-dc7e-11ec-a508-704d7b84fd9f a idd:Сurriculum ;
+    idb:director idb:f4d115bc-dc7e-11ec-a508-704d7b84fd9f ;
+    idb:studyDration 4 ;
+    idd:chair idb:f4d0d386-dc7e-11ec-a508-704d7b84fd9f ;
+    idd:enrolledIn 2022 ;
+    idd:hasDiscipline [ idd:discipline idb:f4d35386-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.08"@ru ],
+        [ idd:discipline idb:f4d38c16-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б2.В.02(У)"@ru ],
+        [ idd:discipline idb:f4d1cbce-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1c5f2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d1e460-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.09"@ru ],
+        [ idd:discipline idb:f4d22952-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.19"@ru ],
+        [ idd:discipline idb:f4d212b4-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.15"@ru ],
+        [ idd:discipline idb:f4d2fa1c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.31"@ru ],
+        [ idd:discipline idb:f4d3d072-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.10"@ru ],
+        [ idd:discipline idb:f4d398aa-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б2.В.04(П)"@ru ],
+        [ idd:discipline idb:f4d300d4-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.32"@ru ],
+        [ idd:discipline idb:f4d3c8c0-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.05"@ru ],
+        [ idd:discipline idb:f4d39242-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б2.В.03(П)"@ru ],
+        [ idd:discipline idb:f4d2ec34-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.29"@ru ],
+        [ idd:discipline idb:f4d1833a-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d17e12-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.06"@ru ],
+        [ idd:discipline idb:f4d3c122-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.03"@ru ],
+        [ idd:discipline idb:f4d3fa16-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "ФТД.02"@ru ],
+        [ idd:discipline idb:f4d34742-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.06"@ru ],
+        [ idd:discipline idb:f4d2c70e-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.28"@ru ],
+        [ idd:discipline idb:f4d359e4-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.09"@ru ],
+        [ idd:discipline idb:f4d1b88c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1a7c0-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "ЭЛК.01"@ru ],
+        [ idd:discipline idb:f4d2475c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.23"@ru ],
+        [ idd:discipline idb:f4d3df7c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.14"@ru ],
+        [ idd:discipline idb:f4d12c5a-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d125b6-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.01"@ru ],
+        [ idd:discipline idb:f4d2be76-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.27"@ru ],
+        [ idd:discipline idb:f4d37e9c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.ДВ.02.02"@ru ],
+        [ idd:discipline idb:f4d38572-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б2.В.01(У)"@ru ],
+        [ idd:discipline idb:f4d18a24-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d17e12-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.07"@ru ],
+        [ idd:discipline idb:f4d30d9a-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.34"@ru ],
+        [ idd:discipline idb:f4d3d928-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.13"@ru ],
+        [ idd:discipline idb:f4d23ffa-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.22"@ru ],
+        [ idd:discipline idb:f4d34d64-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.07"@ru ],
+        [ idd:discipline idb:f4d33a86-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.02"@ru ],
+        [ idd:discipline idb:f4d20a80-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.14"@ru ],
+        [ idd:discipline idb:f4d3785c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.ДВ.02.01"@ru ],
+        [ idd:discipline idb:f4d1ada6-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1a7c0-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.08"@ru ],
+        [ idd:discipline idb:f4d3f12e-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "ФТД.01"@ru ],
+        [ idd:discipline idb:f4d19c1c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d193a2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.ДВ.02.03"@ru ],
+        [ idd:discipline idb:f4d24eb4-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.24"@ru ],
+        [ idd:discipline idb:f4d21a16-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.16"@ru ],
+        [ idd:discipline idb:f4d2b700-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.26"@ru ],
+        [ idd:discipline idb:f4d13ad8-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d125b6-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d147bc-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d15806-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d167e2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d17e12-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d193a2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d1a7c0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d1c5f2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d1d4e8-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d1e460-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б3.01(Д)"@ru ],
+        [ idd:discipline idb:f4d133a8-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d125b6-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.ДВ.01.03"@ru ],
+        [ idd:discipline idb:f4d37230-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.ДВ.01.02"@ru ],
+        [ idd:discipline idb:f4d2ac7e-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.17"@ru ],
+        [ idd:discipline idb:f4d313f8-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.35"@ru ],
+        [ idd:discipline idb:f4d36c2c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.ДВ.01.01"@ru ],
+        [ idd:discipline idb:f4d14e9c-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d147bc-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.02"@ru ],
+        [ idd:discipline idb:f4d17462-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d167e2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.05"@ru ],
+        [ idd:discipline idb:f4d1f414-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.11"@ru ],
+        [ idd:discipline idb:f4d29d1a-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б2.О.01(Пд)"@ru ],
+        [ idd:discipline idb:f4d33400-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.01"@ru ],
+        [ idd:discipline idb:f4d1dba0-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1d4e8-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.10"@ru ],
+        [ idd:discipline idb:f4d3e5a8-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.15"@ru ],
+        [ idd:discipline idb:f4d2950e-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.25"@ru ],
+        [ idd:discipline idb:f4d20328-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.13"@ru ],
+        [ idd:discipline idb:f4d22178-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.18"@ru ],
+        [ idd:discipline idb:f4d15db0-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d15806-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d193a2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.03"@ru ],
+        [ idd:discipline idb:f4d16d64-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d167e2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.04"@ru ],
+        [ idd:discipline idb:f4d2319a-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.20"@ru ],
+        [ idd:discipline idb:f4d2f314-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.30"@ru ],
+        [ idd:discipline idb:f4d30746-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.33"@ru ],
+        [ idd:discipline idb:f4d238f2-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.21"@ru ],
+        [ idd:discipline idb:f4d1fb08-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.О.12"@ru ],
+        [ idd:discipline idb:f4d340e4-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.04"@ru ],
+        [ idd:discipline idb:f4d365e2-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.12"@ru ],
+        [ idd:discipline idb:f4d3601a-dc7e-11ec-a508-704d7b84fd9f ;
+            idd:hasCompetence idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f,
+                idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f ;
+            dcterms:identifier "Б1.В.11"@ru ] ;
+    idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
+    idd:professionActivity idb:f4d0f410-dc7e-11ec-a508-704d7b84fd9f,
+        idb:f4d0f9ce-dc7e-11ec-a508-704d7b84fd9f ;
+    idd:profile idb:f4d0c0a8-dc7e-11ec-a508-704d7b84fd9f ;
+    idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
+    idd:studyStandard "№ 9 от 10.01.2018"@ru ;
+    idd:studyYears "2022-2022" ;
+    idd:taskType [ a idd:TaskType ;
+            rdfs:label "проектный"@ru ;
+            idd:basic true ],
+        [ a idd:TaskType ;
+            rdfs:label "научно-исследовательский"@ru ;
+            idd:basic true ] .
+
+idb:f4d0c0a8-dc7e-11ec-a508-704d7b84fd9f a idd:Profile,
+        idd:Specialization ;
+    rdfs:label "Прикладная математика и информатика"@ru .
+
+idb:f4d0f410-dc7e-11ec-a508-704d7b84fd9f a idd:ProfessionActivity ;
+    rdfs:label "СВЯЗЬ, ИНФОРМАЦИОННЫЕ И КОММУНИКАЦИОННЫЕ ТЕХНОЛОГИИ"@ru ;
+    dcterms:identifier "06" .
+
+idb:f4d0f9ce-dc7e-11ec-a508-704d7b84fd9f a idd:ProfessionActivity ;
+    rdfs:label "СПЕЦИАЛИСТ ПО ИНФОРМАЦИОННЫМ СИСТЕМАМ"@ru ;
+    dcterms:identifier "06.015" .
+
+idb:f4d115bc-dc7e-11ec-a508-704d7b84fd9f a foaf:Person ;
+    rdfs:label "М.В. Фалалеев"@ru .
+
+idb:f4d12c5a-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Основы научно-исследовательской деятельности"@ru .
+
+idb:f4d133a8-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Адаптивные информационные технологии"@ru .
+
+idb:f4d13ad8-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Выполнение и защита выпускной квалификационной работы"@ru .
+
+idb:f4d14e9c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Управление проектами"@ru .
+
+idb:f4d15db0-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Психология социального взаимодействия, саморазвития и самоорганизации"@ru .
+
+idb:f4d16d64-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Русский язык и культура речи"@ru .
+
+idb:f4d17462-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Иностранный язык"@ru .
+
+idb:f4d1833a-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "История (История России. Всеобщая история)"@ru .
+
+idb:f4d18a24-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Философия"@ru .
+
+idb:f4d19c1c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Психология личности и профессиональное самоопределение"@ru .
+
+idb:f4d1ada6-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Физическая культура и спорт"@ru .
+
+idb:f4d1b88c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Элективные дисциплины (модули) по физической культуре и спорту"@ru .
+
+idb:f4d1cbce-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Безопасность жизнедеятельности"@ru .
+
+idb:f4d1dba0-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Экономическая культура и основы финансовой грамотности"@ru .
+
+idb:f4d1f414-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Физика"@ru .
+
+idb:f4d1fb08-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Математический анализ"@ru .
+
+idb:f4d20328-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Алгебра"@ru .
+
+idb:f4d20a80-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Геометрия"@ru .
+
+idb:f4d212b4-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Дифференциальные уравнения"@ru .
+
+idb:f4d21a16-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Комплексный анализ"@ru .
+
+idb:f4d22178-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Методы оптимизации"@ru .
+
+idb:f4d22952-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Дискретная математика"@ru .
+
+idb:f4d2319a-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Методы оптимального управления"@ru .
+
+idb:f4d238f2-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Математическая логика"@ru .
+
+idb:f4d23ffa-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Функциональный анализ"@ru .
+
+idb:f4d2475c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Уравнения математической физики"@ru .
+
+idb:f4d24eb4-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Теория вероятностей и математическая статистика"@ru .
+
+idb:f4d2950e-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Эконометрика"@ru .
+
+idb:f4d29d1a-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Преддипломная практика"@ru .
+
+idb:f4d2ac7e-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Численные методы"@ru .
+
+idb:f4d2b700-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Информатика и программирование"@ru .
+
+idb:f4d2be76-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Пакеты компьютерной математики"@ru .
+
+idb:f4d2c70e-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Интернет-программирование"@ru .
+
+idb:f4d2ec34-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Базы данных и системы управления базами данных"@ru .
+
+idb:f4d2f314-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Вычислительные системы и компьютерные сети"@ru .
+
+idb:f4d2fa1c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Проектирование информационных систем"@ru .
+
+idb:f4d300d4-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Программирование для мобильных платформ"@ru .
+
+idb:f4d30746-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Программирование на платформе 1С"@ru .
+
+idb:f4d30d9a-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Программные средства защиты информации"@ru .
+
+idb:f4d313f8-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Основы информационной безопасности"@ru .
+
+idb:f4d33400-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Основы математического моделирования"@ru .
+
+idb:f4d33a86-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Операционные системы"@ru .
+
+idb:f4d340e4-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Структуры и алгоритмы компьютерной обработки данных"@ru .
+
+idb:f4d34742-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Компьютерная графика"@ru .
+
+idb:f4d34d64-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Параллельное программирование"@ru .
+
+idb:f4d35386-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Функциональное программирование"@ru .
+
+idb:f4d359e4-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Прикладное математическое моделирование"@ru .
+
+idb:f4d3601a-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Системы компьютерного проектирования"@ru .
+
+idb:f4d365e2-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Алгоритмы на графах"@ru .
+
+idb:f4d36c2c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Олимпиадные задачи по программированию"@ru .
+
+idb:f4d37230-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Архитектура ЭВМ"@ru .
+
+idb:f4d3785c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Технологии программирования"@ru .
+
+idb:f4d37e9c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Языки и системы программирования"@ru .
+
+idb:f4d38572-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Научно-исследовательская работа (получение первичных навыков научно-исследовательской работы)"@ru .
+
+idb:f4d38c16-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Технологическая (проектно-технологическая) практика - Практикум на ЭВМ"@ru .
+
+idb:f4d39242-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Научно-исследовательская работа"@ru .
+
+idb:f4d398aa-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Технологическая (проектно-технологическая) практика"@ru .
+
+idb:f4d3c122-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Прикладная статистика"@ru .
+
+idb:f4d3c8c0-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Случайные процессы"@ru .
+
+idb:f4d3d072-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Синтез и сложность схем"@ru .
+
+idb:f4d3d928-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Основы управленческой деятельности"@ru .
+
+idb:f4d3df7c-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Управление информатизацией предприятия"@ru .
+
+idb:f4d3e5a8-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Обработка больших объемов данных"@ru .
+
+idb:f4d3f12e-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "IT-менеджмент"@ru .
+
+idb:f4d3fa16-dc7e-11ec-a508-704d7b84fd9f a idd:Discipline ;
+    rdfs:label "Анализ и обрабока данных при разработке цифровых продуктов"@ru .
+
+idb:f4d0d386-dc7e-11ec-a508-704d7b84fd9f a idd:Chair ;
     rdfs:label "Математического анализа и дифференциальных уравнений"@ru .
 
-idb:87b986ce-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d147bc-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен определять круг задач в рамках поставленной цели и выбирать оптимальные способы их решения, исходя из действующих правовых норм, имеющихся ресурсов и ограничений"@ru ;
     dcterms:identifier "УК-2"@ru .
 
-idb:87b9948e-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d15806-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен осуществлять социальное взаимодействие и реализовывать свою роль в команде"@ru ;
     dcterms:identifier "УК-3"@ru .
 
-idb:87b9efc4-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d1c5f2-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен создавать и поддерживать  в повседневной жизни и в профессиональной деятельности безопасные условия жизнедеятельности для сохранения природной среды, обеспечения устойчивого развития общества, в том числе при угрозе и возникновении чрезвычайных ситуаций и военных конфликтов"@ru ;
     dcterms:identifier "УК-8"@ru .
 
-idb:87b9fcf8-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d1d4e8-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен принимать обоснованные экономические решения в различных областях жизнедеятельности"@ru ;
     dcterms:identifier "УК-9"@ru .
 
-idb:87ba0bee-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d1e460-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен формировать нетерпимое отношение к коррупционному поведению"@ru ;
     dcterms:identifier "УК-10"@ru .
 
-idb:87b966d0-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d125b6-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен осуществлять поиск, критический анализ и синтез информации, применять системный подход для решения поставленных задач"@ru ;
     dcterms:identifier "УК-1"@ru .
 
-idb:87b9a2c6-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d167e2-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен осуществлять деловую коммуникацию в устной и письменной формах на государственном языке Российской Федерации и иностранном(ых) языке(ах)"@ru ;
     dcterms:identifier "УК-4"@ru .
 
-idb:87b9b658-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d17e12-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен воспринимать межкультурное разнообразие общества в социально-историческом, этическом и философском контекстах"@ru ;
     dcterms:identifier "УК-5"@ru .
 
-idb:87b9c9b8-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d193a2-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен управлять своим временем, выстраивать и реализовывать траекторию саморазвития на основе принципов образования в течение всей жизни"@ru ;
     dcterms:identifier "УК-6"@ru .
 
-idb:87b9d9a8-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d1a7c0-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен поддерживать должный уровень физической подготовленности для обеспечения полноценной социальной и профессиональной деятельности"@ru ;
     dcterms:identifier "УК-7"@ru .
 
-idb:87bab8e6-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d2d104-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен применять и модифицировать математические модели для решения задач в области профессиональной деятельности"@ru ;
     dcterms:identifier "ОПК-3"@ru .
 
-idb:87bb0166-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d31d62-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен разрабатывать алгоритмы и компьютерные программы, пригодные для практического применения"@ru ;
     dcterms:identifier "ОПК-5"@ru .
 
-idb:87ba773c-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d2a6d4-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен использовать и адаптировать существующие математические методы и системы программирования для разработки и реализации алгоритмов решения прикладных задач"@ru ;
     dcterms:identifier "ОПК-2"@ru .
 
-idb:87bac84a-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d2e004-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен понимать принципы работы современных информационных технологий и использовать их для решения задач профессиональной деятельности"@ru ;
     dcterms:identifier "ОПК-4"@ru .
 
-idb:87bb8b9a-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d3a3e0-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен применять знания архитектуры, устройства и функционирования вычислительных систем; основ современных операционных систем; систем классификации и кодирования информации; теории баз данных; систем хранения и анализа баз данных; программных средств и платформ инфраструктуры информационных технологий организаций в своей профессиональной деятельности"@ru ;
     dcterms:identifier "ПК-2"@ru .
 
-idb:87bba210-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d3bc0e-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен создавать, модифицировать и сопровождать информационные системы, автоматизирующие задачи организационного управления и процессов функционирования производственных организаций, социальных институтов и структур"@ru ;
     dcterms:identifier "ПК-3"@ru .
 
-idb:87bbe1c6-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d40204-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен осуществлять организационное и технологическое обеспечение кодирования на языках программирования"@ru ;
     dcterms:identifier "ПК-4"@ru .
 
-idb:87ba151c-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d1edf2-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен применять фундаментальные знания, полученные в области математических и (или) естественных наук, и использовать их в профессиональной деятельности"@ru ;
     dcterms:identifier "ОПК-1"@ru .
 
-idb:87bb1390-dc3f-11ec-9739-704d7b84fd9f a idd:Compenence ;
+idb:f4d32ee2-dc7e-11ec-a508-704d7b84fd9f a idd:Compenence ;
     rdfs:label "Способен разрабатывать, отлаживать, проверять работоспособность, модифицировать программное обеспечение; применять методы и средства проектирования программного обеспечения, структур данных, баз данных, программных интерфейсов"@ru ;
     dcterms:identifier "ПК-1"@ru .
 
