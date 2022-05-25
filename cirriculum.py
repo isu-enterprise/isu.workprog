@@ -6,8 +6,9 @@ from collections import OrderedDict
 from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
-                    BULLETS, found, anywords, allwords, splitnumber, normspaces,
-                    startswithnumber, listitem, binds, SPECCODERE, DEPARTMENTS)
+                    BULLETS, found, anywords, allwords, splitnumber,
+                    normspaces, startswithnumber, listitem, binds, SPECCODERE,
+                    DEPARTMENTS, YEARDISTRE, YEARRE)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -99,7 +100,7 @@ def proctitle(sheet):
     global UNIV, INST
     for line in lines(sheet):
         lt = line.lower()
-        print(line)
+
         specm = re.search(SPECCODERE, lt)
         #   федеральное государственное бюджетное образовательное
         # учреждение высшего образования "Иркутский государственный университет"
@@ -132,6 +133,91 @@ def proctitle(sheet):
             G.add((INST, RDFS.label, Literal(inst, lang="ru")))
             G.add((INST, IDD.hasСurriculum, C))
             G.add((C, RDF.type, IDD["Сurriculum"]))
+        elif allwords(lt, "профиль"):
+            _, title = line.split(":", maxsplit=1)
+            title = normspaces(title)
+            if title != "":
+                prof = genuuid(IDB)
+                G.add((prof, RDF.type, IDD["Specialization"]))
+                G.add((prof, RDF.type, IDD["Profile"]))
+                G.add((prof, RDFS.label, Literal(title, lang="ru")))
+                G.add((C, IDD.profile, prof))
+            else:
+                logger.error("Profile is not recognized in '{}'".format(line))
+        elif allwords(lt, "кафедра"):
+            _, title = line.split(":", maxsplit=1)
+            title = normspaces(title)
+            if title != "":
+                chair = genuuid(IDB)
+                G.add((chair, RDF.type, IDD["Chair"]))
+                G.add((chair, RDFS.label, Literal(title, lang="ru")))
+                G.add((C, IDD.chair, chair))
+                G.add((INST, SCH.department, chair))
+            else:
+                logger.error("Chair is not recognized in '{}'".format(line))
+        # elif факультет: ... имит ...
+        elif allwords(lt, "квалификац"):
+            _, text = line.split(": ")
+            qualif, text = text.split(maxsplit=1)
+            tl = text.lower()
+            qualif = qualif.strip().lower()
+            if qualif.startswith("бакалавр"):
+                lev = BACHOLOIR
+                if found(tl, "академ"):
+                    lev = ACBACH
+                elif found(tl, "прикладн"):
+                    lev = ACBACH
+                G.add((C, IDD.level, lev))
+            if qualif.startswith("магистрат"):
+                G.add((C, IDD.level, MASTER))
+            if found(tl, "год"):
+                m = re.search(YEARRE, tl)
+                if m is None:
+                    logger.warning(
+                        "Cannot find starting year in '{}'".format(tl))
+                else:
+                    b, e = m.span()
+                    year = int(tl[b:e])
+                    G.add((C, IDD.enrolledIn, Literal(year)))
+        elif allwords(lt, "учебн год"):
+            m = re.search(YEARDISTRE, lt)
+            if m is None:
+                logger.warning("Cannot find study lasting in '{}'".format(tl))
+            else:
+                b, e = m.span(1)
+                year1 = int(lt[b:e])
+                b, e = m.span(1)
+                year2 = int(lt[b:e])
+                G.add((C, IDD.studyYears, Literal("{}-{}".format(year1,year2))))
+        elif allwords(lt, "форм обучен"):
+            _, text = lt.split(":")
+            form, text = text.split(maxsplit=1)
+            form = form.strip()
+            mur = None
+            if found(form, "заочн"):
+                mur = EXMURAL
+            elif found(form, "очн"):
+                mur = MURAL
+            if mur is not None:
+                G.add((C, IDD.studyForm, mur))
+            fgos = line.split("(ФГОС)", maxsplit=1)[-1]
+            fgos = fgos.strip()
+            G.add((C, IDD.studyStandard, Literal(fgos, lang="ru")))
+        elif allwords(lt, "срок получен образован"):
+            _, text = lt.split(":", maxsplit=1)
+            m = re.search(r"\d{1,2}", text)
+            if m is not None:
+                b, e = m.span()
+                dur = int(text[b:e])
+                G.add((C, IDB.studyDration, Literal(dur)))
+        # elif # Профессиональные стандарты
+        elif allwords(lt, "директор"):
+            _, text, _ = line.split("/")
+            head = text.strip()
+            uri = genuuid(IDB)
+            G.add((C, IDB.director, uri))
+            G.add((uri, RDF.type, FOAF["Person"]))
+            G.add((uri, RDFS.label, Literal(head, lang="ru")))
         elif specm is not None:
             parts = re.split(SPECCODERE, line, maxsplit=1)
             if len(parts) > 3:
@@ -143,32 +229,8 @@ def proctitle(sheet):
                     G.add((spec, RDFS.label, Literal(title, lang="ru")))
                     G.add((spec, DCID, Literal(code)))
                     G.add((spec, RDF.type, IDD["Speciality"]))
-        elif allwords(lt, "профиль"):
-            _, title = line.split(":", maxsplit=1)
-            title = normspaces(title)
-            if title != "":
-                prof = genuuid(IDB)
-                G.add((prof, RDF.type, IDD["Specialization"]))
-                G.add((prof, RDF.type, IDD["Profile"]))
-                G.add((prof, RDFS.label, Literal(title, lang="ru")))
-                G.add((C, IDD.profile, prof))
-            else:
-                logger.error("Profile is not recognized in '{}'".
-                             format(line))
-        elif allwords(lt, "кафедра"):
-            _, title = line.split(":", maxsplit=1)
-            title = normspaces(title)
-            if title != "":
-                chair = genuuid(IDB)
-                G.add((chair, RDF.type, IDD["Chair"]))
-                G.add((chair, RDFS.label, Literal(title, lang="ru")))
-                G.add((C, IDD.chair, chair))
-                G.add((INST, SCH.department, chair))
-            else:
-                logger.error("Chair is not recognized in '{}'".
-                             format(line))
-        # elif факультет: ... имит ...
-
+        else:
+            logger.info("Skipping:'{}'".format(line))
 
 
 def procplan(sheet):

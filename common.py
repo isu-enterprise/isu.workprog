@@ -50,6 +50,8 @@ COURCODERE = re.compile(
     r"([А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?\.)+[А-Яа-яA-Za-z]{0,4}\d{0,3}(\([А-Яа-яA-Za-z]{1,2}\))?"
 )
 SPECCODERE = re.compile(r"(\d{2,2}\.\d{2,2}\.\d{2,2})")
+YEARRE = re.compile(r"\d{4,4}")
+YEARDISTRE = re.compile(r"(\d{4,4})[-–]+(\d{4,4})")
 
 BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
 
