@@ -1,4 +1,4 @@
-@prefix dbr: <https://dbpedia.org/page/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix idb: <http://irnok.net/ontologies/database/isu/studplan#> .
 @prefix idd: <http://irnok.net/ontologies/isu/studplan#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8653,4 +8653,3 @@ idb:f2d33750-5a0b-11e6-942f-005056100702 a idd:StudyLevel ;
 
 idb:e4f4e44d-5a0b-11e6-942f-005056100702 a idd:StudyForm ;
     rdfs:label "Очная"@ru .
-
