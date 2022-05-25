@@ -275,11 +275,16 @@ def proctitle(sheet):
                     G.add((spec, DCID, Literal(code)))
                     G.add((spec, RDF.type, IDD["Speciality"]))
         else:
-            logger.info("Skipping:'{}'".format(line))
+            pass
+            logger.debug("Skipping:'{}'".format(line))
 
 
 def procplan(sheet):
-    pass
+    ic = {}
+    header = True
+    # for line, cells in lines(sheet, cells=True):
+    #     if header:
+
 
 
 def procsheet(sheet):
