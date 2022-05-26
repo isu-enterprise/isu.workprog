@@ -61,13 +61,21 @@
                     console.info("Saved the gaph successfully!");
                 })
             });
-
-        })
+            $("#nextpagebutton").on("click", () => {
+                console.info("you pressed a btn to next page");
+                console.log();
+                //$.get(SERVER, (data) => {
+                    $("#nextpagebutton").load( "templates/wplist.html");
+                //})
+    
+                
+                });
+             })
     </script>
 </head>
 
 <body>
-    <section id="title">
+        <section id="title">
         <button type="button" class="btn btn-info">Edit Metadta</button>
         <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
             Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
@@ -106,12 +114,14 @@
     <button id="theButton" type="button" class="btn btn-primary">Load</button>
     <button id="saveButton" type="button" class="btn btn-primary">Save</button>
     <button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button>
+    <button id="nextpagebutton" type="button" class="btn btn-primary">Next</button>
     <div class="alert alert-primary" role="alert" id="alertBox">
         This is a primary alert—check it out!
       </div>
 <script lang="javascript">
      
 </script>
+
 </body>
 
 </html>
