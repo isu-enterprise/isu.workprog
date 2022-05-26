@@ -86,16 +86,19 @@ def proccomp1(sheet):
             pcomp[0].append((d, dd))
 
 
-def lines(sheet, normspaces=False, cells=False):
+def lines(sheet, normspaces=False, cells=False, rowno=False):
     for row in range(sheet.nrows):
         ss = [str(sheet.cell_value(row, col)) for col in range(sheet.ncols)]
         s = " ".join(ss).strip()
         if normspaces:
             s = " ".join(s.split())
+        rc = [s]
+
         if cells:
-            yield s, ss
-        else:
-            yield s
+            rc.append(ss)
+        if rowno:
+            rc.append(row)
+        yield rc[0] if len(rc) == 1 else rc
 
 
 def proctitle(sheet):
@@ -112,7 +115,7 @@ def proctitle(sheet):
             profcodem = re.search(PROFCODERE, str(cells[profcode].strip()))
             if profcodem is not None:
                 code = profcodem.group(1)
-                title = cells[profcode+1].strip()
+                title = cells[profcode + 1].strip()
                 uri = genuuid(IDB)
                 G.add((C, IDD.professionActivity, uri))
                 G.add((uri, RDF.type, IDD["ProfessionActivity"]))
@@ -122,18 +125,17 @@ def proctitle(sheet):
             else:
                 profcodem = None
         if tasktype is not None:
-            basic = cells[tasktype-1].strip()
+            basic = cells[tasktype - 1].strip()
             task = cells[tasktype].strip()
             if basic in "+-" and task != "":
                 uri = BNode()
                 G.add((C, IDD.taskType, uri))
                 G.add((uri, RDF.type, IDD["TaskType"]))
                 G.add((uri, RDFS.label, Literal(task, lang="ru")))
-                G.add((uri, IDD.basic, Literal(basic=="+")))
+                G.add((uri, IDD.basic, Literal(basic == "+")))
                 continue
             else:
                 tasktype = None
-
 
         # print(specm)
         if allwords(lt, "федеральн государствен бюджетн") or allwords(
@@ -220,7 +222,8 @@ def proctitle(sheet):
                 year1 = int(lt[b:e])
                 b, e = m.span(1)
                 year2 = int(lt[b:e])
-                G.add((C, IDD.studyYears, Literal("{}-{}".format(year1,year2))))
+                G.add((C, IDD.studyYears, Literal("{}-{}".format(year1,
+                                                                 year2))))
         elif allwords(lt, "форм обучен"):
             _, text = lt.split(":")
             form, text = text.split(maxsplit=1)
@@ -279,12 +282,55 @@ def proctitle(sheet):
             logger.debug("Skipping:'{}'".format(line))
 
 
-def procplan(sheet):
-    ic = {}
-    header = True
-    # for line, cells in lines(sheet, cells=True):
-    #     if header:
+def upget(row, col, sheet):
+    rc = []
+    dirup = True
+    r = row
+    c = col
+    while True:
+        e = str(sheet.cell_value(r, c)).strip().lower()
+        e = ''.join(str(e).split())
+        # print("U:",dirup, r, c, e)
+        if e=="":
+            if dirup:
+                if r==row:
+                    return None
+                else:
+                    dirup=False
+                    continue
+            else: # dirleft
+                if c>0:
+                    c-=1
+                else:
+                    dirup=True
+                    r-=1
+        else:
+            rc.append(e)
+            if r==0:
+                return rc
+            else:
+                r-=1
+                dirup=True
+    return None
 
+
+def procplan(sheet):
+    ic = []
+    header = True
+    codepos = None
+    for line, cells, row in lines(sheet, cells=True, rowno=True):
+        lt = line.lower()
+        if header:
+            if allwords(lt, "индекс наименование"):
+                for i, c in enumerate(cells):
+                    cl = c.lower()
+                    idt = upget(row, i, sheet)
+                    print(idt)
+                    if c == "индекс":
+                        codepos = i
+                header = False
+        else:
+            pass
 
 
 def procsheet(sheet):
