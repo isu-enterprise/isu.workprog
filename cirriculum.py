@@ -88,6 +88,7 @@ def proccomp1(sheet):
                 dd = genuuid(IDB)
                 COURSES[code] = (d, dd)
                 G.add((C, IDD.hasDiscipline, d))
+                G.add((d, RDF.type, IDD["Discipline"]))
                 G.add((d, DCID, Literal(code, lang="ru")))
                 G.add((d, IDD.discipline, dd))
                 G.add((dd, RDF.type, IDD["Discipline"]))
@@ -429,6 +430,7 @@ def procplan(sheet):
         bnode = None
         credit = None
         for col, c in enumerate(cells):
+
             v = c.strip()
             t = str
             try:
@@ -509,9 +511,8 @@ def procplan(sheet):
             if None in [subj, pred, obj]:
                 logging.warning("Incomplete triple <{},{},{}>".
                                 format(subj, pred, obj))
-            if id0 == 'ко':
-                import pdb; pdb.set_trace()
 
+            if id0 == 'ко':
                 if v == 10:
                     G.add((subj, IDD.type, EXAMS))
                 elif v == 8:
@@ -522,13 +523,12 @@ def procplan(sheet):
                     else:
                         G.add((subj, IDD.type, credit))
             elif id0 == 'зачетсоц.':
-
-                import pdb; pdb.set_trace()
                 credit = CREDITWN
-            elif id0 == '':
-                import pdb; pdb.set_trace()
+            elif id0 == 'зачет':
                 credit = CREDIT
             G.add((subj, pred, obj))
+
+
 
 
 
