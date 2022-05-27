@@ -4,16 +4,16 @@
 <head>
     <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-    tinymce.init({
+      tinymce.init({
         selector: "#section",
         inline: true,
         plugins: ["quickbars"],
         quickbars_selection_toolbar:
-            "styleselect | bold italic forecolor | removeformat",
+        "styleselect | bold italic forecolor | removeformat",
         quickbars_insert_toolbar: false,
         menubar: false,
         toolbar: false,
-});
+      });
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -24,57 +24,103 @@
     </script>
 
     <script lang="javascript">
-        var SERVER = "http://localhost:5000/api/1.0/"
-        var WPUUID = "{{WP_UUID}}"
-        var tinyEditor = null;
-        var TEXTEDS=null;
+      var SERVER = "http://localhost:5000/api/1.0/";
+      var WPUUID = "{{WP_UUID}}"
+      var tinyEditor = null;
+      var TEXTEDS=null;
+      console.log(TEXTEDS);
+
+      function toTag(id) {
+        return id.replace("texteditor-","");
+      }
+
+      function getActiveEditor(id = false, tag = false) {
+        ae = tinymce.activeEditor;
+        if (tag) id = true;
+        if (id) {
+          if (tag) {
+            return toTag(ae.id);
+          } else {
+            return ae.id;
+          }
+        } else {
+          return ae;
+        }
+      }
+
+      function kgquery(op, textArea = null) {
+        if (textArea === null) {
+          textArea = getActiveEditor();
+        }
+        tag = toTag(textArea.id);
+        text = textArea.getContent()
+        console.log(tag);
+        if (! op.hasOwnProperty('op')) {
+          op["op"] = "load";
+        };
+        op["text"] = text;
+        op["tag"] = tag;
+        op["uuid"] = WPUUID;
+        $.ajax(SERVER+"qwp", data={
+          data : JSON.stringify(op),
+          contentType : 'application/json',
+          type : 'POST'}).done(function (data) {
+            var err = data["error"]
+            if (op["op"] == "save") {
+              if (err!=0) {
+                $("#alertBox").text("Could'nt save correctly:"+err);
+              } else {
+                $("#alertBox").text("Sucessfully saved!");
+              }
+            } else {
+              if (err!=0) {
+                $("#alertBox").text("Could'nt load correctly:"+err);
+              } else {
+                textArea.setContent(data["text"]);
+                $("#alertBox").text("Sucessfully loaded!");
+              }
+            }
+          });
+
+      }
+      $(document).ready(function(){
+
+        // jQuery methods go here...
+        $("#theButton").on("click", () => {
+          console.info("INFO: pressed the button");
+          kgquery({"op":"load"});
+        });
+
+        $("#saveButton").on("click", () => {
+          console.info("Save pressed");
+          kgquery({"op":"save"});
+        });
+
+        $("#saveGraphButton").on("click", () => {
+          $.post(SERVER+"saveGraph", (data) => {
+            $("alertBox").text("Saved Successfully!");
+            console.info("Saved the gaph successfully!");
+          })
+        });
+
+        TEXTEDS = [];
+        tinyEditor = $(".edit-text").each(function () {
+          TEXTEDS.push(this.id);
+        });
+
         console.log(TEXTEDS);
-        $(document).ready(function(){
-
-            // jQuery methods go here...
-            $("#theButton").on("click", () => {
-                console.info("INFO: pressed the button");
-                var ed = tinymce.activeEditor;
-                tag=ed.id.replace("texteditor-","");
-                console.log(tag);
-                $.get(SERVER+"getwp", data={ "uuid":WPUUID, "tag": tag}, (data) => {
-                    text = data["text"];
-                    if (tinyEditor!=null) {
-                        // tinymce.get('#texteditor').setContent(data);
-                        ed.setContent(text);
-                    } else {
-                        alert("We reseived a text, but cnnot edit it^ "+text);
-                    }
-                });
-            });
-
-            $("#saveButton").on("click", () => {
-                console.info("Save pressed");
-                var ed = tinymce.activeEditor;
-                tag=ed.id.replace("texteditor-","");
-                console.log(tag);
-                $.ajax(SERVER+"savewp", data={
-                    data : JSON.stringify({
-                        "uuid":WPUUID, 
-                        "text":tinymce.activeEditor.getContent(),
-                        "tag":tag}),
-                    contentType : 'application/json',
-                    type : 'POST'}, (data) => {
-                    var err = data["error"]
-                    if (err!=0) {
-                        $("#alertBox").text("Could'nt save correctly:"+err);
-                    } else {
-                        $("#alertBox").text("Sucessfully aved!");
-                    }
-                });
-            });
-            $("#saveGraphButton").on("click", () => {
-                $.post(SERVER+"saveGraph", (data) => {
-                    $("alertBox").text("Saved Successfully!");
-                    console.info("Saved the gaph successfully!");
-                })
-            });
-            })
+        tinymce.init({
+          selector: ".edit-text"
+        }).then(
+          (editors) => {
+            TEXTEDS.forEach(
+              id => {
+                kgquery({"op": "load"}, tinymce.get(id));
+              }
+            );
+          }
+        );
+      })
     </script>
 </head>
 
@@ -84,10 +130,10 @@
         <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
             Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
         <p align="center"><b>«ИРКУТСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</b><br/>ФГБОУ ВО «ИГУ»</p>
-        <p align="center">ИНСТИТУТ МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ</p> 
+        <p align="center">ИНСТИТУТ МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ</p>
         <p align="center"><b>Кафедра информационных технологий</b>
        <p></p>
-        
+
     </textarea>
     </section>
      <section>
@@ -110,23 +156,14 @@
         <!--i forgot but its important!!!-->
       </section>
     <script>
-            TEXTEDS = []; 
-            tinyEditor = $(".edit-text").each(function () {
-                TEXTEDS.push(this.id);
-            });
-            console.log(TEXTEDS);
-            tinymce.init({
-                selector: ".edit-text"
-            });
     </script>
     <button id="theButton" type="button" class="btn btn-primary">Load</button>
     <button id="saveButton" type="button" class="btn btn-primary">Save</button>
     <button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button>
    <!---<div class="alert alert-primary" role="alert" id="alertBox">
         This is a primary alert—check it out!
-      </div>--> 
+      </div>-->
 <script lang="javascript">
-     
 </script>
 
 </body>

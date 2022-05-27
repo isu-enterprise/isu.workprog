@@ -1,6 +1,7 @@
 from cProfile import label
 from flask import Flask, render_template, jsonify, request
 from rdflib import Graph
+import logging
 
 KG_FILE_NAME = "a.xml.ttl"
 
@@ -55,36 +56,45 @@ SELECT ?uuid WHERE {
 
 LIMIT 1
 """
+
 GET_WP_AP = PREFIXES + """
 
-SELECT ?text WHERE {
-wpdb:@UUID@ a dbr:Syllabus.
-    wpdb:@UUID@ wpdd:courseDC ?dc.
-    ?dc wpdd:@WHAT@ ?text
-   }
+SELECT ?text
+WHERE
+{
+    wpdb:@UUID@ a dbr:Syllabus .
+    wpdb:@UUID@ wpdd:courseDC ?dc .
+    ?dc wpdd:@TAG@ ?text .       #@@
+}
+
 LIMIT 1
 
 """
-
 
 #END_OF_GETTERS
 
 DEL_WP_AP = PREFIXES + """
 
-DELETE {
-    ?dc wpdd:@WHAT@ ?text .
-} WHERE {
+DELETE
+{
+    ?dc wpdd:@TAG@ ?text .
+}
+WHERE
+{
     wpdb:@UUID@ a dbr:Syllabus .
     wpdb:@UUID@ wpdd:courseDC ?dc .
-    ?dc wpdd:@WHAT@ ?text .
+    ?dc wpdd:@TAG@ ?text .
 }
 
 """
 
 INS_WP_AP = PREFIXES + """
-INSERT {
-    ?dc wpdd:@WHAT@ "@TEXT@" .
-} WHERE {
+INSERT
+{
+    ?dc wpdd:@TAG@ "@TEXT@" .
+}
+WHERE
+{
     wpdb:@UUID@ a dbr:Syllabus .
     wpdb:@UUID@ wpdd:courseDC ?dc .
 }
@@ -92,61 +102,64 @@ INSERT {
 """
 
 QUERIES = [
-        (("aim", "problem"), [GET_WP_AP,DEL_WP_AP,INS_WP_AP]),
-    ]
+    (("aim", "problem"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP]),
+]
 
-def gettemplate(what):
+
+def gettemplates(what):
     for t, qs in QUERIES:
         if what in t:
-            templ = qs 
-    return templ
-
-
-@app.route("/api/1.0/getwp")  # Get Work ProgramS
-def getwp():
-    # uuid = request.json["uuid"]
-    args = request.args
-    uuid = args.get("uuid")
-    what = args.get("tag")
-
-    templ = None
-    
-    templ= gettemplate(what)[0]
-
-    q = templ.replace("@UUID@", uuid).replace("@WHAT@", what)
-    text = list(G.query(q))[0][0]
-    answer = {
-        "text": text,
-        "error": 0,
-     } 
-    #answer = {}
-    return jsonify(answer)
-
+            return qs
+    return None
 
 
 def qsubst(query, substs):
     q = query
-    for k,v in substs.items():
-        q = q.replace(k,v)
+    for k, v in substs.items():
+        if isinstance(v, str):
+            q = q.replace("@" + k.upper() + "@", v)
     return q
 
-@app.route("/api/1.0/savewp", methods=['POST'])  # Get Work ProgramS
+
+def lprint(s):
+    sl = s.split("\n")
+    for c, s in enumerate(sl):
+        q = c + 1
+        print ("{} {}".format(q, s.rstrip()))
+
+@app.route("/api/1.0/qwp", methods=['POST'])  # Get Work ProgramS
 def savewp():
-    # uuid = request.json["uuid"]
     js = request.json
     uuid = js["uuid"]
     text = js["text"]
     what = js["tag"]
-    print(uuid, text)
-    substs = {"@UUID@": uuid, "@WHAT@":what, "@TEXT@":text}
-    # queries= [DEL_WP_AP, INS_WP_AP]
-    queries= gettemplate(what)[1:]
-    for q in queries:
-        q1 = qsubst(q, substs)
-        print(q1)
-        G.update(q1)
+    op = js["op"]
 
-    answer = {"uuid": uuid, "error": 0, "msg": "saved"}
+    templates = gettemplates(what)
+
+    if templates is None:
+        msg = "Cannot find template for '{}'.".format(js)
+        logging.error(msg)
+        raise RuntimeError(msg)
+
+    if op == "save":
+        queries = templates[1:]
+    else:
+        queries = templates[:1]
+
+    answer = {}
+
+    for q in queries:
+        q1 = qsubst(q, js)
+        lprint(q1)
+        if (op == "save"):
+            G.update(q1)
+        else:
+            text = list(G.query(q1))[0][0]
+            answer["text"] = str(text)
+
+    answer.update({"uuid": uuid, "error": 0, "msg": op + "ed"})
+    print(answer)
     return jsonify(answer)
 
 
@@ -154,6 +167,7 @@ def savewp():
 def saveGraph():
     G.serialize(destination=KG_FILE_NAME)
     return jsonify({"error": 0, "msg": "Saved"})
+
 
 if __name__ == '__main__':
     getuuid()
