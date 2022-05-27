@@ -55,17 +55,18 @@ SELECT ?uuid WHERE {
 
 LIMIT 1
 """
-
 GET_WP_AP = PREFIXES + """
 
 SELECT ?text WHERE {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@ wpdd:courseDC ?dc .
+wpdb:@UUID@ a dbr:Syllabus.
+    wpdb:@UUID@ wpdd:courseDC ?dc.
     ?dc wpdd:@WHAT@ ?text
-}
+   }
 LIMIT 1
 
 """
+
+
 #END_OF_GETTERS
 
 DEL_WP_AP = PREFIXES + """
@@ -115,13 +116,13 @@ def getwp():
     q = templ.replace("@UUID@", uuid).replace("@WHAT@", what)
     text = list(G.query(q))[0][0]
     answer = {
-        "text": text, 
+        "text": text,
         "error": 0,
      } 
     #answer = {}
     return jsonify(answer)
 
-#|| ?dc wpdd:problem ?text . || ?dc wpdd:problem ?text || ?dc wpdd:problem "@TEXT@".
+
 
 def qsubst(query, substs):
     q = query
@@ -153,7 +154,6 @@ def savewp():
 def saveGraph():
     G.serialize(destination=KG_FILE_NAME)
     return jsonify({"error": 0, "msg": "Saved"})
-
 
 if __name__ == '__main__':
     getuuid()
