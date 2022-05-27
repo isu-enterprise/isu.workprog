@@ -44,7 +44,7 @@ SELECT ?quest ?number ?label WHERE {
    }
 
 """
-     
+
 QQ = PREFIXES + """
 
 SELECT * WHERE {

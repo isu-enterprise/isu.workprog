@@ -565,5 +565,5 @@ def procsheet(sheet):
 
 
 if __name__ == "__main__":
-    # conv("01.03.02-22-1234_1к_06.plx.xls")
-    conv("./09.03.01 (АСУб-22).plx.xls")
+    conv("01.03.02-22-1234_1к_06.plx.xls")
+    # conv("./09.03.01 (АСУб-22).plx.xls")
