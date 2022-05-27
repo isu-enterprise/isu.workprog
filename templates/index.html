@@ -2,8 +2,21 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+        selector: "#section",
+        inline: true,
+        plugins: ["quickbars"],
+        quickbars_selection_toolbar:
+            "styleselect | bold italic forecolor | removeformat",
+        quickbars_insert_toolbar: false,
+        menubar: false,
+        toolbar: false,
+});
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
@@ -61,46 +74,41 @@
                     console.info("Saved the gaph successfully!");
                 })
             });
-            $("#nextpagebutton").on("click", () => {
-                console.info("you pressed a btn to next page");
-                console.log();
-                //$.get(SERVER, (data) => {
-                    $("#nextpagebutton").load( "templates/wplist.html");
-                //})
-    
-                
-                });
-             })
+            })
     </script>
 </head>
 
 <body>
-        <section id="title">
+     <section id="title">
         <button type="button" class="btn btn-info">Edit Metadta</button>
         <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
             Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
         <p align="center"><b>«ИРКУТСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</b><br/>ФГБОУ ВО «ИГУ»</p>
-        <p align="center">ИНСТИТУТ МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ</p>
-        <p></p>
+        <p align="center">ИНСТИТУТ МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ</p> 
+        <p align="center"><b>Кафедра информационных технологий</b>
+       <p></p>
+        
+    </textarea>
     </section>
      <section>
          <table width="100%">
              <tr>
                  <td>
-         Цели:<br/>
         <form method="post">
-            <textarea id="texteditor-aim" data-tag="aim" class="edit-text"> Here will be edited something! </textarea>
+            <textarea id="texteditor-problem" data-tag="aim" class="edit-text"> Here will be edited something! </textarea>
           </form>
           </td>
           <td>
-        Задачи:<br/>
+            </tr>
+            <tr>
+        Цели и Задачи:<br/>
         <form method="post">
-            <textarea id="texteditor-problem" data-tag="problem" class="edit-text"> Here will be edited something! </textarea>
+            <textarea id="texteditor-aim" data-tag="problem" class="edit-text"> Here will be edited something! </textarea>
           </form>
         </td>
         </tr>
-        </table>
-    </section>
+        <!--i forgot but its important!!!-->
+      </section>
     <script>
             TEXTEDS = []; 
             tinyEditor = $(".edit-text").each(function () {
@@ -114,10 +122,9 @@
     <button id="theButton" type="button" class="btn btn-primary">Load</button>
     <button id="saveButton" type="button" class="btn btn-primary">Save</button>
     <button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button>
-    <button id="nextpagebutton" type="button" class="btn btn-primary">Next</button>
-    <div class="alert alert-primary" role="alert" id="alertBox">
+   <!---<div class="alert alert-primary" role="alert" id="alertBox">
         This is a primary alert—check it out!
-      </div>
+      </div>--> 
 <script lang="javascript">
      
 </script>

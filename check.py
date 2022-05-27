@@ -55,7 +55,6 @@ SELECT ?uuid WHERE {
 
 LIMIT 1
 """
-
 GET_WP_AP = PREFIXES + """
 
 SELECT ?text WHERE {
@@ -66,6 +65,8 @@ wpdb:@UUID@ a dbr:Syllabus.
 LIMIT 1
 
 """
+
+
 #END_OF_GETTERS
 
 DEL_WP_AP = PREFIXES + """
@@ -121,7 +122,7 @@ def getwp():
     #answer = {}
     return jsonify(answer)
 
-#|| ?dc wpdd:problem ?text . || ?dc wpdd:problem ?text || ?dc wpdd:problem "@TEXT@".
+
 
 def qsubst(query, substs):
     q = query
