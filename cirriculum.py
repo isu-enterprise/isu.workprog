@@ -8,8 +8,8 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
                     BULLETS, found, anywords, allwords, splitnumber,
                     normspaces, startswithnumber, listitem, binds, SPECCODERE,
-                    DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE,
-                    EXAMS, CREDIT, CREDITWN, TASK)
+                    DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE, EXAMS, CREDIT,
+                    CREDITWN, TASK)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -26,6 +26,21 @@ CHAIRS = OrderedDict()
 UNIV = None
 INST = None
 FIELDS = None
+
+
+def getchair(code, getter):
+    if code not in CHAIRS:
+        name = getter()
+        chair = genuuid(IDD)
+        G.add((INST, IDD.hasChair, chair))
+        G.add((chair, RDF.type, IDD["Chair"]))
+        G.add((chair, RDFS.label, Literal(name, lang="ru")))
+        G.add((chair, SCH.sku, Literal(code)))
+        CHAIRS[code] = chair
+    else:
+        chair = CHAIRS[code]
+    return chair
+
 
 def conv(filename):
     wb = open_workbook(filename)
@@ -160,11 +175,17 @@ def proctitle(sheet):
                     UNIV = genuuid(IDB)
                 G.add((UNIV, RDF.type, IDD["University"]))
                 G.add((UNIV, RDFS.label, Literal(uni, lang="ru")))
-            except TypeError:
+            except (TypeError, IndexError):
                 logger.warning(
                     "Cannot figure out university from '{}' ".format(line))
-                continue
-            inst = line.split("\n")[1].strip()
+                INST = genuuid(IDB)
+                UNIV = genuuid(IDB)
+                # continue
+            try:
+                inst = line.split("\n")[1].strip()
+            except IndexError:
+                inst = "Неизвестный институт"
+
             iinst = ''.join(inst.split()).lower()
             if iinst in DEPARTMENTS:
                 INST = DEPARTMENTS[iinst]
@@ -197,6 +218,7 @@ def proctitle(sheet):
                 G.add((chair, RDF.type, IDD["Chair"]))
                 G.add((chair, RDFS.label, Literal(title, lang="ru")))
                 G.add((C, IDD.chair, chair))
+                # chair = getchair(name = )
                 G.add((INST, SCH.department, chair))
             else:
                 logger.error("Chair is not recognized in '{}'".format(line))
@@ -349,24 +371,29 @@ def idtproc(idt):
         idt = idt[:1] + ["закрепленнаякафедра"]
     return idt
 
+
 FIELDLIST = [
     (['считатьвплане'], IDD.account, lambda x: Literal(x.strip() == "+")),
     (['индекс']),
     (['наименование']),
     (['экзамен', 'формаконтроля'], IDD.controlType, EXAMS),
     (['зачет', 'формаконтроля'], IDD.controlType, CREDIT),
-    (['зачетсоц.', 'формаконтроля'], IDD.controlType, CREDITWN), # TODO: Add into global graph its description
-    (['кр', 'формаконтроля'], IDD.controlType, TASK), # TODO: description
-    (['экспертное', 'з.е.'], (BNode, IDD.credits, IDD["Credits"]), IDD.expert, Literal),
+    (['зачетсоц.', 'формаконтроля'], IDD.controlType,
+     CREDITWN),  # TODO: Add into global graph its description
+    (['кр', 'формаконтроля'], IDD.controlType, TASK),  # TODO: description
+    (['экспертное',
+      'з.е.'], (BNode, IDD.credits, IDD["Credits"]), IDD.expert, Literal),
     (['факт', 'з.е.'], BNode, IDD.actual, Literal),
     (['часоввз.е.'], IDD.hoursInCredit, Literal),
-    (['экспертное', 'итогоакад.часов'], (BNode, IDD.hours, IDD["Hours"]), IDD.expert, Literal),
+    (['экспертное', 'итогоакад.часов'], (BNode, IDD.hours, IDD["Hours"]),
+     IDD.expert, Literal),
     (['поплану', 'итогоакад.часов'], BNode, IDD.actual, Literal),
     (['конт.раб.', 'итогоакад.часов'], BNode, IDD.test, Literal),
     (['ср', 'итогоакад.часов'], BNode, IDD.independentWork, Literal),
     (['контроль', 'итогоакад.часов'], BNode, IDD.control, Literal),
     (['электчасы', 'итогоакад.часов'], BNode, IDD.elective, Literal),
-    (['з.е.'], (BNode, IDD["term"], IDD["ControlPeriod"]), IDD.credits, Literal),
+    (['з.е.'], (BNode, IDD["term"], IDD["ControlPeriod"]), IDD.credits,
+     Literal),
     (['итого'], BNode, IDD.total, Literal),
     (['лек'], BNode, IDD.lection, Literal),
     (['лаб'], BNode, IDD.laboratoryWorks, Literal),
@@ -417,7 +444,8 @@ def procplan(sheet):
             try:
                 disc, descr = COURSES[code]
             except KeyError:
-                logger.warning("Unknown course code '{}':'{}'".format(code, line))
+                logger.warning("Unknown course code '{}':'{}'".format(
+                    code, line))
                 continue
         elif il != "":
             logger.warning(
@@ -448,22 +476,15 @@ def procplan(sheet):
 
             id0 = ident[0]
             if id0 == "код":
-                chair = None
-                if v not in CHAIRS:
-                    name = cells[col + 1].strip()
-                    chair = genuuid(IDD)
-                    G.add((INST, IDD.hasChair, chair))
-                    G.add((chair, RDF.type, IDD["Chair"]))
-                    G.add((chair, RDFS.label, Literal(name, lang="ru")))
-                    G.add((chair, SCH.sku, Literal(v)))
-                    CHAIRS[v] = chair
-                else:
-                    chair = CHAIRS[v]
+                chair = getchair(v, lambda: cells[col + 1].strip())
+
                 G.add((disc, IDD.chair, chair))
                 break
             term = False
-            if id0 in ['з.е.', 'итого', 'лек', 'лаб', 'пр', 'конс',
-                       'ко', 'ср', 'контроль']:
+            if id0 in [
+                    'з.е.', 'итого', 'лек', 'лаб', 'пр', 'конс', 'ко', 'ср',
+                    'контроль'
+            ]:
                 idk = [id0]
                 term = True
             else:
@@ -503,23 +524,23 @@ def procplan(sheet):
             try:
                 pred, obj = cmds
             except ValueError:
-                logging.error("Unpack: '{}' for '{}':'{}'".
-                              format(cmds, idk, FIELDS[idk]))
+                logging.error("Unpack: '{}' for '{}':'{}'".format(
+                    cmds, idk, FIELDS[idk]))
 
             if callable(obj):
                 obj = obj(v)
             if None in [subj, pred, obj]:
-                logging.warning("Incomplete triple <{},{},{}>".
-                                format(subj, pred, obj))
+                logging.warning("Incomplete triple <{},{},{}>".format(
+                    subj, pred, obj))
 
             if id0 == 'ко':
                 if v == 10:
                     G.add((subj, IDD.type, EXAMS))
                 elif v == 8:
                     if credit is None:
-                        logger.error("Found hours for credit, but not credit "
-                                     "type in course description '{}'".
-                                     format(line))
+                        logger.error(
+                            "Found hours for credit, but not credit "
+                            "type in course description '{}'".format(line))
                     else:
                         G.add((subj, IDD.type, credit))
             elif id0 == 'зачетсоц.':
@@ -527,11 +548,6 @@ def procplan(sheet):
             elif id0 == 'зачет':
                 credit = CREDIT
             G.add((subj, pred, obj))
-
-
-
-
-
 
 
 def procsheet(sheet):
@@ -549,4 +565,5 @@ def procsheet(sheet):
 
 
 if __name__ == "__main__":
-    conv("01.03.02-22-1234_1к_06.plx.xls")
+    # conv("01.03.02-22-1234_1к_06.plx.xls")
+    conv("./09.03.01 (АСУб-22).plx.xls")
