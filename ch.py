@@ -1,6 +1,7 @@
 from cProfile import label
 from flask import Flask, render_template, jsonify, request
 from rdflib import Graph
+from common import WPDB, WPDD
 
 KG_FILE_NAME = "a.xml.ttl"
 
@@ -33,8 +34,8 @@ GET_WP_QUEST = PREFIXES + """
 
 SELECT ?quest ?number ?label WHERE {
 # SELECT * WHERE {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@  wpdd:itemList  ?itemlist .
+    ?syll a dbr:Syllabus .
+    ?syll wpdd:itemList ?itemlist .
     ?s a dbr:Syllabus .
     ?s  wpdd:itemList  ?itemlist .
     ?itemlist a wpdd:EvaluationMean .
@@ -53,17 +54,23 @@ SELECT * WHERE {
 
 """
 
-q = GET_WP_QUEST.replace("@UUID@", "f76d01a6-dbb0-11ec-83cd-704d7b84fd9f")
+q = GET_WP_QUEST
 
 # q = QQ
 
 print(q)
 
-ans = G.query(q)
+ans = G.query(q,
+              initBindings={
+                  "syll": WPDB["f76d01a6-dbb0-11ec-83cd-704d7b84fd9f"],
+                  "mur": "cur"
+              })
+
+ans.serialize(destination="_.txt", format="csv", encoding="utf-8")
 
 # print(text)
-#answer = {"text": text}
-#print(answer)
+# answer = {"text": text}
+# print(answer)
 
-for uuid, num, lab in ans:
-    print("{}. {}".format(num, lab))
+#for uuid, num, lab in ans:
+#    print("{}. {}".format(num, lab))
