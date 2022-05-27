@@ -8,7 +8,8 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
                     BULLETS, found, anywords, allwords, splitnumber,
                     normspaces, startswithnumber, listitem, binds, SPECCODERE,
-                    DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE)
+                    DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE,
+                    EXAMS, CREDIT, CREDITWN, TASK)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -21,14 +22,23 @@ G = Graph()
 
 COURSES = OrderedDict()
 COMPS = OrderedDict()
+CHAIRS = OrderedDict()
 UNIV = None
 INST = None
-
+FIELDS = None
 
 def conv(filename):
     wb = open_workbook(filename)
     binds(G)
-    for sheet in wb.sheets():
+    sheets = list(wb.sheets())
+
+    # At first process list of courses and their competencies
+
+    comp = [s for s in sheets if s.name == "Компетенции"]
+    rest = [s for s in sheets if s.name != "Компетенции"]
+    sheets = comp + rest
+
+    for sheet in sheets:
         print(sheet.name)
         procsheet(sheet)
     G.serialize(destination=filename + ".ttl", format="turtle")
@@ -287,50 +297,241 @@ def upget(row, col, sheet):
     dirup = True
     r = row
     c = col
+    pc = None
     while True:
         e = str(sheet.cell_value(r, c)).strip().lower()
         e = ''.join(str(e).split())
-        # print("U:",dirup, r, c, e)
-        if e=="":
+        # print("U:", dirup, r, c, e)
+        if e in [""]:
             if dirup:
-                if r==row:
+                if r == row:
                     return None
                 else:
-                    dirup=False
+                    dirup = False
+                    pc = c
                     continue
-            else: # dirleft
-                if c>0:
-                    c-=1
+            else:  # dirleft
+                if c > 0:
+                    c -= 1
                 else:
-                    dirup=True
-                    r-=1
+                    # if rc[-1] in ["компетенции", "наименование", "код"]:
+                    #     r-=2
+                    dirup = True
+                    c = pc
+                    r -= 1
         else:
+            if e == "-":
+                return rc
             rc.append(e)
-            if r==0:
+            if r == 0:
                 return rc
             else:
-                r-=1
-                dirup=True
+                r -= 1
+                dirup = True
     return None
 
 
+def idtproc(idt):
+
+    def _(x):
+        x = x.replace("семестр", "").replace("курс", "")
+        try:
+            x = int(x)
+        except ValueError:
+            pass
+        return x
+
+    if idt == []:
+        return None
+    idt = [_(i) for i in idt]
+    if idt[0] in ["код", "наименование", "компетенции"] and len(idt) > 1:
+        idt = idt[:1] + ["закрепленнаякафедра"]
+    return idt
+
+FIELDLIST = [
+    (['считатьвплане'], IDD.account, lambda x: Literal(x.strip() == "+")),
+    (['индекс']),
+    (['наименование']),
+    (['экзамен', 'формаконтроля'], IDD.controlType, EXAMS),
+    (['зачет', 'формаконтроля'], IDD.controlType, CREDIT),
+    (['зачетсоц.', 'формаконтроля'], IDD.controlType, CREDITWN), # TODO: Add into global graph its description
+    (['кр', 'формаконтроля'], IDD.controlType, TASK), # TODO: description
+    (['экспертное', 'з.е.'], (BNode, IDD.credits, IDD["Credits"]), IDD.expert, Literal),
+    (['факт', 'з.е.'], BNode, IDD.actual, Literal),
+    (['часоввз.е.'], IDD.hoursInCredit, Literal),
+    (['экспертное', 'итогоакад.часов'], (BNode, IDD.hours, IDD["Hours"]), IDD.expert, Literal),
+    (['поплану', 'итогоакад.часов'], BNode, IDD.actual, Literal),
+    (['конт.раб.', 'итогоакад.часов'], BNode, IDD.test, Literal),
+    (['ср', 'итогоакад.часов'], BNode, IDD.independentWork, Literal),
+    (['контроль', 'итогоакад.часов'], BNode, IDD.control, Literal),
+    (['электчасы', 'итогоакад.часов'], BNode, IDD.elective, Literal),
+    (['з.е.'], (BNode, IDD["term"], IDD["ControlPeriod"]), IDD.credits, Literal),
+    (['итого'], BNode, IDD.total, Literal),
+    (['лек'], BNode, IDD.lection, Literal),
+    (['лаб'], BNode, IDD.laboratoryWorks, Literal),
+    (['пр'], BNode, IDD.practice, Literal),
+    (['конс'], BNode, IDD.consultation, Literal),
+    (['ко'], BNode, IDD.control, Literal),
+    (['ср'], BNode, IDD.independentWork, Literal),
+    (['контроль'], BNode, IDD.preparation, Literal),
+    # (['код', 'закрепленнаякафедра'], IDD.chair, ID_[""]),
+    # (['наименование', 'закрепленнаякафедра'], ID_., ID_[""]),
+    # (['компетенции', 'закрепленнаякафедра'], ID_., ID_[""])
+]
+
+FIELDS = {}
+for _ in FIELDLIST:
+    k = "-".join(_[0])
+    cmds = _[1:]
+    FIELDS[k] = cmds
+
+
 def procplan(sheet):
-    ic = []
+    ic = {}
     header = True
     codepos = None
     for line, cells, row in lines(sheet, cells=True, rowno=True):
         lt = line.lower()
+        code = None
         if header:
             if allwords(lt, "индекс наименование"):
                 for i, c in enumerate(cells):
                     cl = c.lower()
                     idt = upget(row, i, sheet)
-                    print(idt)
-                    if c == "индекс":
+                    idt = idtproc(idt)
+
+                    # print(idt)
+                    ic[i] = idt
+                    if cl == "индекс":
+                        print("CODEPOS:", i)
                         codepos = i
                 header = False
+            continue
+        # not header
+        il = cells[codepos].strip()
+        codem = re.search(COURCODERE, il)
+        disc = descr = None
+        if codem is not None:
+            code = codem.group(0)
+            try:
+                disc, descr = COURSES[code]
+            except KeyError:
+                logger.warning("Unknown course code '{}':'{}'".format(code, line))
+                continue
+        elif il != "":
+            logger.warning(
+                "Non-empty code field did not processed '{}'.".format(line))
+            continue
         else:
-            pass
+            continue
+
+        # Now process the numbers
+        bnode = None
+        credit = None
+        for col, c in enumerate(cells):
+            v = c.strip()
+            t = str
+            try:
+                v = int(v)
+                t = int
+            except ValueError:
+                pass
+            if v == "":
+                continue
+
+            ident = ic[col]
+
+            if ident is None:
+                continue
+
+            id0 = ident[0]
+            if id0 == "код":
+                chair = None
+                if v not in CHAIRS:
+                    name = cells[col + 1].strip()
+                    chair = genuuid(IDD)
+                    G.add((INST, IDD.hasChair, chair))
+                    G.add((chair, RDF.type, IDD["Chair"]))
+                    G.add((chair, RDFS.label, Literal(name, lang="ru")))
+                    G.add((chair, SCH.sku, Literal(v)))
+                    CHAIRS[v] = chair
+                else:
+                    chair = CHAIRS[v]
+                G.add((disc, IDD.chair, chair))
+                break
+            term = False
+            if id0 in ['з.е.', 'итого', 'лек', 'лаб', 'пр', 'конс',
+                       'ко', 'ср', 'контроль']:
+                idk = [id0]
+                term = True
+            else:
+                idk = ident
+            idk = "-".join(idk)
+            try:
+                cmds = FIELDS[idk]
+            except KeyError:
+                cmds = None
+            # print("CMDS:", idk, cmds)
+
+            # interpreting cmds
+            if cmds is None or len(cmds) < 1:
+                continue
+
+            c0 = cmds[0]
+            if isinstance(c0, tuple) and c0[0] == BNode:
+                bnode = BNode()
+                G.add((bnode, RDF.type, c0[2]))
+                G.add((disc, c0[1], bnode))
+                cmds = cmds[1:]
+                if term:
+                    _, sem, cour, = ident
+                    G.add((bnode, IDD["number"], Literal(sem)))
+                    G.add((bnode, IDD.course, Literal(cour)))
+            elif c0 is not BNode and bnode is not bnode:
+                bnode = None
+            elif c0 is BNode:
+                cmds = cmds[1:]
+
+            subj = disc
+            obj = None
+            pred = None
+
+            if bnode is not None:
+                subj = bnode
+            try:
+                pred, obj = cmds
+            except ValueError:
+                logging.error("Unpack: '{}' for '{}':'{}'".
+                              format(cmds, idk, FIELDS[idk]))
+
+            if callable(obj):
+                obj = obj(v)
+            if None in [subj, pred, obj]:
+                logging.warning("Incomplete triple <{},{},{}>".
+                                format(subj, pred, obj))
+            if id0 == 'ко':
+                import pdb; pdb.set_trace()
+
+                if v == 10:
+                    G.add((subj, IDD.type, EXAMS))
+                elif v == 8:
+                    if credit is None:
+                        logger.error("Found hours for credit, but not credit "
+                                     "type in course description '{}'".
+                                     format(line))
+                    else:
+                        G.add((subj, IDD.type, credit))
+            elif id0 == 'зачетсоц.':
+
+                import pdb; pdb.set_trace()
+                credit = CREDITWN
+            elif id0 == '':
+                import pdb; pdb.set_trace()
+                credit = CREDIT
+            G.add((subj, pred, obj))
+
+
+
 
 
 def procsheet(sheet):
