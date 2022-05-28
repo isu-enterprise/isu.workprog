@@ -2,9 +2,19 @@ import requests as rq
 from rdflib import (Namespace, URIRef, Literal, BNode, FOAF, DC, DCTERMS,
                     Graph, RDF, RDFS, XSD)
 
+from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, IDD, IDB,
+                    DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
+                    MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, BULLETS, found,
+                    alltext, anywords, allwords, splitnumber, startswithnumber,
+                    listitem, binds)
+
+from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update, preparegraphs,
+                urilabel, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
+
 ENDPOINT = 'http://py.isu.ru:8000/hs/jsonpost/courses_in_faculty/'
 USER = "3c9467d8-b710-11e6-943c-005056100702"
 IMIT = 'c526d6c7-9a78-11e6-9438-005056100702'
+INIT_NAME = 'Институт математики и информационных технологий'
 SEMEVEN = 0
 SEMODD = 1
 SEMAUTUMN = SEMODD
@@ -39,10 +49,6 @@ def query(user, faculty=IMIT, profile=None, year=None, term=None):
         print('Return code:', resp.status_code)
         raise RuntimeError('request failed ({})'.format(resp.status_code))
 
-
-IDB = Namespace("http://irnok.net/ontologies/database/isu/studplan#")
-IDD = Namespace("http://irnok.net/ontologies/isu/studplan#")
-DBR = Namespace("https://dbpedia.org/page/")
 
 MAPPRED = {
     'ВидКонтроля': IDD['controlType'],
@@ -116,21 +122,22 @@ def tograph(query, graph=None, catalogs=None):
 
     if graph is None:
         g = Graph()
-        g.bind('idb', IDB)
-        g.bind('idd', IDD)
-        g.bind('dbr', DBR)
-        g.add((TERM[0], RDFS.label, Literal('четный', lang=u'ru')))
-        g.add((TERM[1], RDFS.label, Literal('нечетный', lang=u'ru')))
-        g.add((TERM[0], RDFS.label, Literal('even', lang=u'en')))
-        g.add((TERM[1], RDFS.label, Literal('odd', lang=u'en')))
+        binds(g)
+        DISCIPLINES_KG.add((TERM[0], RDFS.label, Literal('четный', lang=u'ru')))
+        DISCIPLINES_KG.add((TERM[1], RDFS.label, Literal('нечетный', lang=u'ru')))
+        DISCIPLINES_KG.add((TERM[0], RDFS.label, Literal('even', lang=u'en')))
+        DISCIPLINES_KG.add((TERM[1], RDFS.label, Literal('odd', lang=u'en')))
     else:
         g = graph
 
-    g.add((faculty, RDF.type, DBR.Faculty))
+    faculty = getfrom(DEPARTMENTS_KG, INIT_NAME, IDB,
+                      (DBR.Faculty, IDD.Faculty, IDD.Institute),
+                      uri = faculty)
     for cour in dj:
         dis = BNode()
         g.add((dis, RDF.type, IDD['Discipline']))
         g.add((faculty, IDD['hasDiscipline'], dis))
+        # g.add((dis, IDD["discipline"], )) # TODO: add discipline reference
         g.add((dis, IDD['term'], term))
         for k, node in cour.items():
             subj = _cat(node)
@@ -186,6 +193,7 @@ def setupcatalogs(graph, catalogs):
 
 if __name__ == '__main__':
     # from pprint import pprint
+    preparegraphs()
     q = query(user=USER, faculty=IMIT, term=SEMSPRING)
     catalogs = {}
     print('Processing spring')
@@ -196,3 +204,4 @@ if __name__ == '__main__':
     print('Processing catalogs')
     setupcatalogs(g, catalogs)
     g.serialize('studplan.ttl', format='turtle')
+    saveallkgs()

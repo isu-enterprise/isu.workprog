@@ -104,7 +104,7 @@ def labeluri(graph, type_uri):
     return d
 
 
-def getfrom(graph, label, NS, typeuri, provision=None, lang="ru"):
+def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
     """Provides (returns) a labeled entity in `graph`.
     `label` is the label of the entity,
     `NS` is a namespace, where entity's identifier is,
@@ -117,7 +117,11 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru"):
     d = KGDICTS[graph]
     if label in d:
         return d[label]
-    uri = genuuid(NS)
+    if uri is None:
+        uri = genuuid(NS)
+    elif isinstance(uri, str):
+        uri = NS[uri]
+
     if isinstance(typeuri, (tuple, list)):
         for t in typeuri:
             graph.add((uri, RDF.type, t))
