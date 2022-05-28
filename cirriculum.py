@@ -10,6 +10,10 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     normspaces, startswithnumber, listitem, binds, SPECCODERE,
                     DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE, EXAMS, CREDIT,
                     CREDITWN, TASK)
+
+from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
+                urilabel, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -27,14 +31,16 @@ UNIV = None
 INST = None
 FIELDS = None
 
+DEPS = None  # Departments
+DISCS = None  # Disciplines
+STANS = None  # Standards
+
 
 def getchair(code, getter):
     if code not in CHAIRS:
         name = getter()
-        chair = genuuid(IDD)
-        G.add((INST, IDD.hasChair, chair))
-        G.add((chair, RDF.type, IDD["Chair"]))
-        G.add((chair, RDFS.label, Literal(name, lang="ru")))
+        chair = getfrom(DEPARTMENTS_KG, name, IDB, IDD["Chair"])
+        DEPARTMENTS_KG.add((INST, IDD.hasChair, chair))
         G.add((chair, SCH.sku, Literal(code)))
         CHAIRS[code] = chair
     else:
@@ -88,11 +94,9 @@ def proccomp1(sheet):
             elif title is None:
                 title = t
         if ctype == "comp":
-            c = genuuid(IDB)
+            c = getfrom(DISCIPLINES_KG, title, IDB, IDD["Compenence"])
             pcomp = ([], c)
             COMPS[code] = (c, pcomp[0])
-            G.add((c, RDF.type, IDD["Compenence"]))
-            G.add((c, RDFS.label, Literal(title, lang="ru")))
             G.add((c, DCID, Literal(code, lang="ru")))
 
         elif ctype == "cour":
@@ -100,14 +104,12 @@ def proccomp1(sheet):
                 d, dd = COURSES[code]
             else:
                 d = BNode()
-                dd = genuuid(IDB)
+                dd = getfrom(DISCIPLINES_KG, title, IDB, IDD["Discipline"])
                 COURSES[code] = (d, dd)
                 G.add((C, IDD.hasDiscipline, d))
                 G.add((d, RDF.type, IDD["Discipline"]))
                 G.add((d, DCID, Literal(code, lang="ru")))
                 G.add((d, IDD.discipline, dd))
-                G.add((dd, RDF.type, IDD["Discipline"]))
-                G.add((dd, RDFS.label, Literal(title, lang="ru")))
             G.add((d, IDD.hasCompetence, pcomp[1]))
             pcomp[0].append((d, dd))
 
@@ -142,11 +144,12 @@ def proctitle(sheet):
             if profcodem is not None:
                 code = profcodem.group(1)
                 title = cells[profcode + 1].strip()
-                uri = genuuid(IDB)
+                uri = getfrom(STANDARDS_KG, title, IDB,
+                              IDD["ProfessionActivity"],
+                              provide=lambda subj:
+                              STANDARDS_KG.add((subj, DCID,
+                                                Literal(code))))
                 G.add((C, IDD.professionActivity, uri))
-                G.add((uri, RDF.type, IDD["ProfessionActivity"]))
-                G.add((uri, RDFS.label, Literal(title, lang="ru")))
-                G.add((uri, DCID, Literal(code)))
                 continue
             else:
                 profcodem = None
@@ -167,46 +170,41 @@ def proctitle(sheet):
         if allwords(lt, "федеральн государствен бюджетн") or allwords(
                 lt, "фгбоуво"):
             try:
-                uni = line.split('"', maxsplit=2)[1]
-                unil = ''.join(uni.split()).lower()
-                if unil in DEPARTMENTS:
-                    UNIV = DEPARTMENTS[unil]
-                else:
-                    UNIV = genuuid(IDB)
-                G.add((UNIV, RDF.type, IDD["University"]))
-                G.add((UNIV, RDFS.label, Literal(uni, lang="ru")))
+                uni = line.split('"', maxsplit=2)[1].strip()
+                UNIV = getfrom(DEPARTMENTS_KG, uni, IDB, IDD["University"])
             except (TypeError, IndexError):
                 logger.warning(
                     "Cannot figure out university from '{}' ".format(line))
-                INST = genuuid(IDB)
-                UNIV = genuuid(IDB)
-                # continue
+                UNIV = getfrom(DEPARTMENTS_KG, "Unknown university", IDB,
+                               IDD["University"], lang="en")
             try:
                 inst = line.split("\n")[1].strip()
             except IndexError:
-                inst = "Неизвестный институт"
+                inst = "Unknown institute"
 
             iinst = ''.join(inst.split()).lower()
+
+            def _prov(subj):
+                if UNIV is not None:
+                    DEPARTMENTS_KG.add((UNIV, SCH.department, subj))
+                if iinst.startswith("институт"):
+                    DEPARTMENTS_KG.add((subj, RDF.type, IDD["Institute"]))
+
             if iinst in DEPARTMENTS:
                 INST = DEPARTMENTS[iinst]
             else:
-                INST = genuuid(IDB)
-            if UNIV is not None:
-                G.add((UNIV, SCH.department, INST))
-            G.add((INST, RDF.type, IDD["Faculty"]))
-            if iinst.startswith("институт"):
-                G.add((INST, RDF.type, IDD["Institute"]))
-            G.add((INST, RDFS.label, Literal(inst, lang="ru")))
+                INST = getfrom(DEPARTMENTS_KG, inst, IDB,
+                               IDD["Faculty"],
+                               provision=_prov)
+
             G.add((INST, IDD.hasСurriculum, C))
             G.add((C, RDF.type, IDD["Сurriculum"]))
         elif allwords(lt, "профиль"):
             _, title = line.split(":", maxsplit=1)
             title = normspaces(title)
             if title != "":
-                prof = genuuid(IDB)
-                G.add((prof, RDF.type, IDD["Specialization"]))
-                G.add((prof, RDF.type, IDD["Profile"]))
-                G.add((prof, RDFS.label, Literal(title, lang="ru")))
+                prof = getfrom(STANDARDS_KG, title, IDB,
+                               (IDD["Specialization"], IDD["Profile"]))
                 G.add((C, IDD.profile, prof))
             else:
                 logger.error("Profile is not recognized in '{}'".format(line))
@@ -214,12 +212,11 @@ def proctitle(sheet):
             _, title = line.split(":", maxsplit=1)
             title = normspaces(title)
             if title != "":
-                chair = genuuid(IDB)
-                G.add((chair, RDF.type, IDD["Chair"]))
-                G.add((chair, RDFS.label, Literal(title, lang="ru")))
+                chair = getfrom(DEPARTMENTS_KG, title, IDB,
+                                IDD["Chair"],
+                                lambda subj:
+                                DEPARTMENTS_KG.add((INST, SCH.department, chair)))
                 G.add((C, IDD.chair, chair))
-                # chair = getchair(name = )
-                G.add((INST, SCH.department, chair))
             else:
                 logger.error("Chair is not recognized in '{}'".format(line))
         # elif факультет: ... имит ...
@@ -295,10 +292,11 @@ def proctitle(sheet):
             tasktype = None
             _, text, _ = line.split("/")
             head = text.strip()
-            uri = genuuid(IDB)
-            G.add((C, IDB.director, uri))
-            G.add((uri, RDF.type, FOAF["Person"]))
-            G.add((uri, RDFS.label, Literal(head, lang="ru")))
+            uri = getfrom(DEPARTMENTS_KG, head, IDB, FOAF["Person"],
+                          lambda subj:
+                          DEPARTMENTS_KG.add((INST, IDD.director, subj))
+                          )
+            G.add((C, IDD.director, uri))
         elif specm is not None:
             parts = re.split(SPECCODERE, line, maxsplit=1)
             if len(parts) > 3:
@@ -564,6 +562,31 @@ def procsheet(sheet):
         logger.warning("Did not process sheet '{}'".format(sname))
 
 
+def preparegraphs():
+    global DEPS, DISCS, STANS
+    # loadallkgs()
+    DEPS = urilabel(DEPARTMENTS_KG, type_uri=(
+        IDD["University"],
+        IDD["Faculty"],
+        IDD["Chair"]
+    ))
+    DISCS = urilabel(DISCIPLINES_KG, type_uri=(
+        IDD["Compenence"],
+        IDD["Discipline"],
+    ))
+    STANS = urilabel(STANDARDS_KG, type_uri=(
+        IDD["ProfessionActivity"],
+        IDD["Speciality"],
+        IDD["ControlType"],
+        IDD["StudyForm"],
+        IDD["StudyLevel"],
+        IDD["Speciality"],
+        IDD["Specialization"],
+    ))
+
+
 if __name__ == "__main__":
+    preparegraphs()
     conv("01.03.02-22-1234_1к_06.plx.xls")
+    saveallkgs()
     # conv("./09.03.01 (АСУб-22).plx.xls")
