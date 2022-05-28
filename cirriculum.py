@@ -11,7 +11,7 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE, EXAMS, CREDIT,
                     CREDITWN, TASK)
 
-from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
+from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update, preparegraphs,
                 urilabel, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
 
 import logging
@@ -30,10 +30,6 @@ CHAIRS = OrderedDict()
 UNIV = None
 INST = None
 FIELDS = None
-
-DEPS = None  # Departments
-DISCS = None  # Disciplines
-STANS = None  # Standards
 
 
 def getchair(code, getter):
@@ -303,7 +299,7 @@ def proctitle(sheet):
                 code, title = parts[1:3]
                 title = normspaces(title)
                 if title != "":
-                    spec = getfrom(DISCIPLINES_KG, title, IDB, IDD["Speciality"],
+                    spec = getfrom(STANDARDS_KG, title, IDB, IDD["Speciality"],
                                    lambda subj:
                                    G.add((subj, DCID, Literal(code)))
                                    )
@@ -561,28 +557,6 @@ def procsheet(sheet):
     else:
         logger.warning("Did not process sheet '{}'".format(sname))
 
-
-def preparegraphs():
-    global DEPS, DISCS, STANS
-    # loadallkgs()
-    DEPS = urilabel(DEPARTMENTS_KG, type_uri=(
-        IDD["University"],
-        IDD["Faculty"],
-        IDD["Chair"]
-    ))
-    DISCS = urilabel(DISCIPLINES_KG, type_uri=(
-        IDD["Compenence"],
-        IDD["Discipline"],
-    ))
-    STANS = urilabel(STANDARDS_KG, type_uri=(
-        IDD["ProfessionActivity"],
-        IDD["Speciality"],
-        IDD["ControlType"],
-        IDD["StudyForm"],
-        IDD["StudyLevel"],
-        IDD["Speciality"],
-        IDD["Specialization"],
-    ))
 
 
 if __name__ == "__main__":

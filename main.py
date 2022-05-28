@@ -5,16 +5,19 @@ from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from uuid import uuid1
 from itertools import pairwise
 from collections import OrderedDict
-from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID,
+from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, IDD, IDB,
                     DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
                     MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, BULLETS, found,
                     alltext, anywords, allwords, splitnumber, startswithnumber,
                     listitem, binds)
 
+from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update, preparegraphs,
+                urilabel, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
+
 G = Graph()
 CDC = BNode()
 
-WP = WPDB[genuuid()]
+WP = genuuid(WPDB)
 binds(G)
 
 
@@ -455,7 +458,7 @@ def conv(filename):
     G.serialize(destination=filename + ".ttl")
 
 
-INSTITUTES = {"институтматематикииинформационныхтехнологий": IMIT}
+# INSTITUTES = {"институтматематикииинформационныхтехнологий": IMIT}
 
 
 def upfirst(s):
@@ -487,32 +490,23 @@ def proctitlepage(titlepage):
         tc = upfirst(" ".join(tl.split()))
         if tl.startswith('институт'):
             inst = tn
-            try:
-                inst = INSTITUTES[inst]
-            except KeyError:
-                inst = IDB[genuuid()]
-                G.add((inst, RDF.type, IDD["Institute"]))
-                G.add((inst, RDFS.label, Literal(tc, lang="ru")))
+            inst = getfrom(DEPARTMENTS_KG, tc, IDB,
+                           (IDD["Faculty"], IDD["Institute"]))
             G.add((WP, WPDD.institute, inst))
         elif tl.startswith("кафедра"):
-            chair = IDB[genuuid()]
-            G.add((chair, RDF.type, IDD['Chair']))
+            chair = getfrom(DEPARTMENTS_KG, tc, IDB, IDD['Chair'])
             G.add((WP, WPDD.chair, chair))
-            G.add((chair, RDFS.label, Literal(tc, lang="ru")))
         elif tn.startswith("направлениеподготовки"):
-            spec = IDB[genuuid()]
-            G.add((spec, RDF.type, IDD["Speciality"]))
-            G.add((WP, IDD.specialty, spec))
             tcl = tc.split(" ", maxsplit=3)
             _, _, code, name = tcl
-            G.add((spec, RDFS.label, Literal(upfirst(name), lang="ru")))
-            G.add((spec, DCID, Literal(code)))
+            spec = getfrom(
+                DISCIPLINES_KG, upfirst(name), IDB, IDD["Speciality"],
+                lambda subj: DISCIPLINES_KG.add((subj, DCID, Literal(code))))
+            G.add((WP, IDD.specialty, spec))
         elif tn.startswith("направленность"):
-            spec = IDB[genuuid()]
-            G.add((spec, RDF.type, IDD["Discipline"]))
-            G.add((WP, IDD.profile, spec))
             name = s[-1].tail.strip()
-            G.add((spec, RDFS.label, Literal(name, lang="ru")))
+            spec = getfrom(DISCIPLINES_KG, name, IDB, IDD["Discipline"])
+            G.add((WP, IDD.profile, spec))
         elif tn.startswith("квалификация"):
             if found(tn, 'бакалавр'):
                 if found(tn, 'академ'):
@@ -540,20 +534,20 @@ def proctitlepage(titlepage):
                     break
             name = " ".join(name.split())
             code, nname = name.split(" ", maxsplit=1)
-            disc = IDD[genuuid()]
-            G.add((disc, RDF.type, IDD["Discipline"]))
-            if found(code, '.'):
-                G.add((disc, DCTERMS.identifier, Literal(code, lang="ru")))
-                G.add((disc, RDFS.label, Literal(nname, lang="ru")))
+            if found(code, "."):
+                n = nname
             else:
-                G.add((disc, RDFS.label, Literal(name, lang="ru")))
+                n = name
+
+            disc = getfrom(DISCIPLINES_KG, n, IDB, IDD["Discipline"])
+            G.add((WP, DCTERMS.identifier, Literal(code, lang="ru")))
+            G.add((WP, IDD.discipline, disc))
 
         elif tn.startswith("иркутск"):
             cityn, year = tc.split()[:2]
             G.add((WP, IDD.issued, Literal(year)))
-            city = IDD[genuuid()]
-            G.add((city, RDF.type, DBR['City']))
-            G.add((city, RDFS.label, Literal(cityn, lang="ru")))
+
+            city = getfrom(DEPARTMENTS_KG, cityn, IDB, DBR['City'])
             G.add((WP, IDD.city, city))
 
         # TODO: Рабочая программа дисциплины ..
@@ -571,14 +565,13 @@ def procaims(section):
         t = p.xpath("string()").strip()
         tl = t.lower()
         if tl.startswith('цел'):
-
             G.add((CDC, WPDD["aim"], Literal(t, lang="ru")))
             continue
         if tl.startswith('задач'):
             G.add((CDC, WPDD["problem"], Literal(t, lang="ru")))
             continue
         if t == "":
-            p.getparent().remove(p)
+            orphanite(p)
 
 
 def proclistitems(paragraphs,
@@ -648,7 +641,7 @@ def proclistitems(paragraphs,
             orphanite(p)
             ol.append(p)
         if owner is not None and ol is not None:
-            q = WPDB[genuuid()]
+            q = genuuid(WPDB)
             G.add((q, RDF.type, itemtype))
             G.add((q, RDFS.label, Literal(name, lang="ru")))
             G.add((q, SCH.sku, Literal(num)))
@@ -666,15 +659,13 @@ def proctestsection(section):
         G.add((owner[0], RDF.type, WPDD["EvaluationMean"]))
 
     for p in section.xpath(".//p"):
-        t = alltext(p, normspaces=True)
+        t = alltext(p, normalize=True)
         tl = t.lower()
         if allwords(tl, "разработчик"):
             _, name = t.split(":")
             name = name.strip()
-            P = genuuid(WPDB)
-            G.add((CDC, SCH.author, P))
-            G.add((P, RDF.type, FOAF["Person"]))
-            G.add((P, RDFS.label, Literal(name, lang="ru")))
+            author = getfrom(DEPARTMENTS_KG, name, IDB, FOAF["Person"])
+            G.add((CDC, SCH.author, author))
 
 
 def procstudysupport(section):
@@ -800,7 +791,7 @@ def proccourlocation(section):
     BN = BNode()
     G.add((WP, WPDD.location, BN))
     for p in section.xpath(".//p"):
-        t = alltext(p, normspaces=True)
+        t = alltext(p, normalize=True)
         if anywords(t, "предшеств последующ"):
             pred = WPDD.require if allwords(t, "предшеств") else WPDD.ensure
             _, disc = t.rsplit(":", maxsplit=1)
@@ -827,7 +818,7 @@ REQDICT = {
 
 def procresultsrequirements(section):
     for p in section.xpath(".//p"):
-        t = alltext(p, normspaces=True)
+        t = alltext(p, normalize=True)
         tl = t.lower()
         if anywords(tl, "компетенц"):
             m = re.split(COMPETENCERE, t)
@@ -839,10 +830,9 @@ def procresultsrequirements(section):
                     title = title.strip()
                     if title[-1] in [',', '.', ';']:
                         title = title[:-1]
-                    C = genuuid(WPDB)
-                    G.add((CDC, WPDD.competence, C))
+                    C = getfrom(DISCIPLINES_KG, title, IDB, IDD["Compenence"])
+                    G.add((CDC, IDD.competence, C))
                     G.add((C, DCTERMS.identifier, Literal(code, lang="ru")))
-                    G.add((C, RDFS.label, Literal(title, lang="ru")))
             continue
         elif anywords(tl.lower(), "знать уметь владеть"):
             m = re.split(REQDESCRRE, t)
@@ -908,10 +898,11 @@ def procstudycontent(section):
 
 def procsrscontent(section):
     text = etree.tostring(section, encoding=str)
-    C = genuuid(WPDD)
+    C = genuuid(WPDB)
     G.add((WP, WPDD.independentWork, C))
     G.add((C, CNT.chars, Literal(text, lang="ru")))
     G.add((C, RDF.type, CNT["ContentAsText"]))
+    G.add((C, RDF.type, WPDD["IndependedWorkContent"]))
 
 
 def procsec(number, section):
@@ -945,5 +936,7 @@ def procsec(number, section):
 
 
 if __name__ == "__main__":
+    preparegraphs()
     fn = 'a.xml'
     conv(fn)
+    saveallkgs()

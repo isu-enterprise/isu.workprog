@@ -1,6 +1,6 @@
 import os.path as op
-from rdflib import Graph, RDF, RDFS, Literal
-from common import binds, genuuid
+from rdflib import Graph, RDF, RDFS, Literal, FOAF
+from common import binds, genuuid, IDD
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -133,3 +133,26 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru"):
 urilabel = labeluri
 
 loadallkgs()
+
+def preparegraphs():
+    global DEPS, DISCS, STANS
+    # loadallkgs()
+    urilabel(DEPARTMENTS_KG, type_uri=(
+        IDD["University"],
+        IDD["Faculty"],
+        IDD["Institute"],
+        IDD["Chair"],
+        FOAF["Person"]
+    ))
+    urilabel(DISCIPLINES_KG, type_uri=(
+        IDD["Compenence"],
+        IDD["Discipline"],
+    ))
+    urilabel(STANDARDS_KG, type_uri=(
+        IDD["ProfessionActivity"],
+        IDD["ControlType"],
+        IDD["StudyForm"],
+        IDD["StudyLevel"],
+        IDD["Speciality"],
+        IDD["Specialization"],
+    ))

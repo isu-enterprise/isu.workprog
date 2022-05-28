@@ -20,6 +20,7 @@ def binds(g):
     g.bind('idd', IDD)
     g.bind('dbr', DBR)
     g.bind('schema', SCH)
+    g.bind('cnt', CNT)
 
 
 WPDB = Namespace("http://irnok.net/ontologies/database/isu/workprog#")
@@ -74,9 +75,9 @@ def normspaces(s):
     return " ".join(s.split()).strip()
 
 
-def alltext(node, normspaces=False):
+def alltext(node, normalize=False):
     s = node.xpath("string()").strip()
-    if normspaces:
+    if normalize:
         return normspaces(s)
     return s
 
@@ -131,3 +132,25 @@ def anywords(s, *set):
         if found(s, w):
             return True
     return False
+
+def preparegraphs():
+    # loadallkgs()
+    DEPS = urilabel(DEPARTMENTS_KG, type_uri=(
+        IDD["University"],
+        IDD["Faculty"],
+        IDD["Institute"],
+        IDD["Chair"],
+        FOAF["Person"]
+    ))
+    DISCS = urilabel(DISCIPLINES_KG, type_uri=(
+        IDD["Compenence"],
+        IDD["Discipline"],
+    ))
+    STANS = urilabel(STANDARDS_KG, type_uri=(
+        IDD["ProfessionActivity"],
+        IDD["ControlType"],
+        IDD["StudyForm"],
+        IDD["StudyLevel"],
+        IDD["Speciality"],
+        IDD["Specialization"],
+    ))
