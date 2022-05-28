@@ -114,9 +114,16 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
     `lang` is language tag for the label Literal, defaults to "ru".
     """
 
-    d = KGDICTS[graph]
-    if label in d:
-        return d[label]
+    # d = KGDICTS[graph]
+    # if label in d:
+    #     return d[label]
+    tu = typeuri[0] if isinstance(typeuri, (tuple, list)) else typeuri
+    lit = Literal(label, lang=lang)
+    for subj in graph.subjects(RDFS.label, lit):
+        if (subj, RDF.type, tu) in graph:
+            logger.debug("FOUND: {}->({} {} {})".format(lit, subj, "a", tu))
+            return subj
+
     if uri is None:
         uri = genuuid(NS)
     elif isinstance(uri, str):
@@ -130,7 +137,8 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
     graph.add((uri, RDFS.label, Literal(label, lang=lang)))
     if callable(provision):
         provision(uri)
-    update(d, uri, label)
+
+    # update(d, uri, label)
     return uri
 
 
@@ -140,24 +148,4 @@ loadallkgs()
 
 
 def preparegraphs():
-    global DEPS, DISCS, STANS
-    # loadallkgs()
-    urilabel(DEPARTMENTS_KG, type_uri=(
-        IDD["University"],
-        IDD["Faculty"],
-        IDD["Institute"],
-        IDD["Chair"],
-        FOAF["Person"]
-    ))
-    urilabel(DISCIPLINES_KG, type_uri=(
-        IDD["Compenence"],
-        IDD["Discipline"],
-    ))
-    urilabel(STANDARDS_KG, type_uri=(
-        IDD["ProfessionActivity"],
-        IDD["ControlType"],
-        IDD["StudyForm"],
-        IDD["StudyLevel"],
-        IDD["Speciality"],
-        IDD["Specialization"],
-    ))
+    return
