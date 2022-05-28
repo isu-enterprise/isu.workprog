@@ -274,7 +274,7 @@ def proctitle(sheet):
             if m is not None:
                 b, e = m.span()
                 dur = int(text[b:e])
-                G.add((C, IDB.studyDration, Literal(dur)))
+                G.add((C, IDD.studyDration, Literal(dur)))
         elif allwords(lt, "код област профессиональн деятельност"):
             for i, c in enumerate(cells):
                 c = str(c).strip().lower()
