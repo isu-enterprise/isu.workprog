@@ -138,6 +138,7 @@ urilabel = labeluri
 
 loadallkgs()
 
+
 def preparegraphs():
     global DEPS, DISCS, STANS
     # loadallkgs()

@@ -664,7 +664,9 @@ def proctestsection(section):
         if allwords(tl, "разработчик"):
             _, name = t.split(":")
             name = name.strip()
-            author = getfrom(DEPARTMENTS_KG, name, IDB, FOAF["Person"])
+            author = getfrom(DEPARTMENTS_KG, name, IDB, FOAF["Person"],
+                             lambda subj: DEPARTMENTS_KG.add((subj, FOAF.name,
+                                                              Literal(name, lang="ru"))))
             G.add((CDC, SCH.author, author))
 
 

@@ -288,10 +288,14 @@ def proctitle(sheet):
             tasktype = None
             _, text, _ = line.split("/")
             head = text.strip()
-            uri = getfrom(DEPARTMENTS_KG, head, IDB, FOAF["Person"],
-                          lambda subj:
-                          DEPARTMENTS_KG.add((INST, IDD.director, subj))
-                          )
+
+            def _prov(subj):
+                DEPARTMENTS_KG.add((INST, IDD.director, subj))
+                DEPARTMENTS_KG.add((subj, FOAF.name, Literal(head, lang="ru")))
+
+            uri = getfrom(DEPARTMENTS_KG, head, IDB,
+                          FOAF["Person"],
+                          _prov)
             G.add((C, IDD.director, uri))
         elif specm is not None:
             parts = re.split(SPECCODERE, line, maxsplit=1)
