@@ -146,7 +146,7 @@ def proctitle(sheet):
                 title = cells[profcode + 1].strip()
                 uri = getfrom(STANDARDS_KG, title, IDB,
                               IDD["ProfessionActivity"],
-                              provide=lambda subj:
+                              provision=lambda subj:
                               STANDARDS_KG.add((subj, DCID,
                                                 Literal(code))))
                 G.add((C, IDD.professionActivity, uri))
@@ -215,7 +215,7 @@ def proctitle(sheet):
                 chair = getfrom(DEPARTMENTS_KG, title, IDB,
                                 IDD["Chair"],
                                 lambda subj:
-                                DEPARTMENTS_KG.add((INST, SCH.department, chair)))
+                                DEPARTMENTS_KG.add((INST, SCH.department, subj)))
                 G.add((C, IDD.chair, chair))
             else:
                 logger.error("Chair is not recognized in '{}'".format(line))
@@ -303,11 +303,11 @@ def proctitle(sheet):
                 code, title = parts[1:3]
                 title = normspaces(title)
                 if title != "":
-                    spec = genuuid(IDB)
+                    spec = getfrom(DISCIPLINES_KG, title, IDB, IDD["Speciality"],
+                                   lambda subj:
+                                   G.add((subj, DCID, Literal(code)))
+                                   )
                     G.add((C, IDD.specialty, spec))
-                    G.add((spec, RDFS.label, Literal(title, lang="ru")))
-                    G.add((spec, DCID, Literal(code)))
-                    G.add((spec, RDF.type, IDD["Speciality"]))
         else:
             pass
             logger.debug("Skipping:'{}'".format(line))

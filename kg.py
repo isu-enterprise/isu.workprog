@@ -125,7 +125,7 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru"):
         graph.add((uri, RDF.type, typeuri))
     graph.add((uri, RDFS.label, Literal(label, lang=lang)))
     if callable(provision):
-        provision()
+        provision(uri)
     update(d, uri, label)
     return uri
 
