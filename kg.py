@@ -2,11 +2,11 @@ import os.path as op
 from rdflib import Graph, RDF, RDFS, Literal, FOAF
 from common import binds, genuuid, IDD
 import logging
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
                     level=logging.DEBUG)
-
 
 KG_DIR = op.abspath("../kg")
 # Universities, institutions, chairs, and other departments (subdivisions)
@@ -14,9 +14,11 @@ DEPARTMENTS_KGFN = op.join(KG_DIR, "departments.rdf")
 DISCIPLINES_KGFN = op.join(KG_DIR,
                            "disciplines.rdf")  # Disciplines' descriptions
 REFERENCES_KGFN = op.join(KG_DIR, "rferences.rdf")  # Literature, URL's, etc.
-STANDARDS_KGFN = op.join(KG_DIR, "standards.rdf")  # Standards, namely, professions, FES , etc.
+STANDARDS_KGFN = op.join(
+    KG_DIR, "standards.rdf")  # Standards, namely, professions, FES , etc.
 
-SER_FORMAT = "pretty-xml"
+# SER_FORMAT = "pretty-xml"
+SER_FORMATS = ("pretty-xml", "turtle")
 
 KGS = {}
 
@@ -56,10 +58,20 @@ def loadallkgs():
     loadkg(STANDARDS_KGFN)
 
 
-def savekg(g, filename=None, format=SER_FORMAT):
+EXT = {"pretty-xml": "rdf", "turtle": "ttl"}
+
+
+def savekg(g, filename=None, format=SER_FORMATS):
     if filename is None:
         filename = KGS[g]
-    g.serialize(destination=filename, encoding="utf-8", format=SER_FORMAT)
+    g.serialize(destination=filename,
+                encoding="utf-8",
+                format=format[0] if isinstance(format,
+                                               (tuple, list)) else format)
+    for f in SER_FORMATS:
+        g.serialize(destination=filename + "." + EXT[f],
+                    encoding="utf-8",
+                    format=f)
 
 
 def saveallkgs():
@@ -81,27 +93,6 @@ WHERE
 def update(d, uri, label):
     d[uri] = label
     d[label] = uri
-
-
-KGDICTS = {}
-
-
-def labeluri(graph, type_uri):
-    """Make a dictionary, mapping rdfs:label to
-    resource uri"""
-
-    assert graph is not None
-
-    d = {}
-    if not isinstance(type_uri, (tuple, list)):
-        type_uri = [type_uri]
-
-    for t in type_uri:
-        for uri, label in graph.query(select_uri_label, initBindings={"class":t}):
-            update(d, label, uri)
-
-    KGDICTS[graph] = d
-    return d
 
 
 def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
@@ -141,8 +132,6 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
     # update(d, uri, label)
     return uri
 
-
-urilabel = labeluri
 
 loadallkgs()
 

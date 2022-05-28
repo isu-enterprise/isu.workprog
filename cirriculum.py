@@ -12,7 +12,7 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     CREDITWN, TASK)
 
 from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update, preparegraphs,
-                urilabel, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
+                loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
 
 import logging
 
