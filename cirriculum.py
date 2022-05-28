@@ -11,8 +11,8 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
                     DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE, EXAMS, CREDIT,
                     CREDITWN, TASK)
 
-from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update, preparegraphs,
-                loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
+from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
+                preparegraphs, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
 
 import logging
 
@@ -140,11 +140,12 @@ def proctitle(sheet):
             if profcodem is not None:
                 code = profcodem.group(1)
                 title = cells[profcode + 1].strip()
-                uri = getfrom(STANDARDS_KG, title, IDB,
+                uri = getfrom(STANDARDS_KG,
+                              title,
+                              IDB,
                               IDD["ProfessionActivity"],
-                              provision=lambda subj:
-                              STANDARDS_KG.add((subj, DCID,
-                                                Literal(code))))
+                              provision=lambda subj: STANDARDS_KG.add(
+                                  (subj, DCID, Literal(code))))
                 G.add((C, IDD.professionActivity, uri))
                 continue
             else:
@@ -163,16 +164,19 @@ def proctitle(sheet):
                 tasktype = None
 
         # print(specm)
-        if allwords(lt, "федеральн государствен бюджетн") or allwords(
-                lt, "фгбоуво"):
+        if allwords(lt, "федеральн государствен образовательн") or anywords(
+                lt, "фгбоуво фгоуво"):
             try:
                 uni = line.split('"', maxsplit=2)[1].strip()
                 UNIV = getfrom(DEPARTMENTS_KG, uni, IDB, IDD["University"])
             except (TypeError, IndexError):
                 logger.warning(
                     "Cannot figure out university from '{}' ".format(line))
-                UNIV = getfrom(DEPARTMENTS_KG, "Unknown university", IDB,
-                               IDD["University"], lang="en")
+                UNIV = getfrom(DEPARTMENTS_KG,
+                               "Unknown university",
+                               IDB,
+                               IDD["University"],
+                               lang="en")
             try:
                 inst = line.split("\n")[1].strip()
             except IndexError:
@@ -189,7 +193,9 @@ def proctitle(sheet):
             if iinst in DEPARTMENTS:
                 INST = DEPARTMENTS[iinst]
             else:
-                INST = getfrom(DEPARTMENTS_KG, inst, IDB,
+                INST = getfrom(DEPARTMENTS_KG,
+                               inst,
+                               IDB,
                                IDD["Faculty"],
                                provision=_prov)
 
@@ -208,10 +214,10 @@ def proctitle(sheet):
             _, title = line.split(":", maxsplit=1)
             title = normspaces(title)
             if title != "":
-                chair = getfrom(DEPARTMENTS_KG, title, IDB,
-                                IDD["Chair"],
-                                lambda subj:
-                                DEPARTMENTS_KG.add((INST, SCH.department, subj)))
+                chair = getfrom(
+                    DEPARTMENTS_KG, title, IDB, IDD["Chair"],
+                    lambda subj: DEPARTMENTS_KG.add(
+                        (INST, SCH.department, subj)))
                 G.add((C, IDD.chair, chair))
             else:
                 logger.error("Chair is not recognized in '{}'".format(line))
@@ -293,9 +299,7 @@ def proctitle(sheet):
                 DEPARTMENTS_KG.add((INST, IDD.director, subj))
                 DEPARTMENTS_KG.add((subj, FOAF.name, Literal(head, lang="ru")))
 
-            uri = getfrom(DEPARTMENTS_KG, head, IDB,
-                          FOAF["Person"],
-                          _prov)
+            uri = getfrom(DEPARTMENTS_KG, head, IDB, FOAF["Person"], _prov)
             G.add((C, IDD.director, uri))
         elif specm is not None:
             parts = re.split(SPECCODERE, line, maxsplit=1)
@@ -303,10 +307,9 @@ def proctitle(sheet):
                 code, title = parts[1:3]
                 title = normspaces(title)
                 if title != "":
-                    spec = getfrom(STANDARDS_KG, title, IDB, IDD["Speciality"],
-                                   lambda subj:
-                                   G.add((subj, DCID, Literal(code)))
-                                   )
+                    spec = getfrom(
+                        STANDARDS_KG, title, IDB, IDD["Speciality"],
+                        lambda subj: G.add((subj, DCID, Literal(code))))
                     G.add((C, IDD.specialty, spec))
         else:
             pass
@@ -399,6 +402,7 @@ FIELDLIST = [
     (['конс'], BNode, IDD.consultation, Literal),
     (['ко'], BNode, IDD.control, Literal),
     (['ср'], BNode, IDD.independentWork, Literal),
+    (['кср'], BNode, IDD.independentWorkControl, Literal),
     (['контроль'], BNode, IDD.preparation, Literal),
     # (['код', 'закрепленнаякафедра'], IDD.chair, ID_[""]),
     # (['наименование', 'закрепленнаякафедра'], ID_., ID_[""]),
@@ -479,14 +483,17 @@ def procplan(sheet):
                 G.add((disc, IDD.chair, chair))
                 break
             term = False
-            if id0 in [
-                    'з.е.', 'итого', 'лек', 'лаб', 'пр', 'конс', 'ко', 'ср',
-                    'контроль'
-            ]:
+            # if id0 in [
+            #         'з.е.', 'итого', 'лек', 'лаб', 'пр', 'конс', 'ко', 'ср',
+            #         'контроль'
+            # ]:
+            if len(ident) > 1 and isinstance(ident[-1],
+                                             int):  # term data has numbers
                 idk = [id0]
                 term = True
             else:
                 idk = ident
+            print(idk)
             idk = "-".join(idk)
             try:
                 cmds = FIELDS[idk]
@@ -562,9 +569,14 @@ def procsheet(sheet):
         logger.warning("Did not process sheet '{}'".format(sname))
 
 
-
 if __name__ == "__main__":
+    import sys
     preparegraphs()
-    conv("01.03.02-22-1234_1к_06.plx.xls")
+    if len(sys.argv) < 2:
+        # conv("01.03.02-22-1234_1к_06.plx.xls")
+        # conv("../cirriculums/02.04.02-22-12_1к.plx.xls")
+        conv("../cirriculums/44.03.05-22-12345_1к.plx.xls")
+    else:
+        conv(sys.argv[1])
     saveallkgs()
     # conv("./09.03.01 (АСУб-22).plx.xls")

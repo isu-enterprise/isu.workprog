@@ -112,7 +112,7 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
     lit = Literal(label, lang=lang)
     for subj in graph.subjects(RDFS.label, lit):
         if (subj, RDF.type, tu) in graph:
-            logger.debug("FOUND: {}->({} {} {})".format(lit, subj, "a", tu))
+            # logger.debug("FOUND: {}->({} {} {})".format(lit, subj, "a", tu))
             return subj
 
     if uri is None:
