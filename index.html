@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: "#div",
+        inline: true,
+        plugins: ["quickbars"],
+        quickbars_selection_toolbar:
+        "styleselect | bold italic forecolor | removeformat",
+        quickbars_insert_toolbar: false,
+        menubar: false,
+        toolbar: false,
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+
+    <script lang="javascript">
+      var SERVER = "http://localhost:5000/api/1.0/";
+      var WPUUID = "{{WP_UUID}}"
+      var tinyEditor = null;
+      var TEXTEDS=null;
+      console.log(TEXTEDS);
+
+      function toTag(id) {
+        return id.replace("texteditor-","");
+      }
+
+      function getActiveEditor(id = false, tag = false) {
+        ae = tinymce.activeEditor;
+        if (tag) id = true;
+        if (id) {
+          if (tag) {
+            return toTag(ae.id);
+          } else {
+            return ae.id;
+          }
+        } else {
+          return ae;
+        }
+      }
+
+      function kgquery(op, textArea = null) {
+        if (textArea === null) {
+          textArea = getActiveEditor();
+        }
+        tag = toTag(textArea.id);
+        text = textArea.getContent()
+        console.log(tag);
+        if (! op.hasOwnProperty('op')) {
+          op["op"] = "load";
+        };
+        op["text"] = text;
+        op["tag"] = tag;
+        op["uuid"] = WPUUID;
+        $.ajax(SERVER+"qwp", data={
+          data : JSON.stringify(op),
+          contentType : 'application/json',
+          type : 'POST'}).done(function (data) {
+            var err = data["error"]
+            if (op["op"] == "save") {
+              if (err!=0) {
+                $("#alertBox").text("Could'nt save correctly:"+err);
+              } else {
+                $("#alertBox").text("Sucessfully saved!");
+              }
+            } else {
+              if (err!=0) {
+                $("#alertBox").text("Could'nt load correctly:"+err);
+              } else {
+                textArea.setContent(data["text"]);
+                $("#alertBox").text("Sucessfully loaded!");
+              }
+            }
+          });
+
+      }
+      $(document).ready(function(){
+
+        // jQuery methods go here...
+        $("#theButton").on("click", () => {
+          console.info("INFO: pressed the button");
+          kgquery({"op":"load"});
+        });
+
+        $("#saveButton").on("click", () => {
+          console.info("Save pressed");
+          kgquery({"op":"save"});
+        });
+
+        $("#saveGraphButton").on("click", () => {
+          $.post(SERVER+"saveGraph", (data) => {
+            $("alertBox").text("Saved Successfully!");
+            console.info("Saved the gaph successfully!");
+          })
+        });
+
+        TEXTEDS = [];
+        tinyEditor = $(".edit-text").each(function () {
+          TEXTEDS.push(this.id);
+        });
+
+        console.log(TEXTEDS);
+        tinymce.init({
+          selector: ".edit-text"
+        }).then(
+          (editors) => {
+            TEXTEDS.forEach(
+              id => {
+                kgquery({"op": "load"}, tinymce.get(id));
+              }
+            );
+          }
+        );
+      })
+    </script>
+</head>
+
+<body>
+     <section id="title">
+        <button type="button" class="btn btn-info">Edit Metadta</button>
+        <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
+            Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
+        <p align="center"><b>«ИРКУТСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</b><br/>ФГБОУ ВО «ИГУ»</p>
+        <p align="center">ИНСТИТУТ МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ</p>
+        <p></p>
+
+    </textarea>
+    </section>
+     <section>
+         <table width="100%">
+             <tr>
+                 <td>
+        <form method="post">
+            <div id="texteditor-problem" data-tag="problem" class="edit-text"> Here will be edited something! </div>
+          </form>
+          </td>    
+           </tr> 
+                    
+        Цели<br/>
+     
+        <form method="post">
+            <textarea id="texteditor-aim" data-tag="aim" class="edit-text"> Here will be edited something! </textarea>
+          </form>
+        Задачи<br/>
+        <tr>
+          <td>
+            МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО <br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            СОДЕРЖАНИЕ И СТРУКТУРА ДИСЦИПЛИНЫ <br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Содержание дисциплины, структурированное по темам, c указанием видов
+            учебных занятий и отведенного на них количества академических часов<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            План внеаудиторной самостоятельной работы обучающихся по дисциплине<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Содержание учебного материала<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Перечень семинарских, практических занятий и лабораторных работ<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Перечень тем (вопросов), выносимых на самостоятельное изучение студентами
+в рамках самостоятельной работы<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Методические указания по организации самостоятельной работы студентов<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            УЧЕБНО-МЕТОДИЧЕСКОЕ И ИНФОРМАЦИОННОЕ ОБЕСПЕЧЕНИЕ
+                ДИСЦИПЛИНЫ<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            МАТЕРИАЛЬНО-ТЕХНИЧЕСКОЕ ОБЕСПЕЧЕНИЕ ДИСЦИПЛИНЫ<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Учебно-лабораторное оборудование<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Программное обеспечение<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ОЦЕНОЧНЫЕ МАТЕРИАЛЫ ДЛЯ ТЕКУЩЕГО КОНТРОЛЯ И
+            ПРОМЕЖУТОЧНОЙ АТТЕСТАЦИИ<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Оценочные средства текущего контроля <br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Оценочные средства для промежуточной аттестации<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Примеры оценочных средств для промежуточной аттестации:<br/>
+            <form method="post">
+              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+            </form>
+          </td>
+        </tr>
+        
+      
+    </section>
+    <script>
+    </script>
+    <button id="theButton" type="button" class="btn btn-primary">Load</button>
+    <button id="saveButton" type="button" class="btn btn-primary">Save</button>
+    <button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button>
+   <!---<div class="alert alert-primary" role="alert" id="alertBox">
+        This is a primary alert—check it out!
+      </div>-->
+<script lang="javascript">
+</script>
+
+</body>
+
+</html>
