@@ -70,6 +70,21 @@ WHERE
 LIMIT 1
 
 """
+GET_WP_QUEST = PREFIXES + """
+
+SELECT ?quest ?number ?label WHERE {
+# SELECT * WHERE {
+    ?syll a dbr:Syllabus .
+    ?syll wpdd:itemList ?itemlist .
+    ?s a dbr:Syllabus .
+    ?s  wpdd:itemList  ?itemlist .
+    ?itemlist a wpdd:EvaluationMean .
+    ?quest schema:member ?itemlist .
+    ?quest schema:sku ?number .
+    ?quest rdfs:label ?label  .
+   }
+
+"""
 
 #END_OF_GETTERS
 
