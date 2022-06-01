@@ -89,29 +89,30 @@
 \begin{center}
   {\bfseries МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ}\par
   {\bfseries федеральное государственное бюджетное образовательное учреждение}\par
-  {\bfseries \MakeUppercase{ <<{{ctx.university.name}}>>} }\par
+  {\bfseries \MakeUppercase{ <<{{ctx.university.label}}>>} }\par
 {ФГБОУ ВО «{{ctx.university.abbrev}}»}\par
-\MakeUppercase{ {{ctx.institute.name}} }\par
+\MakeUppercase{ {{ctx.institute.label}} }\par
 \vspace{1ex}
-{\bfseries {{ctx.discentry.chair.name}}}
+{\bfseries {{ctx.discentry.chair.label}}}
 \end{center}
 \vspace{2em}
+{{ctx.hh}}
 \begin{tabularx}{\textwidth}{XX}
   & <<УТВЕРЖДАЮ>> \\
   & {{ctx.institute.position}} {{ctx.institute.abbrev}} {{ctx.university.abbrev}} \\
-  & \underline{\hspace{3cm}}\;{{ctx.director.name}}
+  & \underline{\hspace{3cm}}\;{{ctx.director.label}}
 \end{tabularx}
 \vfil
 \begin{center}\large
   {\bfseries Рабочая программа дисциплины (модуля) }\\[1ex]
-  {\bfseries {{ctx.discentry.code}}~{{ctx.discipline.name}}}
+  {\bfseries {{ctx.discentry.code}}~{{ctx.discipline.label}}}
 \end{center}
 \vfil
 \begin{tabularx}{\textwidth}{XXX}
-  {\bfseries Направление подготовки} & {\hyphenpenalty=100000 {{ctx.specialty.code}}~{{ctx.specialty.name}}}\\
-  {\bfseries Направленность (профиль) подготовки} & {{ctx.profile.name}}\\
-  {\bfseries Квалификация выпускника} & {{ctx.level.name}}\\
-  {\bfseries Форма обучения} & {{ctx.mural.name}}
+  {\bfseries Направление подготовки} & {\hyphenpenalty=100000 {{ctx.specialty.code}}~{{ctx.specialty.label}}}\\
+  {\bfseries Направленность (профиль) подготовки} & {{ctx.profile.label}}\\
+  {\bfseries Квалификация выпускника} & {{ctx.level.label}}\\
+  {\bfseries Форма обучения} & {{ctx.mural.label}}
 \end{tabularx}
 \vfil
 \vfil
@@ -128,7 +129,7 @@
 \noindent Задачи:
 
 \section{Место дисциплины в структуре ОПОП ВО}
-Учебная дисциплина {{ctx.specialty.code}}~{{ctx.specialty.name}} относится к /обязательной/ части Блока /1/ образовательной программы.
+Учебная дисциплина {{ctx.specialty.code}}~{{ctx.specialty.label}} относится к /обязательной/ части Блока /1/ образовательной программы.
 
 Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
 формируемые предшествующими дисциплинами: ...
@@ -140,7 +141,7 @@
 \section{Требования к результатам освоения дисциплины}
 
 Процесс освоения дисциплины направлен на формирование следующих компетенций в
-соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{ctx.specialty.code}}~{{ctx.specialty.name}}:
+соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{ctx.specialty.code}}~{{ctx.specialty.label}}:
 
 ОПК-1 Способен применять фундаментальные знания, полученные в области
 математических и (или) естественных наук, и использовать их в профессиональной

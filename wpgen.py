@@ -65,18 +65,18 @@ class CurriculumGraph():
             self.curriculum = Entity(curriculum)
             self.institute = Entity(
                 self.graph.subjects(IDD.hasCurriculum, curriculum))
-            self.institute.name = self.rdflabel(self.institute)
+            self.institute.label = self.rdflabel(self.institute)
             self.university = Entity(
                 self.graph.subjects(IDD.department, self.institute.uri))
-            self.university.name = self.rdflabel(self.university)
+            self.university.label = self.rdflabel(self.university)
             self.basechair = Entity(self.graph.objects(curriculum, IDD.chair))
-            self.basechair.name = self.rdflabel(self.basechair)
+            self.basechair.label = self.rdflabel(self.basechair)
             self.enrolledIn = int(
                 next(self.graph.objects(curriculum, IDD.enrolledIn)))
             self.director = Entity(self.objects(curriculum, IDD.director))
-            self.director.name = self.rdflabel(self.director)
+            self.director.label = self.rdflabel(self.director)
             self.level = Entity(self.objects(curriculum, IDD.level))
-            self.level.name = self.rdflabel(self.level)
+            self.level.label = self.rdflabel(self.level)
 
             for discentry in self.graph.objects(curriculum, IDD.hasDiscipline):
                 self.discentry = Entity(discentry)
@@ -84,26 +84,26 @@ class CurriculumGraph():
                 self.discentry.code = self.rdfdcid(self.discentry)
                 self.discentry.chair = Entity(
                     self.graph.objects(discentry, IDD.chair))
-                self.discentry.chair.name = self.rdflabel(
+                self.discentry.chair.label = self.rdflabel(
                     self.discentry.chair.uri)
-                assert self.discentry.chair.name is not None
+                assert self.discentry.chair.label is not None
 
                 self.discipline = Entity(
                     self.graph.objects(discentry, IDD.discipline))
-                self.discipline.name = self.rdflabel(self.discipline)
+                self.discipline.label = self.rdflabel(self.discipline)
                 self.specialty = Entity(
                     self.graph.objects(curriculum, IDD.specialty))
-                self.specialty.name = self.rdflabel(self.specialty)
+                self.specialty.label = self.rdflabel(self.specialty)
                 self.specialty.code = next(
                     self.graph.objects(self.specialty.uri, DCID))
                 self.mural = Entity(
                     self.graph.objects(curriculum, IDD.studyForm))
 
-                self.mural.name = self.rdflabel(self.mural)
+                self.mural.label = self.rdflabel(self.mural)
 
                 self.profile = Entity(
                     self.graph.objects(curriculum, IDD.profile))
-                self.profile.name = self.rdflabel(self.profile)
+                self.profile.label = self.rdflabel(self.profile)
 
                 self.setdefaults() # Must be the last one
 
@@ -113,24 +113,24 @@ class CurriculumGraph():
         for _ in self.generate():
             dir = os.path.join(
                 TARGET_DIR,
-                asdirname(self.university.name),
-                asdirname(self.institute.name),
-                asdirname(self.discentry.chair.name),
+                asdirname(self.university.label),
+                asdirname(self.institute.label),
+                asdirname(self.discentry.chair.label),
                 asdirname(self.specialty.code) + "-" +
-                asdirname(self.specialty.name),
+                asdirname(self.specialty.label),
                 # asdirname(
                 #     str(self.discentry.code) + "-" +
-                #     str(self.discipline.name)),
-                asdirname(self.profile.name),
+                #     str(self.discipline.label)),
+                asdirname(self.profile.label),
                 asdirname(self.enrolledIn),
-                asdirname(self.mural.name),
+                asdirname(self.mural.label),
             )
             safecwd(dir)
             self.genwp()
 
     def genwp(self):
         filename = asdirname(self.discentry.code) + "-" + asdirname(
-            self.discipline.name) + ".tex"
+            self.discipline.label) + ".tex"
         content = self.template({"ctx":self, "dsc":self.discentry})
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
@@ -164,7 +164,8 @@ class CurriculumGraph():
     def subjects(self, pred, obj):
         return self.graph.subjects(pred, obj)
 
-
+    # def __getitem__(self, index):
+    #     return self
 
     def setdefaults(self):
         self.city="Иркутск"
