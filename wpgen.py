@@ -131,7 +131,7 @@ class CurriculumGraph():
     def genwp(self):
         filename = asdirname(self.discentry.code) + "-" + asdirname(
             self.discipline.name) + ".tex"
-        content = self.template({"ctx":self})
+        content = self.template({"ctx":self, "dsc":self.discentry})
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
         o.write(content)
