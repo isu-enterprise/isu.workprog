@@ -3,7 +3,7 @@ from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from uuid import uuid1
 from itertools import pairwise
 from collections import OrderedDict
-
+import os
 
 def genuuid(namespace=None):
     uuid = str(uuid1())
@@ -34,7 +34,9 @@ CNT = Namespace("http://www.w3.org/2011/content#")
 DCID = DCTERMS.identifier
 
 IMIT = IDB['c526d6c7-9a78-11e6-9438-005056100702']  # Taken from 1C
+IMIT_NAME = 'Институт математики и информационных технологий'
 ISU = IDB['6ed6df0a-dbed-11ec-b49e-704d7b84fd9f']  # Generated
+ISU_NAME = "Иркутский государственный университет"
 MURAL = IDB['e4f4e44d-5a0b-11e6-942f-005056100702']
 EXMURAL = IDB['e4f4e44c-5a0b-11e6-942f-005056100702']
 BACHOLOIR = IDB['f2d33750-5a0b-11e6-942f-005056100702']
@@ -59,11 +61,14 @@ PROFCODERE = re.compile(r"(\d{2,3}(\.\d{3,3})?)")
 YEARRE = re.compile(r"\d{4,4}")
 YEARDISTRE = re.compile(r"(\d{4,4})[-–]+(\d{4,4})")
 
-BULLETS = ["-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿']
-
+BULLETS = [
+    "-", "*", "#", "–", '•', '‣', '⁃', '⁌', '⁍', '◘', '◦', '⦾', '⦿', '฀'
+]
 DEPARTMENTS = {
-    "институтматематикииинформационныхтехнологий": IMIT,
-    "иркутскийгосударственныйуниверситет": ISU,
+    "институтматематикииинформационныхтехнологий":
+    (IMIT, IMIT_NAME, (IDD["Faculty"], IDD["Institute"])),
+    "иркутскийгосударственныйуниверситет":
+    (ISU, ISU_NAME, (IDD["University"], ))
 }
 
 
@@ -133,24 +138,22 @@ def anywords(s, *set):
             return True
     return False
 
-def preparegraphs():
-    # loadallkgs()
-    DEPS = urilabel(DEPARTMENTS_KG, type_uri=(
-        IDD["University"],
-        IDD["Faculty"],
-        IDD["Institute"],
-        IDD["Chair"],
-        FOAF["Person"]
-    ))
-    DISCS = urilabel(DISCIPLINES_KG, type_uri=(
-        IDD["Compenence"],
-        IDD["Discipline"],
-    ))
-    STANS = urilabel(STANDARDS_KG, type_uri=(
-        IDD["ProfessionActivity"],
-        IDD["ControlType"],
-        IDD["StudyForm"],
-        IDD["StudyLevel"],
-        IDD["Speciality"],
-        IDD["Specialization"],
-    ))
+
+def refinename(name):
+    name = name.strip().rstrip(".").strip()
+    while found(name, '  '):
+        name = name.subst("  "," ")
+    return name
+
+def asdirname(name):
+    name = str(name)
+    if len(name)>200: # Really - 255 or 256
+        name=refinename(name[:200])
+    return name.replace(" ","-").replace("(",'_').replace(")","_")
+
+def safecwd(dir):
+    try:
+        os.chdir(dir)
+    except FileNotFoundError:
+        os.makedirs(dir)
+        os.chdir(dir)

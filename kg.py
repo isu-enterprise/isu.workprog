@@ -1,6 +1,7 @@
 import os.path as op
-from rdflib import Graph, RDF, RDFS, Literal, FOAF
-from common import binds, genuuid, IDD
+from rdflib import Graph, RDF, RDFS, Literal, FOAF, URIRef
+from common import (binds, genuuid, IDD, ISU, ISU_NAME, IMIT, IMIT_NAME, IDB,
+                    IDD)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -56,6 +57,13 @@ def loadallkgs():
     loadkg(DISCIPLINES_KGFN)
     loadkg(REFERENCES_KGFN)
     loadkg(STANDARDS_KGFN)
+    isu = getfrom(DEPARTMENTS_KG, ISU_NAME, IDB, IDD["University"], uri=ISU)
+    imit = getfrom(DEPARTMENTS_KG,
+                   IMIT_NAME,
+                   IDB, (IDD["Faculty"], IDD["Institute"]),
+                   uri=IMIT,
+                   provision=lambda obj: DEPARTMENTS_KG.add(
+                       (isu, IDD["department"], obj)))
 
 
 EXT = {"pretty-xml": "rdf", "turtle": "ttl"}
@@ -117,6 +125,8 @@ def getfrom(graph, label, NS, typeuri, provision=None, lang="ru", uri=None):
 
     if uri is None:
         uri = genuuid(NS)
+    elif isinstance(uri, URIRef):
+        pass
     elif isinstance(uri, str):
         uri = NS[uri]
 
