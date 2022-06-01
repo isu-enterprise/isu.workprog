@@ -232,13 +232,17 @@ def proctitle(sheet):
             qualif = qualif.strip().lower()
             if qualif.startswith("бакалавр"):
                 lev = BACHOLOIR
+                levn = "бакалавр"
                 if found(tl, "академ"):
                     lev = ACBACH
                 elif found(tl, "прикладн"):
-                    lev = ACBACH
+                    lev = APPLBACH
                 G.add((C, IDD.level, lev))
+                G.add((lev, RDFS.label, Literal(levn, lang="ru")))
             if qualif.startswith("магистрат"):
+                levn = "магистр"
                 G.add((C, IDD.level, MASTER))
+                G.add((MASTER, RDFS.label, Literal(levn, lang="ru")))
             if found(tl, "год"):
                 m = re.search(YEARRE, tl)
                 if m is None:
