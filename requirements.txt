@@ -2,3 +2,4 @@ lxml
 rdflib
 flask
 xlrd
+pybars3

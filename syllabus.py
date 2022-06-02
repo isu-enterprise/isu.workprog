@@ -5,15 +5,21 @@ from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from uuid import uuid1
 from itertools import pairwise
 from collections import OrderedDict
-from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, IDD, IDB,
-                    DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
-                    MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, BULLETS, found,
-                    alltext, anywords, allwords, splitnumber, startswithnumber,
-                    listitem, binds)
+from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, IDD,
+                    IDB, DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH,
+                    APPLBACH, MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE,
+                    BULLETS, found, alltext, anywords, allwords, splitnumber,
+                    startswithnumber, listitem, binds, COURCODERE, refinename)
 
 from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
-                preparegraphs,
-                loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
+                preparegraphs, getfrom, loadallkgs, saveallkgs, STANDARDS_KG)
+
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
+                    level=logging.DEBUG)
 
 G = Graph()
 CDC = BNode()
@@ -40,7 +46,10 @@ class Style:
         #  r"([A-Z][a-z]*)"
         self.font = None
         self.bold = False
-        _, rest = self.family.split("+", maxsplit=1)
+        if found(self.family, "+"):
+            _, rest = self.family.split("+", maxsplit=1)
+        else:
+            rest = self.family
         m = re.search(r'([A-Z][a-z]*)', rest)
         self.font = m.group(1)
 
@@ -196,7 +205,7 @@ def conv(filename):
 
                 if ok:
                     wall = int(tag.get("left")) + int(tag.get("width"))
-                    n = nodes[node]
+                    n = nodes.setdefault(node, [])
                 else:
                     wall = None
                     rope = bot
@@ -269,8 +278,9 @@ def conv(filename):
                 pe = e
                 continue
             if pe.tag == e.tag:
-                pe.text += e.text
-                e.getparent().remove(e)
+                t1 = alltext(pe)
+                pe.text = t1 + alltext(e)
+                orphanite(e)
                 continue
             pe = p
 
@@ -321,13 +331,18 @@ def conv(filename):
     divs = tree.xpath("//div")
     _dc = False
     for div in divs:
-        if len(div) > 1:
+        if len(div) > 1:  # It seems, that
             _dc = True
-            printel("-->", div)
+            # printel(div)
+            pe = None
             for e in div:
-                printel(e)
-            print
-    assert not _dc, "Found non-joined spans in a div"
+                if pe == None:
+                    pe = e
+                else:
+                    merge(pe, e)
+                    orphanite(e)
+
+    # assert not _dc, "Found non-joined spans in a div"
 
     # Remove DIVS at all
     divs = tree.xpath("//div")
@@ -450,19 +465,22 @@ def conv(filename):
     for k, v in SECTIONS.items():
         body.append(v)
 
-    ofilename = "m-" + filename + ".html"
+    ofilename = filename + ".html"
     o = open(ofilename, "wb")
     o.write(b"<!DOCTYPE html >\n")
     o.write(etree.tostring(tree, encoding="utf-8", pretty_print=True))
     o.close()
 
-    G.serialize(destination=filename + ".ttl")
+    sername = filename + ".ttl"
+    print("Serializing into '{}'".format(sername))
+    G.serialize(destination=sername, format="turtle", encoding="utf8")
 
 
 # INSTITUTES = {"институтматематикииинформационныхтехнологий": IMIT}
 
 
 def upfirst(s):
+    if s == "": return s
     return s[0].upper() + s[1:]
 
 
@@ -475,6 +493,9 @@ MURALFORM = {
 def proctitlepage(titlepage):
     for span in titlepage.xpath('.//div/span[@bold="1"]'):
         n = span.getparent().getnext()
+        if n is None:
+            continue
+
         if n.tag == "div":
             removed = False
             for s in n:
@@ -485,27 +506,39 @@ def proctitlepage(titlepage):
                 n.getparent().remove(n)
 
     for s in titlepage.xpath(".//span"):
-        t = s.xpath('string()').strip()
+        t = alltext(s)
         tl = t.lower()
         tn = "".join(tl.split())
         tc = upfirst(" ".join(tl.split()))
         if tl.startswith('институт'):
-            inst = tn
+            inst = refinename(tn)
             inst = getfrom(DEPARTMENTS_KG, tc, IDB,
                            (IDD["Faculty"], IDD["Institute"]))
             G.add((WP, WPDD.institute, inst))
         elif tl.startswith("кафедра"):
+            tc = refinename(tc)
             chair = getfrom(DEPARTMENTS_KG, tc, IDB, IDD['Chair'])
             G.add((WP, WPDD.chair, chair))
         elif tn.startswith("направлениеподготовки"):
             tcl = tc.split(" ", maxsplit=3)
             _, _, code, name = tcl
+            name = refinename(upfirst(name))
             spec = getfrom(
                 DISCIPLINES_KG, upfirst(name), IDB, IDD["Speciality"],
                 lambda subj: DISCIPLINES_KG.add((subj, DCID, Literal(code))))
             G.add((WP, IDD.specialty, spec))
         elif tn.startswith("направленность"):
-            name = s[-1].tail.strip()
+            # printel(s)
+            # print(tn)
+            try:
+                name = s[-1].tail
+            except IndexError:
+                name = t.split("подготовки", maxsplit=1)[-1].strip()
+            if name is not None:
+                name = name.strip()
+            else:
+                name = "Unknown discipline"
+            name = refinename(name)
             spec = getfrom(DISCIPLINES_KG, name, IDB, IDD["Discipline"])
             G.add((WP, IDD.profile, spec))
         elif tn.startswith("квалификация"):
@@ -534,12 +567,19 @@ def proctitlepage(titlepage):
                 if name != "":
                     break
             name = " ".join(name.split())
-            code, nname = name.split(" ", maxsplit=1)
+            m = re.search(COURCODERE, name)
+            if m is not None:
+                code = m.group(1)
+                _, e = m.span(1)
+                nname = name[e:].strip()
+            else:
+                code = ""
+
             if found(code, "."):
                 n = nname
             else:
                 n = name
-
+            n = refinename(n)
             disc = getfrom(DISCIPLINES_KG, n, IDB, IDD["Discipline"])
             G.add((WP, DCTERMS.identifier, Literal(code, lang="ru")))
             G.add((WP, IDD.discipline, disc))
@@ -547,7 +587,7 @@ def proctitlepage(titlepage):
         elif tn.startswith("иркутск"):
             cityn, year = tc.split()[:2]
             G.add((WP, IDD.issued, Literal(year)))
-
+            cityn = refinename(cityn)
             city = getfrom(DEPARTMENTS_KG, cityn, IDB, DBR['City'])
             G.add((WP, IDD.city, city))
 
@@ -575,18 +615,20 @@ def procaims(section):
             orphanite(p)
 
 
+LISTITEM = WPDD["ListItem"]
+
+
 def proclistitems(paragraphs,
                   owner=None,
                   otype=None,
-                  itemtype=None,
-                  removeempty=False):
+                  itemtype=LISTITEM,
+                  removeempty=False,
+                  kg=None):
     ol = None
     owners = []
     if owner is not None:
         owners.append((owners, None))
 
-    if itemtype is None:
-        itemtype = WPDD["ListItem"]
     for p in paragraphs:
         t = alltext(p)
         if t == "":
@@ -642,9 +684,15 @@ def proclistitems(paragraphs,
             orphanite(p)
             ol.append(p)
         if owner is not None and ol is not None:
-            q = genuuid(WPDB)
-            G.add((q, RDF.type, itemtype))
-            G.add((q, RDFS.label, Literal(name, lang="ru")))
+            if kg is not None:
+                q = getfrom(kg, name, WPDB, itemtype)
+                G.add((q, RDF.type, itemtype))  # Local copy of type
+            else:
+                q = genuuid(WPDB)
+                G.add((q, RDFS.label, Literal(name, lang="ru")))
+                G.add((q, RDF.type, itemtype))
+            if itemtype != LISTITEM:
+                G.add((q, RDF.type, LISTITEM))
             G.add((q, SCH.sku, Literal(num)))
             G.add((q, SCH.member, owner))
     return owners
@@ -664,10 +712,11 @@ def proctestsection(section):
         tl = t.lower()
         if allwords(tl, "разработчик"):
             _, name = t.split(":")
-            name = name.strip()
-            author = getfrom(DEPARTMENTS_KG, name, IDB, FOAF["Person"],
-                             lambda subj: DEPARTMENTS_KG.add((subj, FOAF.name,
-                                                              Literal(name, lang="ru"))))
+            name = refinename(name)
+            author = getfrom(
+                DEPARTMENTS_KG, name, IDB, FOAF["Person"],
+                lambda subj: DEPARTMENTS_KG.add(
+                    (subj, FOAF.name, Literal(name, lang="ru"))))
             G.add((CDC, SCH.author, author))
 
 
@@ -689,7 +738,8 @@ def procstudysupport(section):
             pp = p
     owners = proclistitems(section.xpath(".//p"),
                            otype=WPDD["ReferenceList"],
-                           itemtype=WPDD["Reference"])
+                           itemtype=WPDD["Reference"],
+                           kg=REFERENCES_KG)
     for owner, p in owners:  # Classify reference lists
         if p is None:
             continue
@@ -833,6 +883,7 @@ def procresultsrequirements(section):
                     title = title.strip()
                     if title[-1] in [',', '.', ';']:
                         title = title[:-1]
+                    title = refinename(title)
                     C = getfrom(DISCIPLINES_KG, title, IDB, IDD["Compenence"])
                     G.add((CDC, IDD.competence, C))
                     G.add((C, DCTERMS.identifier, Literal(code, lang="ru")))
@@ -939,7 +990,27 @@ def procsec(number, section):
 
 
 if __name__ == "__main__":
+    import sys
+    failed = False
     preparegraphs()
-    fn = 'a.xml'
-    conv(fn)
+    if len(sys.argv) < 2:
+        fn = 'a.xml'
+        conv(fn)
+    else:
+
+        fn = sys.argv[1]
+        # logger.setLevel(logging.FATAL)
+        fh = logging.FileHandler(fn + ".log")
+        fh.setLevel(logging.DEBUG)
+        logger.addHandler(fh)
+
+        try:
+            conv(fn)
+        except Exception as e:
+            logger.exception("Exception", exc_info=e)
+            failed = True
+        fh.close()
+
     saveallkgs()
+    if failed:
+        quit(-1)

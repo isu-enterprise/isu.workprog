@@ -4,12 +4,12 @@ from pprint import pprint
 from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from collections import OrderedDict
 from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, ISU,
-                    DCTERMS, IMIT, MURAL, EXMURAL, BACHOLOIR, ACBACH, APPLBACH,
-                    MASTER, NUMBERRE, COMPETENCERE, REQDESCRRE, COURCODERE,
-                    BULLETS, found, anywords, allwords, splitnumber,
-                    normspaces, startswithnumber, listitem, binds, SPECCODERE,
-                    DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE, EXAMS, CREDIT,
-                    CREDITWN, TASK)
+                    DCTERMS, IMIT, IMIT_NAME, MURAL, EXMURAL, BACHOLOIR,
+                    ACBACH, APPLBACH, MASTER, NUMBERRE, COMPETENCERE,
+                    REQDESCRRE, COURCODERE, BULLETS, found, anywords, allwords,
+                    splitnumber, normspaces, startswithnumber, listitem, binds,
+                    SPECCODERE, DEPARTMENTS, YEARDISTRE, YEARRE, PROFCODERE,
+                    EXAMS, CREDIT, CREDITWN, TASK, refinename)
 
 from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
                 preparegraphs, loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
@@ -35,6 +35,7 @@ FIELDS = None
 def getchair(code, getter):
     if code not in CHAIRS:
         name = getter()
+        name = refinename(name)
         chair = getfrom(DEPARTMENTS_KG, name, IDB, IDD["Chair"])
         DEPARTMENTS_KG.add((INST, IDD.hasChair, chair))
         G.add((chair, SCH.sku, Literal(code)))
@@ -56,7 +57,7 @@ def conv(filename):
     sheets = comp + rest
 
     for sheet in sheets:
-        print(sheet.name)
+        logger.info("Processing sheet: {}".format(sheet.name))
         procsheet(sheet)
     G.serialize(destination=filename + ".ttl", format="turtle")
 
@@ -90,7 +91,7 @@ def proccomp1(sheet):
             elif title is None:
                 title = t
         if ctype == "comp":
-            c = getfrom(DISCIPLINES_KG, title, IDB, IDD["Compenence"])
+            c = getfrom(DISCIPLINES_KG, title, IDB, IDD["Competence"])
             pcomp = ([], c)
             COMPS[code] = (c, pcomp[0])
             G.add((c, DCID, Literal(code, lang="ru")))
@@ -100,6 +101,7 @@ def proccomp1(sheet):
                 d, dd = COURSES[code]
             else:
                 d = BNode()
+                title = refinename(title)
                 dd = getfrom(DISCIPLINES_KG, title, IDB, IDD["Discipline"])
                 COURSES[code] = (d, dd)
                 G.add((C, IDD.hasDiscipline, d))
@@ -168,6 +170,7 @@ def proctitle(sheet):
                 lt, "фгбоуво фгоуво"):
             try:
                 uni = line.split('"', maxsplit=2)[1].strip()
+                uni = refinename(uni)
                 UNIV = getfrom(DEPARTMENTS_KG, uni, IDB, IDD["University"])
             except (TypeError, IndexError):
                 logger.warning(
@@ -190,20 +193,19 @@ def proctitle(sheet):
                 if iinst.startswith("институт"):
                     DEPARTMENTS_KG.add((subj, RDF.type, IDD["Institute"]))
 
-            if iinst in DEPARTMENTS:
-                INST = DEPARTMENTS[iinst]
-            else:
-                INST = getfrom(DEPARTMENTS_KG,
-                               inst,
-                               IDB,
-                               IDD["Faculty"],
-                               provision=_prov)
+            inst = refinename(inst)
+            INST = getfrom(DEPARTMENTS_KG,
+                           inst,
+                           IDB,
+                           IDD["Faculty"],
+                           provision=_prov)
 
-            G.add((INST, IDD.hasСurriculum, C))
-            G.add((C, RDF.type, IDD["Сurriculum"]))
+            G.add((INST, IDD.hasCurriculum, C))
+            G.add((C, RDF.type, IDD["Curriculum"]))
         elif allwords(lt, "профиль"):
             _, title = line.split(":", maxsplit=1)
             title = normspaces(title)
+            title = refinename(title)
             if title != "":
                 prof = getfrom(STANDARDS_KG, title, IDB,
                                (IDD["Specialization"], IDD["Profile"]))
@@ -214,10 +216,11 @@ def proctitle(sheet):
             _, title = line.split(":", maxsplit=1)
             title = normspaces(title)
             if title != "":
+                title = refinename(title)
                 chair = getfrom(
                     DEPARTMENTS_KG, title, IDB, IDD["Chair"],
                     lambda subj: DEPARTMENTS_KG.add(
-                        (INST, SCH.department, subj)))
+                        (INST, IDD.hasChair, subj)))
                 G.add((C, IDD.chair, chair))
             else:
                 logger.error("Chair is not recognized in '{}'".format(line))
@@ -229,13 +232,17 @@ def proctitle(sheet):
             qualif = qualif.strip().lower()
             if qualif.startswith("бакалавр"):
                 lev = BACHOLOIR
+                levn = "бакалавр"
                 if found(tl, "академ"):
                     lev = ACBACH
                 elif found(tl, "прикладн"):
-                    lev = ACBACH
+                    lev = APPLBACH
                 G.add((C, IDD.level, lev))
+                G.add((lev, RDFS.label, Literal(levn, lang="ru")))
             if qualif.startswith("магистрат"):
+                levn = "магистр"
                 G.add((C, IDD.level, MASTER))
+                G.add((MASTER, RDFS.label, Literal(levn, lang="ru")))
             if found(tl, "год"):
                 m = re.search(YEARRE, tl)
                 if m is None:
@@ -263,10 +270,14 @@ def proctitle(sheet):
             mur = None
             if found(form, "заочн"):
                 mur = EXMURAL
+                murname = 'заочная'
             elif found(form, "очн"):
                 mur = MURAL
+                murname = "очная"
             if mur is not None:
                 G.add((C, IDD.studyForm, mur))
+                G.add((mur, RDF.type, IDD["StudyForm"]))
+                G.add((mur, RDFS.label, Literal(murname, lang="ru")))
             fgos = line.split("(ФГОС)", maxsplit=1)[-1]
             fgos = fgos.strip()
             G.add((C, IDD.studyStandard, Literal(fgos, lang="ru")))
@@ -302,14 +313,16 @@ def proctitle(sheet):
             uri = getfrom(DEPARTMENTS_KG, head, IDB, FOAF["Person"], _prov)
             G.add((C, IDD.director, uri))
         elif specm is not None:
+
             parts = re.split(SPECCODERE, line, maxsplit=1)
-            if len(parts) > 3:
+            if len(parts) >= 3:
                 code, title = parts[1:3]
                 title = normspaces(title)
                 if title != "":
+                    title = refinename(title)
                     spec = getfrom(
                         STANDARDS_KG, title, IDB, IDD["Speciality"],
-                        lambda subj: G.add((subj, DCID, Literal(code))))
+                        lambda subj: STANDARDS_KG.add((subj, DCID, Literal(code))))
                     G.add((C, IDD.specialty, spec))
         else:
             pass
@@ -433,7 +446,7 @@ def procplan(sheet):
                     # print(idt)
                     ic[i] = idt
                     if cl == "индекс":
-                        print("CODEPOS:", i)
+                        # print("CODEPOS:", i)
                         codepos = i
                 header = False
             continue
@@ -493,7 +506,7 @@ def procplan(sheet):
                 term = True
             else:
                 idk = ident
-            print(idk)
+            # print(idk)
             idk = "-".join(idk)
             try:
                 cmds = FIELDS[idk]
@@ -573,9 +586,9 @@ if __name__ == "__main__":
     import sys
     preparegraphs()
     if len(sys.argv) < 2:
-        # conv("01.03.02-22-1234_1к_06.plx.xls")
+        conv("01.03.02-22-1234_1к_06.plx.xls")
         # conv("../cirriculums/02.04.02-22-12_1к.plx.xls")
-        conv("../cirriculums/44.03.05-22-12345_1к.plx.xls")
+        # conv("../cirriculums/44.03.05-22-12345_1к.plx.xls")
     else:
         conv(sys.argv[1])
     saveallkgs()
