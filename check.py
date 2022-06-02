@@ -1,8 +1,8 @@
 from cProfile import label
+from pickle import LIST
 from flask import Flask, render_template, jsonify, request
 from rdflib import Graph
 import logging
-
 KG_FILE_NAME = "a.xml.ttl"
 
 G = Graph()
@@ -120,13 +120,15 @@ QUERIES = [
     (("aim", "problem"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP]),
 ]
 
-
 def gettemplates(what):
     for t, qs in QUERIES:
         if what in t:
             return qs
     return None
 
+def create_list(quest):
+    
+    return 0
 
 def qsubst(query, substs):
     q = query

@@ -4,16 +4,10 @@
 <head>
     <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-      tinymce.init({
-        selector: "#div",
-        inline: true,
-        plugins: ["quickbars"],
-        quickbars_selection_toolbar:
-        "styleselect | bold italic forecolor | removeformat",
-        quickbars_insert_toolbar: false,
-        menubar: false,
-        toolbar: false,
-      });
+       tinymce.init({
+    selector: '#myeditablediv',
+    inline: true
+  });
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.tiny.cloud/1/kaaf4o7jxmlkc9tcrky2avxjor545dy2e13namvnpj5zhcz5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -135,6 +129,7 @@
 
     </textarea>
     </section>
+    
      <section>
          <table width="100%">
              <tr>
@@ -153,9 +148,9 @@
         Задачи<br/>
         <tr>
           <td>
-            МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО <br/>
+            Вопросы <br/>
             <form method="post">
-              <textarea id="texteditor" data-tag="" class="edit-text"> Here will be edited something! </textarea>
+              <textarea id="texteditor-quest" data-tag="quest" class="edit-text"> Here will be edited something! </textarea>
             </form>
           </td>
         </tr>
