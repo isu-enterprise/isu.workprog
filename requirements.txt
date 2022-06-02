@@ -2,4 +2,4 @@ lxml
 rdflib
 flask
 xlrd
-pybars3
+-e git+https://github.com/eugeneai/pybars3@master#egg=pybars3
