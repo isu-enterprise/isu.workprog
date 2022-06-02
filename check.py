@@ -127,7 +127,7 @@ def gettemplates(what):
     return None
 
 def create_list(quest):
-    
+
     return 0
 
 def qsubst(query, substs):
@@ -185,7 +185,7 @@ def saveGraph():
     G.serialize(destination=KG_FILE_NAME)
     return jsonify({"error": 0, "msg": "Saved"})
 
+getuuid()
 
 if __name__ == '__main__':
-    getuuid()
     app.run(debug=True)

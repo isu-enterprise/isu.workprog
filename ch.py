@@ -62,11 +62,11 @@ print(q)
 
 ans = G.query(q,
               initBindings={
-                  "syll": WPDB["f76d01a6-dbb0-11ec-83cd-704d7b84fd9f"],
+                  "syll": WPDB["ae42e756-dea4-11ec-b02c-704d7b84fd9f"],
                   "mur": "cur"
               })
 
-ans.serialize(destination="_.txt", format="csv", encoding="utf-8")
+ans.serialize(destination="_.txt", format="json", encoding="utf-8")
 
 # print(text)
 # answer = {"text": text}

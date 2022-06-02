@@ -1,4 +1,4 @@
-.PHONY: cirrs rmkg restart reset mdg syll-test syllabs
+.PHONY: cirrs rmkg restart reset mdg syll-test syllabs app
 
 SYLROOT="./isu/"
 # SYLROOT="./isu/Институт-математики-и-информационных-технологий/"
@@ -22,3 +22,6 @@ rmkg:
 
 syllabs:
 	./allwps.sh $(SYLROOT)
+
+app:
+	FLASK_APP=check FLASK_ENV=development flask run
