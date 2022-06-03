@@ -28,7 +28,7 @@ def wrap(uri):
 
 
 def uri(ent):
-    if isinstance(ent, Entity):
+    if isinstance(ent, Context):
         return ent.uri
     else:
         return ent
@@ -83,42 +83,42 @@ class Context():
                 G.subjects(IDD.hasCurriculum, curriculum))
             self.institute.label = self.rdflabel(self.institute)
             self.university = Context(
-                self.graph.subjects(IDD.department, self.institute.uri))
+                G.subjects(IDD.department, self.institute.uri))
             self.university.label = self.rdflabel(self.university)
-            self.basechair = Context(self.graph.objects(curriculum, IDD.chair))
+            self.basechair = Context(G.objects(curriculum, IDD.chair))
             self.basechair.label = self.rdflabel(self.basechair)
             self.enrolledIn = int(
-                next(self.graph.objects(curriculum, IDD.enrolledIn)))
-            self.director = Context(self.objects(curriculum, IDD.director))
+                next(G.objects(curriculum, IDD.enrolledIn)))
+            self.director = Context(G.objects(curriculum, IDD.director))
             self.director.label = self.rdflabel(self.director)
-            self.level = Context(self.objects(curriculum, IDD.level))
+            self.level = Context(G.objects(curriculum, IDD.level))
             self.level.label = self.rdflabel(self.level)
 
-            for discentry in self.graph.objects(curriculum, IDD.hasDiscipline):
+            for discentry in G.objects(curriculum, IDD.hasDiscipline):
                 self.discentry = Context(discentry)
                 self.rdftypecheck(discentry, IDD["Discipline"])
                 self.discentry.code = self.rdfdcid(self.discentry)
                 self.discentry.chair = Context(
-                    self.graph.objects(discentry, IDD.chair))
+                    G.objects(discentry, IDD.chair))
                 self.discentry.chair.label = self.rdflabel(
                     self.discentry.chair.uri)
                 assert self.discentry.chair.label is not None
 
                 self.discipline = Context(
-                    self.graph.objects(discentry, IDD.discipline))
+                    G.objects(discentry, IDD.discipline))
                 self.discipline.label = self.rdflabel(self.discipline)
                 self.specialty = Context(
-                    self.graph.objects(curriculum, IDD.specialty))
+                    G.objects(curriculum, IDD.specialty))
                 self.specialty.label = self.rdflabel(self.specialty)
                 self.specialty.code = next(
-                    self.graph.objects(self.specialty.uri, DCID))
+                    G.objects(self.specialty.uri, DCID))
                 self.mural = Context(
-                    self.graph.objects(curriculum, IDD.studyForm))
+                    G.objects(curriculum, IDD.studyForm))
 
                 self.mural.label = self.rdflabel(self.mural)
 
                 self.profile = Context(
-                    self.graph.objects(curriculum, IDD.profile))
+                    G.objects(curriculum, IDD.profile))
                 self.profile.label = self.rdflabel(self.profile)
 
                 self.setdefaults() # Must be the last one
@@ -203,5 +203,6 @@ if __name__ == "__main__":
     else:
         filename = sys.argv[1]
 
+    initgraph(filename)
     C = Context(typeof = IDD["Curriculum"])
     C.gendir()
