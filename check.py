@@ -1,7 +1,9 @@
 from pickle import LIST
 from flask import Flask, render_template, jsonify, request
-from rdflib import Graph
+from rdflib import Graph, URIRef
 import logging
+from pprint import pprint
+from common import IDD, WPDD
 
 KG_FILE_NAME = "a.xml.ttl"
 INDEX_HTML = 'index-copy.html'
@@ -11,24 +13,22 @@ G.parse(KG_FILE_NAME)
 
 app = Flask(__name__)
 
-WP_UUID = None
+WP_URI = None
 
 
 def getuuid():
-    global WP_UUID
-    uuid = list(G.query(GET_WP_UUID))[0][0].lstrip("<").rstrip(">")
-    uuid = uuid.replace("http://irnok.net/ontologies/database/isu/workprog#",
-                        "")
-    print(uuid)
-    WP_UUID = uuid
-    return uuid
+    global WP_URI
+    uri = list(G.query(GET_WP_URI))[0][0]
+    print(uri)
+    WP_URI = uri
+    return uri
 
 
 @app.route('/')
 def main():
-    global WP_UUID
-    print(WP_UUID)
-    return render_template(INDEX_HTML, WP_UUID=WP_UUID)
+    global WP_URI
+    print(WP_URI)
+    return render_template(INDEX_HTML, WP_URI=WP_URI)
 
 
 @app.route("/api/1.0/getwps")  # Get Work ProgramS
@@ -49,7 +49,7 @@ PREFIX wpdd: <http://irnok.net/ontologies/isu/workprog#>
 
 """
 
-GET_WP_UUID = PREFIXES + """
+GET_WP_URI = PREFIXES + """
 
 SELECT ?uuid WHERE {
     ?uuid a dbr:Syllabus .
@@ -63,9 +63,9 @@ GET_WP_AP = PREFIXES + """
 SELECT ?text
 WHERE
 {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@ wpdd:courseDC ?dc .
-    ?dc wpdd:@TAG@ ?text .       #@@
+    ?wpuri a dbr:Syllabus .
+    ?wpuri wpdd:courseDC ?dc .
+    ?dc ?pred ?text .       #@@
 }
 
 LIMIT 1
@@ -118,13 +118,13 @@ WHERE
 """
 
 QUERIES = [
-    (("aim", "problem"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP]),
+    (("aim", "problem"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP], WPDD),
 ]
 
-def gettemplates(what):
-    for t, qs in QUERIES:
-        if what in t:
-            return qs
+def gettemplates(pred):
+    for t, qs, ns in QUERIES:
+        if pred in t:
+            return qs, ns[pred]
     return None
 
 def create_list(quest):
@@ -148,12 +148,12 @@ def lprint(s):
 @app.route("/api/1.0/qwp", methods=['POST'])  # Get Work ProgramS
 def savewp():
     js = request.json
-    uuid = js["uuid"]
-    text = js["text"]
-    what = js["tag"]
     op = js["op"]
 
-    templates = gettemplates(what)
+    pred = js["pred"]
+    templates, pred = gettemplates(pred)
+    js["pred"]=pred
+    js["wpuri"]=URIRef(js["wpuri"])
 
     if templates is None:
         msg = "Cannot find template for '{}'.".format(js)
@@ -166,17 +166,19 @@ def savewp():
         queries = templates[:1]
 
     answer = {}
-
+    del js["op"]
     for q in queries:
-        q1 = qsubst(q, js)
-        lprint(q1)
+        lprint(q)
         if (op == "save"):
-            G.update(q1)
+            pprint(js)
+            G.update(q, initBindings=js)
         else:
-            text = list(G.query(q1))[0][0]
+            del js['text']
+            pprint(js)
+            text = list(G.query(q, initBindings=js))[0][0]
             answer["text"] = str(text)
 
-    answer.update({"uuid": uuid, "error": 0, "msg": op + "ed"})
+    answer.update({"wpuri": js["wpuri"], "error": 0, "msg": op + "ed"})
     print(answer)
     return jsonify(answer)
 
