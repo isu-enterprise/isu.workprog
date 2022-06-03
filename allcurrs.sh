@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cirrs="../cirriculums/"
+currs="../curriculums/"
 
-for file in $cirrs*.xls
+for file in $currs*.xls
 do
     echo Processing $file
     python curriculum.py $file
