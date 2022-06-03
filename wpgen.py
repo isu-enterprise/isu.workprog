@@ -1,5 +1,5 @@
 from common import *
-from rdflib import Literal, Namespace, Graph
+from rdflib import Literal, Namespace, Graph, URIRef
 from kg import *
 import os.path
 import types
@@ -48,7 +48,7 @@ def initgraph(filename):
     G += DISCIPLINES_KG
     G += REFERENCES_KG
     for ns, uri in G.namespaces():
-        NS[ns]=uri
+        NS[ns]=Namespace(uri)
     return G
 
 class Context():
@@ -63,27 +63,33 @@ class Context():
         return str(self.uri)
 
     def get(self, index):
-        pref, ns, pred = index.split(":")
-        nspred = NS[ns][pred]
-        if '^' in pref:
-            o = self.subjects(nspred)
+        if ":" in index:
+            pref, ns, pred = index.split(":")
+            print(pref, ns, pred)
+            nspred = NS[ns][pred]
+            if '^' in pref:
+                print("subj?", nspred, self)
+                o = G.subjects(nspred, self.uri)
+            else:
+                print(self, nspred, "obj?")
+                o = G.objects(self.uri, nspred)
+            if o is not None:
+                try:
+                    return Context(o)
+                except StopIteration:
+                    return "{} {}".format(self, index)
+            else:
+                return None
         else:
-            o = self.objects(nspred)
-        print(pref, nspred, o)
-        if o is not None:
-            return Context(o)
-        else:
-            return None
+            raise IndexError("no rdf")
 
     def generate(self):
 
         for curriculum in self.rdfinsts(self.typeof):
             self.curriculum = Context(curriculum)
-            self.institute = Context(
-                G.subjects(IDD.hasCurriculum, curriculum))
+            self.institute = self.get("^:idd:hasCurriculum")
             self.institute.label = self.rdflabel(self.institute)
-            self.university = Context(
-                G.subjects(IDD.department, self.institute.uri))
+            self.university = self.institute.get("^:idd:department")
             self.university.label = self.rdflabel(self.university)
             self.basechair = Context(G.objects(curriculum, IDD.chair))
             self.basechair.label = self.rdflabel(self.basechair)
@@ -183,9 +189,6 @@ class Context():
 
     # def __getitem__(self, index):
     #     return self
-    def get(self, index):
-        print("get:", index)
-        return self
 
     def setdefaults(self):
         self.city="Иркутск"
