@@ -1,7 +1,7 @@
 import re
 from rdflib import (Graph, BNode, Namespace, RDF, RDFS, Literal, DCTERMS, FOAF)
 from uuid import uuid1
-from itertools import pairwise
+#from itertools import pairwise
 from collections import OrderedDict
 import os
 
