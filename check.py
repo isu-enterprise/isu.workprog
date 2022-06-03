@@ -1,9 +1,10 @@
-from cProfile import label
 from pickle import LIST
 from flask import Flask, render_template, jsonify, request
 from rdflib import Graph
 import logging
+
 KG_FILE_NAME = "a.xml.ttl"
+INDEX_HTML = 'index-copy.html'
 
 G = Graph()
 G.parse(KG_FILE_NAME)
@@ -27,7 +28,7 @@ def getuuid():
 def main():
     global WP_UUID
     print(WP_UUID)
-    return render_template('index copy.html', WP_UUID=WP_UUID)
+    return render_template(INDEX_HTML, WP_UUID=WP_UUID)
 
 
 @app.route("/api/1.0/getwps")  # Get Work ProgramS
