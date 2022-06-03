@@ -33,6 +33,9 @@ class Entity():
     def __str__(self):
         return str(self.uri)
 
+    def get(self, index):
+        print("entget:", index)
+        return self
 
 def wrap(uri):
     return Entity(uri)
@@ -166,6 +169,9 @@ class CurriculumGraph():
 
     # def __getitem__(self, index):
     #     return self
+    def get(self, index):
+        print("get:", index)
+        return self
 
     def setdefaults(self):
         self.city="Иркутск"
