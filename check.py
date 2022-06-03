@@ -27,7 +27,7 @@ def getuuid():
 def main():
     global WP_UUID
     print(WP_UUID)
-    return render_template('index.html', WP_UUID=WP_UUID)
+    return render_template('index copy.html', WP_UUID=WP_UUID)
 
 
 @app.route("/api/1.0/getwps")  # Get Work ProgramS
