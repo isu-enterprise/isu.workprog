@@ -23,20 +23,6 @@ def safenext(g):
         return None
 
 
-class Entity():
-
-    def __init__(self, uri):
-        if isinstance(uri, types.GeneratorType):
-            uri = next(uri)
-        self.uri = uri
-
-    def __str__(self):
-        return str(self.uri)
-
-    def get(self, index):
-        print("entget:", index)
-        return self
-
 def wrap(uri):
     return Entity(uri)
 
@@ -49,62 +35,89 @@ def uri(ent):
 
 COMPILER = Compiler()
 
-class CurriculumGraph():
+TEMPLATE = COMPILER.compile(open(TEMPLATE_NAME,"r").read())
 
-    def __init__(self, filename, template=TEMPLATE_NAME):
-        self.graph = Graph()
-        self.graph.parse(filename)
-        binds(self.graph)
-        self.graph += STANDARDS_KG
-        self.graph += DEPARTMENTS_KG
-        self.graph += DISCIPLINES_KG
-        self.graph += REFERENCES_KG
+G = Graph()
+NS = {}
+def initgraph(filename):
+    global G, NS
+    G.parse(filename)
+    binds(G)
+    G += STANDARDS_KG
+    G += DEPARTMENTS_KG
+    G += DISCIPLINES_KG
+    G += REFERENCES_KG
+    for ns, uri in G.namespaces():
+        NS[ns]=uri
+    return G
 
-        self.template = COMPILER.compile(open(TEMPLATE_NAME,"r").read())
+class Context():
+
+    def __init__(self, uri = None, typeof = None):
+        if isinstance(uri, types.GeneratorType):
+            uri = next(uri)
+        self.uri = uri
+        self.typeof = typeof
+
+    def __str__(self):
+        return str(self.uri)
+
+    def get(self, index):
+        pref, ns, pred = index.split(":")
+        nspred = NS[ns][pred]
+        if '^' in pref:
+            o = self.subjects(nspred)
+        else:
+            o = self.objects(nspred)
+        print(pref, nspred, o)
+        if o is not None:
+            return Context(o)
+        else:
+            return None
 
     def generate(self):
 
-        for curriculum in self.rdfinsts(IDD["Curriculum"]):
-            self.curriculum = Entity(curriculum)
-            self.institute = Entity(
-                self.graph.subjects(IDD.hasCurriculum, curriculum))
+        for curriculum in self.rdfinsts(self.typeof):
+            self.curriculum = Context(curriculum)
+            self.institute = Context(
+                G.subjects(IDD.hasCurriculum, curriculum))
             self.institute.label = self.rdflabel(self.institute)
-            self.university = Entity(
+            self.university = Context(
                 self.graph.subjects(IDD.department, self.institute.uri))
             self.university.label = self.rdflabel(self.university)
-            self.basechair = Entity(self.graph.objects(curriculum, IDD.chair))
+            self.basechair = Context(self.graph.objects(curriculum, IDD.chair))
             self.basechair.label = self.rdflabel(self.basechair)
             self.enrolledIn = int(
                 next(self.graph.objects(curriculum, IDD.enrolledIn)))
-            self.director = Entity(self.objects(curriculum, IDD.director))
+            self.director = Context(self.objects(curriculum, IDD.director))
             self.director.label = self.rdflabel(self.director)
-            self.level = Entity(self.objects(curriculum, IDD.level))
+            self.level = Context(self.objects(curriculum, IDD.level))
             self.level.label = self.rdflabel(self.level)
 
             for discentry in self.graph.objects(curriculum, IDD.hasDiscipline):
-                self.discentry = Entity(discentry)
+                self.discentry = Context(discentry)
                 self.rdftypecheck(discentry, IDD["Discipline"])
                 self.discentry.code = self.rdfdcid(self.discentry)
-                self.discentry.chair = Entity(
+                self.discentry.chair = Context(
                     self.graph.objects(discentry, IDD.chair))
                 self.discentry.chair.label = self.rdflabel(
                     self.discentry.chair.uri)
                 assert self.discentry.chair.label is not None
 
-                self.discipline = Entity(
+                self.discipline = Context(
                     self.graph.objects(discentry, IDD.discipline))
                 self.discipline.label = self.rdflabel(self.discipline)
-                self.specialty = Entity(
+                self.specialty = Context(
                     self.graph.objects(curriculum, IDD.specialty))
                 self.specialty.label = self.rdflabel(self.specialty)
                 self.specialty.code = next(
                     self.graph.objects(self.specialty.uri, DCID))
-                self.mural = Entity(
+                self.mural = Context(
                     self.graph.objects(curriculum, IDD.studyForm))
 
                 self.mural.label = self.rdflabel(self.mural)
 
-                self.profile = Entity(
+                self.profile = Context(
                     self.graph.objects(curriculum, IDD.profile))
                 self.profile.label = self.rdflabel(self.profile)
 
@@ -134,7 +147,9 @@ class CurriculumGraph():
     def genwp(self):
         filename = asdirname(self.discentry.code) + "-" + asdirname(
             self.discipline.label) + ".tex"
-        content = self.template({"context":self, "curr":self.curriculum, "disc":self.discentry})
+        content = TEMPLATE({"context":self,
+                            "curr":self.curriculum,
+                            "disc":self.discentry})
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
         o.write(content)
@@ -143,29 +158,28 @@ class CurriculumGraph():
 
     def rdfdcid(self, subj):
         subj = uri(subj)
-        return safenext(self.graph.objects(subj, DCID))
+        return safenext(G.objects(subj, DCID))
 
     def rdflabel(self, subj):
         subj = uri(subj)
-        return safenext(self.graph.objects(subj, RDFS.label))
+        return safenext(G.objects(subj, RDFS.label))
 
     def rdfinst(self, class_):
         return safenext(self.rdfinsts(class_))
 
     def rdfinsts(self, class_):
-        return self.graph.subjects(RDF.type, class_)
+        return G.subjects(RDF.type, class_)
 
     def rdftypecheck(self, subj, type_):
         subj = uri(subj)
-        if (subj, RDF.type, type_) not in self.graph:
+        if (subj, RDF.type, type_) not in G:
             raise AssertionError("{} is not of type {}".format(subj, type_))
 
-    def objects(self, subj, pred):
-        subj = uri(subj)
-        return self.graph.objects(subj, pred)
+    def objects(self, pred):
+        return G.objects(self.uri, pred)
 
-    def subjects(self, pred, obj):
-        return self.graph.subjects(pred, obj)
+    def subjects(self, pred):
+        return G.subjects(pred, self.uri)
 
     # def __getitem__(self, index):
     #     return self
@@ -189,5 +203,5 @@ if __name__ == "__main__":
     else:
         filename = sys.argv[1]
 
-    G = CurriculumGraph(filename)
-    G.gendir()
+    C = Context(typeof = IDD["Curriculum"])
+    C.gendir()

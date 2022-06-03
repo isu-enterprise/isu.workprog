@@ -5,72 +5,173 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-idb:c526d6c7-9a78-11e6-9438-005056100702 idd:hasCurriculum idb:ee221270-e2f5-11ec-a438-704d7b84fd9f .
+idb:c526d6c7-9a78-11e6-9438-005056100702 idd:hasCurriculum idb:d64f3a50-e332-11ec-b56b-b42e99b15cbb .
 
-idb:e4f4e44d-5a0b-11e6-942f-005056100702 a idd:StudyForm ;
-    rdfs:label "очная"@ru .
+idb:3152243a-e194-11ec-afc9-704d7b84fd9f schema:sku 73 .
 
-idb:ea30bad6-e2f5-11ec-969d-704d7b84fd9f schema:sku 73 .
+idb:315241d6-e194-11ec-afc9-704d7b84fd9f schema:sku 51 .
 
-idb:ea30d674-e2f5-11ec-969d-704d7b84fd9f schema:sku 51 .
+idb:3152735e-e194-11ec-afc9-704d7b84fd9f schema:sku 126 .
 
-idb:ea3106bc-e2f5-11ec-969d-704d7b84fd9f schema:sku 126 .
+idb:31528f92-e194-11ec-afc9-704d7b84fd9f schema:sku 1 .
 
-idb:ea312228-e2f5-11ec-969d-704d7b84fd9f schema:sku 1 .
+idb:3152ab94-e194-11ec-afc9-704d7b84fd9f schema:sku 2 .
 
-idb:ea313f88-e2f5-11ec-969d-704d7b84fd9f schema:sku 2 .
+idb:3152eb72-e194-11ec-afc9-704d7b84fd9f schema:sku 108 .
 
-idb:ea317bf6-e2f5-11ec-969d-704d7b84fd9f schema:sku 108 .
+idb:31531c3c-e194-11ec-afc9-704d7b84fd9f schema:sku 7 .
 
-idb:ea31ac0c-e2f5-11ec-969d-704d7b84fd9f schema:sku 7 .
+idb:31574dc0-e194-11ec-afc9-704d7b84fd9f schema:sku 89 .
 
-idb:ea35ca26-e2f5-11ec-969d-704d7b84fd9f schema:sku 89 .
+idb:315798c0-e194-11ec-afc9-704d7b84fd9f schema:sku 121 .
 
-idb:ea361288-e2f5-11ec-969d-704d7b84fd9f schema:sku 121 .
-
-idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
-    idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-    idd:director idb:ea302ada-e2f5-11ec-969d-704d7b84fd9f ;
+idb:d64f3a50-e332-11ec-b56b-b42e99b15cbb a idd:Curriculum ;
+    idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+    idd:director idb:31519a88-e194-11ec-afc9-704d7b84fd9f ;
     idd:enrolledIn 2022 ;
     idd:hasDiscipline [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e64fc-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:3150b3de-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:expert 144 ;
-                    idd:independentWork 64 ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 28 ;
                     idd:test 80 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
                     idd:course 3 ;
-                    idd:credits 4 ;
-                    idd:independentWork 64 ;
-                    idd:laboratoryWorks 54 ;
-                    idd:lection 18 ;
+                    idd:credits 3 ;
+                    idd:independentWork 28 ;
+                    idd:lection 36 ;
                     idd:number 6 ;
-                    idd:total 144 ;
+                    idd:practice 36 ;
+                    idd:total 108 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.31"@ru ],
+            dcterms:identifier "Б1.В.03"@ru ],
         [ a idd:Discipline ;
-            idd:account false ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 6 ;
+                    idd:expert 6 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f666e-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f,
+                idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 216 ;
+                    idd:expert 216 ;
+                    idd:independentWork 64 ;
+                    idd:test 152 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:consultation 144 ;
+                    idd:control 8 ;
+                    idd:course 4 ;
+                    idd:credits 6 ;
+                    idd:independentWork 64 ;
+                    idd:number 8 ;
+                    idd:total 216 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б2.О.01(Пд)"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
+                idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 7 ;
+                    idd:expert 7 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f2942-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 252 ;
+                    idd:control 35 ;
+                    idd:expert 252 ;
+                    idd:independentWork 67 ;
+                    idd:test 150 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 3 ;
+                    idd:independentWork 32 ;
+                    idd:lection 34 ;
+                    idd:number 3 ;
+                    idd:practice 34 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
+                [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 35 ;
+                    idd:lection 32 ;
+                    idd:number 4 ;
+                    idd:practice 32 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.18"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3152ce12-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e9f40-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e9996-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:elective 32 ;
+                    idd:expert 72 ;
+                    idd:independentWork 32 ;
+                    idd:test 40 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:course 1 ;
+                    idd:credits 1 ;
+                    idd:independentWork 20 ;
+                    idd:lection 16 ;
+                    idd:number 1 ;
+                    idd:total 36 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 1 ;
+                    idd:independentWork 12 ;
+                    idd:lection 16 ;
+                    idd:number 2 ;
+                    idd:total 36 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.08"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f,
                 idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 2 ;
                     idd:expert 2 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f0010-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:31506154-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 72 ;
                     idd:expert 72 ;
@@ -85,18 +186,18 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:number 4 ;
                     idd:total 72 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.ДВ.02.02"@ru ],
+            dcterms:identifier "Б1.В.ДВ.02.01"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 3 ;
                     idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e6c86-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314fd7de-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 108 ;
                     idd:expert 108 ;
@@ -111,18 +212,45 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:number 7 ;
                     idd:total 108 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.32"@ru ],
+            dcterms:identifier "Б1.О.33"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:3150c5fe-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:expert 144 ;
+                    idd:independentWork 46 ;
+                    idd:test 98 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 4 ;
+                    idd:credits 4 ;
+                    idd:independentWork 46 ;
+                    idd:laboratoryWorks 30 ;
+                    idd:lection 60 ;
+                    idd:number 7 ;
+                    idd:total 144 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.В.10"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 3 ;
                     idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dd244-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:3150239c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 108 ;
                     idd:expert 108 ;
@@ -133,244 +261,23 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:course 3 ;
                     idd:credits 3 ;
                     idd:independentWork 32 ;
-                    idd:lection 34 ;
+                    idd:laboratoryWorks 68 ;
                     idd:number 5 ;
-                    idd:practice 34 ;
                     idd:total 108 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.19"@ru ],
+            dcterms:identifier "Б1.В.06"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea317bf6-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d56b6-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d4fd6-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d7056-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:elective 20 ;
-                    idd:expert 72 ;
-                    idd:independentWork 28 ;
-                    idd:test 44 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:lection 20 ;
-                    idd:number 1 ;
-                    idd:practice 16 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.09"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ee8b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:expert 72 ;
-                    idd:independentWork 28 ;
-                    idd:test 44 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:number 2 ;
-                    idd:practice 36 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.ДВ.01.01"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 1 ;
-                    idd:expert 1 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f8292-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 36 ;
-                    idd:expert 36 ;
-                    idd:independentWork 2 ;
-                    idd:test 34 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 2 ;
-                    idd:course 4 ;
-                    idd:credits 1 ;
-                    idd:independentWork 2 ;
-                    idd:laboratoryWorks 16 ;
-                    idd:lection 16 ;
-                    idd:number 8 ;
-                    idd:total 36 ] ;
-            dcterms:identifier "ФТД.01"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2de900-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 50 ;
-                    idd:test 58 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 3 ;
-                    idd:credits 3 ;
-                    idd:independentWork 50 ;
-                    idd:lection 34 ;
-                    idd:number 5 ;
-                    idd:practice 16 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.22"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
-                idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ed252-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 35 ;
-                    idd:expert 144 ;
-                    idd:independentWork 27 ;
-                    idd:test 82 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 3 ;
-                    idd:credits 4 ;
-                    idd:independentWork 27 ;
-                    idd:laboratoryWorks 72 ;
-                    idd:number 6 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.09"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea316012-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:discipline idb:ea2d45cc-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d369a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 352 ;
-                    idd:control 2 ;
-                    idd:expert 352 ;
-                    idd:independentWork 2,
-                        14 ;
-                    idd:practice 22,
-                        34,
-                        36,
-                        50,
-                        54,
-                        64,
-                        68 ;
-                    idd:test 338 ;
-                    idd:total 26,
-                        38,
-                        40,
-                        52,
-                        56,
-                        68,
-                        72 ] ;
-            dcterms:identifier "ЭЛК.01"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dda28-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 35 ;
-                    idd:expert 144 ;
-                    idd:independentWork 27 ;
-                    idd:test 82 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 3 ;
-                    idd:credits 4 ;
-                    idd:independentWork 27 ;
-                    idd:lection 36 ;
-                    idd:number 6 ;
-                    idd:practice 36 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.20"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2eaa8e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 44 ;
-                    idd:expert 144 ;
-                    idd:independentWork 22 ;
-                    idd:test 78 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 22 ;
-                    idd:laboratoryWorks 34 ;
-                    idd:lection 34 ;
-                    idd:number 3 ;
-                    idd:preparation 44 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.02"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 5 ;
                     idd:expert 5 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ee120-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:31504a16-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 180 ;
                     idd:control 44 ;
@@ -391,723 +298,43 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
             dcterms:identifier "Б1.В.12"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
-                idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 7 ;
-                    idd:expert 7 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dcaba-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 252 ;
-                    idd:control 35 ;
-                    idd:expert 252 ;
-                    idd:independentWork 67 ;
-                    idd:test 150 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 35 ;
-                    idd:lection 32 ;
-                    idd:number 4 ;
-                    idd:practice 32 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 3 ;
-                    idd:independentWork 32 ;
-                    idd:lection 34 ;
-                    idd:number 3 ;
-                    idd:practice 34 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.18"@ru ],
-        [ a idd:Discipline ;
-            idd:account false ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2eeff8-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:expert 72 ;
-                    idd:independentWork 28 ;
-                    idd:test 44 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:number 2 ;
-                    idd:practice 36 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.ДВ.01.02"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 8 ;
-                    idd:expert 8 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e21ea-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 288 ;
-                    idd:control 70 ;
-                    idd:expert 288 ;
-                    idd:independentWork 42 ;
-                    idd:test 176 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 1 ;
-                    idd:credits 3 ;
-                    idd:independentWork 9 ;
-                    idd:laboratoryWorks 36 ;
-                    idd:lection 18 ;
-                    idd:number 2 ;
-                    idd:preparation 35 ;
-                    idd:total 108 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 1 ;
-                    idd:credits 5 ;
-                    idd:independentWork 33 ;
-                    idd:laboratoryWorks 68 ;
-                    idd:lection 34 ;
-                    idd:number 1 ;
-                    idd:preparation 35 ;
-                    idd:total 180 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.26"@ru ],
-        [ a idd:Discipline ;
-            idd:account false ;
-            idd:chair idb:ea361288-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d2c86-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d24a2-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:expert 72 ;
-                    idd:independentWork 28 ;
-                    idd:test 44 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:lection 18 ;
-                    idd:number 4 ;
-                    idd:practice 18 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.ДВ.02.03"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 1 ;
-                    idd:expert 1 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f8a58-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 36 ;
-                    idd:expert 36 ;
-                    idd:independentWork 2 ;
-                    idd:test 34 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 2 ;
-                    idd:course 4 ;
-                    idd:credits 1 ;
-                    idd:independentWork 2 ;
-                    idd:laboratoryWorks 16 ;
-                    idd:lection 16 ;
-                    idd:number 8 ;
-                    idd:total 36 ] ;
-            dcterms:identifier "ФТД.02"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e5d7c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 28 ;
-                    idd:test 80 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 3 ;
-                    idd:independentWork 28 ;
-                    idd:laboratoryWorks 54 ;
-                    idd:lection 18 ;
-                    idd:number 2 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.30"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea316012-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d3c62-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d369a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:elective 32 ;
-                    idd:expert 72 ;
-                    idd:independentWork 32 ;
-                    idd:test 40 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 1 ;
-                    idd:independentWork 12 ;
-                    idd:lection 16 ;
-                    idd:number 2 ;
-                    idd:total 36 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:course 1 ;
-                    idd:credits 1 ;
-                    idd:independentWork 20 ;
-                    idd:lection 16 ;
-                    idd:number 1 ;
-                    idd:total 36 ] ;
-            dcterms:identifier "Б1.О.08"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 4 ;
                     idd:expert 4 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f56f0-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314f92ec-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 144 ;
-                    idd:control 35 ;
+                    idd:control 44 ;
                     idd:expert 144 ;
-                    idd:independentWork 27 ;
+                    idd:independentWork 18 ;
                     idd:test 82 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 10 ;
-                    idd:course 3 ;
-                    idd:credits 4 ;
-                    idd:independentWork 27 ;
-                    idd:lection 36 ;
-                    idd:number 6 ;
-                    idd:practice 36 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.05"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
-                idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ed9b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 44 ;
-                    idd:expert 144 ;
-                    idd:independentWork 30 ;
-                    idd:test 70 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 4 ;
-                    idd:credits 4 ;
-                    idd:independentWork 30 ;
-                    idd:laboratoryWorks 60 ;
-                    idd:number 7 ;
-                    idd:preparation 44 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.11"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e7b22-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 46 ;
-                    idd:test 62 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
                     idd:course 1 ;
-                    idd:credits 3 ;
-                    idd:independentWork 46 ;
-                    idd:laboratoryWorks 54 ;
+                    idd:credits 4 ;
+                    idd:independentWork 18 ;
+                    idd:laboratoryWorks 72 ;
                     idd:number 2 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.34"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea309b0a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d66b0-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d6084-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:expert 72 ;
-                    idd:independentWork 48 ;
-                    idd:test 24 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 48 ;
-                    idd:lection 16 ;
-                    idd:number 3 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.10"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ea322-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 35 ;
-                    idd:expert 144 ;
-                    idd:independentWork 35 ;
-                    idd:test 74 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 35 ;
-                    idd:laboratoryWorks 32 ;
-                    idd:lection 32 ;
-                    idd:number 4 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.01"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 8 ;
-                    idd:expert 8 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dbbba-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 288 ;
-                    idd:control 88 ;
-                    idd:expert 288 ;
-                    idd:independentWork 48 ;
-                    idd:test 152 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 26 ;
-                    idd:lection 32 ;
-                    idd:number 4 ;
-                    idd:practice 32 ;
-                    idd:preparation 44 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 22 ;
-                    idd:lection 34 ;
-                    idd:number 3 ;
-                    idd:practice 34 ;
                     idd:preparation 44 ;
                     idd:total 144 ;
                     idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.15"@ru ],
+            dcterms:identifier "Б1.О.28"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f5f7e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:expert 144 ;
-                    idd:independentWork 46 ;
-                    idd:test 98 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 4 ;
-                    idd:credits 4 ;
-                    idd:independentWork 46 ;
-                    idd:laboratoryWorks 30 ;
-                    idd:lection 60 ;
-                    idd:number 7 ;
-                    idd:total 144 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.10"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea30d674-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2cfc84-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2cf6e4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:elective 18 ;
-                    idd:expert 72 ;
-                    idd:independentWork 28 ;
-                    idd:test 44 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:lection 18 ;
-                    idd:number 2 ;
-                    idd:practice 18 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.04"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea312228-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d137c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d0ddc-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:elective 34 ;
-                    idd:expert 72 ;
-                    idd:independentWork 14 ;
-                    idd:test 58 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 14 ;
-                    idd:lection 34 ;
-                    idd:number 1 ;
-                    idd:practice 16 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.06"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ec226-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 44 ;
-                    idd:expert 144 ;
-                    idd:independentWork 40 ;
-                    idd:test 60 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 3 ;
-                    idd:credits 4 ;
-                    idd:independentWork 40 ;
-                    idd:laboratoryWorks 34 ;
-                    idd:lection 16 ;
-                    idd:number 5 ;
-                    idd:preparation 44 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.07"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f67ee-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 36 ;
-                    idd:test 72 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 4 ;
-                    idd:credits 3 ;
-                    idd:independentWork 36 ;
-                    idd:lection 32 ;
-                    idd:number 8 ;
-                    idd:practice 32 ;
-                    idd:total 108 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.13"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dff8a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 28 ;
-                    idd:test 80 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 3 ;
-                    idd:credits 3 ;
-                    idd:independentWork 28 ;
-                    idd:laboratoryWorks 18 ;
-                    idd:lection 36 ;
-                    idd:number 6 ;
-                    idd:practice 18 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.25"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f,
-                idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ef8a4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:expert 72 ;
-                    idd:independentWork 16 ;
-                    idd:test 56 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 16 ;
-                    idd:laboratoryWorks 48 ;
-                    idd:number 4 ;
-                    idd:total 72 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.ДВ.02.01"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea313f88-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d1ac0-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d0ddc-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:elective 16 ;
-                    idd:expert 72 ;
-                    idd:independentWork 32 ;
-                    idd:test 40 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 32 ;
-                    idd:lection 16 ;
-                    idd:number 3 ;
-                    idd:practice 16 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.07"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ebace-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 32 ;
-                    idd:test 76 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 3 ;
-                    idd:credits 3 ;
-                    idd:independentWork 32 ;
-                    idd:laboratoryWorks 68 ;
-                    idd:number 5 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.06"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
-                idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 8 ;
-                    idd:expert 8 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e1704-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 288 ;
-                    idd:control 35 ;
-                    idd:expert 288 ;
-                    idd:independentWork 87 ;
-                    idd:test 166 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 68 ;
-                    idd:lection 34 ;
-                    idd:number 3 ;
-                    idd:practice 34 ;
-                    idd:total 144 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
-                [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 19 ;
-                    idd:laboratoryWorks 16 ;
-                    idd:lection 32 ;
-                    idd:number 4 ;
-                    idd:practice 32 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.17"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea31ac0c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d80d2-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 28 ;
-                    idd:test 80 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 3 ;
-                    idd:independentWork 28 ;
-                    idd:laboratoryWorks 36 ;
-                    idd:lection 36 ;
-                    idd:number 2 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.11"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 9 ;
                     idd:expert 9 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dac06-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314f0afc-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 324 ;
                     idd:control 79 ;
@@ -1117,17 +344,6 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 10 ;
                     idd:course 1 ;
-                    idd:credits 5 ;
-                    idd:independentWork 33 ;
-                    idd:lection 34 ;
-                    idd:number 1 ;
-                    idd:practice 68 ;
-                    idd:preparation 35 ;
-                    idd:total 180 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 1 ;
                     idd:credits 4 ;
                     idd:independentWork 18 ;
                     idd:lection 36 ;
@@ -1135,221 +351,30 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:practice 36 ;
                     idd:preparation 44 ;
                     idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 1 ;
+                    idd:credits 5 ;
+                    idd:independentWork 33 ;
+                    idd:lection 34 ;
+                    idd:number 1 ;
+                    idd:practice 68 ;
+                    idd:preparation 35 ;
+                    idd:total 180 ;
                     idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
             dcterms:identifier "Б1.О.13"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f10e6-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 28 ;
-                    idd:test 80 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:consultation 72 ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 3 ;
-                    idd:independentWork 28 ;
-                    idd:number 4 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б2.В.02(У)"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f187a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 28 ;
-                    idd:test 80 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:consultation 72 ;
-                    idd:control 8 ;
-                    idd:course 4 ;
-                    idd:credits 3 ;
-                    idd:independentWork 28 ;
-                    idd:number 7 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б2.В.03(П)"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 6 ;
-                    idd:expert 6 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ccb4c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2cb40e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2cd416-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2ce316-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2cf6e4-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d0ddc-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d24a2-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d369a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d4fd6-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d6084-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d7056-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 216 ;
-                    idd:expert 216 ;
-                    idd:independentWork 200 ;
-                    idd:test 16 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:consultation 16 ;
-                    idd:course 4 ;
-                    idd:credits 6 ;
-                    idd:independentWork 200 ;
-                    idd:number 8 ;
-                    idd:total 216 ] ;
-            dcterms:identifier "Б3.01(Д)"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 9 ;
-                    idd:expert 9 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f202c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 324 ;
-                    idd:expert 324 ;
-                    idd:independentWork 100 ;
-                    idd:test 224 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:consultation 216 ;
-                    idd:control 8 ;
-                    idd:course 4 ;
-                    idd:credits 9 ;
-                    idd:independentWork 100 ;
-                    idd:number 8 ;
-                    idd:total 324 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б2.В.04(П)"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2df06c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 35 ;
-                    idd:expert 144 ;
-                    idd:independentWork 9 ;
-                    idd:test 100 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 4 ;
-                    idd:credits 4 ;
-                    idd:independentWork 9 ;
-                    idd:lection 30 ;
-                    idd:number 7 ;
-                    idd:practice 60 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.23"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702,
-                idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f08ee-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:expert 144 ;
-                    idd:independentWork 46 ;
-                    idd:test 98 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:consultation 16 ;
-                    idd:control 8 ;
-                    idd:course 3 ;
-                    idd:credits 1 ;
-                    idd:independentWork 12 ;
-                    idd:number 5 ;
-                    idd:total 36 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
-                [ a idd:ControlPeriod ;
-                    idd:consultation 16 ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 1 ;
-                    idd:independentWork 12 ;
-                    idd:number 3 ;
-                    idd:total 36 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
-                [ a idd:ControlPeriod ;
-                    idd:consultation 18 ;
-                    idd:control 8 ;
-                    idd:course 3 ;
-                    idd:credits 1 ;
-                    idd:independentWork 10 ;
-                    idd:number 6 ;
-                    idd:total 36 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
-                [ a idd:ControlPeriod ;
-                    idd:consultation 16 ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 1 ;
-                    idd:independentWork 12 ;
-                    idd:number 4 ;
-                    idd:total 36 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б2.В.01(У)"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea30bad6-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:3152243a-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 2 ;
                     idd:expert 2 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ce956-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2ce316-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2d24a2-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314e4bc6-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e4310-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e87a8-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 72 ;
                     idd:elective 16 ;
@@ -1368,96 +393,70 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
             dcterms:identifier "Б1.О.03"@ru ],
         [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 5 ;
-                    idd:expert 5 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2df846-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 180 ;
-                    idd:control 44 ;
-                    idd:expert 180 ;
-                    idd:independentWork 24 ;
-                    idd:test 112 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 3 ;
-                    idd:credits 5 ;
-                    idd:independentWork 24 ;
-                    idd:lection 34 ;
-                    idd:number 5 ;
-                    idd:practice 68 ;
-                    idd:preparation 44 ;
-                    idd:total 180 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.24"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f76b2-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:expert 144 ;
-                    idd:independentWork 72 ;
-                    idd:test 72 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 4 ;
-                    idd:credits 4 ;
-                    idd:independentWork 72 ;
-                    idd:laboratoryWorks 32 ;
-                    idd:lection 32 ;
-                    idd:number 8 ;
-                    idd:total 144 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.15"@ru ],
-        [ a idd:Discipline ;
             idd:account false ;
-            idd:chair idb:ea35ca26-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f,
+                idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 2 ;
                     idd:expert 2 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2cc372-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2cb40e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:315068ac-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 72 ;
                     idd:expert 72 ;
-                    idd:independentWork 28 ;
-                    idd:test 44 ] ;
+                    idd:independentWork 16 ;
+                    idd:test 56 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
-                    idd:course 1 ;
+                    idd:course 2 ;
                     idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:lection 18 ;
-                    idd:number 2 ;
-                    idd:practice 18 ;
+                    idd:independentWork 16 ;
+                    idd:laboratoryWorks 48 ;
+                    idd:number 4 ;
                     idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.ДВ.01.03"@ru ],
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.В.ДВ.02.02"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:315078d8-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 28 ;
+                    idd:test 80 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:consultation 72 ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 3 ;
+                    idd:independentWork 28 ;
+                    idd:number 4 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б2.В.02(У)"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 13 ;
                     idd:expert 13 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d8848-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314eea5e-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 468 ;
                     idd:control 96 ;
@@ -1500,208 +499,148 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
             dcterms:identifier "Б1.О.12"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea3106bc-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702,
-                idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
+                idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
-                    idd:actual 8 ;
-                    idd:expert 8 ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2d040e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2cf6e4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:31503b02-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
-                    idd:actual 288 ;
-                    idd:control 26 ;
-                    idd:expert 288 ;
-                    idd:independentWork 92 ;
-                    idd:test 170 ] ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 27 ;
+                    idd:test 82 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 4 ;
-                    idd:number 4 ;
-                    idd:practice 32 ;
-                    idd:preparation 26 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 30 ;
-                    idd:number 3 ;
-                    idd:practice 34 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 30 ;
-                    idd:number 1 ;
-                    idd:practice 34 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ],
-                [ a idd:ControlPeriod ;
-                    idd:control 8 ;
-                    idd:course 1 ;
-                    idd:credits 2 ;
-                    idd:independentWork 28 ;
-                    idd:number 2 ;
-                    idd:practice 36 ;
-                    idd:total 72 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.05"@ru ],
+                    idd:course 3 ;
+                    idd:credits 4 ;
+                    idd:independentWork 27 ;
+                    idd:laboratoryWorks 72 ;
+                    idd:number 6 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.09"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314fc5d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:expert 144 ;
+                    idd:independentWork 64 ;
+                    idd:test 80 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 4 ;
+                    idd:independentWork 64 ;
+                    idd:laboratoryWorks 54 ;
+                    idd:lection 18 ;
+                    idd:number 6 ;
+                    idd:total 144 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.31"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 3 ;
                     idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f4dfe-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:3150d698-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 108 ;
                     idd:expert 108 ;
-                    idd:independentWork 28 ;
-                    idd:test 80 ] ;
+                    idd:independentWork 36 ;
+                    idd:test 72 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
-                    idd:course 3 ;
+                    idd:course 4 ;
                     idd:credits 3 ;
-                    idd:independentWork 28 ;
-                    idd:lection 36 ;
-                    idd:number 6 ;
-                    idd:practice 36 ;
+                    idd:independentWork 36 ;
+                    idd:laboratoryWorks 32 ;
+                    idd:lection 32 ;
+                    idd:number 8 ;
                     idd:total 108 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.03"@ru ],
+            dcterms:identifier "Б1.В.14"@ru ],
         [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e55ca-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 35 ;
-                    idd:expert 144 ;
-                    idd:independentWork 45 ;
-                    idd:test 64 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 3 ;
-                    idd:credits 4 ;
-                    idd:independentWork 45 ;
-                    idd:laboratoryWorks 36 ;
-                    idd:lection 18 ;
-                    idd:number 6 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.29"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:account false ;
+            idd:chair idb:31574dc0-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e2a8c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314e211e-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e1246-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 32 ;
-                    idd:test 76 ] ;
+                    idd:actual 72 ;
+                    idd:expert 72 ;
+                    idd:independentWork 28 ;
+                    idd:test 44 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
                     idd:course 1 ;
-                    idd:credits 3 ;
-                    idd:independentWork 32 ;
-                    idd:laboratoryWorks 68 ;
-                    idd:number 1 ;
-                    idd:total 108 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.27"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2dc376-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 35 ;
-                    idd:expert 144 ;
-                    idd:independentWork 35 ;
-                    idd:test 74 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 2 ;
-                    idd:credits 4 ;
-                    idd:independentWork 35 ;
-                    idd:lection 32 ;
-                    idd:number 4 ;
-                    idd:practice 32 ;
-                    idd:preparation 35 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.16"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 4 ;
-                    idd:expert 4 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e320c-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 144 ;
-                    idd:control 44 ;
-                    idd:expert 144 ;
-                    idd:independentWork 18 ;
-                    idd:test 82 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:control 10 ;
-                    idd:course 1 ;
-                    idd:credits 4 ;
-                    idd:independentWork 18 ;
-                    idd:laboratoryWorks 72 ;
+                    idd:credits 2 ;
+                    idd:independentWork 28 ;
+                    idd:lection 18 ;
                     idd:number 2 ;
-                    idd:preparation 44 ;
-                    idd:total 144 ;
-                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.28"@ru ],
+                    idd:practice 18 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.ДВ.01.03"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315241d6-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e5f30-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e597c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:elective 18 ;
+                    idd:expert 72 ;
+                    idd:independentWork 28 ;
+                    idd:test 44 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 2 ;
+                    idd:independentWork 28 ;
+                    idd:lection 18 ;
+                    idd:number 2 ;
+                    idd:practice 18 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.04"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 4 ;
                     idd:expert 4 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2db430-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314f12a4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 144 ;
                     idd:control 35 ;
@@ -1722,41 +661,190 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
             dcterms:identifier "Б1.О.14"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea309b0a-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
-                    idd:actual 2 ;
-                    idd:expert 2 ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2cd998-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2cd416-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314f8b6c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314facf0-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
-                    idd:actual 72 ;
-                    idd:elective 16 ;
-                    idd:expert 72 ;
-                    idd:independentWork 48 ;
-                    idd:test 24 ] ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 32 ;
+                    idd:test 76 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
-                    idd:course 2 ;
-                    idd:credits 2 ;
-                    idd:independentWork 48 ;
-                    idd:lection 16 ;
-                    idd:number 4 ;
-                    idd:total 72 ;
+                    idd:course 1 ;
+                    idd:credits 3 ;
+                    idd:independentWork 32 ;
+                    idd:laboratoryWorks 68 ;
+                    idd:number 1 ;
+                    idd:total 108 ;
                     idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.02"@ru ],
+            dcterms:identifier "Б1.О.27"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:3150cedc-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 36 ;
+                    idd:test 72 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 4 ;
+                    idd:credits 3 ;
+                    idd:independentWork 36 ;
+                    idd:lection 32 ;
+                    idd:number 8 ;
+                    idd:practice 32 ;
+                    idd:total 108 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.13"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 1 ;
+                    idd:expert 1 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:3150ea66-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 36 ;
+                    idd:expert 36 ;
+                    idd:independentWork 2 ;
+                    idd:test 34 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 2 ;
+                    idd:course 4 ;
+                    idd:credits 1 ;
+                    idd:independentWork 2 ;
+                    idd:laboratoryWorks 16 ;
+                    idd:lection 16 ;
+                    idd:number 8 ;
+                    idd:total 36 ] ;
+            dcterms:identifier "ФТД.01"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 8 ;
+                    idd:expert 8 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f8298-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 288 ;
+                    idd:control 70 ;
+                    idd:expert 288 ;
+                    idd:independentWork 42 ;
+                    idd:test 176 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 1 ;
+                    idd:credits 5 ;
+                    idd:independentWork 33 ;
+                    idd:laboratoryWorks 68 ;
+                    idd:lection 34 ;
+                    idd:number 1 ;
+                    idd:preparation 35 ;
+                    idd:total 180 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 1 ;
+                    idd:credits 3 ;
+                    idd:independentWork 9 ;
+                    idd:laboratoryWorks 36 ;
+                    idd:lection 18 ;
+                    idd:number 2 ;
+                    idd:preparation 35 ;
+                    idd:total 108 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.26"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
+                idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:315042e6-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 44 ;
+                    idd:expert 144 ;
+                    idd:independentWork 30 ;
+                    idd:test 70 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 4 ;
+                    idd:credits 4 ;
+                    idd:independentWork 30 ;
+                    idd:laboratoryWorks 60 ;
+                    idd:number 7 ;
+                    idd:preparation 44 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.11"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 3 ;
                     idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e73ca-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314f47f6-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 50 ;
+                    idd:test 58 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 3 ;
+                    idd:independentWork 50 ;
+                    idd:lection 34 ;
+                    idd:number 5 ;
+                    idd:practice 16 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.22"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314fcff0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 108 ;
                     idd:expert 108 ;
@@ -1771,148 +859,295 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:number 7 ;
                     idd:total 108 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.33"@ru ],
+            dcterms:identifier "Б1.О.32"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31531c3c-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
-            idd:credits [ a idd:Credits ;
-                    idd:actual 6 ;
-                    idd:expert 6 ;
-                    idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e0728-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hours [ a idd:Hours ;
-                    idd:actual 216 ;
-                    idd:expert 216 ;
-                    idd:independentWork 64 ;
-                    idd:test 152 ] ;
-            idd:term [ a idd:ControlPeriod ;
-                    idd:consultation 144 ;
-                    idd:control 8 ;
-                    idd:course 4 ;
-                    idd:credits 6 ;
-                    idd:independentWork 64 ;
-                    idd:number 8 ;
-                    idd:total 216 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б2.О.01(Пд)"@ru ],
-        [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 3 ;
                     idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2e8284-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314ee2fc-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 108 ;
                     idd:expert 108 ;
-                    idd:independentWork 40 ;
-                    idd:test 68 ] ;
+                    idd:independentWork 28 ;
+                    idd:test 80 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
-                    idd:course 4 ;
+                    idd:course 1 ;
                     idd:credits 3 ;
-                    idd:independentWork 40 ;
-                    idd:laboratoryWorks 30 ;
-                    idd:lection 30 ;
-                    idd:number 7 ;
+                    idd:independentWork 28 ;
+                    idd:laboratoryWorks 36 ;
+                    idd:lection 36 ;
+                    idd:number 2 ;
                     idd:total 108 ;
-                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.35"@ru ],
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.11"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314fbe34-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 28 ;
+                    idd:test 80 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 3 ;
+                    idd:independentWork 28 ;
+                    idd:laboratoryWorks 54 ;
+                    idd:lection 18 ;
+                    idd:number 2 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.30"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3152eb72-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 2 ;
                     idd:expert 2 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2cbb66-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2cb40e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314eb868-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314eb2d2-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ed370-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 72 ;
+                    idd:elective 20 ;
                     idd:expert 72 ;
-                    idd:independentWork 32 ;
-                    idd:test 40 ] ;
+                    idd:independentWork 28 ;
+                    idd:test 44 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
-                    idd:course 2 ;
+                    idd:course 1 ;
                     idd:credits 2 ;
-                    idd:independentWork 32 ;
-                    idd:lection 16 ;
-                    idd:number 4 ;
+                    idd:independentWork 28 ;
+                    idd:lection 20 ;
+                    idd:number 1 ;
                     idd:practice 16 ;
                     idd:total 72 ;
                     idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
-            dcterms:identifier "Б1.О.01"@ru ],
+            dcterms:identifier "Б1.О.09"@ru ],
         [ a idd:Discipline ;
-            idd:account true ;
-            idd:chair idb:ea321426-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:account false ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
-                    idd:actual 3 ;
-                    idd:expert 3 ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2de19e-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:315058d0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
-                    idd:actual 108 ;
-                    idd:expert 108 ;
-                    idd:independentWork 32 ;
-                    idd:test 76 ] ;
+                    idd:actual 72 ;
+                    idd:expert 72 ;
+                    idd:independentWork 28 ;
+                    idd:test 44 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
-                    idd:course 3 ;
-                    idd:credits 3 ;
-                    idd:independentWork 32 ;
-                    idd:lection 34 ;
-                    idd:number 5 ;
-                    idd:practice 34 ;
-                    idd:total 108 ;
-                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.О.21"@ru ],
+                    idd:course 1 ;
+                    idd:credits 2 ;
+                    idd:independentWork 28 ;
+                    idd:number 2 ;
+                    idd:practice 36 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.ДВ.01.02"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31528f92-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e766e-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e70ba-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:elective 34 ;
+                    idd:expert 72 ;
+                    idd:independentWork 14 ;
+                    idd:test 58 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 2 ;
+                    idd:independentWork 14 ;
+                    idd:lection 34 ;
+                    idd:number 1 ;
+                    idd:practice 16 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.06"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
             idd:credits [ a idd:Credits ;
                     idd:actual 4 ;
                     idd:expert 4 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2eb330-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:31502b30-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 144 ;
                     idd:control 44 ;
                     idd:expert 144 ;
-                    idd:independentWork 22 ;
-                    idd:test 78 ] ;
+                    idd:independentWork 40 ;
+                    idd:test 60 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 10 ;
                     idd:course 3 ;
                     idd:credits 4 ;
-                    idd:independentWork 22 ;
+                    idd:independentWork 40 ;
                     idd:laboratoryWorks 34 ;
-                    idd:lection 34 ;
+                    idd:lection 16 ;
                     idd:number 5 ;
                     idd:preparation 44 ;
                     idd:total 144 ;
                     idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
-            dcterms:identifier "Б1.В.04"@ru ],
+            dcterms:identifier "Б1.В.07"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:3150bcee-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 27 ;
+                    idd:test 82 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 3 ;
+                    idd:credits 4 ;
+                    idd:independentWork 27 ;
+                    idd:lection 36 ;
+                    idd:number 6 ;
+                    idd:practice 36 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.05"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 8 ;
+                    idd:expert 8 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f1a24-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 288 ;
+                    idd:control 88 ;
+                    idd:expert 288 ;
+                    idd:independentWork 48 ;
+                    idd:test 152 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 22 ;
+                    idd:lection 34 ;
+                    idd:number 3 ;
+                    idd:practice 34 ;
+                    idd:preparation 44 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 26 ;
+                    idd:lection 32 ;
+                    idd:number 4 ;
+                    idd:practice 32 ;
+                    idd:preparation 44 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.15"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3152ce12-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:discipline idb:314ea8f0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e9996-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 352 ;
+                    idd:control 2 ;
+                    idd:expert 352 ;
+                    idd:independentWork 2,
+                        14 ;
+                    idd:practice 22,
+                        34,
+                        36,
+                        50,
+                        54,
+                        64,
+                        68 ;
+                    idd:test 338 ;
+                    idd:total 26,
+                        38,
+                        40,
+                        52,
+                        56,
+                        68,
+                        72 ] ;
+            dcterms:identifier "ЭЛК.01"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:31508030-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 28 ;
+                    idd:test 80 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:consultation 72 ;
+                    idd:control 8 ;
+                    idd:course 4 ;
+                    idd:credits 3 ;
+                    idd:independentWork 28 ;
+                    idd:number 7 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б2.В.03(П)"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
                 idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f,
                 idb:a8de13b0-dd4d-11ec-9333-704d7b84fd9f ;
@@ -1920,10 +1155,10 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
                     idd:actual 7 ;
                     idd:expert 7 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2ec992-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f,
-                idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:315032b0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 252 ;
                     idd:control 35 ;
@@ -1953,97 +1188,862 @@ idb:ee221270-e2f5-11ec-a438-704d7b84fd9f a idd:Curriculum ;
             dcterms:identifier "Б1.В.08"@ru ],
         [ a idd:Discipline ;
             idd:account true ;
-            idd:chair idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:chair idb:31520824-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314ec998-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314ec380-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:expert 72 ;
+                    idd:independentWork 48 ;
+                    idd:test 24 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 48 ;
+                    idd:lection 16 ;
+                    idd:number 3 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.10"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:31501208-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 44 ;
+                    idd:expert 144 ;
+                    idd:independentWork 22 ;
+                    idd:test 78 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 22 ;
+                    idd:laboratoryWorks 34 ;
+                    idd:lection 34 ;
+                    idd:number 3 ;
+                    idd:preparation 44 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.02"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
             idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
             idd:credits [ a idd:Credits ;
                     idd:actual 3 ;
                     idd:expert 3 ;
                     idd:hoursInCredit 36 ] ;
-            idd:discipline idb:ea2f6f64-e2f5-11ec-969d-704d7b84fd9f ;
-            idd:hasCompetence idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f ;
+            idd:discipline idb:314f4076-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
             idd:hours [ a idd:Hours ;
                     idd:actual 108 ;
                     idd:expert 108 ;
-                    idd:independentWork 36 ;
-                    idd:test 72 ] ;
+                    idd:independentWork 32 ;
+                    idd:test 76 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 3 ;
+                    idd:independentWork 32 ;
+                    idd:lection 34 ;
+                    idd:number 5 ;
+                    idd:practice 34 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.21"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31520824-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e3726-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e31ae-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:elective 16 ;
+                    idd:expert 72 ;
+                    idd:independentWork 48 ;
+                    idd:test 24 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 48 ;
+                    idd:lection 16 ;
+                    idd:number 4 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.02"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 9 ;
+                    idd:expert 9 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:31508878-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 324 ;
+                    idd:expert 324 ;
+                    idd:independentWork 100 ;
+                    idd:test 224 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:consultation 216 ;
+                    idd:control 8 ;
+                    idd:course 4 ;
+                    idd:credits 9 ;
+                    idd:independentWork 100 ;
+                    idd:number 8 ;
+                    idd:total 324 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б2.В.04(П)"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31552928-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:315051a0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:expert 72 ;
+                    idd:independentWork 28 ;
+                    idd:test 44 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 2 ;
+                    idd:independentWork 28 ;
+                    idd:number 2 ;
+                    idd:practice 36 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.ДВ.01.01"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702,
+                idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:31507108-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:expert 144 ;
+                    idd:independentWork 46 ;
+                    idd:test 98 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:consultation 18 ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 1 ;
+                    idd:independentWork 10 ;
+                    idd:number 6 ;
+                    idd:total 36 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
+                [ a idd:ControlPeriod ;
+                    idd:consultation 16 ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 1 ;
+                    idd:independentWork 12 ;
+                    idd:number 4 ;
+                    idd:total 36 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
+                [ a idd:ControlPeriod ;
+                    idd:consultation 16 ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 1 ;
+                    idd:independentWork 12 ;
+                    idd:number 3 ;
+                    idd:total 36 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ],
+                [ a idd:ControlPeriod ;
+                    idd:consultation 16 ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 1 ;
+                    idd:independentWork 12 ;
+                    idd:number 5 ;
+                    idd:total 36 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б2.В.01(У)"@ru ],
+        [ a idd:Discipline ;
+            idd:account false ;
+            idd:chair idb:315798c0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e8f64-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e87a8-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:expert 72 ;
+                    idd:independentWork 28 ;
+                    idd:test 44 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 28 ;
+                    idd:lection 18 ;
+                    idd:number 4 ;
+                    idd:practice 18 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.ДВ.02.03"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3152ab94-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e7dbc-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e70ba-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:elective 16 ;
+                    idd:expert 72 ;
+                    idd:independentWork 32 ;
+                    idd:test 40 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 32 ;
+                    idd:lection 16 ;
+                    idd:number 3 ;
+                    idd:practice 16 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.07"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 1 ;
+                    idd:expert 1 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:3150f27c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 36 ;
+                    idd:expert 36 ;
+                    idd:independentWork 2 ;
+                    idd:test 34 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 2 ;
+                    idd:course 4 ;
+                    idd:credits 1 ;
+                    idd:independentWork 2 ;
+                    idd:laboratoryWorks 16 ;
+                    idd:lection 16 ;
+                    idd:number 8 ;
+                    idd:total 36 ] ;
+            dcterms:identifier "ФТД.02"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:31500a9c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 35 ;
+                    idd:test 74 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 35 ;
+                    idd:laboratoryWorks 32 ;
+                    idd:lection 32 ;
+                    idd:number 4 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.01"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702,
+                idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 8 ;
+                    idd:expert 8 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f76ae-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 288 ;
+                    idd:control 35 ;
+                    idd:expert 288 ;
+                    idd:independentWork 87 ;
+                    idd:test 166 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 19 ;
+                    idd:laboratoryWorks 16 ;
+                    idd:lection 32 ;
+                    idd:number 4 ;
+                    idd:practice 32 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 68 ;
+                    idd:lection 34 ;
+                    idd:number 3 ;
+                    idd:practice 34 ;
+                    idd:total 144 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.17"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f5ebc-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 28 ;
+                    idd:test 80 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 3 ;
+                    idd:independentWork 28 ;
+                    idd:laboratoryWorks 18 ;
+                    idd:lection 36 ;
+                    idd:number 6 ;
+                    idd:practice 18 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.25"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f38d8-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f70a0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 27 ;
+                    idd:test 82 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 3 ;
+                    idd:credits 4 ;
+                    idd:independentWork 27 ;
+                    idd:lection 36 ;
+                    idd:number 6 ;
+                    idd:practice 36 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.20"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:31536a34-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:31501aa0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 44 ;
+                    idd:expert 144 ;
+                    idd:independentWork 22 ;
+                    idd:test 78 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 3 ;
+                    idd:credits 4 ;
+                    idd:independentWork 22 ;
+                    idd:laboratoryWorks 34 ;
+                    idd:lection 34 ;
+                    idd:number 5 ;
+                    idd:preparation 44 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.В.04"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 6 ;
+                    idd:expert 6 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e2902-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e1246-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e31ae-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e4310-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e597c-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e70ba-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e87a8-e194-11ec-afc9-704d7b84fd9f,
+                idb:314e9996-e194-11ec-afc9-704d7b84fd9f,
+                idb:314eb2d2-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ec380-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ed370-e194-11ec-afc9-704d7b84fd9f,
+                idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f70a0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f,
+                idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f,
+                idb:315004de-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150952a-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f,
+                idb:3150fa88-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 216 ;
+                    idd:expert 216 ;
+                    idd:independentWork 200 ;
+                    idd:test 16 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:consultation 16 ;
+                    idd:course 4 ;
+                    idd:credits 6 ;
+                    idd:independentWork 200 ;
+                    idd:number 8 ;
+                    idd:total 216 ] ;
+            dcterms:identifier "Б3.01(Д)"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314fe88c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 40 ;
+                    idd:test 68 ] ;
             idd:term [ a idd:ControlPeriod ;
                     idd:control 8 ;
                     idd:course 4 ;
                     idd:credits 3 ;
-                    idd:independentWork 36 ;
+                    idd:independentWork 40 ;
+                    idd:laboratoryWorks 30 ;
+                    idd:lection 30 ;
+                    idd:number 7 ;
+                    idd:total 108 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.35"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 5 ;
+                    idd:expert 5 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f5746-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f9db4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 180 ;
+                    idd:control 44 ;
+                    idd:expert 180 ;
+                    idd:independentWork 24 ;
+                    idd:test 112 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 3 ;
+                    idd:credits 5 ;
+                    idd:independentWork 24 ;
+                    idd:lection 34 ;
+                    idd:number 5 ;
+                    idd:practice 68 ;
+                    idd:preparation 44 ;
+                    idd:total 180 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.24"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314fb682-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f,
+                idb:314ff32c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 45 ;
+                    idd:test 64 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 3 ;
+                    idd:credits 4 ;
+                    idd:independentWork 45 ;
+                    idd:laboratoryWorks 36 ;
+                    idd:lection 18 ;
+                    idd:number 6 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.29"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3152735e-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702,
+                idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 8 ;
+                    idd:expert 8 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e6700-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e597c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 288 ;
+                    idd:control 26 ;
+                    idd:expert 288 ;
+                    idd:independentWork 92 ;
+                    idd:test 170 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 4 ;
+                    idd:number 4 ;
+                    idd:practice 32 ;
+                    idd:preparation 26 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 2 ;
+                    idd:independentWork 28 ;
+                    idd:number 2 ;
+                    idd:practice 36 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 2 ;
+                    idd:independentWork 30 ;
+                    idd:number 1 ;
+                    idd:practice 34 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ],
+                [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 30 ;
+                    idd:number 3 ;
+                    idd:practice 34 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.05"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:3150de22-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:expert 144 ;
+                    idd:independentWork 72 ;
+                    idd:test 72 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 4 ;
+                    idd:credits 4 ;
+                    idd:independentWork 72 ;
                     idd:laboratoryWorks 32 ;
                     idd:lection 32 ;
                     idd:number 8 ;
+                    idd:total 144 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.В.15"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f21a4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 35 ;
+                    idd:test 74 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 2 ;
+                    idd:credits 4 ;
+                    idd:independentWork 35 ;
+                    idd:lection 32 ;
+                    idd:number 4 ;
+                    idd:practice 32 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.16"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314fdfea-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314facf0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 46 ;
+                    idd:test 62 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 1 ;
+                    idd:credits 3 ;
+                    idd:independentWork 46 ;
+                    idd:laboratoryWorks 54 ;
+                    idd:number 2 ;
                     idd:total 108 ;
                     idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
-            dcterms:identifier "Б1.В.14"@ru ] ;
+            dcterms:identifier "Б1.О.34"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a05e-7010-11e6-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 4 ;
+                    idd:expert 4 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f4f8a-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 144 ;
+                    idd:control 35 ;
+                    idd:expert 144 ;
+                    idd:independentWork 9 ;
+                    idd:test 100 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 10 ;
+                    idd:course 4 ;
+                    idd:credits 4 ;
+                    idd:independentWork 9 ;
+                    idd:lection 30 ;
+                    idd:number 7 ;
+                    idd:practice 60 ;
+                    idd:preparation 35 ;
+                    idd:total 144 ;
+                    idd:type idb:2270a05e-7010-11e6-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.23"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315164d2-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:2270a057-7010-116-9432-005056100702 ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 2 ;
+                    idd:expert 2 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314e193a-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314e1246-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 72 ;
+                    idd:expert 72 ;
+                    idd:independentWork 32 ;
+                    idd:test 40 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 2 ;
+                    idd:credits 2 ;
+                    idd:independentWork 32 ;
+                    idd:lection 16 ;
+                    idd:number 4 ;
+                    idd:practice 16 ;
+                    idd:total 72 ;
+                    idd:type idb:2270a057-7010-116-9432-005056100702 ] ;
+            dcterms:identifier "Б1.О.01"@ru ],
+        [ a idd:Discipline ;
+            idd:account true ;
+            idd:chair idb:315386a4-e194-11ec-afc9-704d7b84fd9f ;
+            idd:controlType idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ;
+            idd:credits [ a idd:Credits ;
+                    idd:actual 3 ;
+                    idd:expert 3 ;
+                    idd:hoursInCredit 36 ] ;
+            idd:discipline idb:314f30d6-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hasCompetence idb:314edd98-e194-11ec-afc9-704d7b84fd9f,
+                idb:314f70a0-e194-11ec-afc9-704d7b84fd9f ;
+            idd:hours [ a idd:Hours ;
+                    idd:actual 108 ;
+                    idd:expert 108 ;
+                    idd:independentWork 32 ;
+                    idd:test 76 ] ;
+            idd:term [ a idd:ControlPeriod ;
+                    idd:control 8 ;
+                    idd:course 3 ;
+                    idd:credits 3 ;
+                    idd:independentWork 32 ;
+                    idd:lection 34 ;
+                    idd:number 5 ;
+                    idd:practice 34 ;
+                    idd:total 108 ;
+                    idd:type idb:64f1e5c8-dd4d-11ec-9333-704d7b84fd9f ] ;
+            dcterms:identifier "Б1.О.19"@ru ] ;
     idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
-    idd:professionActivity idb:ea301216-e2f5-11ec-969d-704d7b84fd9f,
-        idb:ea3017fc-e2f5-11ec-969d-704d7b84fd9f ;
-    idd:profile idb:ea2fe002-e2f5-11ec-969d-704d7b84fd9f ;
-    idd:specialty idb:ea2fd904-e2f5-11ec-969d-704d7b84fd9f ;
+    idd:professionActivity idb:31518296-e194-11ec-afc9-704d7b84fd9f,
+        idb:31518822-e194-11ec-afc9-704d7b84fd9f ;
+    idd:profile idb:3151512c-e194-11ec-afc9-704d7b84fd9f ;
+    idd:specialty idb:d657841c-e332-11ec-b56b-b42e99b15cbb ;
     idd:studyDration 4 ;
     idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
     idd:studyStandard "№ 9 от 10.01.2018"@ru ;
     idd:studyYears "2022-2022" ;
     idd:taskType [ a idd:TaskType ;
-            rdfs:label "проектный"@ru ;
+            rdfs:label "научно-исследовательский"@ru ;
             idd:basic true ],
         [ a idd:TaskType ;
-            rdfs:label "научно-исследовательский"@ru ;
+            rdfs:label "проектный"@ru ;
             idd:basic true ] .
+
+idb:e4f4e44d-5a0b-11e6-942f-005056100702 a idd:StudyForm ;
+    rdfs:label "очная"@ru .
 
 idb:f2d33750-5a0b-11e6-942f-005056100702 rdfs:label "бакалавр"@ru .
 
-idb:ea2cd416-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-2"@ru .
+idb:314e31ae-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-2"@ru .
 
-idb:ea2ce316-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-3"@ru .
+idb:314e4310-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-3"@ru .
 
-idb:ea2d4fd6-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-8"@ru .
+idb:314eb2d2-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-8"@ru .
 
-idb:ea2d6084-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-9"@ru .
+idb:314ec380-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-9"@ru .
 
-idb:ea2d7056-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-10"@ru .
+idb:314ed370-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-10"@ru .
 
-idb:ea309b0a-e2f5-11ec-969d-704d7b84fd9f schema:sku 72 .
+idb:31520824-e194-11ec-afc9-704d7b84fd9f schema:sku 72 .
 
-idb:ea316012-e2f5-11ec-969d-704d7b84fd9f schema:sku 21 .
+idb:3152ce12-e194-11ec-afc9-704d7b84fd9f schema:sku 21 .
 
-idb:ea2cb40e-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-1"@ru .
+idb:314e1246-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-1"@ru .
 
-idb:ea2cf6e4-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-4"@ru .
+idb:314e597c-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-4"@ru .
 
-idb:ea2d0ddc-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-5"@ru .
+idb:314e70ba-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-5"@ru .
 
-idb:ea2d24a2-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-6"@ru .
+idb:314e87a8-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-6"@ru .
 
-idb:ea2d369a-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "УК-7"@ru .
+idb:314e9996-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "УК-7"@ru .
 
-idb:ea2e3d1a-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ОПК-3"@ru .
+idb:314f9db4-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ОПК-3"@ru .
 
-idb:ea2e8d06-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ОПК-5"@ru .
+idb:314ff32c-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ОПК-5"@ru .
 
-idb:ea31f87e-e2f5-11ec-969d-704d7b84fd9f schema:sku 16 .
+idb:31536a34-e194-11ec-afc9-704d7b84fd9f schema:sku 16 .
 
-idb:ea321426-e2f5-11ec-969d-704d7b84fd9f schema:sku 86 .
+idb:315386a4-e194-11ec-afc9-704d7b84fd9f schema:sku 86 .
 
-idb:ea33adea-e2f5-11ec-969d-704d7b84fd9f schema:sku 23 .
+idb:31552928-e194-11ec-afc9-704d7b84fd9f schema:sku 23 .
 
-idb:ea2e1150-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ОПК-2"@ru .
+idb:314f70a0-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ОПК-2"@ru .
 
-idb:ea33526e-e2f5-11ec-969d-704d7b84fd9f schema:sku 70 .
+idb:3154cb2c-e194-11ec-afc9-704d7b84fd9f schema:sku 70 .
 
-idb:ea2e4c1a-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ОПК-4"@ru .
+idb:314facf0-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ОПК-4"@ru .
 
-idb:ea2f2e1e-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ПК-2"@ru .
+idb:3150952a-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ПК-2"@ru .
 
-idb:ea2f485e-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ПК-3"@ru .
+idb:3150ae0c-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ПК-3"@ru .
 
-idb:ea2f923c-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ПК-4"@ru .
+idb:3150fa88-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ПК-4"@ru .
 
-idb:ea2d7a56-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ОПК-1"@ru .
+idb:314edd98-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ОПК-1"@ru .
 
-idb:ea2e9d96-e2f5-11ec-969d-704d7b84fd9f dcterms:identifier "ПК-1"@ru .
+idb:315004de-e194-11ec-afc9-704d7b84fd9f dcterms:identifier "ПК-1"@ru .
 
-idb:ea2ff1b4-e2f5-11ec-969d-704d7b84fd9f schema:sku 15 .
+idb:315164d2-e194-11ec-afc9-704d7b84fd9f schema:sku 15 .
 
