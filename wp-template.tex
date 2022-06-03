@@ -89,34 +89,34 @@
 \begin{center}
   {\bfseries МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ}\par
   {\bfseries федеральное государственное бюджетное образовательное учреждение}\par
-  {\bfseries \MakeUppercase{ <<{{ctx.university.label}}>>} }\par
-{ФГБОУ ВО «{{ctx.university.abbrev}}»}\par
-\MakeUppercase{ {{ctx.institute.label}} }\par
+  {\bfseries \MakeUppercase{ <<{{context.university rdfs:label}}>>} }\par
+{ФГБОУ ВО «{{context.university.abbrev}}»}\par
+\MakeUppercase{ {{context.institute rdf:label}} }\par
 \vspace{1ex}
-{\bfseries {{disc/idd:chair/-?rdfs:label}}}
+{\bfseries {{disc idd:chair rdfs:label}}}
 \end{center}
 \vspace{2em}
 \begin{tabularx}{\textwidth}{XX}
   & <<УТВЕРЖДАЮ>> \\
-  & {{ctx.institute.position}} {{ctx.institute.abbrev}} {{ctx.university.abbrev}} \\
-  & \underline{\hspace{3cm}}\;{{ctx.director.label}}
+  & {{context.institute.position}} {{context.institute.abbrev}} {{context.university.abbrev}} \\
+  & \underline{\hspace{3cm}}\;{{context.director foaf:name}}
 \end{tabularx}
 \vfil
 \begin{center}\large
   {\bfseries Рабочая программа дисциплины (модуля) }\\[1ex]
-  {\bfseries {{ctx.discentry.code}}~{{ctx.discipline.label}}}
+  {\bfseries {{disc schema:identifier}}~{{disc rdfs:label}}}
 \end{center}
 \vfil
 \begin{tabularx}{\textwidth}{XXX}
-  {\bfseries Направление подготовки} & {\hyphenpenalty=100000 {{ctx.specialty.code}}~{{ctx.specialty.label}}}\\
-  {\bfseries Направленность (профиль) подготовки} & {{ctx.profile.label}}\\
-  {\bfseries Квалификация выпускника} & {{ctx.level.label}}\\
-  {\bfseries Форма обучения} & {{ctx.mural.label}}
+  {\bfseries Направление подготовки} & {\hyphenpenalty=100000 {{curr idd:specialty schema:identifier}}~{{context.specialty rdfs:label}}}\\
+  {\bfseries Направленность (профиль) подготовки} & {{context.profile rdfs:label}}\\
+  {\bfseries Квалификация выпускника} & {{context.level rdfs:label}}\\
+  {\bfseries Форма обучения} & {{context.mural rdfs:label}}
 \end{tabularx}
 \vfil
 \vfil
 \begin{center}
-  {{ctx.city}}\;--\;{{ctx.enrolledIn}}
+  {{context.city}}\;--\;{{context.enrolledIn}}
 \end{center}
 \end{titlepage}
 \newpage
@@ -128,7 +128,7 @@
 \noindent Задачи:
 
 \section{Место дисциплины в структуре ОПОП ВО}
-Учебная дисциплина {{ctx.specialty.code}}~{{ctx.specialty.label}} относится к /обязательной/ части Блока /1/ образовательной программы.
+Учебная дисциплина {{context.specialty schema:identifier}}~{{context.specialty rdfs:label}} относится к /обязательной/ части Блока /1/ образовательной программы.
 
 Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
 формируемые предшествующими дисциплинами: ...
@@ -140,11 +140,11 @@
 \section{Требования к результатам освоения дисциплины}
 
 Процесс освоения дисциплины направлен на формирование следующих компетенций в
-соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{ctx.specialty.code}}~{{ctx.specialty.label}}:
+соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{context.specialty schema:identifier}}~{{context.specialty rdfs:label}}:
 
-ОПК-1 Способен применять фундаментальные знания, полученные в области
+/ОПК-1 Способен применять фундаментальные знания, полученные в области
 математических и (или) естественных наук, и использовать их в профессиональной
-деятельности.
+деятельности./
 
 В результате освоения дисциплины обучающийся должен
 
@@ -156,9 +156,9 @@
 
 \section{Содержание и структура дисциплины}
 
-Объем дисциплины составляет {{ctx.discentry.credits.expert}} зачетных ед., {{ctx.discentry.hours.expert}} час.
+Объем дисциплины составляет {{disc idd:credits idd:expert}} зачетных ед., {{disc idd:hours idd:expert}} час.
 
-Форма промежуточной аттестации: {{ctx.discentry.controlType}}.
+Форма промежуточной аттестации: {{disc idd:controlType}}.
 
 \subsection{Содержание дисциплины, структурированное по темам, c указанием видов
   учебных занятий и отведенного на них количества академических часов}
@@ -181,8 +181,7 @@
 обязательным компонентом образовательного процесса, так как она обеспечивает
 закрепление получаемых на лекционных занятиях знаний путем приобретения навыков
 осмысления и расширения их содержания, навыков решения актуальных проблем
-формирования общекультурных и профессиональных компетенций, научно"=исследовательской деятельности, подготовки к семинарам, лабораторным работам, сдаче
-зачетов и экзаменов. Самостоятельная работа студентов представляет собой совокупность
+формирования общекультурных и профессиональных компетенций, научно"=исследовательской деятельности, подготовки к семинарам, лабораторным работам, сдаче зачетов и экзаменов. Самостоятельная работа студентов представляет собой совокупность
 аудиторных и внеаудиторных занятий и работ.
 
 Самостоятельная работа в рамках
@@ -282,9 +281,9 @@
 студента к экзамену. Время на подготовку к экзамену по нормативам составляет 36 часов
 для бакалавров.
 
-В ФБГОУ ВО «{{ctx.university.abbrev}}» организация самостоятельной работы студентов
+В ФБГОУ ВО «{{context.university.abbrev}}» организация самостоятельной работы студентов
 регламентируется Положением о самостоятельной работе студентов, принятым Ученым
-советом {{ctx.university.abbrev}} 22~июня~2012~г.
+советом {{context.university.abbrev}} 22~июня~2012~г.
 
 \section{Учебно"=методическое и информационное обеспечение дисциплины}
 \noindent а)\ основная литература:
@@ -322,7 +321,7 @@
 \paragraph{Примеры оценочных средств для промежуточной аттестации:}
 
 \par
-\paragraph{\normalfont Разработчик:} {{ctx.developer}} %Головко Е. А., кандидат физ.-мат. наук, доцент
+\paragraph{\normalfont Разработчик:} {{context.developer}} %Головко Е. А., кандидат физ.-мат. наук, доцент
 
 \end{document}
 

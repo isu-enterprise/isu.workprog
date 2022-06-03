@@ -9,462 +9,462 @@
 @prefix wpdd: <http://irnok.net/ontologies/isu/workprog#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-wpdb:34ec92c4-e194-11ec-ae15-704d7b84fd9f a dbr:Syllabus ;
-    idd:city idb:34f60660-e194-11ec-ae15-704d7b84fd9f ;
-    idd:discipline idb:34f5f062-e194-11ec-ae15-704d7b84fd9f ;
+wpdb:edcb8482-e2f5-11ec-84e1-704d7b84fd9f a dbr:Syllabus ;
+    idd:city idb:edd50ec6-e2f5-11ec-84e1-704d7b84fd9f ;
+    idd:discipline idb:edd4f6f2-e2f5-11ec-84e1-704d7b84fd9f ;
     idd:issued "2019" ;
     idd:level idb:f2d33750-5a0b-11e6-942f-005056100702 ;
-    idd:profile idb:34f5fd96-e194-11ec-ae15-704d7b84fd9f ;
-    idd:specialty idb:34f5f7c4-e194-11ec-ae15-704d7b84fd9f ;
+    idd:profile idb:edd505fc-e2f5-11ec-84e1-704d7b84fd9f ;
+    idd:specialty idb:edd50020-e2f5-11ec-84e1-704d7b84fd9f ;
     idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
-    wpdd:chair idb:34f5e964-e194-11ec-ae15-704d7b84fd9f ;
+    wpdd:chair idb:edd4efc2-e2f5-11ec-84e1-704d7b84fd9f ;
     wpdd:content [ a wpdd:Topic ;
-            rdfs:label "Уравнения эллиптического типа и теория потенциалов."@ru ;
-            wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Уравнения Лапласа и Пуассона. Постановка основных краевых задач. Фундаментальное решение уравнения Лапласа."@ru ;
-                    schema:sku "3.1" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Теория потенциала и сведение краевых задач для уравнений эллиптического типа к интегральным уравнениям."@ru ;
-                    schema:sku "3.4" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Решение задачи Дирихле для уравнения Лапласа в шаре и полупространстве. Метод Фурье для решения внутренней и внешней задач Дирихле для уравнения Лапласа в круге, кольце, прямоугольнике."@ru ;
-                    schema:sku "3.3" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Формулы Грина. Гармонические функции и их свойства. Принцип максимума. Теоремы Лиувилля и Горнака. Функция Грина задачи Дирихле для уравнения Лапласа. Построения функции Грина для простейших областей."@ru ;
-                    schema:sku "3.2" ] ;
-            schema:sku "III" ],
-        [ a wpdd:Topic ;
-            rdfs:label "Введение."@ru ;
-            wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Понятие об уравнениях с частными производными. Виды уравнений. Дифференциальные с частными производными первого и второго порядков."@ru ;
-                    schema:sku "1.1" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Системы уравнений с частными производными. Задача Коши. Теорема Коши – Ковалевской."@ru ;
-                    schema:sku "1.5" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Вывод уравнений колебаний струны, теплопроводности, Лапласа, постановка краевых задач, их физическая интерпретация."@ru ;
-                    schema:sku "1.2" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Классификация дифференциальных уравнений с частными производными. Гиперболические, параболические и эллиптические уравнения. О постановке задач для дифференциальных уравнений с частными производными. Корректная постановка задач. Примеры корректно поставленных задач. Пример Адамара некорректно поставленной задачи Коши для эллиптических уравнений."@ru ;
-                    schema:sku "1.3" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Приведение к каноническому виду дифференциальных уравнений с частными производными. Понятие о характеристиках дифференциальных уравнений с частными производными. Связь характеристических направлений с характеристиками."@ru ;
-                    schema:sku "1.4" ] ;
-            schema:sku "I" ],
-        [ a wpdd:Topic ;
-            rdfs:label "Уравнения параболического типа."@ru ;
-            wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Принцип максимума в ограниченной области и решение задачи Коши, теоремы единственности и устойчивости."@ru ;
-                    schema:sku "4.2" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Применение метода Фурье для неоднородных смешанных задач для уравнений параболического"@ru ;
-                    schema:sku "4.4" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Уравнение теплопроводности. Постановка краевых задач. Фундаментальное решение."@ru ;
-                    schema:sku "4.1" ],
-                [ a wpdd:Topic ;
-                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Общая схема метода Фурье."@ru ;
-                    schema:sku "4.3" ] ;
-            schema:sku "IV" ],
-        [ a wpdd:Topic ;
             rdfs:label "Уравнения гиперболического типа."@ru ;
             wpdd:content [ a wpdd:Topic ;
-                    rdfs:label "Задачи Гурса и Дарбу."@ru ;
-                    schema:sku "2.4" ],
+                    rdfs:label "Вывод формулы Кирхгофа и Пуассона, исследование этих формул. Принцип Гюйгенса. Существование, единственность и непрерывная зависимость решений задач от начальных данных. Понятие обобщенного решения."@ru ;
+                    schema:sku "2.3" ],
                 [ a wpdd:Topic ;
                     rdfs:label "Волновое уравнение. Задача Коши для уравнения колебаний. Формула Даламбера."@ru ;
                     schema:sku "2.1" ],
                 [ a wpdd:Topic ;
-                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Собственные значения и собственные функции задачи Штурма – Лиувилля. Общая схема метода Фурье."@ru ;
-                    schema:sku "2.5" ],
-                [ a wpdd:Topic ;
                     rdfs:label "Применение метода Фурье для неоднородных смешанных задач для уравнений гиперболического типа."@ru ;
                     schema:sku "2.6" ],
                 [ a wpdd:Topic ;
-                    rdfs:label "Вывод формулы Кирхгофа и Пуассона, исследование этих формул. Принцип Гюйгенса. Существование, единственность и непрерывная зависимость решений задач от начальных данных. Понятие обобщенного решения."@ru ;
-                    schema:sku "2.3" ],
+                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Собственные значения и собственные функции задачи Штурма – Лиувилля. Общая схема метода Фурье."@ru ;
+                    schema:sku "2.5" ],
                 [ a wpdd:Topic ;
                     rdfs:label "Метод Дюамеля для решения задачи Коши в случае неоднородного волнового уравнения."@ru ;
-                    schema:sku "2.2" ] ;
-            schema:sku "II" ] ;
+                    schema:sku "2.2" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Задачи Гурса и Дарбу."@ru ;
+                    schema:sku "2.4" ] ;
+            schema:sku "II" ],
+        [ a wpdd:Topic ;
+            rdfs:label "Уравнения параболического типа."@ru ;
+            wpdd:content [ a wpdd:Topic ;
+                    rdfs:label "Решение однородной смешанной задачи для уравнений гиперболического типа. Общая схема метода Фурье."@ru ;
+                    schema:sku "4.3" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Уравнение теплопроводности. Постановка краевых задач. Фундаментальное решение."@ru ;
+                    schema:sku "4.1" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Принцип максимума в ограниченной области и решение задачи Коши, теоремы единственности и устойчивости."@ru ;
+                    schema:sku "4.2" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Применение метода Фурье для неоднородных смешанных задач для уравнений параболического"@ru ;
+                    schema:sku "4.4" ] ;
+            schema:sku "IV" ],
+        [ a wpdd:Topic ;
+            rdfs:label "Введение."@ru ;
+            wpdd:content [ a wpdd:Topic ;
+                    rdfs:label "Классификация дифференциальных уравнений с частными производными. Гиперболические, параболические и эллиптические уравнения. О постановке задач для дифференциальных уравнений с частными производными. Корректная постановка задач. Примеры корректно поставленных задач. Пример Адамара некорректно поставленной задачи Коши для эллиптических уравнений."@ru ;
+                    schema:sku "1.3" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Вывод уравнений колебаний струны, теплопроводности, Лапласа, постановка краевых задач, их физическая интерпретация."@ru ;
+                    schema:sku "1.2" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Системы уравнений с частными производными. Задача Коши. Теорема Коши – Ковалевской."@ru ;
+                    schema:sku "1.5" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Приведение к каноническому виду дифференциальных уравнений с частными производными. Понятие о характеристиках дифференциальных уравнений с частными производными. Связь характеристических направлений с характеристиками."@ru ;
+                    schema:sku "1.4" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Понятие об уравнениях с частными производными. Виды уравнений. Дифференциальные с частными производными первого и второго порядков."@ru ;
+                    schema:sku "1.1" ] ;
+            schema:sku "I" ],
+        [ a wpdd:Topic ;
+            rdfs:label "Уравнения эллиптического типа и теория потенциалов."@ru ;
+            wpdd:content [ a wpdd:Topic ;
+                    rdfs:label "Формулы Грина. Гармонические функции и их свойства. Принцип максимума. Теоремы Лиувилля и Горнака. Функция Грина задачи Дирихле для уравнения Лапласа. Построения функции Грина для простейших областей."@ru ;
+                    schema:sku "3.2" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Теория потенциала и сведение краевых задач для уравнений эллиптического типа к интегральным уравнениям."@ru ;
+                    schema:sku "3.4" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Уравнения Лапласа и Пуассона. Постановка основных краевых задач. Фундаментальное решение уравнения Лапласа."@ru ;
+                    schema:sku "3.1" ],
+                [ a wpdd:Topic ;
+                    rdfs:label "Решение задачи Дирихле для уравнения Лапласа в шаре и полупространстве. Метод Фурье для решения внутренней и внешней задач Дирихле для уравнения Лапласа в круге, кольце, прямоугольнике."@ru ;
+                    schema:sku "3.3" ] ;
+            schema:sku "III" ] ;
     wpdd:courseDC [ wpdd:aim "Цели: Формирование у будущих бакалавров современных теоретических знаний в области уравнений математической физики. Обзор некоторых наиболее распространенных методов исследования и решения основных классических задач для уравнений с частными производными."@ru ;
             wpdd:problem "Задачи: Изучить с отдельными доказательствами основные положения теории уравнений с частными производными. Дать обзор основных задач для уравнений математической физики; сформировать умение создавать математическую модель физического явления; научить студентов применять набор стандартных методов решения задач для уравнений с частными производными."@ru ;
-            schema:author idb:34f5d53c-e194-11ec-ae15-704d7b84fd9f ] ;
+            schema:author idb:edd4db0e-e2f5-11ec-84e1-704d7b84fd9f ] ;
     wpdd:credit 4 ;
     wpdd:hours 144 ;
-    wpdd:independentWork wpdb:34f40ef0-e194-11ec-ae15-704d7b84fd9f ;
+    wpdd:independentWork wpdb:edd31260-e2f5-11ec-84e1-704d7b84fd9f ;
     wpdd:institute idb:c526d6c7-9a78-11e6-9438-005056100702 ;
-    wpdd:itemList wpdb:34f42db8-e194-11ec-ae15-704d7b84fd9f,
-        wpdb:34f448b6-e194-11ec-ae15-704d7b84fd9f,
-        wpdb:34f469d6-e194-11ec-ae15-704d7b84fd9f,
-        wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    wpdd:itemList wpdb:edd32f20-e2f5-11ec-84e1-704d7b84fd9f,
+        wpdb:edd349e2-e2f5-11ec-84e1-704d7b84fd9f,
+        wpdb:edd36a94-e2f5-11ec-84e1-704d7b84fd9f,
+        wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     dcterms:identifier "О."@ru .
 
-wpdb:34f432fe-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3345c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f42db8-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd32f20-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:34f43b00-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd33c54-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f42db8-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd32f20-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "2" .
 
-wpdb:34f44294-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd343de-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f42db8-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd32f20-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "3" .
 
-wpdb:34f44db6-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd34e9c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f448b6-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd349e2-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:34f45522-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd35612-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f448b6-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd349e2-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "2" .
 
-wpdb:34f45c84-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd35d74-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f448b6-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd349e2-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "3" .
 
-wpdb:34f463e6-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3649a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f448b6-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd349e2-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "4" .
 
-wpdb:34f46e68-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd36f9e-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Reference ;
-    schema:member wpdb:34f469d6-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd36a94-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:34f4860a-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd389ac-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Понятие дифференциального уравнения с частными производными и его решения."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:34f48dc6-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd39190-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Общие сведения о совокупности решений."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "2" .
 
-wpdb:34f4938e-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd39794-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Задача об эквивалентности системы ДУ и одного ДУ."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "3" .
 
-wpdb:34f4999c-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd39d84-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Определенные, переопределенные и неопределенные системы."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "4" .
 
-wpdb:34f49f64-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3a392-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Задача Коши для нормальной системы уравнений. Теорема Коши-Ковалевской."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "5" .
 
-wpdb:34f4a52c-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3a96e-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Понятие характеристической формы и классификация ЛДУ-2."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "6" .
 
-wpdb:34f4ac20-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3af4a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Классификация линейных и нелинейных уравнений высшего порядка."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "7" .
 
-wpdb:34f4b1f2-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3b56c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Классификация систем."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "8" .
 
-wpdb:34f4b7b0-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3bb48-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Классификация ЛДУ-2 по учебнику Михлина."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "9" .
 
-wpdb:34f4bd6e-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3c124-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Характеристические кривые и характеристические направления."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "10" .
 
-wpdb:34f4c354-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3c6ec-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Приведение к каноническому виду уравнения второго порядка с двумя независимыми пременными."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "11" .
 
-wpdb:34f4c91c-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3cce6-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Канонические формы линейных уравнений с постоянными коэффициентами."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "12" .
 
-wpdb:34f4ceb2-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3d29a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Уравнения Лапласа."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "13" .
 
-wpdb:34f4d484-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3d88a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Волновое уравнение."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "14" .
 
-wpdb:34f4da10-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3de5c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Уравнение теплопроводности."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "15" .
 
-wpdb:34f4dfc4-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3e438-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Постановки основных задач для ЛДУ – 2 и понятие корректности задачи по Адамару."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "16" .
 
-wpdb:34f4e5a0-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3ea14-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Волновое уравнение с тремя пространственными переменными. Формула Кирхгофа."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "17" .
 
-wpdb:34f4eb36-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3efdc-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Волновое уравнение с двумя пространственными переменными. Формула Пуассона."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "18" .
 
-wpdb:34f4f0e0-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3f5a4-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Уравнение колебания струны. Формула Даламбера."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "19" .
 
-wpdb:34f4f6b2-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd3fb8a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Физическая интерпретация формулы Даламбера."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "20" .
 
-wpdb:34f4fc84-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd40166-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Примеры бегущих волн."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "21" .
 
-wpdb:34f50242-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4074c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Область зависимости, область влияния, область определения."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "22" .
 
-wpdb:34f5081e-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd40d3c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Неоднородное волновое уравнение с тремя пространственными переменными."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "23" .
 
-wpdb:34f50dd2-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4132c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Неоднородное волновое уравнение с двумя и одной пространственной переменной."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "24" .
 
-wpdb:34f5139a-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd41912-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Единственность решения задачи Коши для волнового уравнения."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "25" .
 
-wpdb:34f51944-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd41ef8-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Корректность постановки задачи Коши."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "26" .
 
-wpdb:34f52010-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd425e2-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Общая постановка задачи Коши."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "27" .
 
-wpdb:34f525c4-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd42bf0-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Задача Гурса."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "28" .
 
-wpdb:34f52b96-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd431cc-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Задача Гурса и первая задача Дарбу."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "29" .
 
-wpdb:34f53186-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd43794-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Постановка второй задачи Дарбу."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "30" .
 
-wpdb:34f53712-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd43d7a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Простейшие свойства гармонических функций."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "31" .
 
-wpdb:34f53cda-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd44360-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Некоторые частные решения уравнения Лапласа и преобразование радиус-векторов."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "32" .
 
-wpdb:34f54338-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd44928-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Элементарные свойства гармонических функций."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "33" .
 
-wpdb:34f54982-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd44f9a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Связь между аналитическими и гармоническими функциями."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "34" .
 
-wpdb:34f54f54-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd45562-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Интегральное представление гармонических функций."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "35" .
 
-wpdb:34f55544-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd45b2a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Формулы о среднем арифметическом для гармонических функций."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "36" .
 
-wpdb:34f55b20-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4612e-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Принцип экстремума и единственность решения задачи Дирихле для уравнения Лапласа."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "37" .
 
-wpdb:34f560fc-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd46714-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Линейная функция и некоторые свойства."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "38" .
 
-wpdb:34f56764-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd46cc8-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Функция Грина задачи Дирихле для уравнения Лапласа."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "39" .
 
-wpdb:34f56d0e-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd472b8-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Решение задачи Дирихле для шара. Формулы Пуассона."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "40" .
 
-wpdb:34f572b8-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd478a8-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Задача Дирихле для уравнения Пуассона."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "41" .
 
-wpdb:34f5788a-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd47e70-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Решение задачи Дирихле для полупространств."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "42" .
 
-wpdb:34f57e70-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd48492-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Теоремы, вытекающие из формул Пуассона."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "43" .
 
-wpdb:34f58410-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd48a82-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Непрерывность потенциала объемных масс и его производных первого порядка."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "44" .
 
-wpdb:34f589e2-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd49040-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Существование производных второго порядка потенциала объемных масс."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "45" .
 
-wpdb:34f58f6e-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd495fe-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Формула Гаусса."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "46" .
 
-wpdb:34f5950e-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd49bda-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Потенциал двойного слоя и его свойства."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "47" .
 
-wpdb:34f59aae-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4a1ac-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Потенциал простого слоя и задача Неймана."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "48" .
 
-wpdb:34f5a076-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4a79c-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Внешние задачи Дирихле и Неймана."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "49" .
 
-wpdb:34f5a8aa-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4ad5a-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Первая краевая задача для уравнения теплопроводности."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "50" .
 
-wpdb:34f5ae90-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4b322-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Постановка задачи и доказательство существования ее решения."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "51" .
 
-wpdb:34f5b43a-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4b8cc-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Единственность и устойчивость решения задачи Коши - Дирихле."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "52" .
 
-wpdb:34f5bade-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4bfca-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "Неоднородное уравнение теплопроводности."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "53" .
 
-wpdb:34f5c2c2-e194-11ec-ae15-704d7b84fd9f a wpdd:ListItem,
+wpdb:edd4c7fe-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
     rdfs:label "2.  3."@ru ;
-    schema:member wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f ;
+    schema:member wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f ;
     schema:sku "1" .
 
-wpdb:34f40ef0-e194-11ec-ae15-704d7b84fd9f a wpdd:IndependedWorkContent,
+wpdb:edd31260-e2f5-11ec-84e1-704d7b84fd9f a wpdd:IndependedWorkContent,
         cnt:ContentAsText ;
     cnt:chars """<section number="4.4" title="Методические указания по организации самостоятельной работы студентов" level="2"><h2 section="4.4">Методические указания по организации самостоятельной работы студентов</h2><p top="291" left="181" width="643" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="315" indent="1" li-ignored="1">Самостоятельная работа студентов всех форм и видов обучения является одним из обязательных видов образовательной деятельности, обеспечивающей реализацию требований Федеральных государственных стандартов высшего образования. Согласно требованиям нормативных документов самостоятельная работа студентов является обязательным компонентом образовательного процесса, так как она обеспечивает закрепление получаемых на лекционных занятиях знаний путем приобретения навыков осмысления и расширения их содержания, навыков решения актуальных проблем формирования общекультурных и профессиональных компетенций, научно-исследовательской деятельности, подготовки к семинарам, лабораторным работам, сдаче зачетов и экзаменов. Самостоятельная работа студентов представляет собой совокупность аудиторных и внеаудиторных занятий и работ. Самостоятельная работа в рамках образовательного процесса в вузе решает следующие задачи: </p>
 <ul>
@@ -486,15 +486,15 @@ wpdb:34f40ef0-e194-11ec-ae15-704d7b84fd9f a wpdd:IndependedWorkContent,
 <p top="187" left="170" width="546" height="24" font="11" bold="0" italic="0" strike="0" fontname="Times" size="18" color="#000000" bottom="211" indent="1" li-ignored="1">В ФБГОУ ВО «ИГУ» организация самостоятельной работы студентов регламентируется Положением о самостоятельной работе студентов, принятым Ученым советом ИГУ 22 июня 2012 г. </p>
 </section>"""@ru .
 
-wpdb:34f469d6-e194-11ec-ae15-704d7b84fd9f a wpdd:ElectronReferences,
+wpdb:edd36a94-e2f5-11ec-84e1-704d7b84fd9f a wpdd:ElectronReferences,
         wpdd:ReferenceList .
 
-wpdb:34f42db8-e194-11ec-ae15-704d7b84fd9f a wpdd:BasicReferences,
+wpdb:edd32f20-e2f5-11ec-84e1-704d7b84fd9f a wpdd:BasicReferences,
         wpdd:ReferenceList .
 
-wpdb:34f448b6-e194-11ec-ae15-704d7b84fd9f a wpdd:AuxiliaryReferences,
+wpdb:edd349e2-e2f5-11ec-84e1-704d7b84fd9f a wpdd:AuxiliaryReferences,
         wpdd:ReferenceList .
 
-wpdb:34f4838a-e194-11ec-ae15-704d7b84fd9f a wpdd:EvaluationMean,
+wpdb:edd3870e-e2f5-11ec-84e1-704d7b84fd9f a wpdd:EvaluationMean,
         wpdd:QuestionList .
 

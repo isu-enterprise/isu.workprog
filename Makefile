@@ -1,4 +1,4 @@
-.PHONY: cirrs rmkg restart reset mdg syll-test syllabs app
+.PHONY: cirrs rmkg restart reset mdg syll-test syllabs app curr-test wpgen-test
 
 SYLROOT="./isu/"
 # SYLROOT="./isu/Институт-математики-и-информационных-технологий/"
@@ -6,12 +6,12 @@ SYLROOT="./isu/"
 msg:
 	echo "Use explicit target"
 
-restart: reset cirrs syll-test
+restart: reset cirrs syll-test curr-test wpgen-test
 
 reset: rmkg
 
 cirrs:
-	./allcirrs.sh
+	./allcurrs.sh
 
 syll-test:
 	python syllabus.py
@@ -25,3 +25,10 @@ syllabs:
 
 app:
 	FLASK_APP=check FLASK_ENV=development flask run
+
+
+curr-test:
+	python curriculum.py
+
+wpgen-test:
+	python wpgen.py
