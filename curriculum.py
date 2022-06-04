@@ -322,7 +322,8 @@ def proctitle(sheet):
                     title = refinename(title)
                     spec = getfrom(
                         STANDARDS_KG, title, IDB, IDD["Specialty"],
-                        lambda subj: STANDARDS_KG.add((subj, DCID, Literal(code))))
+                        lambda subj: STANDARDS_KG.add(
+                            (subj, DCID, Literal(code))))
                     G.add((C, IDD.specialty, spec))
         else:
             pass
@@ -433,6 +434,8 @@ def procplan(sheet):
     ic = {}
     header = True
     codepos = None
+    block = None
+    blockpart = None
     for line, cells, row in lines(sheet, cells=True, rowno=True):
         lt = line.lower()
         code = None
@@ -462,11 +465,70 @@ def procplan(sheet):
                 logger.warning("Unknown course code '{}':'{}'".format(
                     code, line))
                 continue
+            if block is not None:
+                G.add((disc, IDD.block, block))
+                if blockpart:
+                    G.add((disc, IDD.blockPart, blockpart))
+
         elif il != "":
             logger.warning(
                 "Non-empty code field did not processed '{}'.".format(line))
             continue
         else:
+            line = cells[0].strip()  # TODO Recognize!!!
+            lt = line.lower()
+            if allwords(lt, "блок"):
+                num = lt.lstrip("блок ").lstrip().split(".")[0]
+                name = refinename(line.split(".", maxsplit=1)[1])
+                try:
+                    num = int(num)
+                except ValueError:
+                    pass
+                block = genuuid(IDB)
+                G.add((block, RDF.type, IDD["Block"]))
+                G.add((block, RDFS.label, Literal(name, lang="ru")))
+                G.add((block, DCID, Literal(num)))
+                if allwords(name, "итогов аттестац"):
+                    blockpart = genuuid(IDB)
+                    G.add((blockpart, RDF.type, IDD["BlockPart"]))
+                    G.add((blockpart, RDF.type, IDD["Attestation"]))
+                    G.add((blockpart, RDFS.comment,
+                           Literal("государственная итоговая аттестация",
+                                   lang="ru")))
+                continue
+            elif anywords(lt, "факультатив элективн"):
+                code, name = line.split(".")
+                name = refinename(name)
+                code = code.strip()
+                block = genuuid(IDB)
+                G.add((block, RDF.type, IDD["Block"]))
+                G.add((block, RDFS.label, Literal(name, lang="ru")))
+                G.add((block, DCID, Literal(num, lang="ru")))
+                blockpart = genuuid(IDB)
+                G.add((blockpart, RDF.type, IDD["BlockPart"]))
+                G.add((blockpart, RDF.type, IDD["Elective"]))
+                G.add((blockpart, RDFS.comment, Literal(name.lower(), lang="ru")))
+                continue
+            elif allwords(lt, "обязательн") and block is not None:
+                blockpart = genuuid(IDB)
+                G.add((blockpart, RDF.type, IDD["BlockPart"]))
+                G.add((blockpart, RDF.type, IDD["Required"]))
+                G.add((blockpart, RDFS.comment,
+                       Literal("обязательная часть", lang="ru")))
+                continue
+            elif allwords(
+                    lt,
+                    "формируем участник образовательн") and block is not None:
+                blockpart = genuuid(IDB)
+                G.add((blockpart, RDF.type, IDD["BlockPart"]))
+                G.add((blockpart, RDF.type, IDD["Auxiliary"]))
+                G.add((
+                    blockpart, RDFS.comment,
+                    Literal(
+                        "часть, формируемая участниками образовательных отношений",
+                        lang="ru")))
+                continue
+            logger.debug("Ignoring non-syllabus line '{}'".format(line))
             continue
 
         # Now process the numbers

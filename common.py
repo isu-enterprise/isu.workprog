@@ -142,7 +142,7 @@ def anywords(s, *set):
 def refinename(name):
     name = name.strip().rstrip(".").strip()
     while found(name, '  '):
-        name = name.subst("  "," ")
+        name = name.replace("  "," ")
     return name
 
 def asdirname(name):

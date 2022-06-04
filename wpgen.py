@@ -65,13 +65,13 @@ class Context():
     def get(self, index):
         if ":" in index:
             pref, ns, pred = index.split(":")
-            print(pref, ns, pred)
+            # print(pref, ns, pred)
             nspred = NS[ns][pred]
             if '^' in pref:
-                print("subj?", nspred, self)
+                # print("subj?", nspred, self)
                 o = G.subjects(nspred, self.uri)
             else:
-                print(self, nspred, "obj?")
+                # print(self, nspred, "obj?")
                 o = G.objects(self.uri, nspred)
             if o is not None:
                 try:
