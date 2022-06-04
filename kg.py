@@ -1,7 +1,6 @@
 import os.path as op
 from rdflib import Graph, RDF, RDFS, Literal, FOAF, URIRef
-from common import (binds, genuuid, IDD, ISU, ISU_NAME, IMIT, IMIT_NAME, IDB,
-                    IDD)
+from common import *
 import logging
 
 logger = logging.getLogger(__name__)
@@ -27,6 +26,7 @@ DEPARTMENTS_KG = None
 DISCIPLINES_KG = None
 REFERENCES_KG = None
 STANDARDS_KG = None
+LABELS_KG = None
 
 
 def loadkg(filename):
@@ -53,6 +53,7 @@ def loadkg(filename):
 
 
 def loadallkgs():
+    global LABELS_KG
     loadkg(DEPARTMENTS_KGFN)
     loadkg(DISCIPLINES_KGFN)
     loadkg(REFERENCES_KGFN)
@@ -64,6 +65,18 @@ def loadallkgs():
                    uri=IMIT,
                    provision=lambda obj: DEPARTMENTS_KG.add(
                        (isu, IDD["department"], obj)))
+    LABELS_KG = Graph()
+    binds(LABELS_KG)
+    LABELS_KG.add((MURAL, RDFS.label, Literal("очная", lang="ru")))
+    LABELS_KG.add((EXMURAL, RDFS.label, Literal("заочная", lang="ru")))
+    LABELS_KG.add((BACHOLOIR, RDFS.label, Literal("бакалавр", lang="ru")))
+    LABELS_KG.add((ACBACH, RDFS.label, Literal("академический бакалавриат", lang="ru")))
+    LABELS_KG.add((APPLBACH, RDFS.label, Literal("прикладной бакалавриат", lang="ru")))
+    LABELS_KG.add((MASTER, RDFS.label, Literal("магистр", lang="ru")))
+    LABELS_KG.add((EXAMS, RDFS.label, Literal("экзамен", lang="ru")))
+    LABELS_KG.add((CREDIT, RDFS.label, Literal("зачет", lang="ru")))
+    LABELS_KG.add((CREDITWN, RDFS.label, Literal("зачет с оценкой", lang="ru")))
+    LABELS_KG.add((TASK, RDFS.label, Literal("контрольная работа", lang="ru")))
 
 
 EXT = {"pretty-xml": "rdf", "turtle": "ttl"}
