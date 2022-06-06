@@ -131,7 +131,7 @@
               } else {
                 var areaID = textArea.id;
                 var text = data["text"];
-                $("#" + areaID).text(text);
+                $("#" + areaID).html(text);
                 // textArea.setContent(text);
                 $("#alertBox").text("Sucessfully loaded!");
               }
@@ -193,8 +193,10 @@
           selector: ".edit-text"
         }).then(
           (editors) => {
+            console.log("Loading texts.")
             TEXTEDS.forEach(
               id => {
+                console.log(id)
                 kgquery({"op": "load"}, tinymce.get(id));
               });
           });
@@ -211,12 +213,12 @@
               <li class="btn"><button id="saveButton" type="button" class="btn btn-primary">Save</button></li>
               <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
               <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
-              
+
              </ul>
           </header>
         </div>
     <section id="title">
-     
+
       <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
         Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
       <p align="center"><b>«ИРКУТСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</b><br/>ФГБОУ ВО «ИГУ»</p>
@@ -252,13 +254,13 @@
                 > Объем дисциплины составляет 4 зачетных ед., 144 час.
                 Форма промежуточной аттестации: экзамен </div>
 
-       <strong>Содержание дисциплины, структурированное по темам, c указанием видов 
+       <strong>Содержание дисциплины, структурированное по темам, c указанием видов
 учебных занятий и отведенного на них количества академических часов </strong></br>
        <div id="texteditor-"
             class="edit-text"
             property="" lang="ru"
                 > TABLE</div>
-     
+
         <strong>План внеаудиторной самостоятельной работы обучающихся по дисциплине</strong></br>
         <div id="texteditor-"
              class="edit-text"
@@ -270,7 +272,7 @@
            class="edit-text"
            property="wpdd:Topic" lang="ru"
            > Содержание уч.материала, главы, все дела </div>
-      
+
       <strong>Перечень семинарских, практических занятий и лабораторных работ</strong></br>
       <div id="texteditor-"
            class="edit-text"
@@ -283,64 +285,64 @@
            class="edit-text"
            property="" lang="ru"
             > TABLE</div>
-       
+
        <strong>Методические указания по организации самостоятельной работы студентов</strong></br>
         <div id="texteditor-iw"
              class="edit-text"
              property="wpdd:independentWork" lang="ru"
-                  > smth </div> 
+                  > smth </div>
       <strong>УЧЕБНО-МЕТОДИЧЕСКОЕ И ИНФОРМАЦИОННОЕ ОБЕСПЕЧЕНИЕ
         ДИСЦИПЛИНЫ </strong></br>
-         <ol> 
+         <ol>
          <li> Main litra</li>
           <div id="texteditor-br"
             class="edit-text"
             property="wpdd:BasicReferences" lang="ru"
-                  > main litr </div>  
-         <li> Dop litra</li>  
+                  > main litr </div>
+         <li> Dop litra</li>
           <div id="texteditor-br"
             class="edit-text"
             property="wpdd:AuxiliaryReferences" lang="ru"
-               > dop litra </div> 
+               > dop litra </div>
           <li> BD</li>
             <div id="texteditor-br"
                  class="edit-text"
                 property="wpdd:ElectronReferences" lang="ru"
-                > Internet </div>  
-         </ol> 
-        
+                > Internet </div>
+         </ol>
+
          <strong>МАТЕРИАЛЬНО-ТЕХНИЧЕСКОЕ ОБЕСПЕЧЕНИЕ ДИСЦИПЛИНЫ </strong></br>
 
          <strong>Учебно-лабораторное оборудование </strong></br>
          <div id="texteditor"
-            > ЭТОТ РАЗДЕЛ НЕ ЗАПОЛНЯТЬ </div> 
+            > ЭТОТ РАЗДЕЛ НЕ ЗАПОЛНЯТЬ </div>
          <strong>Программное обеспечение </strong></br>
-            <div id="texteditor" 
+            <div id="texteditor"
               class="edit-text"
               lang="ru"
-               > ПЕРЕЧИСЛИТЬ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ТРЕБУЕМОЕ ДЛЯ ДИСЦИПЛИНЫ. Without class and property</div> 
+               > ПЕРЕЧИСЛИТЬ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ТРЕБУЕМОЕ ДЛЯ ДИСЦИПЛИНЫ. Without class and property</div>
         <strong>Оценочные средства текущего контроля</strong></br>
             <div id="texteditor-"
                  class="edit-text"
                  property="" lang="ru"
                       > TABLE</div>
-        
+
         <strong>Пример контрольной работы </strong></br>
            <div id="texteditor-question"
                 class="edit-text"
                 property="wpdd:QuestionList" lang="ru"
-                  > quests</div> 
-        
+                  > quests</div>
+
         <strong>Оценочные средства для промежуточной аттестации </strong></br>
         <div id="texteditor-question"
              class="edit-text"
              property="wpdd:QuestionList" lang="ru"
-              > quests</div> 
+              > quests</div>
         <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
         <div id="texteditor-question"
              class="edit-text"
              property="wpdd:QuestionList" lang="ru"
-                    > quests</div> 
+                    > quests</div>
         <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
          <div id="texteditor-question"
               class="edit-text"
@@ -381,7 +383,7 @@
 
 
 
-      
-    </section>  
+
+    </section>
   </body>
 </html>

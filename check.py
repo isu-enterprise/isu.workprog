@@ -1,6 +1,6 @@
 from pickle import LIST
 from flask import Flask, render_template, jsonify, request
-from rdflib import Graph, URIRef
+from rdflib import Graph, URIRef, Literal
 import logging
 from pprint import pprint
 from common import IDD, WPDD
@@ -93,13 +93,13 @@ DEL_WP_AP = PREFIXES + """
 
 DELETE
 {
-    ?dc ?pred ?text .
+    ?dc ?pred ?text1 .
 }
 WHERE
 {
     ?wpuri a dbr:Syllabus .
     ?wpuri wpdd:courseDC ?dc .
-    ?dc ?pred ?text .
+    ?dc ?pred ?text1 .
 }
 
 """
@@ -107,7 +107,7 @@ WHERE
 INS_WP_AP = PREFIXES + """
 INSERT
 {
-    ?dc ?pred "@TEXT@" .
+    ?dc ?pred ?text .
 }
 WHERE
 {
@@ -131,14 +131,6 @@ def create_list(quest):
 
     return 0
 
-def qsubst(query, substs):
-    q = query
-    for k, v in substs.items():
-        if isinstance(v, str):
-            q = q.replace("@" + k.upper() + "@", v)
-    return q
-
-
 def lprint(s):
     sl = s.split("\n")
     for c, s in enumerate(sl):
@@ -151,7 +143,13 @@ def savewp():
     op = js["op"]
 
     pred = js["pred"]
-    templates, pred = gettemplates(pred)
+    queries = gettemplates(pred)
+    if queries is None:
+        pprint(js)
+        error = {"error": 0, "msg": "Bad request to the endpoint"}
+        pprint(error)
+        return jsonify(error)
+    templates, pred = queries
     js["pred"]=pred
     js["wpuri"]=URIRef(js["wpuri"])
 
@@ -171,6 +169,7 @@ def savewp():
         lprint(q)
         if (op == "save"):
             pprint(js)
+            js["text"] = Literal(js["text"], lang="ru")
             G.update(q, initBindings=js)
         else:
             del js['text']
@@ -178,6 +177,7 @@ def savewp():
             text = list(G.query(q, initBindings=js))[0][0]
             answer["text"] = str(text)
 
+    done = op+"ed".replace("ee","e")
     answer.update({"wpuri": js["wpuri"], "error": 0, "msg": op + "ed"})
     print(answer)
     return jsonify(answer)
