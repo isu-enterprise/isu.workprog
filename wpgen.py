@@ -59,15 +59,18 @@ def initgraph(filename):
 class Context():
 
     def __init__(self, uri=None, typeof=None):
-        if isinstance(uri, types.GeneratorType):
-            uri = next(uri)
+        # if isinstance(uri, types.GeneratorType):
+        #     uri = next(uri)
         self.uri = uri
         self.typeof = typeof
 
     def __str__(self):
-        return str(self.uri)
+        uri = self.uri
+        if isinstance(uri, types.GeneratorType):
+            uri = next(uri)
+        return str(uri)
 
-    def get(self, index):
+    def get(self, index, default=None):
         if ":" in index:
             pref, ns, pred = index.split(":")
             # print(pref, ns, pred)
@@ -84,7 +87,7 @@ class Context():
                 except StopIteration:
                     return "{} {}".format(self, index)
             else:
-                return None
+                return default
         else:
             raise IndexError("no rdf")
 
