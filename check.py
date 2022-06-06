@@ -118,7 +118,7 @@ WHERE
 """
 
 QUERIES = [
-    (("aim", "problem"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP], WPDD),
+    (("aim", "problem", "requiredDisciplines"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP], WPDD),
 ]
 
 def gettemplates(pred):
