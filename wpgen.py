@@ -4,6 +4,7 @@ from kg import *
 import os.path
 import types
 from pybars import Compiler
+from pprint import pprint
 
 import logging
 
@@ -40,6 +41,8 @@ TEMPLATE = COMPILER.compile(open(TEMPLATE_NAME, "r").read())
 
 G = Graph()
 NS = {}
+CTX = {}
+RCTX = {}
 
 
 def initgraph(filename):
@@ -58,34 +61,70 @@ def initgraph(filename):
 
 class Context():
 
-    def __init__(self, uri=None, typeof=None):
-        # if isinstance(uri, types.GeneratorType):
-        #     uri = next(uri)
+    def __init__(self,
+                 uri=None,
+                 typeof=None,
+                 prev=None,
+                 op=None,
+                 forward=None):
+        if isinstance(uri, types.GeneratorType):
+            self.gen = uri
+            uri = next(uri)
         self.uri = uri
         self.typeof = typeof
+        self.prev = prev
+        self.op = op
+        self.forward = forward
 
     def __str__(self):
         uri = self.uri
         if isinstance(uri, types.GeneratorType):
             uri = next(uri)
-        return str(uri)
+        val = str(uri)
+        return r"\rdf{" + self.renderpath() + "}%\n{" + val + "}"
+
+    def renderpath(self):
+        global RCTX
+        s = ""
+        if self.prev is not None:
+            if self.op is not None:
+                tmp = "{%\n" + self.prev.renderpath() + "}{" + self.op + "}%\n"
+                if self.forward:
+                    s += r"\rdfsubj" + tmp
+                else:
+                    s += r"\rdfaObj" + tmp
+        else:
+            uri = self.uri
+            suri = str(uri)
+            pprint((RCTX, suri))
+            if suri in RCTX:
+                uri = RCTX[suri]
+            else:
+                uri=repr(uri).replace("rdflib.term.","").replace("'","|")
+            s = r"\rdfaCtx{" + uri + "}"
+
+        return s
 
     def get(self, index, default=None):
         if ":" in index:
             pref, ns, pred = index.split(":")
             # print(pref, ns, pred)
             nspred = NS[ns][pred]
+            pobj = True
             if '^' in pref:
-                # print("subj?", nspred, self)
+                pobj = False
                 o = G.subjects(nspred, self.uri)
             else:
-                # print(self, nspred, "obj?")
                 o = G.objects(self.uri, nspred)
             if o is not None:
                 try:
-                    return Context(o)
+                    return Context(o,
+                                   prev=self,
+                                   op=ns + ":" + pred,
+                                   forward=pobj)
                 except StopIteration:
-                    return "{} {}".format(self, index)
+                    print("{} {} (no results)".format(self, index))
+                    return ""
             else:
                 return default
         else:
@@ -152,28 +191,44 @@ class Context():
             self.genwp()
 
         # Add any special helpers
-    def _list(self, this, options, items):
-        result = [u'<ul>']
-        for thing in items:
-            result.append(u'<li>')
-            result.extend(options['fn'](thing))
-            result.append(u'</li>')
-        result.append(u'</ul>')
+    def _each(self, this, options, context):
+        result = []
+        # pprint((this, options, items))
+        result.extend(options['fn'](context))
+        if hasattr(context, "gen"):
+            for thing in context.gen:
+                result.extend(options['fn'](Context(thing)))
         return result
 
+    def _defcontext(self, this, options):
+        # print(this, options)
+        answer = ["%\n"]
+        for name, val in this.context.items():
+            if val.uri is not None:
+                answer.append(r"\rdfaSetContext{" + name + "}{" +
+                              repr(val.uri).replace("rdflib.term.","") + "}%\n")
+        return answer + ["%\n"]
+
     def genwp(self):
+        global CTX, RCTX
         filename = asdirname(self.discentry.code) + "-" + asdirname(
             self.discipline.label) + ".tex"
-        content = TEMPLATE({
+        CTX = {
             "context": self,
             "curr": self.curriculum,
             "disc": self.discentry
-        })
+        }
+        RCTX = {str(v.uri): k for k, v in CTX.items()}
+        RCTX[None] = "_"
+        content = TEMPLATE(CTX,
+                           helpers={
+                               "rdfeach": self._each,
+                               "defcontext": self._defcontext
+                           })
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
         o.write(content)
         o.close()
-
 
     def rdfdcid(self, subj):
         subj = uri(subj)
@@ -208,7 +263,6 @@ class Context():
         self.institute.abbrev = "ИМИТ"
         self.university.abbrev = "ИГУ"
         self.institute.position = "Директор"
-
 
 
 if __name__ == "__main__":

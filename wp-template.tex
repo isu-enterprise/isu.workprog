@@ -84,6 +84,15 @@
 
      \setlength{\parindent}{1cm}
      \setcounter{tocdepth}{\subsectiontocdepth}
+
+     % \newcommand{\rdfaSetContext}[2]{}
+     \newcommand{\rdfasubj}[2]{}
+     \newcommand{\rdfaobj}[2]{}
+     \newcommand{\rdf}[2]{#2}
+
+{{#defcontext}}
+{{/defcontext}}
+
 \begin{document}
 \begin{titlepage}
 \begin{center}
@@ -144,9 +153,11 @@
 Процесс освоения дисциплины направлен на формирование следующих компетенций в
 соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{#with context.specialty}}
 {{dcterms:identifier}}~{{rdfs:label}}: {{/with}}
-{{#each idd:hasCompetence}}
-{{this dcterms:identifier}}\ {{this rdfs:label}}
-{{/each}}
+{{#rdfeach disc idd:hasCompetence}}
+
+{{this dcterms:identifier}}\ --\ <<{{this rdfs:label}}>>
+
+{{/rdfeach}}
 
 В результате освоения дисциплины обучающийся должен
 
