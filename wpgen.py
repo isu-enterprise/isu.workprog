@@ -6,11 +6,11 @@ import types
 from pybars import Compiler
 
 import logging
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
                     level=logging.DEBUG)
-
 
 TEMPLATE_NAME = "wp-template.tex"
 TARGET_DIR = os.path.abspath("./target")
@@ -33,12 +33,15 @@ def uri(ent):
     else:
         return ent
 
+
 COMPILER = Compiler()
 
-TEMPLATE = COMPILER.compile(open(TEMPLATE_NAME,"r").read())
+TEMPLATE = COMPILER.compile(open(TEMPLATE_NAME, "r").read())
 
 G = Graph()
 NS = {}
+
+
 def initgraph(filename):
     global G, NS
     G.parse(filename)
@@ -47,31 +50,36 @@ def initgraph(filename):
     G += DEPARTMENTS_KG
     G += DISCIPLINES_KG
     G += REFERENCES_KG
+    G += LABELS_KG
     for ns, uri in G.namespaces():
-        NS[ns]=Namespace(uri)
+        NS[ns] = Namespace(uri)
     return G
+
 
 class Context():
 
-    def __init__(self, uri = None, typeof = None):
-        if isinstance(uri, types.GeneratorType):
-            uri = next(uri)
+    def __init__(self, uri=None, typeof=None):
+        # if isinstance(uri, types.GeneratorType):
+        #     uri = next(uri)
         self.uri = uri
         self.typeof = typeof
 
     def __str__(self):
-        return str(self.uri)
+        uri = self.uri
+        if isinstance(uri, types.GeneratorType):
+            uri = next(uri)
+        return str(uri)
 
-    def get(self, index):
+    def get(self, index, default=None):
         if ":" in index:
             pref, ns, pred = index.split(":")
-            print(pref, ns, pred)
+            # print(pref, ns, pred)
             nspred = NS[ns][pred]
             if '^' in pref:
-                print("subj?", nspred, self)
+                # print("subj?", nspred, self)
                 o = G.subjects(nspred, self.uri)
             else:
-                print(self, nspred, "obj?")
+                # print(self, nspred, "obj?")
                 o = G.objects(self.uri, nspred)
             if o is not None:
                 try:
@@ -79,7 +87,7 @@ class Context():
                 except StopIteration:
                     return "{} {}".format(self, index)
             else:
-                return None
+                return default
         else:
             raise IndexError("no rdf")
 
@@ -93,8 +101,7 @@ class Context():
             self.university.label = self.rdflabel(self.university)
             self.basechair = Context(G.objects(curriculum, IDD.chair))
             self.basechair.label = self.rdflabel(self.basechair)
-            self.enrolledIn = int(
-                next(G.objects(curriculum, IDD.enrolledIn)))
+            self.enrolledIn = int(next(G.objects(curriculum, IDD.enrolledIn)))
             self.director = Context(G.objects(curriculum, IDD.director))
             self.director.label = self.rdflabel(self.director)
             self.level = Context(G.objects(curriculum, IDD.level))
@@ -104,30 +111,24 @@ class Context():
                 self.discentry = Context(discentry)
                 self.rdftypecheck(discentry, IDD["Discipline"])
                 self.discentry.code = self.rdfdcid(self.discentry)
-                self.discentry.chair = Context(
-                    G.objects(discentry, IDD.chair))
+                self.discentry.chair = Context(G.objects(discentry, IDD.chair))
                 self.discentry.chair.label = self.rdflabel(
                     self.discentry.chair.uri)
                 assert self.discentry.chair.label is not None
 
-                self.discipline = Context(
-                    G.objects(discentry, IDD.discipline))
+                self.discipline = Context(G.objects(discentry, IDD.discipline))
                 self.discipline.label = self.rdflabel(self.discipline)
-                self.specialty = Context(
-                    G.objects(curriculum, IDD.specialty))
+                self.specialty = Context(G.objects(curriculum, IDD.specialty))
                 self.specialty.label = self.rdflabel(self.specialty)
-                self.specialty.code = next(
-                    G.objects(self.specialty.uri, DCID))
-                self.mural = Context(
-                    G.objects(curriculum, IDD.studyForm))
+                self.specialty.code = next(G.objects(self.specialty.uri, DCID))
+                self.mural = Context(G.objects(curriculum, IDD.studyForm))
 
                 self.mural.label = self.rdflabel(self.mural)
 
-                self.profile = Context(
-                    G.objects(curriculum, IDD.profile))
+                self.profile = Context(G.objects(curriculum, IDD.profile))
                 self.profile.label = self.rdflabel(self.profile)
 
-                self.setdefaults() # Must be the last one
+                self.setdefaults()  # Must be the last one
 
                 yield self
 
@@ -163,11 +164,11 @@ class Context():
     def genwp(self):
         filename = asdirname(self.discentry.code) + "-" + asdirname(
             self.discipline.label) + ".tex"
-        helpers = {'list': self._list}
-        content = TEMPLATE({"context":self,
-                            "curr":self.curriculum,
-                            "disc":self.discentry},
-                           helpers=helpers)
+        content = TEMPLATE({
+            "context": self,
+            "curr": self.curriculum,
+            "disc": self.discentry
+        })
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
         o.write(content)
@@ -203,7 +204,7 @@ class Context():
     #     return self
 
     def setdefaults(self):
-        self.city="Иркутск"
+        self.city = "Иркутск"
         self.institute.abbrev = "ИМИТ"
         self.university.abbrev = "ИГУ"
         self.institute.position = "Директор"
@@ -219,5 +220,5 @@ if __name__ == "__main__":
         filename = sys.argv[1]
 
     initgraph(filename)
-    C = Context(typeof = IDD["Curriculum"])
+    C = Context(typeof=IDD["Curriculum"])
     C.gendir()

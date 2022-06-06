@@ -93,7 +93,7 @@
 {ФГБОУ ВО «{{context.university.abbrev}}»}\par
 \MakeUppercase{ {{context.institute rdfs:label}} }\par
 \vspace{1ex}
-{\bfseries {{disc idd:chair rdfs:label}}}
+{\bfseries Кафедра {{disc idd:chair rdfs:label}}}
 \end{center}
 \vspace{2em}
 \begin{tabularx}{\textwidth}{XX}
@@ -116,19 +116,21 @@
 \vfil
 \vfil
 \begin{center}
-  {{context.city}}\;--\;{{context.enrolledIn}}
+  {{#with context}}
+  {{city}}\;--\;{{enrolledIn}}
+  {{/with}}
 \end{center}
 \end{titlepage}
 \newpage
 \tableofcontents
 \newpage
 \section{Цели и задачи дисциплины}
-\noindent Цели:
-\par
-\noindent Задачи:
+\paragraph{Цели:}
+\paragraph{Задачи:}
 
 \section{Место дисциплины в структуре ОПОП ВО}
-Учебная дисциплина {{context.specialty schema:identifier}}~{{context.specialty rdfs:label}} относится к /обязательной/ части Блока /1/ образовательной программы.
+Учебная дисциплина {{disc dcterms:identifier}}~<<{{disc idd:discipline rdfs:label}}>> относится к
+Блоку~{{disc idd:block dcterms:identifier}} образовательной программы, {{disc idd:blockPart rdfs:comment}}.
 
 Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
 формируемые предшествующими дисциплинами: ...
@@ -140,11 +142,11 @@
 \section{Требования к результатам освоения дисциплины}
 
 Процесс освоения дисциплины направлен на формирование следующих компетенций в
-соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{context.specialty schema:identifier}}~{{context.specialty rdfs:label}}:
-
-/ОПК-1 Способен применять фундаментальные знания, полученные в области
-математических и (или) естественных наук, и использовать их в профессиональной
-деятельности./
+соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{#with context.specialty}}
+{{dcterms:identifier}}~{{rdfs:label}}: {{/with}}
+{{#each idd:hasCompetence}}
+{{this dcterms:identifier}}\ {{this rdfs:label}}
+{{/each}}
 
 В результате освоения дисциплины обучающийся должен
 
@@ -158,7 +160,7 @@
 
 Объем дисциплины составляет {{disc idd:credits idd:expert}} зачетных ед., {{disc idd:hours idd:expert}} час.
 
-Форма промежуточной аттестации: {{disc idd:controlType}}.
+Форма промежуточной аттестации: {{disc idd:controlType rdfs:label}}.
 
 \subsection{Содержание дисциплины, структурированное по темам, c указанием видов
   учебных занятий и отведенного на них количества академических часов}
