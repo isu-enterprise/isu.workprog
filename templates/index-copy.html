@@ -200,15 +200,23 @@
           });
       });
     </script>
-    <button id="theButton" type="button" class="btn btn-primary">Load</button>
-    <button id="saveButton" type="button" class="btn btn-primary">Save</button>
-    <button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button>
-  </head>
+      </head>
   <body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ pimspace: http://www.w3.org/ns/pim/space# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# mem: http://mementoweb.org/ns# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# bibo: http://purl.org/ontology/bibo/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# odrl: http://www.w3.org/ns/odrl/2/ dio: https://w3id.org/dio# rel: https://www.w3.org/ns/iana/link-relations/relation# wpdb: http://irnok.net/ontologies/database/isu/workprog# wpdd: http://irnok.net/ontologies/isu/workprog# idb: http://irnok.net/ontologies/database/isu/studplan# idd: http://irnok.net/ontologies/isu/studplan# schema: https://schema.org/ cnt: http://www.w3.org/2011/content#"
         about="{{WP_URI}}"
         typeof="dbr:Syllabus">
+        <div class = "container">
+          <header class="d-flex justify-content-center py-3">
+              <ul class="btns">
+              <li class="btn"><button id="theButton" type="button" class="btn btn-primary">Load</button></li>
+              <li class="btn"><button id="saveButton" type="button" class="btn btn-primary">Save</button></li>
+              <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
+              <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
+              
+             </ul>
+          </header>
+        </div>
     <section id="title">
-      <button type="button" class="btn btn-info">Edit Metadta</button>
+     
       <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
         Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
       <p align="center"><b>«ИРКУТСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</b><br/>ФГБОУ ВО «ИГУ»</p>
@@ -226,12 +234,12 @@
            class="edit-text"
            property="wpdd:problem" lang="ru"
            > Here will be edited something! </div>
-      <strong>МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО</strong></br>
+     <strong>МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО</strong></br>
       <div id="texteditor-"
            class="edit-text"
            property="" lang="ru"
            > I dont know </div>
-      <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
+   <!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
       <div id="texteditor-"
            class="edit-text"
            property="" lang="ru"
@@ -337,7 +345,7 @@
          <div id="texteditor-question"
               class="edit-text"
               property="wpdd:QuestionList" lang="ru"
-                 > Разработчик</div> 
+                 > Разработчик</div> -->
 
 
 

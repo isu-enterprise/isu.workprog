@@ -93,13 +93,13 @@ DEL_WP_AP = PREFIXES + """
 
 DELETE
 {
-    ?dc wpdd:@TAG@ ?text .
+    ?dc ?pred ?text .
 }
 WHERE
 {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@ wpdd:courseDC ?dc .
-    ?dc wpdd:@TAG@ ?text .
+    ?wpuri a dbr:Syllabus .
+    ?wpuri wpdd:courseDC ?dc .
+    ?dc ?pred ?text .
 }
 
 """
@@ -107,12 +107,12 @@ WHERE
 INS_WP_AP = PREFIXES + """
 INSERT
 {
-    ?dc wpdd:@TAG@ "@TEXT@" .
+    ?dc ?pred "@TEXT@" .
 }
 WHERE
 {
-    wpdb:@UUID@ a dbr:Syllabus .
-    wpdb:@UUID@ wpdd:courseDC ?dc .
+    ?wpuri a dbr:Syllabus .
+    ?wpuri wpdd:courseDC ?dc .
 }
 
 """
