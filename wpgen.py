@@ -150,12 +150,24 @@ class Context():
             safecwd(dir)
             self.genwp()
 
+        # Add any special helpers
+    def _list(self, this, options, items):
+        result = [u'<ul>']
+        for thing in items:
+            result.append(u'<li>')
+            result.extend(options['fn'](thing))
+            result.append(u'</li>')
+        result.append(u'</ul>')
+        return result
+
     def genwp(self):
         filename = asdirname(self.discentry.code) + "-" + asdirname(
             self.discipline.label) + ".tex"
+        helpers = {'list': self._list}
         content = TEMPLATE({"context":self,
                             "curr":self.curriculum,
-                            "disc":self.discentry})
+                            "disc":self.discentry},
+                           helpers=helpers)
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
         o.write(content)
