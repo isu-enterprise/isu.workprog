@@ -85,9 +85,6 @@
      \setlength{\parindent}{1cm}
      \setcounter{tocdepth}{\subsectiontocdepth}
 
-     % \newcommand{\rdfaSetContext}[2]{}
-     \newcommand{\rdfasubj}[2]{}
-     \newcommand{\rdfaobj}[2]{}
      \newcommand{\rdf}[2]{#2}
 
 {{#defcontext}}
@@ -134,8 +131,9 @@
 \tableofcontents
 \newpage
 \section{Цели и задачи дисциплины}
-\paragraph{Цели:}
-\paragraph{Задачи:}
+\rdf{\rdfsetctx{ap}{_ wpdd:courseDC !wpdd:CourseDC }}{}
+\paragraph{Цели:}\rdf{ap wpdd:aim }{....}
+\paragraph{Задачи:}\rdf{ap wpdd:problem }{....}
 
 \section{Место дисциплины в структуре ОПОП ВО}
 Учебная дисциплина {{disc dcterms:identifier}}~<<{{disc idd:discipline rdfs:label}}>> относится к

@@ -88,20 +88,19 @@ class Context():
         s = ""
         if self.prev is not None:
             if self.op is not None:
-                tmp = "{%\n" + self.prev.renderpath() + "}{" + self.op + "}%\n"
                 if self.forward:
-                    s += r"\rdfsubj" + tmp
+                    oop = r""
                 else:
-                    s += r"\rdfaObj" + tmp
+                    oop = r"^"
+                s += self.prev.renderpath() + " " + oop+self.op
         else:
             uri = self.uri
             suri = str(uri)
-            pprint((RCTX, suri))
             if suri in RCTX:
                 uri = RCTX[suri]
             else:
-                uri=repr(uri).replace("rdflib.term.","").replace("'","|")
-            s = r"\rdfaCtx{" + uri + "}"
+                uri = repr(uri).replace("rdflib.term.", "").replace("'", "|")
+            s = r"\ctx{" + uri + "}"
 
         return s
 
@@ -204,10 +203,12 @@ class Context():
         # print(this, options)
         answer = ["%\n"]
         for name, val in this.context.items():
+            answer.append(r"\rdf{%\n")
             if val.uri is not None:
-                answer.append(r"\rdfaSetContext{" + name + "}{" +
-                              repr(val.uri).replace("rdflib.term.","") + "}%\n")
-        return answer + ["%\n"]
+                answer.append(r"\rdfsetctx{" + name + "}{" +
+                              repr(val.uri).replace("rdflib.term.", "") +
+                              "}%\n")
+        return answer + ["}{}%\n"]
 
     def genwp(self):
         global CTX, RCTX
