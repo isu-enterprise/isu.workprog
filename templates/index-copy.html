@@ -84,7 +84,7 @@
       console.log(TEXTEDS);
 
       function toPred(id) {
-        return id.replace("texteditor-","");
+        return id.replace("texteditor-","").replace("listeditor-","");
       }
 
       function getActiveEditor(id = false, tag = false) {
@@ -112,6 +112,7 @@
           op["op"] = "load";
         };
         op["text"] = text;
+        op["type"] = "text";
         op["pred"] = pred;
         op["wpuri"] = WPURI;
         $.ajax(SERVER+"qwp", data={
@@ -136,9 +137,55 @@
                 $("#alertBox").text("Sucessfully loaded!");
               }
             }
-          });
-
+         });
       }
+
+      var currentListItem = null;
+
+      function kglistquery (op, listEditor = null) {
+        if (listEditor === null) {
+          listEditor = currentListItem;
+        }
+        // pred
+        predOl = $(listEditor).closest("ol").attr("id");
+        predUl = $(listEditor).closest("ul").attr("id");
+        if (predOl != undefined) pred = predOl;
+        if (predUl != undefined) pred = predUl;
+        pred = toPred(pred);
+        alert(pred);
+        op["type"] = "list";
+        op["list"] = ["1", "2", "3"];
+        op["pred"] = pred;
+        op["wpuri"] = WPURI;
+        $.ajax(SERVER+"qwp", data={
+          data : JSON.stringify(op),
+          contentType : 'application/json',
+          type : 'POST'}).done(function (data) {
+            var err = data["error"]
+            if (op["op"] == "save") {
+              if (err!=0) {
+                $("#alertBox").text("Could'nt save correctly:"+err);
+              } else {
+                $("#alertBox").text("Sucessfully saved!");
+              }
+            } else {
+              if (err!=0) {
+                $("#alertBox").text("Could'nt load correctly:"+err);
+              } else {
+                alert(data);
+                // var areaID = textArea.id;
+                // var text = data["text"];
+                // $("#" + areaID).html(text);
+                // // textArea.setContent(text);
+                // $("#alertBox").text("Sucessfully loaded!");
+              }
+            }
+         });
+      }
+
+
+
+
       $(document).ready(function(){
         var texteditor = {
           selector: '.edit-text',
@@ -174,6 +221,9 @@
         $("#saveButton").on("click", () => {
           console.info("Save pressed");
           kgquery({"op":"save"});
+          if (currentListItem != null) {
+            kglistquery({"op":"save"});
+          }
         });
 
         $("#saveGraphButton").on("click", () => {
@@ -181,6 +231,10 @@
             $("alertBox").text("Saved Successfully!");
             console.info("Saved the gaph successfully!");
           })
+        });
+
+        $(".edit-list-label").on("click", function () {
+          currentListItem = this;
         });
 
         TEXTEDS = [];
@@ -295,12 +349,13 @@
         <div id="texteditor-iw"
              class="edit-text"
              property="wpdd:independentWork" lang="ru"
-                  > smth </div>
+                  > smth </div> -->
+      <!--
       <strong>УЧЕБНО-МЕТОДИЧЕСКОЕ И ИНФОРМАЦИОННОЕ ОБЕСПЕЧЕНИЕ
         ДИСЦИПЛИНЫ </strong></br>
          <ol>
          <li> Main litra</li>
-          <div id="texteditor-br"
+          <div id="listditor-"
             class="edit-text"
             property="wpdd:BasicReferences" lang="ru"
                   > main litr </div>
@@ -314,8 +369,9 @@
                  class="edit-text"
                 property="wpdd:ElectronReferences" lang="ru"
                 > Internet </div>
-         </ol>
+         </ol> -->
 
+         <!--
          <strong>МАТЕРИАЛЬНО-ТЕХНИЧЕСКОЕ ОБЕСПЕЧЕНИЕ ДИСЦИПЛИНЫ </strong></br>
 
          <strong>Учебно-лабораторное оборудование </strong></br>
@@ -342,17 +398,29 @@
         <div id="texteditor-question"
              class="edit-text"
              property="wpdd:QuestionList" lang="ru"
-              > quests</div>
+              > quests</div> -->
+
         <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
-        <div id="texteditor-question"
-             class="edit-text"
-             property="wpdd:QuestionList" lang="ru"
-                    > quests</div>
-        <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+        <div property="wpdd:itemList" typeof="wpdd:ItemList">
+          <ol id="listeditor-Question">
+            <li class="edit-itemlist"
+               rev="schema:member" typeof="wpdd:ListItem wpdd:Question">
+              <div
+                property="rdfs:label"
+                lang="ru"
+                class="edit-list-label"
+                contenteditable="true"
+                >Вопрос</div>
+            </li>
+          </ol>
+          <!-- Кнопки -->
+        </div>
+        <!--
+       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
          <div id="texteditor-question"
               class="edit-text"
               property="wpdd:QuestionList" lang="ru"
-                 > Разработчик</div> -->
+                 > </div> -->
 
 
 
