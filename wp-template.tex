@@ -86,9 +86,15 @@
      \setcounter{tocdepth}{\subsectiontocdepth}
 
      \newcommand{\rdf}[2]{#2}
+     \newenvironment{rdfctx}[1]{}{}
 
 {{#defcontext}}
 {{/defcontext}}
+
+\rdf{%
+  \rdfsetctx{syll}{wpdb:_}%
+%  \rdfsetctx{common}{wpdb:_}%
+}{}
 
 \begin{document}
 \begin{titlepage}
@@ -131,19 +137,22 @@
 \tableofcontents
 \newpage
 \section{Цели и задачи дисциплины}
-\rdf{\rdfsetctx{ap}{_ wpdd:courseDC !wpdd:CourseDC }}{}
-\paragraph{Цели:}\rdf{ap wpdd:aim }{....}
-\paragraph{Задачи:}\rdf{ap wpdd:problem }{....}
+\begin{rdfctx}{\rdfsetctx{dc}{syll wpdd:courseDC !wpdd:CourseDC}}
+\paragraph{Цели:}\rdf{dc wpdd:aim !cnt:ContentAsText}{....}
+\paragraph{Задачи:}\rdf{dc wpdd:problem !cnt:ContentAsText}{....}
+\end{rdfctx}
 
 \section{Место дисциплины в структуре ОПОП ВО}
 Учебная дисциплина {{disc dcterms:identifier}}~<<{{disc idd:discipline rdfs:label}}>> относится к
 Блоку~{{disc idd:block dcterms:identifier}} образовательной программы, {{disc idd:blockPart rdfs:comment}}.
 
+\begin{rdfctx}{\rdfsetctx{dc}{syll wpdd:courseDC !wpdd:CourseDC}}
 Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
-формируемые предшествующими дисциплинами: ...
+формируемые предшествующими дисциплинами: \rdf{dc wpdd:require !cnt:ContentAsText}{... .}
 
 Перечень последующих учебных дисциплин, для которых необходимы знания, умения и
-навыки, формируемые данной учебной дисциплиной: ....
+навыки, формируемые данной учебной дисциплиной: \rdf{dc wpdd:ensure !cnt:ContentAsText}
+\end{rdfctx}
 
 
 \section{Требования к результатам освоения дисциплины}
@@ -157,13 +166,15 @@
 
 {{/rdfeach}}
 
+\begin{rdfctx}{\rdfsetctx{dc}{syll wpdd:courseDC !wpdd:CourseDC}}
 В результате освоения дисциплины обучающийся должен
 
-знать: ...;
+знать: \rdf{dc wpdd:know !cnt:ContentAsText}{...};
 
-уметь: ...;
+уметь: \rdf{dc wpdd:ableTo !cnt:ContentAsText}{...};
 
-владеть: ....
+владеть: \rdf{dc wpdd:posess !cnt:ContentAsText}{...};
+\end{rdfctx}
 
 \section{Содержание и структура дисциплины}
 
@@ -307,11 +318,11 @@
 
 \subsection{Учебно-лабораторное оборудование}
 
-ЭТОТ РАЗДЕЛ НЕ ЗАПОЛНЯТЬ
+{{common.provision.lab}}
 
 \subsection{Программное обеспечение}
 
-ПЕРЕЧИСЛИТЬ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ТРЕБУЕМОЕ ДЛЯ ДИСЦИПЛИНЫ
+{{common.provision.software}}
 
 \section{Оценочные материалы для текущего контроля и
 промежуточной аттестации}
@@ -328,11 +339,19 @@
 \subsection{Оценочные средства для промежуточной аттестации}
 
 \paragraph{Список вопросов для промежуточной аттестации:}
-
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:QuestionList !wpdd:ItemList}}
+\begin{enumerate}
+\item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Question}{....}
+\end{enumerate}
+\end{rdfctx}
 \paragraph{Примеры оценочных средств для промежуточной аттестации:}
-
-\par
-\paragraph{\normalfont Разработчик:} {{context.developer}} %Головко Е. А., кандидат физ.-мат. наук, доцент
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:ItemList}}
+\begin{enumerate}
+\item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Example}{....}
+\end{enumerate}
+\end{rdfctx}
+\paragraph{\normalfont Разработчик:}%
+\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person }{....} % Иванов И.В., канд.техн.наук, доцент.
 
 \end{document}
 

@@ -202,12 +202,12 @@ class Context():
     def _defcontext(self, this, options):
         # print(this, options)
         answer = ["%\n"]
+        answer.append(r"\rdf{%"+"\n")
         for name, val in this.context.items():
-            answer.append(r"\rdf{%\n")
             if val.uri is not None:
                 answer.append(r"\rdfsetctx{" + name + "}{" +
                               repr(val.uri).replace("rdflib.term.", "") +
-                              "}%\n")
+                              "}%"+"\n")
         return answer + ["}{}%\n"]
 
     def genwp(self):
