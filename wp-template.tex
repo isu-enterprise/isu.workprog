@@ -529,12 +529,51 @@
 
 
 \subsection{Оценочные средства текущего контроля}
+{{#rdfeach disc idd:hasCompetence}}
+% {{this dcterms:identifier}}
 
-Вид контроля
+% {{this rdfs:label}}
 
-Контролируемые темы
+{{/rdfeach}}
 
-Примеры оценочных средств текущего контроля
+\noindent{\footnotesize%
+  \begin{tblr}{|X[3,l]|X[4,l]|X[2,l]|}
+  \hline
+  Вид контроля &
+  Контролируемые темы & Контролируемые компетенции \\\hline
+  {{#rdfeach syll wpdd:itemList ?wpdd:IndependentWorkTopicList ?wpdd:ItemList}}
+  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:IndependentWorkTopic}}
+  & Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &
+{{#rdfeach disc idd:hasCompetence}}
+{{this dcterms:identifier}};
+{{/rdfeach}}
+  \\\hline
+  {{/with}}
+  {{/rdfeach}}
+\end{tblr}}
+
+
+
+\paragraph{Примеры оценочных средств текущего контроля}
+
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:CurrentAttestation !wpdd:ItemList}}
+\begin{enumerate}
+\item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Example}{....}
+\end{enumerate}
+\end{rdfctx}
+
+
+\noindent Например:
+
+\noindent Демонстрационный вариант контрольной работы №1 (№2, №3)
+
+\noindent Демонстрационный вариант теста №1 (№2, №3)
+
+\noindent Вопросы для собеседования №1 (№2, №3)
+
+\noindent Вопросы для коллоквиума №1 (№2, №3)
+
+\noindent Темы рефератов и др.
 
 \subsection{Оценочные средства для промежуточной аттестации}
 
@@ -545,7 +584,7 @@
 \end{enumerate}
 \end{rdfctx}
 \paragraph{Примеры оценочных средств для промежуточной аттестации:}
-\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:ItemList}}
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:IntermediateAttestation !wpdd:ItemList}}
 \begin{enumerate}
 \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Example}{....}
 \end{enumerate}
