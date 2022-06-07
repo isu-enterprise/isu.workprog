@@ -81,7 +81,7 @@ class Context():
         if isinstance(uri, types.GeneratorType):
             uri = next(uri)
         val = str(uri)
-        return r"\rdf{" + self.renderpath() + "}%\n{" + val + "}"
+        return r"\rdf{" + self.renderpath() + "}{" + val + "}"
 
     def renderpath(self):
         global RCTX

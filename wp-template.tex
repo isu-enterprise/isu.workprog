@@ -3,10 +3,21 @@
 \RequirePackage{tabularx}
 \RequirePackage{indentfirst}
 \RequirePackage{polyglossia}
+\usepackage{multirow}
+\usepackage{tabularray}
 \setmainlanguage{russian}
 \setotherlanguage{english}
 \setkeys{russian}{babelshorthands=true} % Переносы типа
                                         % красно"=зеленый
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    % pdfpagemode=FullScreen,
+    }
 % \RequirePackage{minted}
 %
 \RequirePackage{luatextra}
@@ -183,18 +194,71 @@
 Форма промежуточной аттестации: {{disc idd:controlType rdfs:label}}.
 
 \subsection{Содержание дисциплины, структурированное по темам, c указанием видов
-  учебных занятий и отведенного на них количества академических часов}
+  учебных занятий и отведенного на них количества академических часов} % 4.1
+{{#rdfeach disc idd:term }}
+% --------------------------------------------------
+% Семестр {{this idd:number }}
+% Курс {{this idd:course}}
+% Контроль (зачет-8, экзамен-10) {{this idd:contol}}
+% Зачетных единиц - {{this idd:credits}}
+% Лекции (часы) - {{this idd:lection}}
+% Практических работ (часы) - {{this idd:practice}}
+% Лабораторных работ (часы) - {{this idd:laboratoryWorks}}
+% Самостоятельная работа (часы) - {{this idd:independentWork}}
+% Подготовка к зачету/экзамену (часы) - {{this idd:preparation}}
+% Всего часов в СЕМЕСТРЕ - {{this idd:total}}
+% Форма контроля {{this idd:type rdfs:label}}
 
-\subsection{План внеаудиторной самостоятельной работы обучающихся по дисциплине}
 
-\subsection{Содержание учебного материала}
+\noindent{\centering\footnotesize%
+%  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
+  \begin{tblr}{|X[4,l]|X[1,c]|X[1,c]|X[1,c]|X[1,c]|X[1,c]|X[2,l]|}
+  \hline
+  \SetCell[r=3]{c} Раздел дисциплины~/ тема &
+  \SetCell[r=3]{c} Семес. &
+  \SetCell[c=4]{c} Виды учебной работы & & & &
+  \SetCell[r=3]{l} Формы текущего контроля; Формы промежут. аттестации \\\hline
+  & &  \SetCell[c=3]{l,4cm} Контактная работа преподавателя с обучающимися & & &
+  \SetCell[r=2]{c} Самост. работа & \\ \hline
+  & &  Лекции & Лаб. занятия & Практ. занятия & & \\\hline
+{{#let idd-number this idd:number }}
+  {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
+  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} & {{idd-number}} & & & & & \\\hline
+  {{/with}}
+  {{/rdfeach}}
+{{/let}}
+            Итого ({{this idd:number}} семестр) & &  {{this idd:lection}} &  {{this idd:laboratoryWorks}} &
+ {{this idd:practice}} & {{this idd:independentWork}} & {{this idd:type rdfs:label}} \\
+ \hline
+\end{tblr}}
 
-\subsubsection{Перечень семинарских, практических занятий и лабораторных работ}
+
+{{/rdfeach}}
+
+\subsection{План внеаудиторной самостоятельной работы обучающихся по дисциплине} % 4.2
+
+\subsection{Содержание учебного материала} % 4.3
+
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:TopicList !wpdd:ItemList}}
+  \begin{rdfctx}{\rdfsetctx{item}{list ^schema:member !wpdd:ListItem !wpdd:Topic}}
+    Тема~\rdf{item dcterms:identifier}{1}.~\rdf{item rdfs:label}{Название темы.}
+    \rdf{item dcterms:description}{Подтема...., подтема ....}
+  \end{rdfctx}
+
+  \begin{rdfctx}{\rdfsetctx{item}{list ^schema:member !wpdd:ListItem !wpdd:Topic}}
+    Тема~\rdf{item dcterms:identifier}{2}.~\rdf{item rdfs:label}{Название темы.}
+    \rdf{item dcterms:description}{Подтема...., подтема ....}
+  \end{rdfctx}
+\end{rdfctx}
+
+
+\subsubsection{Перечень семинарских, практических занятий и лабораторных работ} % 4.3.1
 
 \subsubsection{Перечень тем (вопросов), выносимых на самостоятельное изучение студентами
-в рамках самостоятельной работы}
+в рамках самостоятельной работы} % 4.3.2
 
-\subsection{Методические указания по организации самостоятельной работы студентов}
+\subsection{Методические указания по организации самостоятельной работы студентов} % 4.4
 
 Самостоятельная работа студентов всех форм и видов обучения является одним из
 обязательных видов образовательной деятельности, обеспечивающей реализацию
@@ -309,10 +373,43 @@
 
 \section{Учебно"=методическое и информационное обеспечение дисциплины}
 \noindent а)\ основная литература:
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:BaseReferenceList !wpdd:ItemList}}
+  \begin{enumerate}
+      \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...}
+  \end{enumerate}
+\end{rdfctx}
 
 \noindent б)\ дополнительная литература:
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:AuxReferenceList !wpdd:ItemList}}
+  \begin{enumerate}
+      \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...}
+  \end{enumerate}
+\end{rdfctx}
 
 \noindent в)\ базы данных, информационно-справочные и поисковые системы:
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:EReferenceList !wpdd:ItemList}}
+  \begin{enumerate}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Научная электронная библиотека «ELIBRARY.RU» [Электронный ресурс]\;:~сайт. – Режим доступа: \url{http://elibrary.ru/defaultx.asp}}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Открытая электронная база ресурсов и исследований «Университетская информационная система РОССИЯ» [Электронный ресурс]\;:~сайт. – Режим доступа: \url{http://uisrussia.msu.ru}}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Государственная информационная система «Национальная электронная библиотека» [Электронный ресурс]\;:~сайт. – Режим доступа: \url{http://нэб.рф}}
+  \end{enumerate}
+\end{rdfctx}
+  В соответствии с п. 4.3.4. ФГОС ВО, обучающимся в течение всего периода обучения обеспечен неограниченный доступ (удаленный доступ) к электронно-библиотечным системам:
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:EContractList !wpdd:ItemList}}
+  \begin{itemize}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС «Издательство Лань». ООО «Издательство Лань». Контракт № 92 от 12.11.2018 г. Акт от 14.11 2018 г.}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС ЭЧЗ «Библиотех». Государственный контракт № 019 от 22.02.2011 г. ООО «Библиотех». Лицензионное соглашение № 31 от 22.02.2011 г. Адрес доступа: \url{https://isu.bibliotech.ru/} Срок действия: с 22.11.2011 г. бессрочный.}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС «Национальный цифровой ресурс «Руконт». ЦКБ «Бибком». Контракт № 91 от 12.11.2018 г. Акт от 14.11.2018 г.}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС «Айбукс.ру/ibooks.ru». ООО «Айбукс». Контракт № 90 от 12.11.2018 г. Акт № 54 от 14.11.2018 г.}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Электронно-библиотечная система «ЭБС Юрайт». ООО «Электронное издательство Юрайт». Контракт № 70 от 04.10.2018 г.}
+  \end{itemize}
+\end{rdfctx}
+\noindent г)\ базы данных, информационно-справочные и поисковые системы
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:InternetResources !wpdd:ItemList}}
+  \begin{itemize}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:InternetResource}{....}
+  \end{itemize}
+\end{rdfctx}
 
 \section{Материально"=техническое обеспечение дисциплины}
 
