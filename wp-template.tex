@@ -210,7 +210,7 @@
 % Форма контроля {{this idd:type rdfs:label}}
 
 
-\noindent{\centering\footnotesize%
+\noindent{\footnotesize%
 %  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
   \begin{tblr}{|X[4,l]|X[1,c]|X[1,c]|X[1,c]|X[1,c]|X[1,c]|X[2,l]|}
   \hline
@@ -238,6 +238,45 @@
 
 \subsection{План внеаудиторной самостоятельной работы обучающихся по дисциплине} % 4.2
 
+{{#rdfeach disc idd:term }}
+% --------------------------------------------------
+% Семестр {{this idd:number }}
+% Курс {{this idd:course}}
+% Контроль (зачет-8, экзамен-10) {{this idd:contol}}
+% Зачетных единиц - {{this idd:credits}}
+% Лекции (часы) - {{this idd:lection}}
+% Практических работ (часы) - {{this idd:practice}}
+% Лабораторных работ (часы) - {{this idd:laboratoryWorks}}
+% Самостоятельная работа (часы) - {{this idd:independentWork}}
+% Подготовка к зачету/экзамену (часы) - {{this idd:preparation}}
+% Всего часов в СЕМЕСТРЕ - {{this idd:total}}
+% Форма контроля {{this idd:type rdfs:label}}
+
+
+\noindent{\footnotesize%
+%  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
+  \begin{tblr}{|X[4,l]|X[1,c]|X[1,c]|X[1,c]|X[2,l]|X[1.5,l]|}
+  \hline
+  \SetCell[r=2]{c} Раздел дисциплины~/ тема &
+  \SetCell[c=3]{c,10em} Самостоятельная работа обучающихся & & &
+  \SetCell[r=2]{c,5em} Оценочное средство &
+  \SetCell[r=2]{l,5em} Учебно-методическое обеспечение самост. работы \\\hline
+  & Вид самост. работы & Сроки выполнения & Затраты времени &  & \\\hline
+  {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
+  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &  & & & & \\\hline
+  {{/with}}
+  {{/rdfeach}}
+  \SetCell[c=3]{l,22em} Общая трудоемкость самостоятельной работы (час.) & & &
+  {{this idd:independentWork}} & &\\\hline
+  \SetCell[c=3]{l,25em} {Из них с использованием электронного обучения\\ и дистанционных образовательных} технологий (час.) & & & & &\\
+ \hline
+\end{tblr}}
+
+
+{{/rdfeach}}
+
+
 \subsection{Содержание учебного материала} % 4.3
 
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:TopicList !wpdd:ItemList}}
@@ -252,11 +291,75 @@
   \end{rdfctx}
 \end{rdfctx}
 
-
 \subsubsection{Перечень семинарских, практических занятий и лабораторных работ} % 4.3.1
+
+{{#rdfeach disc idd:term }}
+% --------------------------------------------------
+% Семестр {{this idd:number }}
+% Курс {{this idd:course}}
+% Контроль (зачет-8, экзамен-10) {{this idd:contol}}
+% Зачетных единиц - {{this idd:credits}}
+% Лекции (часы) - {{this idd:lection}}
+% Практических работ (часы) - {{this idd:practice}}
+% Лабораторных работ (часы) - {{this idd:laboratoryWorks}}
+% Самостоятельная работа (часы) - {{this idd:independentWork}}
+% Подготовка к зачету/экзамену (часы) - {{this idd:preparation}}
+% Всего часов в СЕМЕСТРЕ - {{this idd:total}}
+% Форма контроля {{this idd:type rdfs:label}}
+
+
+\noindent{\footnotesize%
+%  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
+  \begin{tblr}{|X[4,l]|X[1,c]|X[2,c]|X[1,c]|}
+  \hline
+  Тема занятия &
+  Всего часов & Оценочные средства & Формируемые компетенции \\\hline
+  {{#rdfeach syll wpdd:itemList ?wpdd:PracticeTopicList ?wpdd:ItemList}}
+  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:PracticeTopic}}
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &  & & \\\hline
+  {{/with}}
+  {{/rdfeach}}
+\end{tblr}}
+
+
+{{/rdfeach}}
+
 
 \subsubsection{Перечень тем (вопросов), выносимых на самостоятельное изучение студентами
 в рамках самостоятельной работы} % 4.3.2
+
+{{#rdfeach disc idd:term }}
+% --------------------------------------------------
+% Семестр {{this idd:number }}
+% Курс {{this idd:course}}
+% Контроль (зачет-8, экзамен-10) {{this idd:contol}}
+% Зачетных единиц - {{this idd:credits}}
+% Лекции (часы) - {{this idd:lection}}
+% Практических работ (часы) - {{this idd:practice}}
+% Лабораторных работ (часы) - {{this idd:laboratoryWorks}}
+% Самостоятельная работа (часы) - {{this idd:independentWork}}
+% Подготовка к зачету/экзамену (часы) - {{this idd:preparation}}
+% Всего часов в СЕМЕСТРЕ - {{this idd:total}}
+% Форма контроля {{this idd:type rdfs:label}}
+
+
+\noindent{\footnotesize%
+%  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
+  \begin{tblr}{|X[3,l]|X[3,c]|X[1,c]|}
+  \hline
+  Тема &
+  Задание & Формируемые компетенции \\\hline
+  {{#rdfeach syll wpdd:itemList ?wpdd:IndependentWorkTopicList ?wpdd:ItemList}}
+  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:IndependentWorkTopic}}
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &  & \\\hline
+  {{/with}}
+  {{/rdfeach}}
+\end{tblr}}
+
+
+{{/rdfeach}}
+
+
 
 \subsection{Методические указания по организации самостоятельной работы студентов} % 4.4
 
