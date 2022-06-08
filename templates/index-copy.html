@@ -232,6 +232,12 @@
             console.info("Saved the gaph successfully!");
           })
         });
+        
+       $("#questButton").on("click", function(){
+            $(".edit-list-label").clone(true).appendTo("ol")
+        })
+        
+       
 
         $(".edit-list-label").on("click", function () {
           currentListItem = this;
@@ -265,9 +271,10 @@
               <ul class="btns">
               <li class="btn"><button id="theButton" type="button" class="btn btn-primary">Load</button></li>
               <li class="btn"><button id="saveButton" type="button" class="btn btn-primary">Save</button></li>
+              <li class="btn"><button id="questButton" type="button" class="btn btn-primary">Add question</button></li>
               <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
               <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
-
+            
              </ul>
           </header>
         </div>
@@ -300,7 +307,32 @@
            property="wpdd:requiredDisciplines" lang="ru"
            >Дисциплины через точку с запятой....</div></p>
 
-   <!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
+   
+
+        <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+        <div property="wpdd:itemList" typeof="wpdd:ItemList">
+          <ol id="listeditor-Question">
+            <li class="edit-itemlist"
+               rev="schema:member" typeof="wpdd:ListItem wpdd:Question">
+              <div
+                property="rdfs:label"
+                lang="ru"
+                class="edit-list-label"
+                contenteditable="true"
+                >Ответ</div>
+            </li>
+          </ol>
+          <!-- Кнопки -->
+        </div>
+        <!--
+       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+         <div id="texteditor-question"
+              class="edit-text"
+              property="wpdd:QuestionList" lang="ru"
+                 > </div> -->
+
+
+<!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
       <div id="texteditor-"
            class="edit-text"
            property="" lang="ru"
@@ -399,31 +431,6 @@
              class="edit-text"
              property="wpdd:QuestionList" lang="ru"
               > quests</div> -->
-
-        <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
-        <div property="wpdd:itemList" typeof="wpdd:ItemList">
-          <ol id="listeditor-Question">
-            <li class="edit-itemlist"
-               rev="schema:member" typeof="wpdd:ListItem wpdd:Question">
-              <div
-                property="rdfs:label"
-                lang="ru"
-                class="edit-list-label"
-                contenteditable="true"
-                >Вопрос</div>
-            </li>
-          </ol>
-          <!-- Кнопки -->
-        </div>
-        <!--
-       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
-         <div id="texteditor-question"
-              class="edit-text"
-              property="wpdd:QuestionList" lang="ru"
-                 > </div> -->
-
-
-
 
 
 

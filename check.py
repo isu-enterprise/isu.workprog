@@ -74,7 +74,6 @@ LIMIT 1
 GET_WP_QUEST = PREFIXES + """
 
 SELECT ?quest ?number ?label WHERE {
-# SELECT * WHERE {
     ?syll a dbr:Syllabus .
     ?syll wpdd:itemList ?itemlist .
     ?s a dbr:Syllabus .
@@ -84,7 +83,7 @@ SELECT ?quest ?number ?label WHERE {
     ?quest schema:sku ?number .
     ?quest rdfs:label ?label  .
    }
-
+LIMIT 1
 """
 
 #END_OF_GETTERS
@@ -118,7 +117,7 @@ WHERE
 """
 
 QUERIES = [
-    (("aim", "problem", "requiredDisciplines"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP], WPDD),
+    (("aim", "problem", "requiredDisciplines", "listeditor-Question"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP,GET_WP_QUEST], WPDD),
 ]
 
 def gettemplates(pred):
@@ -141,7 +140,7 @@ def lprint(s):
 def savewp():
     js = request.json
     op = js["op"]
-
+    list = js["list"]
     pred = js["pred"]
     queries = gettemplates(pred)
     if queries is None:
@@ -152,6 +151,7 @@ def savewp():
     templates, pred = queries
     js["pred"]=pred
     js["wpuri"]=URIRef(js["wpuri"])
+
 
     if templates is None:
         msg = "Cannot find template for '{}'.".format(js)

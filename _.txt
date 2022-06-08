@@ -1,0 +1,1 @@
+{"results": {"bindings": [{"quest": {"type": "uri", "value": "http://irnok.net/ontologies/database/isu/workprog#edd389ac-e2f5-11ec-84e1-704d7b84fd9f"}, "label": {"type": "literal", "value": "Понятие дифференциального уравнения с частными производными и его решения.", "xml:lang": "ru"}, "number": {"type": "literal", "value": "1"}}]}, "head": {"vars": ["quest", "number", "label"]}}

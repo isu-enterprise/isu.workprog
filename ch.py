@@ -33,7 +33,6 @@ LIMIT 1
 GET_WP_QUEST = PREFIXES + """
 
 SELECT ?quest ?number ?label WHERE {
-# SELECT * WHERE {
     ?syll a dbr:Syllabus .
     ?syll wpdd:itemList ?itemlist .
     ?s a dbr:Syllabus .
@@ -43,7 +42,7 @@ SELECT ?quest ?number ?label WHERE {
     ?quest schema:sku ?number .
     ?quest rdfs:label ?label  .
    }
-
+LIMIT 1
 """
 
 QQ = PREFIXES + """
@@ -62,7 +61,7 @@ print(q)
 
 ans = G.query(q,
               initBindings={
-                  "syll": WPDB["ae42e756-dea4-11ec-b02c-704d7b84fd9f"],
+                  "syll": WPDB["edcb8482-e2f5-11ec-84e1-704d7b84fd9f"],
                   "mur": "cur"
               })
 
@@ -72,5 +71,5 @@ ans.serialize(destination="_.txt", format="json", encoding="utf-8")
 # answer = {"text": text}
 # print(answer)
 
-#for uuid, num, lab in ans:
-#    print("{}. {}".format(num, lab))
+for uuid, num, q in ans:
+    print("{}. {}".format(num, q))
