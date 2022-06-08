@@ -59,6 +59,29 @@ def initgraph(filename):
     return G
 
 
+class Assignment:
+
+    def __init__(self, context, name=None):
+        self.name = name
+        self.context = context
+
+    def __str__(self):
+        return self.context.renderpath() + " = " + str(self.name)
+
+    def renderpath(self):
+        return self.__str__()
+
+    def get(self, index, default=None):
+        if self.name is None:  # Definition phase
+            self.name = index
+            return self
+        elif self.name == index:
+            return self.context
+        else:
+            logger.error("Cannot resolve assignment '{} {}'".format(self, index))
+            return None
+
+
 class Context():
 
     def __init__(self,
@@ -92,7 +115,7 @@ class Context():
                     oop = r""
                 else:
                     oop = r"^"
-                s += self.prev.renderpath() + " " + oop+self.op
+                s += self.prev.renderpath() + " " + oop + self.op
         else:
             uri = self.uri
             suri = str(uri)
@@ -105,6 +128,8 @@ class Context():
         return s
 
     def get(self, index, default=None):
+        if index == "=":
+            return Assignment(context=self)
         if ":" in index:
             pref, ns, pred = index.split(":")
             # print(pref, ns, pred)
@@ -192,23 +217,54 @@ class Context():
         # Add any special helpers
     def _each(self, this, options, context):
         result = []
-        # pprint((this, options, items))
+        if isinstance(context, Context):
+            result.append(r"\begin{rdfctx}{" + context.renderpath() + "}")
         result.extend(options['fn'](context))
         if hasattr(context, "gen"):
             for thing in context.gen:
                 result.extend(options['fn'](Context(thing)))
+        if isinstance(context, Context):
+            result.append(r"\end{rdfctx}")
         return result
 
     def _defcontext(self, this, options):
         # print(this, options)
         answer = ["%\n"]
-        answer.append(r"\rdf{%"+"\n")
+        answer.append(r"\rdf{%" + "\n")
         for name, val in this.context.items():
             if val.uri is not None:
                 answer.append(r"\rdfsetctx{" + name + "}{" +
                               repr(val.uri).replace("rdflib.term.", "") +
-                              "}%"+"\n")
+                              "}%" + "\n")
         return answer + ["}{}%\n"]
+
+    def _with(self, this, options, context):
+        result = []
+        if isinstance(context, Context):
+            result.append(r"\begin{rdfctx}{" + context.renderpath() + "}")
+        result.append(options['fn'](context))
+        if isinstance(context, Context):
+            result.append(r"\end{rdfctx}")
+        return result
+
+    def _let(self, this, options, context):
+        result = []
+        print("CTX", type(context))
+
+        if isinstance(context, Assignment):
+            prevroot = {}
+            root = options["root"]
+            prevroot.update(root)
+            root[context.name] = context.context
+            result.append(r"\begin{rdfctx}{\rdfsetctx{" + context.name + "}{" +
+                          context.context.renderpath() + "}}")
+        result.append(options['fn'](context))
+        if isinstance(context, Assignment):
+            del root[context.name]
+            root.update(prevroot)
+            result.append(r"\end{rdfctx}")
+
+        return result
 
     def genwp(self):
         global CTX, RCTX
@@ -224,12 +280,15 @@ class Context():
         content = TEMPLATE(CTX,
                            helpers={
                                "rdfeach": self._each,
-                               "defcontext": self._defcontext
+                               "defcontext": self._defcontext,
+                               "rdflet": self._let,
+                               "rdfwith": self._with,
                            })
         logger.info("Writing into '{}'".format(filename))
         o = open(filename, "w")
         o.write(content)
         o.close()
+        # quit()
 
     def rdfdcid(self, subj):
         subj = uri(subj)

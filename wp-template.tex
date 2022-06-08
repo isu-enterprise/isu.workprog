@@ -221,13 +221,13 @@
   & &  \SetCell[c=3]{l,4cm} Контактная работа преподавателя с обучающимися & & &
   \SetCell[r=2]{c} Самост. работа & \\ \hline
   & &  Лекции & Лаб. занятия & Практ. занятия & & \\\hline
-{{#let idd-number this idd:number }}
+{{#rdflet this idd:number = idd-number }}
   {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
   Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} & {{idd-number}} & & & & & \\\hline
   {{/with}}
   {{/rdfeach}}
-{{/let}}
+{{/rdflet}}
             Итого ({{this idd:number}} семестр) & &  {{this idd:lection}} &  {{this idd:laboratoryWorks}} &
  {{this idd:practice}} & {{this idd:independentWork}} & {{this idd:type rdfs:label}} \\
  \hline
