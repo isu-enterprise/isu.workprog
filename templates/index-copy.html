@@ -159,11 +159,11 @@
            return;
         }
         // pred
-        pred = findNearestContainer(listEditor).attr("id");
+        con = findNearestContainer(listEditor);
+        pred = con.attr("id")
         pred = toPred(pred);
-        alert(pred);
         op["type"] = "list";
-        op["list"] = ["1", "2", "3"];
+        op["html"] = con.closest(".item-list")[0].outerHTML;
         op["pred"] = pred;
         op["wpuri"] = WPURI;
         $.ajax(SERVER+"qwp", data={
@@ -320,7 +320,7 @@
 
 
         <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
-        <div property="wpdd:itemList" typeof="wpdd:ItemList">
+        <div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list">
           <ol id="listeditor-Question">
             <li class="edit-itemlist"
                rev="schema:member" typeof="wpdd:ListItem wpdd:Question">

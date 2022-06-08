@@ -136,11 +136,18 @@ def lprint(s):
         q = c + 1
         print ("{} {}".format(q, s.rstrip()))
 
+def html2list(html):
+    print(html)
+    return ["1", "2"]
+
 @app.route("/api/1.0/qwp", methods=['POST'])  # Get Work ProgramS
 def savewp():
     js = request.json
     op = js["op"]
-    list = js["list"]
+    html = js.get("html", None)
+    if html is not None:
+        del js["html"]
+        list = html2list(html)
     pred = js["pred"]
     queries = gettemplates(pred)
     if queries is None:
