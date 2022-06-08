@@ -232,12 +232,12 @@
             console.info("Saved the gaph successfully!");
           })
         });
-        
+
        $("#questButton").on("click", function(){
-            $(".edit-list-label").clone(true).appendTo("ol")
+            $(".edit-itemlist").last().clone(true).appendTo("ol")
         })
-        
-       
+
+
 
         $(".edit-list-label").on("click", function () {
           currentListItem = this;
@@ -274,7 +274,7 @@
               <li class="btn"><button id="questButton" type="button" class="btn btn-primary">Add question</button></li>
               <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
               <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
-            
+
              </ul>
           </header>
         </div>
@@ -307,7 +307,7 @@
            property="wpdd:requiredDisciplines" lang="ru"
            >Дисциплины через точку с запятой....</div></p>
 
-   
+
 
         <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
         <div property="wpdd:itemList" typeof="wpdd:ItemList">
