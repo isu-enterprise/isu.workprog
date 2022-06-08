@@ -142,15 +142,24 @@
 
       var currentListItem = null;
 
+      function findNearestContainer(listEditor) {
+        predOl = $(listEditor).closest("ol");
+        predUl = $(listEditor).closest("ul");
+        if (predOl != undefined) return predOl;
+        if (predUl != undefined) return predUl;
+        return null;
+      }
+
       function kglistquery (op, listEditor = null) {
         if (listEditor === null) {
           listEditor = currentListItem;
         }
+        if (listEditor === null) {
+           console.log("No listEditor found");
+           return;
+        }
         // pred
-        predOl = $(listEditor).closest("ol").attr("id");
-        predUl = $(listEditor).closest("ul").attr("id");
-        if (predOl != undefined) pred = predOl;
-        if (predUl != undefined) pred = predUl;
+        pred = findNearestContainer(listEditor).attr("id");
         pred = toPred(pred);
         alert(pred);
         op["type"] = "list";
@@ -234,10 +243,11 @@
         });
 
        $("#questButton").on("click", function(){
-            $(".edit-itemlist").last().clone(true).appendTo("ol")
+            if (currentListItem != null) {
+                oul = findNearestContainer(currentListItem);
+                $(".edit-itemlist").last().clone(true).appendTo(oul);
+            }
         })
-
-
 
         $(".edit-list-label").on("click", function () {
           currentListItem = this;
@@ -387,7 +397,7 @@
         ДИСЦИПЛИНЫ </strong></br>
          <ol>
          <li> Main litra</li>
-          <div id="listditor-"
+          <div id="listEditor-"
             class="edit-text"
             property="wpdd:BasicReferences" lang="ru"
                   > main litr </div>
