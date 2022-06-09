@@ -3,44 +3,43 @@
 @prefix wpdb: <http://irnok.net/ontologies/database/isu/workprog#> .
 @prefix wpdd: <http://irnok.net/ontologies/isu/workprog#> .
 
-wpdd:123434587195871958734 wpdd:itemList wpdb:81953b44-e72a-11ec-ae6c-b42e99b15cbb .
+wpdd:123434587195871958734 wpdd:itemList wpdb:caa6eb42-e730-11ec-8150-704d7b84fd9f .
 
-wpdb:819540e4-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ListItem,
+wpdb:caa6f290-e730-11ec-8150-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
-    rdfs:label <file:///home/eugeneai/project/code/stud/isu.workprog/Ответ>,
-        wpdb:819549b8-e72a-11ec-ae6c-b42e99b15cbb ;
-    schema:member wpdb:81953b44-e72a-11ec-ae6c-b42e99b15cbb .
+    rdfs:label <file:///home/eugeneai/projects/text/docent/isu/2022/new-format-rpd/isu-opd-dl/Ответ>,
+        wpdb:caa70050-e730-11ec-8150-704d7b84fd9f ;
+    schema:member wpdb:caa6eb42-e730-11ec-8150-704d7b84fd9f .
 
-wpdb:81956b32-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ListItem,
+wpdb:caa727ba-e730-11ec-8150-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
-    rdfs:label <file:///home/eugeneai/project/code/stud/isu.workprog/Кнопки>,
-        <file:///home/eugeneai/project/code/stud/isu.workprog/Ответ4> ;
-    schema:member wpdb:81956362-e72a-11ec-ae6c-b42e99b15cbb .
+    rdfs:label <file:///home/eugeneai/projects/text/docent/isu/2022/new-format-rpd/isu-opd-dl/Ответ4> ;
+    schema:member wpdb:caa71d6a-e730-11ec-8150-704d7b84fd9f .
 
-wpdb:81953b44-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ItemList,
+wpdb:caa6eb42-e730-11ec-8150-704d7b84fd9f a wpdd:ItemList,
         wpdd:QuestionList .
 
-wpdb:819549b8-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ListItem,
+wpdb:caa70050-e730-11ec-8150-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
-    rdfs:label <file:///home/eugeneai/project/code/stud/isu.workprog/2Ответ>,
-        wpdb:819551e2-e72a-11ec-ae6c-b42e99b15cbb ;
-    schema:member wpdb:819540e4-e72a-11ec-ae6c-b42e99b15cbb .
+    rdfs:label <file:///home/eugeneai/projects/text/docent/isu/2022/new-format-rpd/isu-opd-dl/2Ответ>,
+        wpdb:caa70a1e-e730-11ec-8150-704d7b84fd9f ;
+    schema:member wpdb:caa6f290-e730-11ec-8150-704d7b84fd9f .
 
-wpdb:819551e2-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ListItem,
+wpdb:caa70a1e-e730-11ec-8150-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
-    rdfs:label <file:///home/eugeneai/project/code/stud/isu.workprog/Ответ3>,
-        wpdb:81955b88-e72a-11ec-ae6c-b42e99b15cbb ;
-    schema:member wpdb:819549b8-e72a-11ec-ae6c-b42e99b15cbb .
+    rdfs:label <file:///home/eugeneai/projects/text/docent/isu/2022/new-format-rpd/isu-opd-dl/Ответ3>,
+        wpdb:caa713f6-e730-11ec-8150-704d7b84fd9f ;
+    schema:member wpdb:caa70050-e730-11ec-8150-704d7b84fd9f .
 
-wpdb:81955b88-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ListItem,
+wpdb:caa713f6-e730-11ec-8150-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
-    rdfs:label <file:///home/eugeneai/project/code/stud/isu.workprog/Ответ5>,
-        wpdb:81956362-e72a-11ec-ae6c-b42e99b15cbb ;
-    schema:member wpdb:819551e2-e72a-11ec-ae6c-b42e99b15cbb .
+    rdfs:label <file:///home/eugeneai/projects/text/docent/isu/2022/new-format-rpd/isu-opd-dl/Ответ5>,
+        wpdb:caa71d6a-e730-11ec-8150-704d7b84fd9f ;
+    schema:member wpdb:caa70a1e-e730-11ec-8150-704d7b84fd9f .
 
-wpdb:81956362-e72a-11ec-ae6c-b42e99b15cbb a wpdd:ListItem,
+wpdb:caa71d6a-e730-11ec-8150-704d7b84fd9f a wpdd:ListItem,
         wpdd:Question ;
-    rdfs:label <file:///home/eugeneai/project/code/stud/isu.workprog/Ответ4>,
-        wpdb:81956b32-e72a-11ec-ae6c-b42e99b15cbb ;
-    schema:member wpdb:81955b88-e72a-11ec-ae6c-b42e99b15cbb .
+    rdfs:label <file:///home/eugeneai/projects/text/docent/isu/2022/new-format-rpd/isu-opd-dl/Ответ4>,
+        wpdb:caa727ba-e730-11ec-8150-704d7b84fd9f ;
+    schema:member wpdb:caa713f6-e730-11ec-8150-704d7b84fd9f .
 
