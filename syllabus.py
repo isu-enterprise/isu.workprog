@@ -22,7 +22,7 @@ logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
                     level=logging.DEBUG)
 
 G = Graph()
-CDC = BNode()
+CDC = genuuid(WPDB)
 
 WP = genuuid(WPDB)
 binds(G)
@@ -939,7 +939,7 @@ def procstudycontent(section):
     def _(d, p):
         for k, v in d.items():
             t, sub = v
-            BN = BNode()
+            BN = genuuid(WPDB)
             G.add((p, WPDD.content, BN))
             G.add((BN, RDF.type, WPDD["Topic"]))
             G.add((BN, RDFS.label, Literal(t, lang="ru")))
