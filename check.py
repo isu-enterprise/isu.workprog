@@ -3,7 +3,11 @@ from flask import Flask, render_template, jsonify, request
 from rdflib import Graph, URIRef, Literal
 import logging
 from pprint import pprint
-from common import IDD, WPDD
+from common import IDD, WPDD, WPDB, genuuid
+from distiller import distill
+from json import loads
+import io
+from jinja2 import Environment, BaseLoader
 
 KG_FILE_NAME = "a.xml.ttl"
 INDEX_HTML = 'index-copy.html'
@@ -116,14 +120,62 @@ WHERE
 
 """
 
+GET_LIST = PREFIXES + """
+SELECT ?list ?uri ?label
+WHERE
+{
+    ?list a wpdd:ItemList .
+    ?uri schema:member ?list .
+    ?uri a wpdd:ListItem .
+    ?uri a ?pred .
+    ?uri rdfs:label ?label .
+}
+"""
+
+DELETE_LIST = PREFIXES + """
+DELETE
+{
+    ?uri schema:member ?list .
+    ?uri rdfs:label ?label .
+}
+WHERE
+{
+    ?list a wpdd:ItemList .
+    ?uri schema:member ?list .
+    ?uri a wpdd:ListItem .
+    ?uri a ?pred .
+    ?uri rdfs:label ?label .
+}
+"""
+
+QTEMPLATE = \
+"""<div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list" about="{{list}}">
+  <ol id="listeditor-Question">
+    {% for item in bindings %}
+    <li class="edit-itemlist"
+      rev="schema:member" typeof="wpdd:ListItem wpdd:Question" resource="{{item.uri.value}}">
+      <div
+        property="rdfs:label"
+        lang="ru"
+        class="edit-list-label"
+        contenteditable="true"
+    >{{item.label.value}}</div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+"""
+
 QUERIES = [
-    (("aim", "problem", "requiredDisciplines", "listeditor-Question"), [GET_WP_AP, DEL_WP_AP, INS_WP_AP,GET_WP_QUEST], WPDD),
+    (("aim", "problem", "requiredDisciplines"), [GET_WP_AP,   DEL_WP_AP, INS_WP_AP], WPDD, None),
+    (("Question",), [GET_LIST, DELETE_LIST], WPDD, QTEMPLATE)
 ]
 
+
 def gettemplates(pred):
-    for t, qs, ns in QUERIES:
+    for t, qs, ns, jt in QUERIES:
         if pred in t:
-            return qs, ns[pred]
+            return qs, ns[pred], jt
     return None
 
 def create_list(quest):
@@ -142,20 +194,30 @@ def html2list(html):
 
 @app.route("/api/1.0/qwp", methods=['POST'])  # Get Work ProgramS
 def savewp():
+    global G
     js = request.json
+    pprint(js)
+
     op = js["op"]
     html = js.get("html", None)
-    if html is not None:
+    ng = Graph()
+
+    if html is not None and op=="save":
         del js["html"]
-        list = html2list(html)
+        ng = distill(js["wpuri"], html, lambda : genuuid(WPDB))
+
     pred = js["pred"]
     queries = gettemplates(pred)
     if queries is None:
         pprint(js)
-        error = {"error": 0, "msg": "Bad request to the endpoint"}
+        error = {"error": 0, "msg": "Bad request to the endpoint ''"}
         pprint(error)
+        pprint(js)
         return jsonify(error)
-    templates, pred = queries
+
+    # import pudb; pu.db
+
+    templates, pred, jtemplate = queries
     js["pred"]=pred
     js["wpuri"]=URIRef(js["wpuri"])
 
@@ -172,17 +234,38 @@ def savewp():
 
     answer = {}
     del js["op"]
+
     for q in queries:
         lprint(q)
         if (op == "save"):
-            pprint(js)
-            js["text"] = Literal(js["text"], lang="ru")
+            if "text" in js:
+                js["text"] = Literal(js["text"], lang="ru")
             G.update(q, initBindings=js)
         else:
-            del js['text']
-            pprint(js)
-            text = list(G.query(q, initBindings=js))[0][0]
-            answer["text"] = str(text)
+            if "text" in js:
+                del js['text']
+                text = list(G.query(q, initBindings=js))[0][0]
+                answer["text"] = str(text)
+            else:
+                l = G.query(q, initBindings=js)
+                i = io.BytesIO()
+                l.serialize(destination=i, format='json', encoding="utf8")
+                pprint(i.getvalue())
+                i.seek(0,0)
+                json = loads(i.getvalue())
+                if jtemplate is not None:
+                    rtemplate = Environment(loader=BaseLoader).from_string(jtemplate)
+                    about = json["results"]["bindings"][0]["list"]["value"]
+                    data = {"list":about, "bindings": json["results"]["bindings"]}
+                    data = rtemplate.render(**data)
+                    answer["html"] = data
+                else:
+                    data = json
+                    answer["json"] = data
+
+                print(data)
+
+    G += ng
 
     done = op+"ed".replace("ee","e")
     answer.update({"wpuri": js["wpuri"], "error": 0, "msg": op + "ed"})

@@ -8,21 +8,21 @@ logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
                     level=logging.DEBUG)
 
-
 def distill(uri, html, idgen=BNode):
     tree = etree.HTML(html)
     g = Graph()
     binds(g)
     nsm = g.namespaces()
     NS = {ns: ur for ns, ur in nsm}
-    print(NS["wpdd"])
+    # print(NS["wpdd"])
 
     def ext(definition):
+
+        if isinstance(definition, (URIRef, BNode, Literal)):
+            return definition
+
         definition = definition.strip()
         a = definition.split(":", maxsplit=1)
-
-        if isinstance(definition, (URIRef, Literal, BNode)):
-            return definition
 
         if definition.startswith("http://") or \
              definition.startswith("https://") or \
@@ -43,34 +43,43 @@ def distill(uri, html, idgen=BNode):
         # print("<{} {} {}>".format(subj, pred, obj))
         # print("<{} {} {}>".format(ext(subj), ext(pred), ext(obj)))
 
-    # <subj, pred, obj>
-    subj = URIRef(uri)
-    pred = []
-    rev = []
-    obj = None
-    types = []
-    for element in tree.iterchildren():
-        if isinstance(element, etree._Comment):
-            continue
+    def node(element, subj):
+        # <subj, pred, obj>
+        pred = []
+        rev = []
+        obj = None
+        types = []
         kwargs = {}
-        print(element, element.attrib)
         attrs = element.attrib
+
+        if isinstance(element, etree._Comment):
+            return
+
+        # print(element, element.attrib)
+
         if "lang" in attrs:
             kwargs["lang"] = attrs["lang"]
+        if "datatype" in attrs:
+            kwargs["datatype"] = attrs["datatype"]
+
         if "property" in attrs:
             pred = attrs["property"].strip().split()
-        if "rev" in attrs:
+        elif "rev" in attrs:
             rev = attrs["rev"].strip().split()
+
         if "typeof" in attrs:
             types = attrs["typeof"].strip().split()
+
         if "about" in attrs:
             obj = ext(attrs["about"])
-        elif types:
+        elif "resource" in attrs:
+            obj = ext(attrs["resource"])
+        elif "href" in attrs:
+            obj = URIRef(attrs["href"])
+        elif types and obj is None:
             obj = idgen()
         elif "content" in attrs:
             obj = Literal(attrs["content"], **kwargs)
-        elif "href" in attrs:
-            obj = Literal(attrs["href"], **kwargs)
         elif element.text is not None:
             obj = Literal(element.text, **kwargs)
         if obj is not None and (pred or rev):
@@ -80,11 +89,15 @@ def distill(uri, html, idgen=BNode):
                 gen(subj, p, obj)
             for p in rev:
                 gen(obj, p, subj)
-        if types or "about" in attrs:
+
+        if ((pred or rev) and types) or "about" in attrs:
             subj = obj
-            obj = None
-            pred = rev = []
-            types = []
+
+        for e in element.iterchildren():
+            node(e, subj)
+
+    subj = URIRef(uri)
+    node(tree, subj)
 
     return g
 

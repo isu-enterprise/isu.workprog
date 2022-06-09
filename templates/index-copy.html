@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
             integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <style>
       .demo-inline {
           box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
@@ -137,7 +138,7 @@
                 $("#alertBox").text("Sucessfully loaded!");
               }
             }
-         });
+          });
       }
 
       var currentListItem = null;
@@ -155,8 +156,8 @@
           listEditor = currentListItem;
         }
         if (listEditor === null) {
-           console.log("No listEditor found");
-           return;
+          console.log("No listEditor found");
+          return;
         }
         // pred
         con = findNearestContainer(listEditor);
@@ -181,15 +182,17 @@
               if (err!=0) {
                 $("#alertBox").text("Could'nt load correctly:"+err);
               } else {
-                alert(data);
-                // var areaID = textArea.id;
-                // var text = data["text"];
-                // $("#" + areaID).html(text);
-                // // textArea.setContent(text);
-                // $("#alertBox").text("Sucessfully loaded!");
+                console.log(data);
+                html = data["html"]
+                cnt = $(listEditor).closest(".div-container");
+                cnt.html(html);
+                currentListItem = null;
+                cnt.find(".edit-list-label").on("click", function () {
+                  currentListItem = this;
+                });
               }
             }
-         });
+          });
       }
 
 
@@ -225,6 +228,9 @@
         $("#theButton").on("click", () => {
           console.info("INFO: pressed the button");
           kgquery({"op":"load"});
+          if (currentListItem != null) {
+            kglistquery({"op":"load"});
+          }
         });
 
         $("#saveButton").on("click", () => {
@@ -242,11 +248,11 @@
           })
         });
 
-       $("#questButton").on("click", function(){
-            if (currentListItem != null) {
-                oul = findNearestContainer(currentListItem);
-                $(".edit-itemlist").last().clone(true).appendTo(oul);
-            }
+        $("#questButton").on("click", function(){
+          if (currentListItem != null) {
+            oul = findNearestContainer(currentListItem);
+            $(".edit-itemlist").last().clone(true).appendTo(oul);
+          }
         })
 
         $(".edit-list-label").on("click", function () {
@@ -272,22 +278,22 @@
           });
       });
     </script>
-      </head>
+  </head>
   <body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ pimspace: http://www.w3.org/ns/pim/space# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# mem: http://mementoweb.org/ns# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# bibo: http://purl.org/ontology/bibo/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# odrl: http://www.w3.org/ns/odrl/2/ dio: https://w3id.org/dio# rel: https://www.w3.org/ns/iana/link-relations/relation# wpdb: http://irnok.net/ontologies/database/isu/workprog# wpdd: http://irnok.net/ontologies/isu/workprog# idb: http://irnok.net/ontologies/database/isu/studplan# idd: http://irnok.net/ontologies/isu/studplan# schema: https://schema.org/ cnt: http://www.w3.org/2011/content#"
         about="{{WP_URI}}"
         typeof="dbr:Syllabus">
-        <div class = "container">
-          <header class="d-flex justify-content-center py-3">
-              <ul class="btns">
-              <li class="btn"><button id="theButton" type="button" class="btn btn-primary">Load</button></li>
-              <li class="btn"><button id="saveButton" type="button" class="btn btn-primary">Save</button></li>
-              <li class="btn"><button id="questButton" type="button" class="btn btn-primary">Add question</button></li>
-              <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
-              <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
+    <div class = "container">
+      <header class="d-flex justify-content-center py-3">
+        <ul class="btns">
+          <li class="btn"><button id="theButton" type="button" class="btn btn-primary">Load</button></li>
+          <li class="btn"><button id="saveButton" type="button" class="btn btn-primary">Save</button></li>
+          <li class="btn"><button id="questButton" type="button" class="btn btn-primary">Add question</button></li>
+          <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
+          <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
 
-             </ul>
-          </header>
-        </div>
+        </ul>
+      </header>
+    </div>
     <section id="title">
 
       <p align="center"><b>МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ</b><br/>
@@ -307,23 +313,24 @@
            class="edit-text"
            property="wpdd:problem" lang="ru"
            > Here will be edited something! </div>
-     <strong>МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО</strong></br>
-     <p>Учебная дисциплина .... относится к Блоку ..... образовательной программы, ..... (заплоняется автоматически из учебного плана)</p>
+      <strong>МЕСТО ДИСЦИПЛИНЫ В СТРУКТУРЕ ОПОП ВО</strong></br>
+      <p>Учебная дисциплина .... относится к Блоку ..... образовательной программы, ..... (заплоняется автоматически из учебного плана)</p>
 
-<p>Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
-формируемые предшествующими дисциплинами:
-      <div id="texteditor-requiredDisciplines"
-           class="edit-text"
-           property="wpdd:requiredDisciplines" lang="ru"
-           >Дисциплины через точку с запятой....</div></p>
+      <p>Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
+        формируемые предшествующими дисциплинами:
+        <div id="texteditor-requiredDisciplines"
+             class="edit-text"
+             property="wpdd:requiredDisciplines" lang="ru"
+             >Дисциплины через точку с запятой....</div></p>
 
 
 
-        <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+      <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+      <div class="div-container">
         <div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list">
           <ol id="listeditor-Question">
             <li class="edit-itemlist"
-               rev="schema:member" typeof="wpdd:ListItem wpdd:Question">
+                rev="schema:member" typeof="wpdd:ListItem wpdd:Question">
               <div
                 property="rdfs:label"
                 lang="ru"
@@ -334,113 +341,114 @@
           </ol>
           <!-- Кнопки -->
         </div>
-        <!--
-       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
-         <div id="texteditor-question"
-              class="edit-text"
-              property="wpdd:QuestionList" lang="ru"
-                 > </div> -->
-
-
-<!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
-      <div id="texteditor-"
-           class="edit-text"
-           property="" lang="ru"
-             > I dont know 2 </div>
-
-       <strong>СОДЕРЖАНИЕ И СТРУКТУРА ДИСЦИПЛИНЫ</strong></br>
-       <div id="texteditor-"
-            class="edit-text"
-            property="" lang="ru"
-                > Объем дисциплины составляет 4 зачетных ед., 144 час.
-                Форма промежуточной аттестации: экзамен </div>
-
-       <strong>Содержание дисциплины, структурированное по темам, c указанием видов
-учебных занятий и отведенного на них количества академических часов </strong></br>
-       <div id="texteditor-"
-            class="edit-text"
-            property="" lang="ru"
-                > TABLE</div>
-
-        <strong>План внеаудиторной самостоятельной работы обучающихся по дисциплине</strong></br>
-        <div id="texteditor-"
-             class="edit-text"
-             property="" lang="ru"
-                 > TABLE</div>
-
-     <strong>Содержание учебного материала</strong></br>
-      <div id="texteditor-topic"
-           class="edit-text"
-           property="wpdd:Topic" lang="ru"
-           > Содержание уч.материала, главы, все дела </div>
-
-      <strong>Перечень семинарских, практических занятий и лабораторных работ</strong></br>
-      <div id="texteditor-"
-           class="edit-text"
-           property="" lang="ru"
-               > TABLE</div>
-
-      <strong>Перечень тем (вопросов), выносимых на самостоятельное изучение студентами
-        в рамках самостоятельной работы</strong></br>
-      <div id="texteditor-"
-           class="edit-text"
-           property="" lang="ru"
-            > TABLE</div>
-
-       <strong>Методические указания по организации самостоятельной работы студентов</strong></br>
-        <div id="texteditor-iw"
-             class="edit-text"
-             property="wpdd:independentWork" lang="ru"
-                  > smth </div> -->
+      </div>
       <!--
-      <strong>УЧЕБНО-МЕТОДИЧЕСКОЕ И ИНФОРМАЦИОННОЕ ОБЕСПЕЧЕНИЕ
-        ДИСЦИПЛИНЫ </strong></br>
-         <ol>
-         <li> Main litra</li>
-          <div id="listEditor-"
-            class="edit-text"
-            property="wpdd:BasicReferences" lang="ru"
-                  > main litr </div>
-         <li> Dop litra</li>
-          <div id="texteditor-br"
-            class="edit-text"
-            property="wpdd:AuxiliaryReferences" lang="ru"
-               > dop litra </div>
-          <li> BD</li>
-            <div id="texteditor-br"
-                 class="edit-text"
-                property="wpdd:ElectronReferences" lang="ru"
-                > Internet </div>
-         </ol> -->
+          <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+          <div id="texteditor-question"
+               class="edit-text"
+               property="wpdd:QuestionList" lang="ru"
+               > </div> -->
 
-         <!--
-         <strong>МАТЕРИАЛЬНО-ТЕХНИЧЕСКОЕ ОБЕСПЕЧЕНИЕ ДИСЦИПЛИНЫ </strong></br>
 
-         <strong>Учебно-лабораторное оборудование </strong></br>
-         <div id="texteditor"
-            > ЭТОТ РАЗДЕЛ НЕ ЗАПОЛНЯТЬ </div>
-         <strong>Программное обеспечение </strong></br>
-            <div id="texteditor"
-              class="edit-text"
-              lang="ru"
-               > ПЕРЕЧИСЛИТЬ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ТРЕБУЕМОЕ ДЛЯ ДИСЦИПЛИНЫ. Without class and property</div>
-        <strong>Оценочные средства текущего контроля</strong></br>
-            <div id="texteditor-"
-                 class="edit-text"
-                 property="" lang="ru"
+          <!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
+                 <div id="texteditor-"
+                      class="edit-text"
+                      property="" lang="ru"
+                      > I dont know 2 </div>
+
+                 <strong>СОДЕРЖАНИЕ И СТРУКТУРА ДИСЦИПЛИНЫ</strong></br>
+                 <div id="texteditor-"
+                      class="edit-text"
+                      property="" lang="ru"
+                      > Объем дисциплины составляет 4 зачетных ед., 144 час.
+                   Форма промежуточной аттестации: экзамен </div>
+
+                 <strong>Содержание дисциплины, структурированное по темам, c указанием видов
+                   учебных занятий и отведенного на них количества академических часов </strong></br>
+                 <div id="texteditor-"
+                      class="edit-text"
+                      property="" lang="ru"
                       > TABLE</div>
 
-        <strong>Пример контрольной работы </strong></br>
-           <div id="texteditor-question"
-                class="edit-text"
-                property="wpdd:QuestionList" lang="ru"
-                  > quests</div>
+                 <strong>План внеаудиторной самостоятельной работы обучающихся по дисциплине</strong></br>
+                 <div id="texteditor-"
+                      class="edit-text"
+                      property="" lang="ru"
+                      > TABLE</div>
 
-        <strong>Оценочные средства для промежуточной аттестации </strong></br>
-        <div id="texteditor-question"
-             class="edit-text"
-             property="wpdd:QuestionList" lang="ru"
-              > quests</div> -->
+                 <strong>Содержание учебного материала</strong></br>
+                 <div id="texteditor-topic"
+                      class="edit-text"
+                      property="wpdd:Topic" lang="ru"
+                      > Содержание уч.материала, главы, все дела </div>
+
+                 <strong>Перечень семинарских, практических занятий и лабораторных работ</strong></br>
+                 <div id="texteditor-"
+                      class="edit-text"
+                      property="" lang="ru"
+                      > TABLE</div>
+
+                 <strong>Перечень тем (вопросов), выносимых на самостоятельное изучение студентами
+                   в рамках самостоятельной работы</strong></br>
+                 <div id="texteditor-"
+                      class="edit-text"
+                      property="" lang="ru"
+                      > TABLE</div>
+
+                 <strong>Методические указания по организации самостоятельной работы студентов</strong></br>
+                 <div id="texteditor-iw"
+                      class="edit-text"
+                      property="wpdd:independentWork" lang="ru"
+                      > smth </div> -->
+                 <!--
+                     <strong>УЧЕБНО-МЕТОДИЧЕСКОЕ И ИНФОРМАЦИОННОЕ ОБЕСПЕЧЕНИЕ
+                       ДИСЦИПЛИНЫ </strong></br>
+                     <ol>
+                       <li> Main litra</li>
+                       <div id="listEditor-"
+                            class="edit-text"
+                            property="wpdd:BasicReferences" lang="ru"
+                            > main litr </div>
+                       <li> Dop litra</li>
+                       <div id="texteditor-br"
+                            class="edit-text"
+                            property="wpdd:AuxiliaryReferences" lang="ru"
+                            > dop litra </div>
+                       <li> BD</li>
+                       <div id="texteditor-br"
+                            class="edit-text"
+                            property="wpdd:ElectronReferences" lang="ru"
+                            > Internet </div>
+                     </ol> -->
+
+                     <!--
+                         <strong>МАТЕРИАЛЬНО-ТЕХНИЧЕСКОЕ ОБЕСПЕЧЕНИЕ ДИСЦИПЛИНЫ </strong></br>
+
+                         <strong>Учебно-лабораторное оборудование </strong></br>
+                         <div id="texteditor"
+                              > ЭТОТ РАЗДЕЛ НЕ ЗАПОЛНЯТЬ </div>
+                         <strong>Программное обеспечение </strong></br>
+                         <div id="texteditor"
+                              class="edit-text"
+                              lang="ru"
+                              > ПЕРЕЧИСЛИТЬ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ТРЕБУЕМОЕ ДЛЯ ДИСЦИПЛИНЫ. Without class and property</div>
+                         <strong>Оценочные средства текущего контроля</strong></br>
+                         <div id="texteditor-"
+                              class="edit-text"
+                              property="" lang="ru"
+                              > TABLE</div>
+
+                         <strong>Пример контрольной работы </strong></br>
+                         <div id="texteditor-question"
+                              class="edit-text"
+                              property="wpdd:QuestionList" lang="ru"
+                              > quests</div>
+
+                         <strong>Оценочные средства для промежуточной аттестации </strong></br>
+                         <div id="texteditor-question"
+                              class="edit-text"
+                              property="wpdd:QuestionList" lang="ru"
+                              > quests</div> -->
 
 
 
