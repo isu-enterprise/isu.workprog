@@ -122,7 +122,7 @@ WHERE
 """
 
 GET_LIST = PREFIXES + """
-SELECT ?list ?uri ?label
+SELECT ?list ?uri ?label ?sku
 WHERE
 {
     ?list a wpdd:ItemList .
@@ -130,6 +130,9 @@ WHERE
     ?uri a wpdd:ListItem .
     ?uri a ?pred .
     ?uri rdfs:label ?label .
+OPTIONAL {
+       ?uri schema:sku ?sku .
+    } .
 }
 """
 
@@ -149,8 +152,27 @@ WHERE
 }
 """
 
+GET_TOPS = PREFIXES +"""
+
+SELECT ?topic ?label ?
+WHERE
+{
+    SELECT ?topic ?label ?sku
+    WHERE
+    {
+        ?topic a wpdd:Topic
+        ?label
+        ?sku
+    }
+}
+
+
+
+"""
+
 QTEMPLATE = \
-"""<div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list" about="{{list}}">
+"""<div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList wpdd:EvaluationMean"
+        class="item-list" about="{{list}}">
   <ol id="listeditor-Question">
     {% for item in bindings %}
     <li class="edit-itemlist"
@@ -167,10 +189,34 @@ QTEMPLATE = \
 </div>
 """
 
-QUERIES = [(("aim", "problem", "requiredDisciplines"),
-            [GET_WP_AP, DEL_WP_AP, INS_WP_AP], WPDD, None),
-           (("Question", ), [GET_LIST, DELETE_LIST], WPDD, QTEMPLATE)]
+TTEMPLATE = \
+"""<div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:TopicList" class="item-list" about="{{list}}">
+  <ol id="listeditor-Topic">
+    {% for item in bindings %}
+    <div class="edit-itemlist"
+      rev="schema:member" typeof="wpdd:ListItem wpdd:Topic" resource="{{item.uri.value}}">
+      <span
+           property="schema:sku"
+           class="edit-list-label"
+           contenteditable="false"
+           >{{item.sku.value}}</span>
+      <span
+        property="rdfs:label"
+        lang="ru"
+        class="edit-list-label"
+        contenteditable="true"
+      >{{item.label.value}}</span>
+    </div>
+    {% endfor %}
+  </ol>
+</div>
+"""
 
+QUERIES = [
+    (("aim", "problem", "requiredDisciplines"), [GET_WP_AP,   DEL_WP_AP, INS_WP_AP], WPDD, None),
+    (("Question",), [GET_LIST, DELETE_LIST], WPDD, QTEMPLATE),
+    (("Topic",), [GET_LIST, DELETE_LIST], WPDD, TTEMPLATE)
+]
 
 def gettemplates(pred):
     for t, qs, ns, jt in QUERIES:
@@ -253,6 +299,7 @@ def savewp():
                 text = list(G.query(q, initBindings=js))[0][0]
                 answer["text"] = str(text)
             else:
+                print("PRED:", js["pred"])
                 l = G.query(q, initBindings=js)
                 i = io.BytesIO()
                 l.serialize(destination=i, format='json', encoding="utf8")
