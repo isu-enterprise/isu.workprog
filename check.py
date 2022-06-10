@@ -148,6 +148,24 @@ WHERE
 }
 """
 
+GET_TOPS = PREFIXES +"""
+
+SELECT ?topic ?label ?
+WHERE
+{
+    SELECT ?topic ?label ?sku 
+    WHERE
+    {
+        ?topic a wpdd:Topic
+        ?label 
+        ?sku 
+    }
+}
+
+
+
+"""
+
 QTEMPLATE = \
 """<div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list" about="{{list}}">
   <ol id="listeditor-Question">

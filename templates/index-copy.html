@@ -240,25 +240,32 @@
             kglistquery({"op":"save"});
           }
         });
-
+        
+       
         $("#saveGraphButton").on("click", () => {
           $.post(SERVER+"saveGraph", (data) => {
             $("alertBox").text("Saved Successfully!");
             console.info("Saved the gaph successfully!");
           })
         });
-
-        $("#questButton").on("click", function(){
+       $("#questButton").on("click", function(){
           if (currentListItem != null) {
             oul = findNearestContainer(currentListItem);
-            $(".edit-itemlist").last().clone(true).appendTo(oul);
+            $(".edit-itemlist").last().clone(true).appendTo(oul);          
           }
         })
-
+        $("#questButton1").on("click", function(){
+          if (currentListItem != null) {
+            oul = findNearestContainer(currentListItem);
+            $(".edit-itemtop").last().clone(true).appendTo(oul);          
+          }
+        })
         $(".edit-list-label").on("click", function () {
           currentListItem = this;
         });
-
+        $(".edit-list-top").on("click", function () {
+          currentListItem = this;
+        });  
         TEXTEDS = [];
         tinyEditor = $(".edit-text").each(function () {
           TEXTEDS.push(this.id);
@@ -287,7 +294,8 @@
         <ul class="btns">
           <li class="btn"><button id="theButton" type="button" class="btn btn-primary">Load</button></li>
           <li class="btn"><button id="saveButton" type="button" class="btn btn-primary">Save</button></li>
-          <li class="btn"><button id="questButton" type="button" class="btn btn-primary">Add question</button></li>
+          <li class="btn"><button id="questButton" type="button" class="btn btn-primary">Add item</button></li>
+          <li class="btn"><button id="questButton1" type="button" class="btn btn-primary">Add item_top</button></li>
           <li class="btn"><button id="saveGraphButton" type="button" class="btn btn-info">Save Graph</button></li>
           <li class="btn"><button type="button" class="btn btn-info">Edit Metadta</button></li>
 
@@ -324,7 +332,6 @@
              >Дисциплины через точку с запятой....</div></p>
 
 
-
       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
       <div class="div-container">
         <div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list">
@@ -336,21 +343,37 @@
                 lang="ru"
                 class="edit-list-label"
                 contenteditable="true"
-                >Ответ</div>
+                >Здесь вопросы</div>
             </li>
           </ol>
-          <!-- Кнопки -->
         </div>
       </div>
-      <!--
-          <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
-          <div id="texteditor-question"
-               class="edit-text"
-               property="wpdd:QuestionList" lang="ru"
-               > </div> -->
 
-
-          <!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
+      <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
+      <div class="div-container">
+        <div property="wpdd:content" typeof="wpdd:content wpdd:topic" class="item-list">
+          <ol id="listeditor-Tops">
+            <li class="edit-itemtop"
+                rev="schema:sku" typeof="wpdd:content wpdd:Topic">
+              <div
+                property="rdfs:label schema:sku"
+                lang="ru"
+                class="edit-list-top"
+                contenteditable="true"
+                >Здесь темы</div>
+            </li>
+          </ol>
+        </div>
+      </div>
+         
+      
+      
+      
+      
+      
+      
+      
+      <!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
                  <div id="texteditor-"
                       class="edit-text"
                       property="" lang="ru"
