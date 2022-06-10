@@ -103,6 +103,7 @@
       }
 
       function kgquery(op, textArea = null) {
+        return ;
         if (textArea === null) {
           textArea = getActiveEditor();
         }
@@ -163,6 +164,7 @@
         con = findNearestContainer(listEditor);
         pred = con.attr("id")
         pred = toPred(pred);
+        console.log("PRED:"+pred);
         op["type"] = "list";
         op["html"] = con.closest(".item-list")[0].outerHTML;
         op["pred"] = pred;
@@ -240,8 +242,8 @@
             kglistquery({"op":"save"});
           }
         });
-        
-       
+
+
         $("#saveGraphButton").on("click", () => {
           $.post(SERVER+"saveGraph", (data) => {
             $("alertBox").text("Saved Successfully!");
@@ -251,13 +253,13 @@
        $("#questButton").on("click", function(){
           if (currentListItem != null) {
             oul = findNearestContainer(currentListItem);
-            $(".edit-itemlist").last().clone(true).appendTo(oul);          
+            $(".edit-itemlist").last().clone(true).appendTo(oul);
           }
         })
         $("#questButton1").on("click", function(){
           if (currentListItem != null) {
             oul = findNearestContainer(currentListItem);
-            $(".edit-itemtop").last().clone(true).appendTo(oul);          
+            $(".edit-itemtop").last().clone(true).appendTo(oul);
           }
         })
         $(".edit-list-label").on("click", function () {
@@ -265,7 +267,7 @@
         });
         $(".edit-list-top").on("click", function () {
           currentListItem = this;
-        });  
+        });
         TEXTEDS = [];
         tinyEditor = $(".edit-text").each(function () {
           TEXTEDS.push(this.id);
@@ -334,7 +336,7 @@
 
       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
       <div class="div-container">
-        <div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList" class="item-list">
+        <div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:QuestionList wpdd:EvaluationMean" class="item-list">
           <ol id="listeditor-Question">
             <li class="edit-itemlist"
                 rev="schema:member" typeof="wpdd:ListItem wpdd:Question">
@@ -351,28 +353,33 @@
 
       <strong>Примеры оценочных средств для промежуточной аттестации</strong></br>
       <div class="div-container">
-        <div property="wpdd:content" typeof="wpdd:content wpdd:topic" class="item-list">
-          <ol id="listeditor-Tops">
-            <li class="edit-itemtop"
-                rev="schema:sku" typeof="wpdd:content wpdd:Topic">
+        <div property="wpdd:itemList" typeof="wpdd:ItemList wpdd:TopicList" class="item-list">
+          <ol id="listeditor-Topic">
+            <li class="edit-itemlist"
+                rev="schema:member" typeof="wpdd:Topic wpdd:ListItem">
               <div
-                property="rdfs:label schema:sku"
+                property="schema:sku"
+                class="edit-list-label"
+                contenteditable="false"
+                >N</div>
+              <div
+                property="rdfs:label"
                 lang="ru"
-                class="edit-list-top"
+                class="edit-list-label"
                 contenteditable="true"
                 >Здесь темы</div>
             </li>
           </ol>
         </div>
       </div>
-         
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
       <!--   <strong>ТРЕБОВАНИЯ К РЕЗУЛЬТАТАМ ОСВОЕНИЯ ДИСЦИПЛИНЫ</strong></br>
                  <div id="texteditor-"
                       class="edit-text"

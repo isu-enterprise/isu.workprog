@@ -579,5 +579,5 @@ wpdb:41e4e99c-e8ae-11ec-a5d5-b42e99b15cbb a wpdd:ItemList,
     schema:sku "II" .
 
 wpdb:41e59fea-e8ae-11ec-a5d5-b42e99b15cbb a wpdd:EvaluationMean,
+        wpdd:ItemList,
         wpdd:QuestionList .
-
