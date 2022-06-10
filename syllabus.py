@@ -940,14 +940,19 @@ def procstudycontent(section):
         for k, v in d.items():
             t, sub = v
             BN = genuuid(WPDB)
-            G.add((p, WPDD.content, BN))
+            G.add((BN, SCH.member, p))
+            G.add((p, RDF.type, WPDD['ItemList']))
+            G.add((p, RDF.type, WPDD['TopicList']))
             G.add((BN, RDF.type, WPDD["Topic"]))
+            G.add((BN, RDF.type, WPDD["ListItem"]))
             G.add((BN, RDFS.label, Literal(t, lang="ru")))
             G.add((BN, SCH.sku, Literal(k)))
             if sub is not None:
                 _(sub, BN)
 
-    _(h, WP)
+    topics = genuuid(WPDB)
+    G.add((WP, WPDD.itemList, topics))
+    _(h, topics)
 
 
 def procsrscontent(section):
