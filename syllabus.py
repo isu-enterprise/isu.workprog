@@ -672,6 +672,7 @@ def proclistitems(paragraphs,
                 if owner is None:
                     owner = WPDB[genuuid()]
                     G.add((owner, RDF.type, otype))
+                    G.add((owner, RDF.type, WPDD["ItemList"]))
                     # TODO: define a kind of question list
                     G.add((WP, WPDD.itemList, owner))
                     owners.append((owner, p))
