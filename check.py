@@ -4,7 +4,8 @@ from rdflib import Graph, URIRef, Literal
 import logging
 from pprint import pprint
 from common import IDD, WPDD, WPDB, genuuid
-from distiller import distill
+# from distiller import distill
+from pyRdfa import pyRdfa
 from json import loads
 import io
 from jinja2 import Environment, BaseLoader
@@ -166,10 +167,9 @@ QTEMPLATE = \
 </div>
 """
 
-QUERIES = [
-    (("aim", "problem", "requiredDisciplines"), [GET_WP_AP,   DEL_WP_AP, INS_WP_AP], WPDD, None),
-    (("Question",), [GET_LIST, DELETE_LIST], WPDD, QTEMPLATE)
-]
+QUERIES = [(("aim", "problem", "requiredDisciplines"),
+            [GET_WP_AP, DEL_WP_AP, INS_WP_AP], WPDD, None),
+           (("Question", ), [GET_LIST, DELETE_LIST], WPDD, QTEMPLATE)]
 
 
 def gettemplates(pred):
@@ -178,19 +178,23 @@ def gettemplates(pred):
             return qs, ns[pred], jt
     return None
 
+
 def create_list(quest):
 
     return 0
+
 
 def lprint(s):
     sl = s.split("\n")
     for c, s in enumerate(sl):
         q = c + 1
-        print ("{} {}".format(q, s.rstrip()))
+        print("{} {}".format(q, s.rstrip()))
+
 
 def html2list(html):
     print(html)
     return ["1", "2"]
+
 
 @app.route("/api/1.0/qwp", methods=['POST'])  # Get Work ProgramS
 def savewp():
@@ -202,9 +206,12 @@ def savewp():
     html = js.get("html", None)
     ng = Graph()
 
-    if html is not None and op=="save":
+    if html is not None and op == "save":
         del js["html"]
-        ng = distill(js["wpuri"], html, lambda : genuuid(WPDB))
+        inf = io.StringIO(html)
+        graph = pyRdfa().graph_from_source(inf)
+        graph.serialize(destination="pyRdfa.ttl", format="turtle", encoding="utf8")
+        # ng = distill(js["wpuri"], html, lambda: genuuid(WPDB))
 
     pred = js["pred"]
     queries = gettemplates(pred)
@@ -218,9 +225,8 @@ def savewp():
     # import pudb; pu.db
 
     templates, pred, jtemplate = queries
-    js["pred"]=pred
-    js["wpuri"]=URIRef(js["wpuri"])
-
+    js["pred"] = pred
+    js["wpuri"] = URIRef(js["wpuri"])
 
     if templates is None:
         msg = "Cannot find template for '{}'.".format(js)
@@ -251,12 +257,16 @@ def savewp():
                 i = io.BytesIO()
                 l.serialize(destination=i, format='json', encoding="utf8")
                 pprint(i.getvalue())
-                i.seek(0,0)
+                i.seek(0, 0)
                 json = loads(i.getvalue())
                 if jtemplate is not None:
-                    rtemplate = Environment(loader=BaseLoader).from_string(jtemplate)
+                    rtemplate = Environment(
+                        loader=BaseLoader).from_string(jtemplate)
                     about = json["results"]["bindings"][0]["list"]["value"]
-                    data = {"list":about, "bindings": json["results"]["bindings"]}
+                    data = {
+                        "list": about,
+                        "bindings": json["results"]["bindings"]
+                    }
                     data = rtemplate.render(**data)
                     answer["html"] = data
                 else:
@@ -267,7 +277,7 @@ def savewp():
 
     G += ng
 
-    done = op+"ed".replace("ee","e")
+    done = op + "ed".replace("ee", "e")
     answer.update({"wpuri": js["wpuri"], "error": 0, "msg": op + "ed"})
     print(answer)
     return jsonify(answer)
@@ -277,6 +287,7 @@ def savewp():
 def saveGraph():
     G.serialize(destination=KG_FILE_NAME)
     return jsonify({"error": 0, "msg": "Saved"})
+
 
 getuuid()
 

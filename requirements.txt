@@ -3,4 +3,6 @@ rdflib
 flask
 xlrd
 -e git+https://github.com/eugeneai/pybars3@master#egg=pybars3
--e git+https://github.com/wbond/pymeta3.git@master#egg=PyMeta3
+pyRdfa3
+pyramid
+zope.component [zcml]
