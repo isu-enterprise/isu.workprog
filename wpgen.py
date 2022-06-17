@@ -156,6 +156,8 @@ class Context():
 
     def generate(self):
 
+        import pudb; pu.db
+
         for curriculum in self.rdfinsts(self.typeof):
             self.curriculum = Context(curriculum)
             self.institute = self.get("^:idd:hasCurriculum")

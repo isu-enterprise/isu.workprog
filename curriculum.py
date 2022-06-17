@@ -202,7 +202,10 @@ def proctitle(sheet):
 
             G.add((INST, IDD.hasCurriculum, C))
             G.add((C, RDF.type, IDD["Curriculum"]))
-        elif allwords(lt, "профиль"):
+        elif allwords(lt, "профиль") or (allwords(lt, "программ магистр") and found(lt, ":")):
+
+            # import pudb; pu.db
+
             _, title = line.split(":", maxsplit=1)
             title = normspaces(title)
             title = refinename(title)
@@ -239,7 +242,7 @@ def proctitle(sheet):
                     lev = APPLBACH
                 G.add((C, IDD.level, lev))
                 G.add((lev, RDFS.label, Literal(levn, lang="ru")))
-            if qualif.startswith("магистрат"):
+            if qualif.startswith("магистр"):
                 levn = "магистр"
                 G.add((C, IDD.level, MASTER))
                 G.add((MASTER, RDFS.label, Literal(levn, lang="ru")))
@@ -648,7 +651,9 @@ if __name__ == "__main__":
     import sys
     preparegraphs()
     if len(sys.argv) < 2:
-        conv("01.03.02-22-1234_1к_06.plx.xls")
+        # conv("01.03.02-22-1234_1к_06.plx.xls")
+        conv("01.04.02-22-12_1к_mas.plx.xls")
+
         # conv("../cirriculums/02.04.02-22-12_1к.plx.xls")
         # conv("../cirriculums/44.03.05-22-12345_1к.plx.xls")
     else:
