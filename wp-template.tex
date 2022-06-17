@@ -115,35 +115,42 @@
     \includegraphics{isu.png}\par
   {\bfseries МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ}\par
   {\bfseries федеральное государственное бюджетное образовательное учреждение}\par
+  {\bfseries высшего образования}\par
   {\bfseries \MakeUppercase{ <<{{context.university rdfs:label}}>>} }\par
 {ФГБОУ ВО «{{context.university.abbrev}}»}\par
-\MakeUppercase{ {{context.institute rdfs:label}} }\par
+% \MakeUppercase{ {{context.institute rdfs:label}} }\par
 \vspace{1ex}
-{\bfseries Кафедра {{disc idd:chair rdfs:label}}}
+{\bfseries Кафедра \MakeLowercase{ {{disc idd:chair rdfs:label}}} }
 \end{center}
 \vspace{2em}
 \begin{tabularx}{\textwidth}{XX}
-  & <<УТВЕРЖДАЮ>> \\
+  & УТВЕРЖДАЮ \\
+  & \\
   & {{context.institute.position}} {{context.institute.abbrev}} {{context.university.abbrev}} \\
-  & \underline{\hspace{3cm}}\;{{context.director foaf:name}}
+  & \\
+  & \underline{\hspace{4.5cm}}\;{{context.director foaf:name}}\\
+  & \\
+  & <<\underline{\hspace{1cm}}>>\underline{\hspace{5cm}}~2022~г.
 \end{tabularx}
-\vfil
+\vfill
 \begin{center}\large
-  {\bfseries Рабочая программа дисциплины (модуля) }\\[1ex]
-  {\bfseries {{disc dcterms:identifier}}~{{disc idd:discipline rdfs:label}}}
+  {\bfseries \MakeUppercase{Рабочая программа дисциплины (модуля)} }\\[1ex]
+  % {\bfseries {{disc dcterms:identifier}}~{{disc idd:discipline rdfs:label}}}
 \end{center}
-\vfil
-\begin{tabularx}{\textwidth}{XXX}
-  {\bfseries Направление подготовки} & {\hyphenpenalty=100000 {{curr idd:specialty dcterms:identifier}}~{{context.specialty rdfs:label}}}\\
-  {\bfseries Направленность (профиль) подготовки} & {{context.profile rdfs:label}}\\
-  {\bfseries Квалификация выпускника} & {{context.level rdfs:label}}\\
-  {\bfseries Форма обучения} & {{context.mural rdfs:label}}
-\end{tabularx}
-\vfil
-\vfil
+\vfill
+\begin{tblr}{X[4,l]X[5,l]}
+  {\bfseries Наименование дисциплины (модуля):} & {{disc dcterms:identifier}}~{{disc idd:discipline rdfs:label}} \\
+  {\bfseries Направление подготовки:} & {\hyphenpenalty=100000 {{curr idd:specialty dcterms:identifier}}~{{context.specialty rdfs:label}}}\\
+  {\bfseries Направленность (профиль) подготовки:} & {{context.profile rdfs:label}}\\
+  {\bfseries Квалификация выпускника:} & {{context.level rdfs:label}}\\[1em]
+  {\bfseries Форма обучения:} & {{context.mural rdfs:label}}
+\end{tblr}
+\vfill
+\vfill
 \begin{center}
   {{#with context}}
-  {{city}}\;--\;{{enrolledIn}}
+  % {{city}}\;--\;{{enrolledIn}}
+  {{city}}~{{enrolledIn}}~г.
   {{/with}}
 \end{center}
 \end{titlepage}
@@ -173,10 +180,10 @@
 
 Процесс освоения дисциплины направлен на формирование следующих компетенций в
 соответствии с ФГОС ВО и ОП ВО по направлению подготовки {{#with context.specialty}}
-{{dcterms:identifier}}~{{rdfs:label}}: {{/with}}
+{{dcterms:identifier}}~{{rdfs:label}}: \par {{/with}}
 {{#rdfeach disc idd:hasCompetence}}
 
-{{this dcterms:identifier}}\ --\ <<{{this rdfs:label}}>>
+\noindent {{this dcterms:identifier}}\ --\ <<{{this rdfs:label}}>> \par
 
 {{/rdfeach}}
 

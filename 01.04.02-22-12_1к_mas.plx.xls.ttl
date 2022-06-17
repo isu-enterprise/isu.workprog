@@ -983,7 +983,7 @@ idb:7f2f3d92-ee27-11ec-9b02-704d7b84fd9f a idd:Curriculum ;
         idb:413e5a00-e39a-11ec-be9e-704d7b84fd9f,
         idb:4187c2ee-e39a-11ec-8856-704d7b84fd9f ;
     idd:profile idb:7f33a3c8-ee27-11ec-9b02-704d7b84fd9f ;
-    idd:specialty idb:4002da3a-e39a-11ec-aff9-704d7b84fd9f ;
+    idd:specialty idb:4002da3a-e39a-11ec-aff9-704d7b84fd9f-mag ;
     idd:studyDration 2 ;
     idd:studyForm idb:e4f4e44d-5a0b-11e6-942f-005056100702 ;
     idd:studyStandard "№ 13 от 10.01.2018"@ru ;
