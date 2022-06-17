@@ -98,6 +98,9 @@ class Context():
         self.prev = prev
         self.op = op
         self.forward = forward
+        self.dirs = set()
+        self.rootwd = os.getcwd()
+        self.copyfilesdir = os.path.join(self.rootwd, "files")
 
     def __str__(self):
         uri = self.uri
@@ -214,7 +217,17 @@ class Context():
                 asdirname(self.mural.label),
             )
             safecwd(dir)
+            self.copyfiles(dir)
             self.genwp()
+
+    def copyfiles(self, dir):
+        if dir in self.dirs:
+            return
+        self.dirs.add(dir)
+        cmd = "cp -rf '{}' '{}'".format(self.copyfilesdir, dir)
+        print(cmd)
+        os.system(cmd)
+
 
         # Add any special helpers
     def _each(self, this, options, context):
@@ -259,13 +272,13 @@ class Context():
             root = options["root"]
             prevroot.update(root)
             root[context.name] = context.context
-            result.append(r"\begin{rdfctx}{\rdfsetctx{" + context.name + "}{" +
-                          context.context.renderpath() + "}}")
+            result.append(r"\rdf{\rdfsetctx{" + context.name + "}{" +
+                          context.context.renderpath() + "}}{}")
         result.append(options['fn'](context))
         if isinstance(context, Assignment):
             del root[context.name]
             root.update(prevroot)
-            result.append(r"\end{rdfctx}")
+            result.append(r"\rdf{\rdfunsetctx{" + context.name + '}}{}')
 
         return result
 
