@@ -171,10 +171,16 @@
 
 \begin{rdfctx}{\rdfsetctx{dc}{syll wpdd:courseDC !wpdd:CourseDC}}
 Для изучения данной учебной дисциплины необходимы знания, умения и навыки,
-формируемые предшествующими дисциплинами: \rdf{dc wpdd:require !cnt:ContentAsText}{... .}
+формируемые предшествующими дисциплинами: \rdf{dc wpdd:require !cnt:ContentAsText}{%
+  \begin{enumerate}
+  \item <<....>>
+  \end{enumerate}}
 
 Перечень последующих учебных дисциплин, для которых необходимы знания, умения и
-навыки, формируемые данной учебной дисциплиной: \rdf{dc wpdd:ensure !cnt:ContentAsText}
+навыки, формируемые данной учебной дисциплиной: \rdf{dc wpdd:ensure !cnt:ContentAsText}{%
+  \begin{enumerate}
+  \item <<....>>
+  \end{enumerate}}
 \end{rdfctx}
 
 
@@ -192,11 +198,11 @@
 \begin{rdfctx}{\rdfsetctx{dc}{syll wpdd:courseDC !wpdd:CourseDC}}
 В результате освоения дисциплины обучающийся должен
 
-\paragraph{Знать:} \rdf{dc wpdd:know !cnt:ContentAsText}{...};
+\paragraph{Знать:} \rdf{dc wpdd:know !cnt:ContentAsText}{...}
 
-\paragraph{Уметь:} \rdf{dc wpdd:ableTo !cnt:ContentAsText}{...};
+\paragraph{Уметь:} \rdf{dc wpdd:ableTo !cnt:ContentAsText}{...}
 
-\paragraph{Владеть:} \rdf{dc wpdd:posess !cnt:ContentAsText}{...};
+\paragraph{Владеть:} \rdf{dc wpdd:posess !cnt:ContentAsText}{...}
 \end{rdfctx}
 
 \section{Содержание и структура дисциплины}
