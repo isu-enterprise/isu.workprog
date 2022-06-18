@@ -285,7 +285,7 @@ class Context():
     def genwp(self):
         global CTX, RCTX
         filename = asdirname(self.discentry.code) + "-" + asdirname(
-            self.discipline.label) + ".tex"
+            self.discipline.label) + ".gen.tex"
         CTX = {
             "context": self,
             "curr": self.curriculum,

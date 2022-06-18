@@ -4,6 +4,7 @@
 \RequirePackage{indentfirst}
 \RequirePackage{polyglossia}
 \RequirePackage{graphicx}
+\RequirePackage[dvipsnames]{xcolor}
 \usepackage{multirow}
 \usepackage{tabularray}
 \setmainlanguage{russian}
@@ -13,10 +14,10 @@
 \RequirePackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,
-    urlcolor=cyan,
-    pdftitle={Overleaf Example},
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    pdftitle={Рабочая программа курса ИМИТ ИГУ},
     % pdfpagemode=FullScreen,
     }
 % \RequirePackage{minted}
@@ -100,6 +101,7 @@
 
      \newcommand{\rdf}[2]{#2}
      \newenvironment{rdfctx}[1]{}{}
+     \renewcommand{\paragraph}[1]{\par\textbf{#1}}
 
 {{#defcontext}}
 {{/defcontext}}
@@ -190,11 +192,11 @@
 \begin{rdfctx}{\rdfsetctx{dc}{syll wpdd:courseDC !wpdd:CourseDC}}
 В результате освоения дисциплины обучающийся должен
 
-знать: \rdf{dc wpdd:know !cnt:ContentAsText}{...};
+\paragraph{Знать:} \rdf{dc wpdd:know !cnt:ContentAsText}{...};
 
-уметь: \rdf{dc wpdd:ableTo !cnt:ContentAsText}{...};
+\paragraph{Уметь:} \rdf{dc wpdd:ableTo !cnt:ContentAsText}{...};
 
-владеть: \rdf{dc wpdd:posess !cnt:ContentAsText}{...};
+\paragraph{Владеть:} \rdf{dc wpdd:posess !cnt:ContentAsText}{...};
 \end{rdfctx}
 
 \section{Содержание и структура дисциплины}
@@ -265,7 +267,7 @@
 
 \noindent{\footnotesize%
 %  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
-  \begin{tblr}{|X[4,l]|X[1,c]|X[1,c]|X[1,c]|X[2,l]|X[1.5,l]|}
+  \begin{tblr}{|X[4,l]|X[1,l]|X[1,c]|X[1,c]|X[2,l]|X[1.5,l]|}
   \hline
   \SetCell[r=2]{c} Раздел дисциплины~/ тема &
   \SetCell[c=3]{c,10em} Самостоятельная работа обучающихся & & &
@@ -295,10 +297,7 @@
     \rdf{item dcterms:description}{Подтема...., подтема ....}
   \end{rdfctx}
 
-  \begin{rdfctx}{\rdfsetctx{item}{list ^schema:member !wpdd:ListItem !wpdd:Topic}}
-    Тема~\rdf{item dcterms:identifier}{2}.~\rdf{item rdfs:label}{Название темы.}
-    \rdf{item dcterms:description}{Подтема...., подтема ....}
-  \end{rdfctx}
+
 \end{rdfctx}
 
 \subsubsection{Перечень семинарских, практических занятий и лабораторных работ} % 4.3.1
@@ -320,7 +319,7 @@
 
 \noindent{\footnotesize%
 %  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
-  \begin{tblr}{|X[4,l]|X[1,c]|X[2,c]|X[1,c]|}
+  \begin{tblr}{|X[4,l]|X[1,c]|X[2,l]|X[1,c]|}
   \hline
   Тема занятия &
   Всего часов & Оценочные средства & Формируемые компетенции \\\hline
@@ -355,7 +354,7 @@
 
 \noindent{\footnotesize%
 %  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
-  \begin{tblr}{|X[3,l]|X[3,c]|X[1,c]|}
+  \begin{tblr}{|X[3,l]|X[3,l]|X[1,c]|}
   \hline
   Тема &
   Задание & Формируемые компетенции \\\hline
@@ -486,6 +485,7 @@
 
 \section{Учебно"=методическое и информационное обеспечение дисциплины}
 \noindent а)\ основная литература:
+% \noindent а)\ основная литература (неограниченный доступ на сайте ЛЭТИ):
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:BaseReferenceList !wpdd:ItemList}}
   \begin{enumerate}
       \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...}
@@ -493,6 +493,7 @@
 \end{rdfctx}
 
 \noindent б)\ дополнительная литература:
+% \noindent б)\ дополнительная литература (неограниченный доступ на сайте ЛЭТИ):
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:AuxReferenceList !wpdd:ItemList}}
 \begin{enumerate}
       \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...}
@@ -502,26 +503,26 @@
 \noindent в)\ базы данных, информационно-справочные и поисковые системы:
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:EReferenceList !wpdd:ItemList}}
 \begin{enumerate}
-  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Научная электронная библиотека «ELIBRARY.RU» [Электронный ресурс]\;:~сайт. – Режим доступа: \url{http://elibrary.ru/defaultx.asp}}
-  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Открытая электронная база ресурсов и исследований «Университетская информационная система РОССИЯ» [Электронный ресурс]\;:~сайт. – Режим доступа: \url{http://uisrussia.msu.ru}}
-  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Государственная информационная система «Национальная электронная библиотека» [Электронный ресурс]\;:~сайт. – Режим доступа: \url{http://нэб.рф}}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Научная электронная библиотека «ELIBRARY.RU» [сайт] -- URL: \url{http://elibrary.ru/defaultx.asp}}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Открытая электронная база ресурсов и исследований «Университетская информационная система РОССИЯ» [сайт] -- URL: \url{http://uisrussia.msu.ru}}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{Государственная информационная система «Национальная электронная библиотека» [сайт] -- URL: \url{http://нэб.рф}}
 \end{enumerate}
 \end{rdfctx}
   В соответствии с п. 4.3.4. ФГОС ВО, обучающимся в течение всего периода обучения обеспечен неограниченный доступ (удаленный доступ) к электронно-библиотечным системам:
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:EContractList !wpdd:ItemList}}
-  \begin{itemize}
+  \begin{enumerate}
   \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС «Издательство Лань». ООО «Издательство Лань». Контракт № 92 от 12.11.2018 г. Акт от 14.11 2018 г.}
   \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС ЭЧЗ «Библиотех». Государственный контракт № 019 от 22.02.2011 г. ООО «Библиотех». Лицензионное соглашение № 31 от 22.02.2011 г. Адрес доступа: \url{https://isu.bibliotech.ru/} Срок действия: с 22.11.2011 г. бессрочный.}
   \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС «Национальный цифровой ресурс «Руконт». ЦКБ «Бибком». Контракт № 91 от 12.11.2018 г. Акт от 14.11.2018 г.}
   \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference}{ЭБС «Айбукс.ру/ibooks.ru». ООО «Айбукс». Контракт № 90 от 12.11.2018 г. Акт № 54 от 14.11.2018 г.}
   \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:EReference rdfs:label}{Электронно-библиотечная система «ЭБС Юрайт». ООО «Электронное издательство Юрайт». Контракт № 70 от 04.10.2018 г.}
-  \end{itemize}
+  \end{enumerate}
 \end{rdfctx}
-\noindent г)\ базы данных, информационно-справочные и поисковые системы
+\noindent г)\ базы данных, информационно-справочные и поисковые системы:
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:InternetResources !wpdd:ItemList}}
-  \begin{itemize}
+  \begin{enumerate}
   \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:InternetResource}{....}
-  \end{itemize}
+  \end{enumerate}
 \end{rdfctx}
 
 \section{Материально"=техническое обеспечение дисциплины}
@@ -531,11 +532,17 @@
 {{common.provision.lab}}
 
 \subsection{Программное обеспечение}
+\begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:EReferenceList !wpdd:ItemList}}
+  \begin{enumerate}
+    \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Дистрибутив Linux 64 бит, }
+    \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Дистрибутив Logtalk 3.30.0 и новее, }
+    \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Редактор Libreoffice 7.0 или новее. }
+  \end{enumerate}
+\end{rdfctx}
 
 {{common.provision.software}}
 
-\section{Оценочные материалы для текущего контроля и
-промежуточной аттестации}
+\section{Оценочные материалы для текущего контроля и промежуточной аттестации}
 
 
 \subsection{Оценочные средства текущего контроля}
@@ -547,7 +554,7 @@
 {{/rdfeach}}
 
 \noindent{\footnotesize%
-  \begin{tblr}{|X[3,l]|X[4,l]|X[2,l]|}
+  \begin{tblr}{|X[3,l]|X[4,l]|X[2,c]|}
   \hline
   Вид контроля &
   Контролируемые темы & Контролируемые компетенции \\\hline
@@ -561,15 +568,19 @@
   {{/with}}
   {{/rdfeach}}
 \end{tblr}}
-
-
+\vspace{1em}
 
 \paragraph{Примеры оценочных средств текущего контроля}
+\vspace{1em}
 
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:CurrentAttestation !wpdd:ItemList}}
-\begin{enumerate}
-\item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Example}{....}
-\end{enumerate}
+\rdf{list ^schema:member !wpdd:ListItem !wpdd:Example !wpdd:LaboratoryWork}{%
+\emph{Лабораторная работа 1.} ...\par
+\paragraph{Дано:} ....
+\paragraph{Спроектировать:} ...
+\paragraph{Дополнительные ограничения:} ...
+}\\[1em]
+
 \end{rdfctx}
 
 
@@ -594,13 +605,19 @@
 \end{enumerate}
 \end{rdfctx}
 \paragraph{Примеры оценочных средств для промежуточной аттестации:}
+
+% Примеры заданий находятся в разделе курса на сайте \url{https://edu.irnok.net}, а также в ЭИОС ИГУ, URL:~\url{educa.isu.ru}.
+
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:IntermediateAttestation !wpdd:ItemList}}
 \begin{enumerate}
 \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Example}{....}
 \end{enumerate}
 \end{rdfctx}
+\vspace{1em}
+\vfill
 \paragraph{\normalfont Разработчик:}%
 \rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person }{....} % Иванов И.В., канд.техн.наук, доцент.
+% \rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person }{Черкашин~Е.А., к.т.н., доцент} % Иванов И.В., канд.техн.наук, доцент.
 
 \end{document}
 
