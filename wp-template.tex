@@ -242,7 +242,8 @@
 {{#rdflet this idd:number = idd-number }}
   {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
-  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} & {{idd-number}} & & & & & \\\hline
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} 
+  & {{idd-number}} & & & & & Лабораторные работы \\\hline
   {{/with}}
   {{/rdfeach}}
 {{/rdflet}}
@@ -279,10 +280,11 @@
   \SetCell[c=3]{c,10em} Самостоятельная работа обучающихся & & &
   \SetCell[r=2]{c,5em} Оценочное средство &
   \SetCell[r=2]{l,5em} Учебно-методическое обеспечение самост. работы \\\hline
-  & Вид самост. работы & Сроки выполнения & Затраты времени &  & \\\hline
+  & Вид самост. работы & Сроки выполнения, нед. & Затраты времени &  & \\\hline
   {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
-  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &  & & & & \\\hline
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} 
+  & Подготовка к защите лаб. работ &  &  & Содержание в отчете по лаб. работе  & г-[\ref{}], а-[\ref{}] \\\hline
   {{/with}}
   {{/rdfeach}}
   \SetCell[c=3]{l,22em} Общая трудоемкость самостоятельной работы (час.) & & &
@@ -300,6 +302,7 @@
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:TopicList !wpdd:ItemList}}
   \begin{rdfctx}{\rdfsetctx{item}{list ^schema:member !wpdd:ListItem !wpdd:Topic}}
     Тема~\rdf{item dcterms:identifier}{1}.~\rdf{item rdfs:label}{Название темы.}
+
     \rdf{item dcterms:description}{Подтема...., подтема ....}
   \end{rdfctx}
 
@@ -331,7 +334,8 @@
   Всего часов & Оценочные средства & Формируемые компетенции \\\hline
   {{#rdfeach syll wpdd:itemList ?wpdd:PracticeTopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:PracticeTopic}}
-  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &  & & \\\hline
+  Тема~{{this dcterms:identifier}}.~\emph{ {{this rdfs:label}} }\par
+  &  & Отчет по лабораторной работе & ПК-.. \\\hline
   {{/with}}
   {{/rdfeach}}
 \end{tblr}}
@@ -366,7 +370,8 @@
   Задание & Формируемые компетенции \\\hline
   {{#rdfeach syll wpdd:itemList ?wpdd:IndependentWorkTopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:IndependentWorkTopic}}
-  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &  & \\\hline
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &
+  & ПК-...\\\hline
   {{/with}}
   {{/rdfeach}}
 \end{tblr}}
@@ -494,7 +499,7 @@
 % \noindent а)\ основная литература (неограниченный доступ на сайте ЛЭТИ):
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:BaseReferenceList !wpdd:ItemList}}
   \begin{enumerate}
-      \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...}
+      \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...\;:\;[текст]\;....} % \label{}
   \end{enumerate}
 \end{rdfctx}
 
@@ -502,7 +507,7 @@
 % \noindent б)\ дополнительная литература (неограниченный доступ на сайте ЛЭТИ):
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:AuxReferenceList !wpdd:ItemList}}
 \begin{enumerate}
-      \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...}
+      \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Reference}{...\;:\;[текст]\;....} % \label{}
 \end{enumerate}
 \end{rdfctx}
 
@@ -527,7 +532,7 @@
 \noindent г)\ базы данных, информационно-справочные и поисковые системы:
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:InternetResources !wpdd:ItemList}}
   \begin{enumerate}
-  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:InternetResource}{....}
+  \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:InternetResource}{....\;:\;[сайт] -- URL: \url{...}}
   \end{enumerate}
 \end{rdfctx}
 
@@ -542,6 +547,8 @@
   \begin{enumerate}
     \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Дистрибутив Linux 64 бит, }
     \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Дистрибутив Logtalk 3.30.0 и новее, }
+%    \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Windows 7 или новее, }
+%    \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Редактор Microsoft Office 2007 или новее, }
     \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Software}{Редактор Libreoffice 7.0 или новее. }
   \end{enumerate}
 \end{rdfctx}
@@ -580,6 +587,7 @@
 \vspace{1em}
 
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:ExampleList !wpdd:CurrentAttestation !wpdd:ItemList}}
+
 \rdf{list ^schema:member !wpdd:ListItem !wpdd:Example !wpdd:LaboratoryWork}{%
 \emph{Лабораторная работа 1.} ...\par
 \paragraph{Дано:} ....
