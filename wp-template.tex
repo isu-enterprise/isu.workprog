@@ -242,7 +242,7 @@
 {{#rdflet this idd:number = idd-number }}
   {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
-  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} 
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}}
   & {{idd-number}} & & & & & Лабораторные работы \\\hline
   {{/with}}
   {{/rdfeach}}
@@ -283,7 +283,7 @@
   & Вид самост. работы & Сроки выполнения, нед. & Затраты времени &  & \\\hline
   {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
-  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} 
+  Тема~{{this dcterms:identifier}}.~{{this rdfs:label}}
   & Подготовка к защите лаб. работ &  &  & Содержание в отчете по лаб. работе  & г-[\ref{}], а-[\ref{}] \\\hline
   {{/with}}
   {{/rdfeach}}
@@ -630,8 +630,11 @@
 \vspace{1em}
 \vfill
 \paragraph{\normalfont Разработчик:}%
-\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person }{....} % Иванов И.В., канд.техн.наук, доцент.
-% \rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person }{Черкашин~Е.А., к.т.н., доцент} % Иванов И.В., канд.техн.наук, доцент.
+\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person !wpdd:Author}{....} % Иванов И.В., канд.техн.наук, доцент.
+
+%\paragraph{\normalfont Адаптация к учебному плану:}%
+%\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person !wpdd:Adapter}{Черкашин~Е.А., к.т.н., доцент}
+
 
 \end{document}
 
