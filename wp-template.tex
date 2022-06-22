@@ -48,6 +48,12 @@
  }
  \microtypesetup{protrusion=true,expansion=true}
 
+\DefTblrTemplate{contfoot-text}{default}{продолжение таблицы на следующей странице}
+\DefTblrTemplate{conthead-text}{default}{(продолжение)}
+
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+
 \setmainfont{Times New Roman}
 \setsansfont{Fira Mono}
 \setmonofont{Fira Code}[
@@ -273,8 +279,14 @@
 
 
 \noindent{\footnotesize%
-%  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
-  \begin{tblr}{|X[4,l]|X[1,l]|X[1,c]|X[1,c]|X[2,l]|X[1.5,l]|}
+  \begin{longtblr}[
+    caption={},
+    entry=none,
+    label=none
+    ]{
+      colspec={|X[4,l]|X[1,l]|X[1,c]|X[1,c]|X[2,l]|X[1.5,l]|},
+      rowhead=2
+    }
   \hline
   \SetCell[r=2]{c} Раздел дисциплины~/ тема &
   \SetCell[c=3]{c,10em} Самостоятельная работа обучающихся & & &
@@ -291,7 +303,7 @@
   {{this idd:independentWork}} & &\\\hline
   \SetCell[c=3]{l,25em} {Из них с использованием электронного обучения\\ и дистанционных образовательных} технологий (час.) & & & & &\\
  \hline
-\end{tblr}}
+\end{longtblr}}
 
 
 {{/rdfeach}}
@@ -328,10 +340,10 @@
 
 \noindent{\footnotesize%
 %  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
-  \begin{tblr}{|X[4,l]|X[1,c]|X[2,l]|X[1,c]|}
+  \begin{tblr}{|X[4,l]|X[1,c]|X[2,l]|X[1,l]|}
   \hline
-  Тема занятия &
-  Всего часов & Оценочные средства & Формируемые компетенции \\\hline
+\SetCell{c}Тема занятия &
+  \SetCell{c}Всего часов & \SetCell{c}Оценочные средства & \SetCell{c}Формируемые компетенции \\\hline
   {{#rdfeach syll wpdd:itemList ?wpdd:PracticeTopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:PracticeTopic}}
   Тема~{{this dcterms:identifier}}.~\emph{ {{this rdfs:label}} }\par
@@ -364,10 +376,10 @@
 
 \noindent{\footnotesize%
 %  \begin{tblr}{|p{5cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|p{2cm}|}
-  \begin{tblr}{|X[3,l]|X[3,l]|X[1,c]|}
+  \begin{tblr}{|X[3,l]|X[3,l]|X[1,l]|}
   \hline
-  Тема &
-  Задание & Формируемые компетенции \\\hline
+  \SetCell{c}Тема &
+  \SetCell{c}Задание & \SetCell{c} Формируемые компетенции \\\hline
   {{#rdfeach syll wpdd:itemList ?wpdd:IndependentWorkTopicList ?wpdd:ItemList}}
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:IndependentWorkTopic}}
   Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &
@@ -567,11 +579,11 @@
 {{/rdfeach}}
 
 \noindent{\footnotesize%
-  \begin{tblr}{|X[3,l]|X[4,l]|X[2,c]|}
+  \begin{tblr}{|X[3,l]|X[4,l]|X[2,l]|}
   \hline
-  Вид контроля &
-  Контролируемые темы & Контролируемые компетенции \\\hline
-  {{#rdfeach syll wpdd:itemList ?wpdd:IndependentWorkTopicList ?wpdd:ItemList}}
+  \SetCell{c} Вид контроля &
+  \SetCell{c} Контролируемые темы & \SetCell{c} Контролируемые компетенции \\\hline
+  {{#rdfeach syll wpdd:itemList ?wpdd:IndependentWorkTopicList ?wpdd:ItemList}}% _ hrs
   {{#with this ^schema:member ?wpdd:ListItem ?wpdd:IndependentWorkTopic}}
   & Тема~{{this dcterms:identifier}}.~{{this rdfs:label}} &
 {{#rdfeach disc idd:hasCompetence}}
@@ -612,7 +624,8 @@
 
 \subsection{Оценочные средства для промежуточной аттестации}
 
-\paragraph{Список вопросов для промежуточной аттестации:}
+\paragraph{Список вопросов для промежуточной аттестации (примеры):}
+
 \begin{rdfctx}{\rdfsetctx{list}{syll wpdd:itemList !wpdd:QuestionList !wpdd:ItemList}}
 \begin{enumerate}
 \item \rdf{list ^schema:member !wpdd:ListItem !wpdd:Question}{....}
@@ -629,10 +642,12 @@
 \end{rdfctx}
 \vspace{1em}
 \vfill
-\paragraph{\normalfont Разработчик:}%
-\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person !wpdd:Author}{....} % Иванов И.В., канд.техн.наук, доцент.
+\paragraph{\normalfont Разработчик: }%
+\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person !wpdd:Author}{....} % Иванов И.В., канд.техн.наук, доцент. %;
+%ассистент: \rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person !wpdd:Author !wpdd:Assistent}{Лебедев С.В.} (ЛЭТИ)\\[1em]
+% (ЛЭТИ)\\[1em]
 
-%\paragraph{\normalfont Адаптация к учебному плану:}%
+%\paragraph{\normalfont Адаптация к учебному плану: }%
 %\rdf{syll wpdd:courseDC schema:author {foaf:name rdf:label} !foaf:Person !wpdd:Adapter}{Черкашин~Е.А., к.т.н., доцент}
 
 
