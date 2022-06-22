@@ -241,7 +241,7 @@
   & &  Лекции & Лаб. занятия & Практ. занятия & & \\\hline
 {{#rdflet this idd:number = idd-number }}
   {{#rdfeach syll wpdd:itemList ?wpdd:TopicList ?wpdd:ItemList}}
-  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}
+  {{#with this ^schema:member ?wpdd:ListItem ?wpdd:Topic}}%
   Тема~{{this dcterms:identifier}}.~{{this rdfs:label}}
   & {{idd-number}} & & & & & Лабораторные работы \\\hline
   {{/with}}
@@ -287,7 +287,7 @@
   & Подготовка к защите лаб. работ &  &  & Содержание в отчете по лаб. работе  & г-[\ref{}], а-[\ref{}] \\\hline
   {{/with}}
   {{/rdfeach}}
-  \SetCell[c=3]{l,22em} Общая трудоемкость самостоятельной работы (час.) & & &
+  \SetCell[c=3]{l,22em}Общая трудоемкость самостоятельной работы (час.) & & &
   {{this idd:independentWork}} & &\\\hline
   \SetCell[c=3]{l,25em} {Из них с использованием электронного обучения\\ и дистанционных образовательных} технологий (час.) & & & & &\\
  \hline
