@@ -346,7 +346,8 @@ if __name__ == "__main__":
     preparegraphs()
     if len(sys.argv) < 2:
         # filename = "01.03.02-22-1234_1к_06.plx.xls.ttl"
-        filename = "01.04.02-22-12_1к_mas.plx.xls.ttl"
+        # filename = "01.04.02-22-12_1к_mas.plx.xls.ttl"
+        filename = "44.03.05-22-12345_1к.plx.xls.ttl"
     else:
         filename = sys.argv[1]
 
