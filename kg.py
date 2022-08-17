@@ -29,10 +29,10 @@ STANDARDS_KG = None
 LABELS_KG = None
 
 
-def loadkg(filename):
+def loadkg(filename, identifier):
     global KGS, DEPARTMENTS_KG, DISCIPLINES_KG, REFERENCES_KG
     global STANDARDS_KG
-    g = Graph()
+    g = Graph(identifier=identifier)
     try:
         g.parse(filename)
     except FileNotFoundError:
@@ -54,10 +54,10 @@ def loadkg(filename):
 
 def loadallkgs():
     global LABELS_KG
-    loadkg(DEPARTMENTS_KGFN)
-    loadkg(DISCIPLINES_KGFN)
-    loadkg(REFERENCES_KGFN)
-    loadkg(STANDARDS_KGFN)
+    loadkg(DEPARTMENTS_KGFN, IDB.departments)
+    loadkg(DISCIPLINES_KGFN, IDB.disciplines)
+    loadkg(REFERENCES_KGFN, IDB.references)
+    loadkg(STANDARDS_KGFN, IDB.standards)
     isu = getfrom(DEPARTMENTS_KG, ISU_NAME, IDB, IDD["University"], uri=ISU)
     imit = getfrom(DEPARTMENTS_KG,
                    IMIT_NAME,
