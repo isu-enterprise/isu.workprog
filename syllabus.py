@@ -527,7 +527,10 @@ def proctitlepage(titlepage):
             chair = getfrom(DEPARTMENTS_KG, tc, IDB, IDD['Chair'])
             G.add((WP, WPDD.chair, chair))
         elif tn.startswith("направлениеподготовки"):
+            tc = tc.replace("«", ' ')
+            tc = tc.replace("»", '')
             tcl = tc.split(" ", maxsplit=3)
+            print ("TCL::::", tcl)
             _, _, code, name = tcl
             name = refinename(upfirst(name))
             spec = getfrom(
@@ -556,13 +559,16 @@ def proctitlepage(titlepage):
                     G.add((WP, IDD.level, APPLBACH))
                 else:
                     G.add((WP, IDD.level, BACHOLOIR))
-            elif fond(tn, 'магистрату'):
+            elif found(tn, 'магистрату'):
                 G.add((WP, IDD.level, MASTER))
             else:
                 print("WARNING: Неизвестный уровень подготовки", tc)
         elif tn.startswith("формаобучения"):
-            _, _, stform = tc.split(" ")
-            G.add((WP, IDD.studyForm, MURALFORM[stform]))
+            stform = tc.split(" ")[-1]
+            try:
+                G.add((WP, IDD.studyForm, MURALFORM[stform]))
+            except KeyError:
+                print("ERROR: Mural '{}' from '{}'".format(stform, tc))
         elif tn.startswith("рабочаяпрограмма"):
             # TODO try parse string after, as it can be not be bold
             ss = s.getparent()
@@ -892,12 +898,15 @@ def procresultsrequirements(section):
                 matches = m[1:]
                 for code, title in pairs(matches):
                     title = title.strip()
-                    if title[-1] in [',', '.', ';']:
-                        title = title[:-1]
-                    title = refinename(title)
-                    C = getfrom(DISCIPLINES_KG, title, IDB, IDD["Compenence"])
-                    G.add((CDC, IDD.competence, C))
-                    G.add((C, DCTERMS.identifier, Literal(code, lang="ru")))
+                    if title:
+                        if title[-1] in [',', '.', ';']:
+                            title = title[:-1]
+                        title = refinename(title)
+                        C = getfrom(DISCIPLINES_KG, title, IDB, IDD["Compenence"])
+                        G.add((CDC, IDD.competence, C))
+                        G.add((C, DCTERMS.identifier, Literal(code, lang="ru")))
+                    else:
+                        print("ERROR: Title:", title)
             continue
         elif anywords(tl.lower(), "знать уметь владеть"):
             m = re.split(REQDESCRRE, t)
