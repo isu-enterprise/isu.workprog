@@ -5,9 +5,12 @@ import os
 ISU_BASE = "http://old.isu.ru/"
 DIR_BASE = ISU_BASE + "ru/about/programs/"
 FILE_BASE = ISU_BASE
+BASE_OUT_DIR = "/mnt/bck/isu-studprogs-dowloaded"
 
 LIST = "./list.html"
-LIST_URL = "http://old.isu.ru/control/jsp/show_edu_profile_list.jsp?sort=&code_filter=&direction_filter=&profile_filter=&faculty_filter=0&program_filter=undefined"
+LIST_URL = "http://old.isu.ru/control/jsp/show_edu_profile_list.jsp?"\
+           "sort=&code_filter=&direction_filter=&profile_filter=&faculty_filter=0&"\
+           "program_filter=undefined"
 
 LI = open(LIST).read()
 LIST_T = fromstring(LI)
@@ -81,11 +84,13 @@ class Program(object):
         else:
             guess = ''
 
-        l = ('isu', self.faculty, self.code, self.name, self.profile,
+        bl = BASE_OUT_DIR
+        l = (self.faculty, self.code, self.name, self.profile,
              self.mural, self.year)
         l = [a[:100] for a in l]
         if guess:
             l[4] += guess
+        l = [bl] + l
         s = "{}/{}/{}-{}/{}/{}/{}".format(*l)
         s = s.replace(" ", "-")
         return s
@@ -108,9 +113,10 @@ class Program(object):
             href = FILE_BASE + str(h)
             href = href.strip()
             if href.endswith('pdf') or href.endswith("PDF"):
-                CMD = 'wget "{}"'.format(href)
+                CMD = 'wget -c -nc "{}"'.format(href)
                 print("CMD:", CMD)
                 os.system(CMD)
+                # quit()
             else:
                 print("SKIP:", href)
 
