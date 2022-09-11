@@ -2,6 +2,14 @@ import requests as rq
 from lxml.html import parse, tostring, fromstring
 import os
 
+"""
+The utility used to download syllabi foe Irkutsk state university site.
+It loads list.html, parses it and loads pages from it containing hrefs to .pdf files.
+Then it moves the file to a local
+hierarchical directory structure with all of the syllaby.
+"""
+
+
 ISU_BASE = "http://old.isu.ru/"
 DIR_BASE = ISU_BASE + "ru/about/programs/"
 FILE_BASE = ISU_BASE

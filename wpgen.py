@@ -8,6 +8,11 @@ from pprint import pprint
 
 import logging
 
+"""The utility generates a template of a work program as latex file.
+
+"""
+
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
