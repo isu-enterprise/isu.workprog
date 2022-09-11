@@ -924,7 +924,15 @@ def procstudycontent(section):
     h = OrderedDict()
     ph = h
 
-    for e in section.xpath(".//*[self::p or self::li]"):
+    # for e in section.xpath(".//*[self::p or self::li]"):
+    paragraphitem = ''
+    gnum = 0
+    cnum = ''
+    tnum = None
+
+    li = etree.Element('ol')
+
+    for e in section.xpath(".//*"):
         t = alltext(e)
         if e.tag == "p":
             # REPEAT: Suppose p be the higher hierarchy member
@@ -934,20 +942,69 @@ def procstudycontent(section):
                 e.clear()
                 e.text = title
                 e.attrib["item"] = num
+                e.tag = 'li'
+                tnum = num
                 if cap is not None:
                     e.attrib['caption'] = cap
+                    cap += ' '
+                else:
+                    cap = '-'
+                e.attrib['value'] = cap + num
                 e.tail = "\n"
+                orphanite(e)
+                li.append(e)
                 ph = OrderedDict()
+                # save prev paragraphitem
+
+                paragraphitem = ''
+                gnum = 0
+                cnum = ''
             else:
-                print(
-                    "WARNING: Unrecognized element of structure: '{}'".format(
-                        t))
+                t = t.strip()
+                if not t:
+                    orphanite(e)
+                    continue
+                if t[0].isupper():
+                    gnum += 1
+                    t = t.strip()
+                    cnum = tnum+'.'+str(gnum)
+                    ph[cnum] = [t, None, e]
+                    e.attrib['item'] = cnum
+                    e.tag = 'li'
+                    e.attrib['value'] = cnum
+                    orphanite(e)
+                    li.append(e)
+                else:
+                    pe = ph[cnum][-1]
+                    pe.text += ' ' + t
+                    orphanite(e)
+                    ph[cnum][0] += ' ' + t
                 continue
             h[num] = (title, ph, e)
-        else:  # li
-            num = e.get("item")
-            title = t
-            ph[num] = (title, None, e)
+        if e.tag == "h1":
+            e.addnext(li)
+            continue
+        else:
+            if not paragraphitem :
+                num = e.get("item")
+                t = t.strip()
+                if num is not None:
+                    gnum = int(num)
+                    cnum = num
+                else:
+                    gnum += 1
+                    cnum = tnum+'.'+str(gnum)
+                ph[cnum] = [t, None, e]
+                e.attrib['item'] = cnum
+                e.tag = 'li'
+                e.attrib['value'] = cnum
+                orphanite(e)
+                li.append(e)
+            else:
+                pe = ph[cnum][-1]
+                pe.text += ' ' + t
+                orphanite(e)
+                ph[cnum][0] += ' ' + t
 
     def _(d, p):
         for k, v in d.items():
