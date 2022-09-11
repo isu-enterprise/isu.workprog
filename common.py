@@ -49,7 +49,7 @@ CREDITWN = IDB['64f1e5c8-dd4d-11ec-9333-704d7b84fd9f']
 TASK = IDB['a8de13b0-dd4d-11ec-9333-704d7b84fd9f']
 
 NUMBERRE = re.compile(
-    r'^(((Тема|Раздел)\s+)?((\d{1,2}|[IVXLCDM]{1,4}|[ivxlcdm]{1,4})\.?\)?)+|[а-яА-я]\))\s+'
+    r'^(((Тема|Раздел)\s*?)?((\d{1,2}|[IVXLCDM]{1,4}|[ivxlcdm]{1,4})\.?\)?)+|[а-яА-я]\))\s+'
 )
 COMPETENCERE = re.compile(r"([А-ЯA-Z]{1,3}[-–]+\d+)")
 REQDESCRRE = re.compile(r"(знать|уметь|владеть)")
@@ -98,16 +98,28 @@ def splitnumber(s):
     s = s.strip()
     m = re.search(NUMBERRE, s)
     if m is None:
-        return None, None
+        return None, None, None
     b, e = m.span()
     if b > 0:
-        return None, None
-    num = s[b:e].strip()
+        return None, None, None
+    # num = s[b:e].strip()
+    # print(">>>>>>>>>>>>>>", m.groups())
+    caption = m.group(3)
+    caption = caption if caption is not None else None
+    num = m.group(5)
+    num = num if num is not None else None
+    if num is None:
+        num = m.group(0).strip()
+        caption = None
+    # print(">>>>>>>>>>>>>>", num)
     num = num.rstrip(".")
     num = num.rstrip(")")
     num = num.rstrip(".")
     title = s[e:].strip()
-    return num, title
+    title = title.rstrip('.')
+    title = title.rstrip(';')
+    # print(">>>>>>>>>>>>>>", NUMBERRE.match(num))
+    return caption, num, title
 
 
 def allwords(s, *set):
@@ -124,7 +136,7 @@ def allwords(s, *set):
 def listitem(text):
     if text[0] in BULLETS:
         return text[0], text[1:].strip()
-    num, title = splitnumber(text)
+    cap, num, title = splitnumber(text)
     return num, title
 
 

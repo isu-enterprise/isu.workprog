@@ -433,13 +433,15 @@ def conv(filename):
 
     for p in tree.xpath('//p[@bold="1"]'):
         t = p.xpath("string()").strip()
-        num, title = splitnumber(t)
+        cap, num, title = splitnumber(t)
         if num is not None:
             p.clear()
             nums = num.split('.')
             p.tag = "h" + str(len(nums))
             p.text = title
             p.attrib["section"] = num
+            if cap is not None:
+                p.attrib['caption'] = cap
 
     # split text by sections
     SECTIONS = {"_": etree.Element("section")}
@@ -709,6 +711,9 @@ def proctestsection(section):
     owners = proclistitems(ps,
                            otype=WPDD["QuestionList"],
                            itemtype=WPDD["Question"])
+    if len(owners) == 0:
+        print("WARNING: empty Owners")
+        return
     owner = owners[0]
     if owner is not None:
         G.add((owner[0], RDF.type, WPDD["EvaluationMean"]))
@@ -733,7 +738,7 @@ def procstudysupport(section):
         if t == "":
             orphanite(p)
             continue
-        num, rest = splitnumber(t)
+        cap, num, rest = splitnumber(t)
         if num is not None:
             pp = p
         else:
@@ -923,12 +928,14 @@ def procstudycontent(section):
         t = alltext(e)
         if e.tag == "p":
             # REPEAT: Suppose p be the higher hierarchy member
-            num, title = splitnumber(t)
+            cap, num, title = splitnumber(t)
             if num is not None:
                 title = title.strip()
                 e.clear()
                 e.text = title
                 e.attrib["item"] = num
+                if cap is not None:
+                    e.attrib['caption'] = cap
                 e.tail = "\n"
                 ph = OrderedDict()
             else:
@@ -936,15 +943,15 @@ def procstudycontent(section):
                     "WARNING: Unrecognized element of structure: '{}'".format(
                         t))
                 continue
-            h[num] = (title, ph)
+            h[num] = (title, ph, e)
         else:  # li
             num = e.get("item")
             title = t
-            ph[num] = (title, None)
+            ph[num] = (title, None, e)
 
     def _(d, p):
         for k, v in d.items():
-            t, sub = v
+            t, sub, e = v
             BN = genuuid(WPDB)
             G.add((BN, SCH.member, p))
             G.add((p, RDF.type, WPDD['ItemList']))
@@ -953,6 +960,9 @@ def procstudycontent(section):
             G.add((BN, RDF.type, WPDD["ListItem"]))
             G.add((BN, RDFS.label, Literal(t, lang="ru")))
             G.add((BN, SCH.sku, Literal(k)))
+            cap = e.get("caption", None)
+            if cap is not None:
+                G.add((BN, RDF.type, WPDD[cap]))
             if sub is not None:
                 _(sub, BN)
 

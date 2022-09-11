@@ -1,6 +1,7 @@
 .PHONY: cirrs rmkg restart reset mdg syll-test syllabs app curr-test wpgen-test
 
-SYLROOT="./isu/"
+SYLROOT="/mnt/bck/isu-studprogs-dowloaded/"
+
 # SYLROOT="./isu/Институт-математики-и-информационных-технологий/"
 # SYLROOT="./isu/Институт-математики-и-информационных-технологий/01.03.02--Прикладная-математика-и-информатика-/Математическое-моделирование/очная/2021"
 msg:
