@@ -928,7 +928,7 @@ def procstudycontent(section):
     paragraphitem = ''
     gnum = 0
     cnum = ''
-    tnum = None
+    tnum = 'Тема 0'
 
     li = etree.Element('ol')
 
@@ -989,7 +989,10 @@ def procstudycontent(section):
                 num = e.get("item")
                 t = t.strip()
                 if num is not None:
-                    gnum = int(num)
+                    try:
+                        gnum = int(num)
+                    except:
+                        pass
                     cnum = num
                 else:
                     gnum += 1
