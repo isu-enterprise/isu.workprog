@@ -20,6 +20,9 @@ import urllib.error
 
 import logging
 
+"""Loads a graph on server Virtuoso, Address is in VG_URL"""
+
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',

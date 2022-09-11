@@ -16,6 +16,11 @@ from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
 
 import logging
 
+"""Analyses Excel represented curriculum by Shakhty.
+Outputs .ttl KG file.
+"""
+
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',

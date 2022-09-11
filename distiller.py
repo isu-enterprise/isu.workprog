@@ -8,6 +8,10 @@ logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',
                     level=logging.DEBUG)
 
+"""Converts RDFa to a graph.... Partially works.
+"""
+
+
 def distill(uri, html, idgen=BNode):
     tree = etree.HTML(html)
     g = Graph()

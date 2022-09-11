@@ -16,6 +16,11 @@ from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update,
 
 import logging
 
+"""Analyses output of pdf2html (realy to xml) output as a syllabus.
+"""
+
+
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.basicConfig(format='%(levelname)s:%(module)s:%(message)s',

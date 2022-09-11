@@ -11,6 +11,11 @@ from common import (WPDB, WPDD, DBR, IDB, IDD, SCH, CNT, genuuid, DCID, IDD, IDB
 from kg import (DEPARTMENTS_KG, REFERENCES_KG, DISCIPLINES_KG, update, preparegraphs,
                 loadallkgs, saveallkgs, STANDARDS_KG, getfrom)
 
+"""Downloads 1C data on cirriculums of Irkutsk state university.
+....
+"""
+
+
 ENDPOINT = 'http://py.isu.ru:8000/hs/jsonpost/courses_in_faculty/'
 USER = "3c9467d8-b710-11e6-943c-005056100702"
 IMIT = 'c526d6c7-9a78-11e6-9438-005056100702'
